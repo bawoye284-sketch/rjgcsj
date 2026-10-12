@@ -1,0 +1,175 @@
+{
+  "model_version": "numeric5-future-aggregate-v2-grid",
+  "source": "PhysioNet 2012 Set A, age >=60; derived sjj auxiliary splits",
+  "target": "Future 24-48h day-level median vital scores sum to >=5, with >=3 measured components and a label certain despite missing components",
+  "limitations": [
+    "This is a five-component day-level proxy, not same-time or full NEWS2; oxygen and consciousness are excluded.",
+    "Only certain labels are retained; metrics apply to that selected subset, not all patients.",
+    "Not a healthy/unhealthy diagnosis or a validated community risk outcome.",
+    "Training patients came from an ICU; community performance is unknown.",
+    "Respiratory rate and SpO2 are often missing; imputation cannot recover true readings."
+  ],
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "sbp_mean",
+    "dbp_mean",
+    "heart_rate_mean",
+    "spo2_mean",
+    "resp_rate_mean",
+    "temperature_mean"
+  ],
+  "rows": {
+    "train": 445,
+    "validation": 82,
+    "test": 91
+  },
+  "positive_count": {
+    "train": 46,
+    "validation": 14,
+    "test": 12
+  },
+  "positive_rate": {
+    "train": 0.10337078651685393,
+    "validation": 0.17073170731707318,
+    "test": 0.13186813186813187
+  },
+  "train_missing_rate": {
+    "age": 0.0,
+    "sex": 0.0022471910112359553,
+    "bmi": 0.45393258426966293,
+    "sbp_mean": 0.15955056179775282,
+    "dbp_mean": 0.15955056179775282,
+    "heart_rate_mean": 0.0022471910112359553,
+    "spo2_mean": 0.6022471910112359,
+    "resp_rate_mean": 0.4,
+    "temperature_mean": 0.0022471910112359553
+  },
+  "train_imputation_medians": {
+    "age": 77.0,
+    "sex": 1.0,
+    "bmi": 26.82454,
+    "sbp_mean": 117.38095,
+    "dbp_mean": 54.0,
+    "heart_rate_mean": 81.517855,
+    "spo2_mean": 97.375,
+    "resp_rate_mean": 18.16667,
+    "temperature_mean": 36.811409999999995
+  },
+  "imputation_reference": {
+    "resp_rate_mean": {
+      "validation_observed_n": 46,
+      "train_median": 18.16667,
+      "median_absolute_error_on_observed_validation": 2.894648260869565,
+      "chosen_imputation_absolute_error_on_observed_validation": 2.5290258466437687,
+      "method": "KNN_7"
+    },
+    "spo2_mean": {
+      "validation_observed_n": 30,
+      "train_median": 97.375,
+      "median_absolute_error_on_observed_validation": 1.1045503333333337,
+      "chosen_imputation_absolute_error_on_observed_validation": 1.1045503333333337,
+      "method": "train_median"
+    }
+  },
+  "parameter_search": {
+    "method": "3-fold stratified grid search on training patients",
+    "selection_metric": "mean cross-validation average precision (PR-AUC)",
+    "candidate_count": 32,
+    "grid": {
+      "max_depth": [
+        2,
+        3
+      ],
+      "min_child_weight": [
+        1,
+        3
+      ],
+      "learning_rate": [
+        0.035,
+        0.07
+      ],
+      "subsample": [
+        0.8,
+        0.9
+      ],
+      "reg_lambda": [
+        1.0,
+        3.0
+      ]
+    },
+    "fixed_parameters": {
+      "objective": "binary:logistic",
+      "eval_metric": "aucpr",
+      "tree_method": "hist",
+      "n_estimators": 700,
+      "colsample_bytree": 0.9,
+      "random_state": 42,
+      "n_jobs": 4,
+      "early_stopping_rounds": 60
+    },
+    "selected_parameters": {
+      "max_depth": 2,
+      "min_child_weight": 3,
+      "learning_rate": 0.07,
+      "subsample": 0.9,
+      "reg_lambda": 1.0
+    },
+    "best_cv_result": {
+      "candidate": 22,
+      "learning_rate": 0.07,
+      "max_depth": 2,
+      "min_child_weight": 3,
+      "reg_lambda": 1.0,
+      "subsample": 0.9,
+      "cv_pr_auc_mean": 0.6768378676043576,
+      "cv_pr_auc_std": 0.043105240291391046,
+      "cv_roc_auc_mean": 0.8816833751044277,
+      "cv_best_rounds_median": 53
+    },
+    "full_results_file": "grid_search_results.csv"
+  },
+  "threshold": 0.715090274810791,
+  "validation_metrics": {
+    "accuracy": 0.9390243902439024,
+    "balanced_accuracy": 0.8781512605042017,
+    "precision": 0.8461538461538461,
+    "recall": 0.7857142857142857,
+    "specificity": 0.9705882352941176,
+    "f1": 0.8148148148148148,
+    "roc_auc": 0.9516806722689076,
+    "pr_auc": 0.8726088726088725,
+    "confusion_matrix": [
+      [
+        66,
+        2
+      ],
+      [
+        3,
+        11
+      ]
+    ]
+  },
+  "test_metrics": {
+    "accuracy": 0.9340659340659341,
+    "balanced_accuracy": 0.820675105485232,
+    "precision": 0.8,
+    "recall": 0.6666666666666666,
+    "specificity": 0.9746835443037974,
+    "f1": 0.7272727272727273,
+    "roc_auc": 0.8945147679324894,
+    "pr_auc": 0.7348142757625516,
+    "confusion_matrix": [
+      [
+        77,
+        2
+      ],
+      [
+        4,
+        8
+      ]
+    ]
+  },
+  "best_iteration": 79
+}

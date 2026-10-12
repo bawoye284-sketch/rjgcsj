@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="健康监测">
+  <defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#e0f7ed"/><stop offset="1" stop-color="#9bdfc4"/></linearGradient></defs>
+  <rect width="640" height="360" fill="url(#g)"/>
+  <circle cx="548" cy="70" r="125" fill="#ffffff" opacity=".25"/>
+  <circle cx="62" cy="320" r="128" fill="#45b88a" opacity=".13"/>
+  <rect x="160" y="56" width="320" height="248" rx="28" fill="#fff"/>
+  <rect x="190" y="92" width="260" height="140" rx="12" fill="#e8f9f2"/>
+  <path d="M200 174h48l23-43 33 88 27-62 17 17h92" fill="none" stroke="#2fae7d" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="209" y="254" width="94" height="12" rx="6" fill="#c8ded5"/>
+  <rect x="318" y="254" width="110" height="12" rx="6" fill="#c8ded5"/>
+</svg>

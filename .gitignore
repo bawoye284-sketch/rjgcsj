@@ -1,0 +1,21 @@
+# Local environments and editor settings
+.venv/
+.idea/
+.codebuddy/
+**/__pycache__/
+*.py[cod]
+
+# Reproducible build outputs and dependency caches
+IHMS-view/node_modules/
+IHMS-view/dist/
+IHMS-admin/target/
+IHMS-admin/.build-tools/
+
+# Persistent demo database stays local
+IHMS-admin/demo-data/*.mv.db
+IHMS-admin/demo-data/*.lock.db
+IHMS-admin/demo-data/*.trace.db
+
+# Local credentials and API keys
+IHMS-admin/src/main/resources/application.yml
+IHMS-admin/src/main/resources/application-demo.yml

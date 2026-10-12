@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="轻量运动">
+  <defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#e6f2ff"/><stop offset="1" stop-color="#aacfee"/></linearGradient></defs>
+  <rect width="640" height="360" fill="url(#g)"/>
+  <circle cx="515" cy="80" r="48" fill="#fff7d5"/>
+  <path d="M0 288c120-52 242-53 367-13 97 31 179 20 273-32v117H0z" fill="#7bc6a1"/>
+  <path d="M0 327c160-40 299-13 404 8 84 17 156 8 236-19v44H0z" fill="#49ae82"/>
+  <circle cx="315" cy="105" r="27" fill="#355d73"/>
+  <path d="M303 141l-32 63 58 30 42-58-35-35z" fill="#fff" stroke="#355d73" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M273 202l-53 53m111-23 61 49m-87-135-51 39m91-35 54 28" fill="none" stroke="#355d73" stroke-width="16" stroke-linecap="round"/>
+  <path d="M219 257l-37 27m210-2 40 9" fill="none" stroke="#244b61" stroke-width="14" stroke-linecap="round"/>
+</svg>

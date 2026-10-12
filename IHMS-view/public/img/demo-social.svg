@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="交流与陪伴">
+  <defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#f0eaff"/><stop offset="1" stop-color="#cbb8ef"/></linearGradient></defs>
+  <rect width="640" height="360" fill="url(#g)"/>
+  <circle cx="88" cy="305" r="133" fill="#fff" opacity=".18"/>
+  <rect x="129" y="72" width="230" height="152" rx="30" fill="#fff"/>
+  <path d="M188 220l-36 39 12-54" fill="#fff"/>
+  <rect x="291" y="137" width="229" height="152" rx="30" fill="#7254a9"/>
+  <path d="M465 277l39 36-7-50" fill="#7254a9"/>
+  <circle cx="194" cy="149" r="13" fill="#a98ed6"/><circle cx="245" cy="149" r="13" fill="#a98ed6"/><circle cx="296" cy="149" r="13" fill="#a98ed6"/>
+  <path d="M342 217c28 30 61 42 82 0" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="365" cy="187" r="7" fill="#fff"/><circle cx="419" cy="187" r="7" fill="#fff"/>
+</svg>

@@ -1,0 +1,5 @@
+Source: user-provided E:\软件工程设计\sjj auxiliary files, derived from PhysioNet/Computing in Cardiology Challenge 2012 Set A.
+https://physionet.org/content/challenge-2012/1.0.0/
+Original license: Open Data Commons Attribution License v1.0.
+
+The split CSVs contain an older auxiliary target that is no longer used. The current target is in future_five_score_labels.csv and is built from observed 24-48h median vitals. It indicates whether the five-component aggregate reaches 5, retaining only labels certain despite missing components. It is not a same-time full NEWS2 score, a diagnosis, or a clinically validated healthy/unhealthy label.
