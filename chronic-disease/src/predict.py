@@ -28,7 +28,9 @@ class DiseasePredictor:
                 self.models[code] = joblib.load(artifact)
 
     def health(self):
-        return {"ok": bool(self.models), "model_version": self.version,
+        return {"ok": len(self.models) == len(self.targets), "model_version": self.version,
+                "ready_count": len(self.models), "expected_count": len(self.targets),
+                "validation_status": self.metadata.get("validation_status", "internal_holdout_only"),
                 "ready_diseases": sorted(self.models), "research_only": True,
                 "external_validation": False,
                 "task": "new reports among alive followup interview completers"}
@@ -43,6 +45,7 @@ class DiseasePredictor:
                       "outcome_definition": entry.get("outcome_definition"),
                       "horizon_definition": entry.get("horizon_definition"),
                       "research_only": True, "missing_fields": []}
+            result.update(alert=None, threshold_policy=None)
             if history.get(code) == 1:
                 result.update(status="already_diagnosed", reason="已有该病史，不进行首次新报告风险预测")
             elif history.get(code) != 0:
@@ -71,4 +74,22 @@ class DiseasePredictor:
                                   alert=probability >= bundle["threshold"],
                                   reason="历史美国随访生存者研究模型；可用缺失字段由训练折内拟合的处理器处理")
             results.append(result)
-        return {"model_version": self.version, "research_only": True, "results": results}
+        return {"model_version": self.version, "research_only": True, "results": results,
+                "validation_status": self.metadata.get("validation_status", "internal_holdout_only")}
+
+    def model_information(self):
+        diseases = []
+        for target in self.targets:
+            entry = self.metadata["diseases"].get(target["code"], {})
+            model = entry.get("models", {}).get(entry.get("selected_model"), {})
+            metric = model.get("evaluation", {})
+            diseases.append({"code": target["code"], "name": target["name_zh"],
+                             "ready": target["code"] in self.models,
+                             "age_min": entry.get("age_min"), "age_max": entry.get("age_max"),
+                             "features": self.models.get(target["code"], {}).get("features", []),
+                             "threshold_policy": model.get("threshold_policy", "screening70"),
+                             "metrics": {key: metric.get(key) for key in
+                                         ["n", "events", "roc_auc", "average_precision", "sensitivity", "specificity", "precision"]},
+                             "quality_note": "本版本评价中未检出阳性病例，未达到阈值不能解释为安全。"
+                             if metric.get("sensitivity") == 0 else "研究模型，区分能力与检出率有限，未在中国社区老人中验证。"})
+        return {**self.health(), "diseases": diseases}

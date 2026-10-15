@@ -141,6 +141,12 @@ const routes = [
         },
       },
       {
+        name: '慢性病风险预测',
+        path: '/disease-risk',
+        component: () => import('@/views/user/DiseaseRisk.vue'),
+        meta: { requireAuth: true },
+      },
+      {
         name: '健康资讯详情',
         path: "/news-detail",
         component: () => import(`@/views/user/NewsDetail.vue`),

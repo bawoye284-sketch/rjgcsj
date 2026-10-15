@@ -2,11 +2,11 @@
 
 本目录独立存放慢性病预测的数据、代码、配置、报告和未来模型权重。当前候选病种为高血压、糖尿病、卒中、心脏病发作和骨质疏松，任务为多标签风险预测。
 
-已完成官方字段核对、65岁及以上队列审计、五病种训练、独立留出评价和独立预测服务。每病比较逻辑回归与XGBoost，保存完整指标和图表。当前模型性能偏弱，属于历史美国完成随访生存者的新报告预测原型，尚不能用于中国老人实际风险判断。现有前后端及 `risk-service/model/` 未修改。
+已完成官方字段核对、65岁及以上队列审计、五病种训练、独立留出评价、独立预测服务及网站接入。每病比较逻辑回归与XGBoost，保存完整指标和图表。当前模型性能偏弱，属于历史美国完成随访生存者的新报告预测原型，尚不能用于中国老人实际风险判断。数据、训练代码、权重与报告仍独立放在本目录；网站通过新增接口接入，`risk-service/model/` 保留。
 
 当前正式版本为 `nhefs5-20261015T061013Z`。直接打开[模型性能报告](reports/training/nhefs5-20261015T061013Z/performance_report.html)，或查看[汇总表](reports/training/nhefs5-20261015T061013Z/metrics_summary.csv)和[队列审计](reports/nhefs/cohort_audit.md)。首轮版本保留用于过程追溯，当前版本对训练与在线输入采用相同的最少资料规则。
 
-优化实验版本为 `nhefs5-opt-20261015-v2`：[优化报告](reports/training/nhefs5-opt-20261015-v2/performance_report.html)、[与原版配对比较](reports/training/nhefs5-opt-20261015-v2/optimization_comparison.md)、[四种阈值结果](reports/training/nhefs5-opt-20261015-v2/operating_points.csv)。原留出集已经查看，本轮明确属于探索性比较，需要新数据验证。原版权重、报告和活动服务版本均保留。
+网站固定接入的优化实验版本为 `nhefs5-opt-20261015-v2`：[优化报告](reports/training/nhefs5-opt-20261015-v2/performance_report.html)、[与原版配对比较](reports/training/nhefs5-opt-20261015-v2/optimization_comparison.md)、[四种阈值结果](reports/training/nhefs5-opt-20261015-v2/operating_points.csv)。原留出集已经查看，本轮明确属于探索性比较，需要新数据验证。原版权重、报告和 `active_model.json` 指针均保留，网站通过环境变量固定加载优化版。
 
 本轮增加5项经过1987官方问卷核对的基线字段；比较精简、原有、扩展三组特征，强正则化和类别权重。参数与特征选择、缺失处理和校准都在3×3嵌套开发集交叉验证内完成。默认阈值在开发集特异度至少80%的范围内最大化Youden指数，同时保留平衡、70%召回和F1策略；不以留出准确率选择阈值。
 
@@ -35,7 +35,7 @@ chronic-disease/
 - [数据来源与文件说明](data/nhefs/README.md)。
 - [提取报告](reports/nhefs/README.md)、[逐病种字段目录](reports/nhefs/catalog.json)、[字段字典](reports/nhefs/field_dictionary.json)。
 - [完整实施方案](docs/慢性病风险预测改造方案.md)：包含数据审核、训练评价、模型版本、独立服务和可选网站接入的文件与验收条件。
-- [前后端接入实施方案](docs/前后端接入实施方案.md)：根据当前Vue、Java和Python代码制定的待实施方案，明确四张新表、七个接口、页面字段、版本固定、联调及回退。
+- [前后端接入实施方案](docs/前后端接入实施方案.md)：四张新表、七个接口、页面字段、版本固定、运行与回退说明。
 - [模型权重存放约定](models/README.md)。
 
 ## 使用
@@ -65,7 +65,9 @@ python -m venv .\chronic-disease\.venv
 & .\chronic-disease\.venv\Scripts\python.exe -B .\chronic-disease\src\evaluate_models.py --version nhefs5-20261015T061013Z
 ```
 
-双击 `02_start_service.bat` 启动独立8002服务，打开 <http://127.0.0.1:8002/docs> 使用接口文档；`/health` 和 `/models` 查看就绪状态及输入定义。默认从 `models/active_model.json` 加载版本，`CHRONIC_MODEL_VERSION` 可指定其他版本。已有病史、未知病史、不适用年龄和资料不足均返回明确状态。
+双击 `02_start_service.bat` 启动独立8002服务，脚本默认固定 `nhefs5-opt-20261015-v2`；打开 <http://127.0.0.1:8002/docs> 使用接口文档，`/health` 和 `/models` 查看就绪状态及输入定义。直接运行未设置环境变量的 Python 服务仍从 `models/active_model.json` 加载原版本，网站会拦截版本不一致的响应。已有病史、未知病史、不适用年龄和资料不足均返回明确状态。
+
+网站入口为 <http://localhost:21091/disease-risk>，使用现有用户账号登录。MySQL 模式先选择业务数据库并执行 `sql/disease_risk_upgrade_mysql.sql`；H2 模式由后端初始化新增结构。独立8002服务、Java21090与Vue21091均需运行。模型未启动时，仍可保存资料和查询本人历史。模型说明展示各病种适用年龄、AUC、召回率和版本局限，高血压默认阈值召回率为0的情况会明确提示。
 
 ## 性能报告
 

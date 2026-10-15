@@ -33,4 +33,8 @@
 
 更多说明：[训练与演示说明](docs/训练与演示说明.md) · [启动顺序](docs/START_ORDER.txt) · [慢性病预测独立目录](chronic-disease/README.md) · [慢性病风险预测改造方案与数据集](chronic-disease/docs/慢性病风险预测改造方案.md) · [原项目说明（历史资料）](docs/README_ORIGINAL.md)
 
-独立慢性病模块已完成高血压、糖尿病、卒中、心脏病发作和骨质疏松的研究原型训练，见[性能报告与运行说明](chronic-disease/README.md)。每病保留逻辑回归/XGBoost比较、指标和图表；当前性能偏弱，尚未接入现有网站。42个原始方向保留作备查，见[资料清单](chronic-disease/reports/nhefs/README.md)。
+慢性病模块已接入网站。用户登录后打开菜单“慢性病风险预测”，或访问 <http://localhost:21091/disease-risk>，填写健康资料与五项疾病史，再点击“保存并预测五种疾病”。页面分别显示高血压、糖尿病、卒中、心脏病发作和骨质疏松的研究估计，并可查看历史输入快照。
+
+使用该功能时，额外启动 `chronic-disease/02_start_service.bat`（8002端口，默认固定优化版本 `nhefs5-opt-20261015-v2`）。MySQL 模式需在当前业务数据库执行一次 [慢性病增量建表脚本](chronic-disease/sql/disease_risk_upgrade_mysql.sql)，新增4张表，原有20张表保留；H2演示模式随新版后端自动创建新表。原有8001模型与“个性化风险评估”继续使用各自的代码和权重。
+
+各版本的准确率、召回率、AUC、混淆矩阵和曲线均保留在 [模型性能报告](chronic-disease/README.md) 中；接入页面不会重新训练或更改阈值。当前模型性能偏弱，仅用于研究演示，尚未验证中国社区老人实际风险。42个原始方向保留作备查，见[资料清单](chronic-disease/reports/nhefs/README.md)。接入配置、接口与回退说明见 [接入实施方案](chronic-disease/docs/前后端接入实施方案.md)。

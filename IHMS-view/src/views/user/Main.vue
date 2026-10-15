@@ -1,11 +1,11 @@
 <template>
-    <div class="user-container">
+    <div class="user-container" :class="{ 'disease-layout': $route.path === '/disease-risk' }">
         <div class="menus-container"
             style="position: sticky;top: 0;z-index: 1000;background-color: rgb(255, 255, 255);">
             <!-- 菜单目录 -->
             <UserMenu :menus="routers" :userInfo="userInfo" @eventListener="eventListener" />
         </div>
-        <div class="content-container">
+        <div class="content-container" :class="{ 'disease-content': $route.path === '/disease-risk' }">
             <!-- 路由出口 -->
             <router-view class="route-container"></router-view>
         </div>
@@ -262,6 +262,7 @@ export default {
                 // 将用户信息存储起来
                 sessionStorage.setItem('userInfo', JSON.stringify(res.data.data));
                 this.userInfo = {
+                      id: userId,
                     url: userAvatar,
                     name: userName,
                     role: userRole,
@@ -325,6 +326,12 @@ label {
     font-size: 22px;
     width: 60%;
     font-weight: 800;
+}
+
+@media (max-width: 768px) {
+    .content-container.disease-content { padding: 10px 0; }
+    .disease-layout ::v-deep .nav { justify-content: flex-start; overflow-x: auto; white-space: nowrap; padding: 0 12px; height: 64px; }
+    .disease-layout ::v-deep .nav > * { flex-shrink: 0; }
 }
 
 .avatar {

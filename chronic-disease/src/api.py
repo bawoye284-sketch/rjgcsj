@@ -66,13 +66,7 @@ def health():
 @app.get("/models")
 def models():
     predictor = app.state.predictor
-    return {"model_version": predictor.version, "research_only": True,
-            "input_schema": PredictionRequest.model_json_schema(),
-            "diseases": [{"code": target["code"], "name": target["name_zh"],
-                          "ready": target["code"] in predictor.models,
-                          "age_min": predictor.metadata["diseases"].get(target["code"], {}).get("age_min"),
-                          "age_max": predictor.metadata["diseases"].get(target["code"], {}).get("age_max")}
-                         for target in predictor.targets]}
+    return {**predictor.model_information(), "input_schema": PredictionRequest.model_json_schema()}
 
 
 @app.post("/predict/disease")

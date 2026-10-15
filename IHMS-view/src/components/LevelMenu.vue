@@ -222,8 +222,9 @@ export default {
         }
     },
     mounted() {
-        this.pathToDo(this.defaultPath);
-        this.loadMsgCount();
+        if (this.$route.path === '/user' || this.$route.path === '/user/') {
+            this.pathToDo(this.defaultPath);
+        }
         
         // 添加全局事件监听
         document.addEventListener('mousemove', this.onMouseMove);
@@ -233,6 +234,14 @@ export default {
         // 移除全局事件监听
         document.removeEventListener('mousemove', this.onMouseMove);
         document.removeEventListener('mouseup', this.onMouseUp);
+    },
+    watch: {
+        menus: {
+            immediate: true,
+            handler() { this.selectedIndex = this.menus.findIndex(item => item.path === this.$route.path); }
+        },
+        '$route.path'(path) { this.selectedIndex = this.menus.findIndex(item => item.path === path); },
+        'userInfo.id': { immediate: true, handler(id) { if (id != null) this.loadMsgCount(); } }
     },
     methods: {
         // 搜索关键词，返回父组件处理
@@ -275,14 +284,10 @@ export default {
             this.$emit('eventListener', 'loginOut');
         },
         async loadMsgCount() {
-            const userInfo = sessionStorage.getItem('userInfo');
-            const userInfoEntity = JSON.parse(userInfo);
-            const messageQueryDto = { userId: userInfoEntity.id, isRead: false }
-            const response = await this.$axios.post(`/message/query`, messageQueryDto);
-            const { data } = response;
-            if (data.code === 200) {
-                this.noReadMsg = data.data.length;
-            }
+            try {
+                const response = await this.$axios.post('/message/query', { userId: this.userInfo.id, isRead: false });
+                if (response.data.code === 200) this.noReadMsg = response.data.data.length;
+            } catch (_) { this.noReadMsg = 0; }
         },
         // 不是存量路由，则跳转
         pathToDo(path) {

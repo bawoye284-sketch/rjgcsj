@@ -40,3 +40,10 @@ deepseek:
   api-key: ${DEEPSEEK_API_KEY:}
 risk-model:
   service-url: http://127.0.0.1:8001/predict
+
+disease-risk:
+  enabled: true
+  service-base-url: http://127.0.0.1:8002
+  expected-model-version: nhefs5-opt-20261015-v2
+  connect-timeout-ms: 2000
+  read-timeout-ms: 15000
