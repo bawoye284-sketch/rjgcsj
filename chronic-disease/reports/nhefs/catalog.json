@@ -1,0 +1,2190 @@
+{
+  "dataset": "NHEFS",
+  "training_enabled": true,
+  "first_version_task": "multilabel_incident_disease_report",
+  "first_version_target_codes": [
+    "hypertension",
+    "diabetes",
+    "stroke",
+    "heart_attack",
+    "osteoporosis"
+  ],
+  "targets": [
+    {
+      "code": "hypertension",
+      "name_zh": "高血压",
+      "kind": "disease",
+      "tier": "priority",
+      "notes": "需综合历史预填、当轮回答与用药核对起点状态。",
+      "selected_for_first_version": true,
+      "training_enabled": true,
+      "label_review_status": "codebook_checked_research_definition",
+      "fields_by_wave": {
+        "1982_1984": [
+          "D2",
+          "D3",
+          "G33",
+          "G34",
+          "G35A",
+          "G35B",
+          "G35C",
+          "G35D",
+          "G35E",
+          "G35F",
+          "G35G",
+          "G35H",
+          "G35I",
+          "G35J",
+          "G35K",
+          "G35K1",
+          "G35K2",
+          "G35K3"
+        ],
+        "1986": [
+          "HBPMEDIC",
+          "HYPER",
+          "HBPYEAR1",
+          "HBPYRFL",
+          "HIBPFLAG",
+          "PRESCMED",
+          "MEDREGLR"
+        ],
+        "1987": [
+          "HBPMEDIC",
+          "HYPER",
+          "HBPYEAR1",
+          "HIBPFLAG",
+          "PRESCMED",
+          "MEDREGLR"
+        ],
+        "1992": [
+          "LHIBPMED",
+          "HYPER",
+          "HBPYEAR1",
+          "B49DISF",
+          "PRESCMED",
+          "MEDREGLR"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "D2": 12220,
+          "D3": 12220,
+          "G33": 12220,
+          "G34": 12220,
+          "G35A": 12220,
+          "G35B": 12220,
+          "G35C": 12220,
+          "G35D": 12220,
+          "G35E": 12220,
+          "G35F": 12220,
+          "G35G": 12220,
+          "G35H": 12220,
+          "G35I": 12220,
+          "G35J": 12220,
+          "G35K": 12220,
+          "G35K1": 12220,
+          "G35K2": 12220,
+          "G35K3": 12220
+        },
+        "1986": {
+          "HBPMEDIC": 3608,
+          "HYPER": 3608,
+          "HBPYEAR1": 3608,
+          "HBPYRFL": 3608,
+          "HIBPFLAG": 3608,
+          "PRESCMED": 3608,
+          "MEDREGLR": 3608
+        },
+        "1987": {
+          "HBPMEDIC": 9998,
+          "HYPER": 9998,
+          "HBPYEAR1": 9998,
+          "HIBPFLAG": 9998,
+          "PRESCMED": 9998,
+          "MEDREGLR": 9998
+        },
+        "1992": {
+          "LHIBPMED": 9281,
+          "HYPER": 9281,
+          "HBPYEAR1": 9281,
+          "B49DISF": 9281,
+          "PRESCMED": 9281,
+          "MEDREGLR": 9281
+        }
+      }
+    },
+    {
+      "code": "diabetes",
+      "name_zh": "糖尿病（按问卷定义）",
+      "kind": "disease",
+      "tier": "priority",
+      "notes": "不能直接改名为确诊2型糖尿病。",
+      "selected_for_first_version": true,
+      "training_enabled": true,
+      "label_review_status": "codebook_checked_research_definition",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G36",
+          "G37",
+          "G38",
+          "G39A",
+          "G39B",
+          "G39C",
+          "G39C1",
+          "G39C2",
+          "G40"
+        ],
+        "1986": [
+          "DIABMED",
+          "SUGRDIAB",
+          "DIABYR1",
+          "DIABYRFL",
+          "DIABFLAG",
+          "INSLNDB",
+          "ORALDB"
+        ],
+        "1987": [
+          "DIABMED",
+          "SUGRDIAB",
+          "DIABYR1",
+          "DIABFLAG",
+          "INSLNDB",
+          "ORALDB"
+        ],
+        "1992": [
+          "LDIABETE",
+          "DIABMED",
+          "SUGRDIAB",
+          "DIABYR1",
+          "B39DISF",
+          "INSLNDB",
+          "ORALDB"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G36": 12220,
+          "G37": 12220,
+          "G38": 12220,
+          "G39A": 12220,
+          "G39B": 12220,
+          "G39C": 12220,
+          "G39C1": 12220,
+          "G39C2": 12220,
+          "G40": 12220
+        },
+        "1986": {
+          "DIABMED": 3608,
+          "SUGRDIAB": 3608,
+          "DIABYR1": 3608,
+          "DIABYRFL": 3608,
+          "DIABFLAG": 3608,
+          "INSLNDB": 3608,
+          "ORALDB": 3608
+        },
+        "1987": {
+          "DIABMED": 9998,
+          "SUGRDIAB": 9998,
+          "DIABYR1": 9998,
+          "DIABFLAG": 9998,
+          "INSLNDB": 9998,
+          "ORALDB": 9998
+        },
+        "1992": {
+          "LDIABETE": 9281,
+          "DIABMED": 9281,
+          "SUGRDIAB": 9281,
+          "DIABYR1": 9281,
+          "B39DISF": 9281,
+          "INSLNDB": 9281,
+          "ORALDB": 9281
+        }
+      }
+    },
+    {
+      "code": "stroke",
+      "name_zh": "卒中／中风",
+      "kind": "disease",
+      "tier": "extension",
+      "notes": "首次与复发事件分开；不与短暂性脑缺血发作混用。",
+      "selected_for_first_version": true,
+      "training_enabled": true,
+      "label_review_status": "codebook_checked_research_definition",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G22A",
+          "G22B",
+          "G22C"
+        ],
+        "1986": [
+          "ADDSTRKE",
+          "CVA",
+          "STRKYR1",
+          "STRKFLAG",
+          "ADDISTRK"
+        ],
+        "1987": [
+          "ADDSTRKE",
+          "CVA",
+          "STRKYR1",
+          "STRKFLAG",
+          "ADDISTRK",
+          "STYR2_1",
+          "STYR2_2"
+        ],
+        "1992": [
+          "LSTROKE",
+          "ADDSTRKE",
+          "CVA",
+          "STRKYR1",
+          "B32DISF",
+          "ADDISTRK",
+          "STYR2_1",
+          "STYR2_2",
+          "B34DISF1",
+          "B34DISF2"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G22A": 12220,
+          "G22B": 12220,
+          "G22C": 12220
+        },
+        "1986": {
+          "ADDSTRKE": 3608,
+          "CVA": 3608,
+          "STRKYR1": 3608,
+          "STRKFLAG": 3608,
+          "ADDISTRK": 3608
+        },
+        "1987": {
+          "ADDSTRKE": 9998,
+          "CVA": 9998,
+          "STRKYR1": 9998,
+          "STRKFLAG": 9998,
+          "ADDISTRK": 9998,
+          "STYR2_1": 9998,
+          "STYR2_2": 9998
+        },
+        "1992": {
+          "LSTROKE": 9281,
+          "ADDSTRKE": 9281,
+          "CVA": 9281,
+          "STRKYR1": 9281,
+          "B32DISF": 9281,
+          "ADDISTRK": 9281,
+          "STYR2_1": 9281,
+          "STYR2_2": 9281,
+          "B34DISF1": 9281,
+          "B34DISF2": 9281
+        }
+      }
+    },
+    {
+      "code": "heart_attack",
+      "name_zh": "心脏病发作（按问卷定义）",
+      "kind": "disease",
+      "tier": "extension",
+      "notes": "问卷heart attack不能当作所有心脏病；首发与复发须区分。",
+      "selected_for_first_version": true,
+      "training_enabled": true,
+      "label_review_status": "codebook_checked_research_definition",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G17A",
+          "G17B",
+          "G17C"
+        ],
+        "1986": [
+          "HEARTATK",
+          "EVERATT",
+          "FIRSTATT",
+          "ATTFLAG",
+          "SINCEART"
+        ],
+        "1987": [
+          "HEARTATK",
+          "EVERATT",
+          "FIRSTATT",
+          "ATTFLAG",
+          "SINCEART",
+          "ATTKYR1",
+          "ATTKYR2",
+          "ATTKYR3",
+          "ATTKYR4"
+        ],
+        "1992": [
+          "LHATTACK",
+          "HEARTATK",
+          "EVERATT",
+          "FIRSTATT",
+          "B20DISF",
+          "SINCEART",
+          "ATTKYR1",
+          "ATTKYR2",
+          "ATTKYR3",
+          "ATTKYR4",
+          "B22DISF1",
+          "B22DISF2",
+          "B22DISF3",
+          "B22DISF4"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G17A": 12220,
+          "G17B": 12220,
+          "G17C": 12220
+        },
+        "1986": {
+          "HEARTATK": 3608,
+          "EVERATT": 3608,
+          "FIRSTATT": 3608,
+          "ATTFLAG": 3608,
+          "SINCEART": 3608
+        },
+        "1987": {
+          "HEARTATK": 9998,
+          "EVERATT": 9998,
+          "FIRSTATT": 9998,
+          "ATTFLAG": 9998,
+          "SINCEART": 9998,
+          "ATTKYR1": 9998,
+          "ATTKYR2": 9998,
+          "ATTKYR3": 9998,
+          "ATTKYR4": 9998
+        },
+        "1992": {
+          "LHATTACK": 9281,
+          "HEARTATK": 9281,
+          "EVERATT": 9281,
+          "FIRSTATT": 9281,
+          "B20DISF": 9281,
+          "SINCEART": 9281,
+          "ATTKYR1": 9281,
+          "ATTKYR2": 9281,
+          "ATTKYR3": 9281,
+          "ATTKYR4": 9281,
+          "B22DISF1": 9281,
+          "B22DISF2": 9281,
+          "B22DISF3": 9281,
+          "B22DISF4": 9281
+        }
+      }
+    },
+    {
+      "code": "high_cholesterol",
+      "name_zh": "高胆固醇报告",
+      "kind": "risk_factor",
+      "tier": "extension",
+      "notes": "1987与1992问题和年份覆盖不同；不是所有血脂异常的统一标签。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [],
+        "1986": [],
+        "1987": [
+          "HIGHBLCH",
+          "BLCHMED"
+        ],
+        "1992": [
+          "HIGHBLCH",
+          "BLCHNOW",
+          "BLCHYR",
+          "BLCHMED1",
+          "BLCHMED2"
+        ]
+      },
+      "derived_files": {
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {},
+        "1986": {},
+        "1987": {
+          "HIGHBLCH": 9998,
+          "BLCHMED": 9998
+        },
+        "1992": {
+          "HIGHBLCH": 9281,
+          "BLCHNOW": 9281,
+          "BLCHYR": 9281,
+          "BLCHMED1": 9281,
+          "BLCHMED2": 9281
+        }
+      }
+    },
+    {
+      "code": "arthritis",
+      "name_zh": "关节炎（问卷综合项）",
+      "kind": "disease",
+      "tier": "extension",
+      "notes": "1982 VG26为代理／死亡相关模块，不能当全体存活受访者通用基线；后续轮问题措辞也需核对。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "VG26A",
+          "VG26B",
+          "VG26C"
+        ],
+        "1986": [
+          "DREVRTEL",
+          "DRARTHR"
+        ],
+        "1987": [
+          "DREVRTEL",
+          "FRSTARTH",
+          "ARTHFLG1",
+          "DRARTHR"
+        ],
+        "1992": [
+          "LARTH",
+          "LARTHYR",
+          "LARTHTYP",
+          "DREVRTEL",
+          "FRSTARTH",
+          "B4DISF",
+          "DRARTHR"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "VG26A": 12220,
+          "VG26B": 12220,
+          "VG26C": 12220
+        },
+        "1986": {
+          "DREVRTEL": 3608,
+          "DRARTHR": 3608
+        },
+        "1987": {
+          "DREVRTEL": 9998,
+          "FRSTARTH": 9998,
+          "ARTHFLG1": 9998,
+          "DRARTHR": 9998
+        },
+        "1992": {
+          "LARTH": 9281,
+          "LARTHYR": 9281,
+          "LARTHTYP": 9281,
+          "DREVRTEL": 9281,
+          "FRSTARTH": 9281,
+          "B4DISF": 9281,
+          "DRARTHR": 9281
+        }
+      }
+    },
+    {
+      "code": "osteoarthritis",
+      "name_zh": "骨关节炎／退行性关节炎",
+      "kind": "disease",
+      "tier": "extension",
+      "notes": "存在关节炎类型跳题，类型未问不等于未患病。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [],
+        "1986": [
+          "DREVRTEL",
+          "DRARTHR",
+          "OSTEOART"
+        ],
+        "1987": [
+          "DREVRTEL",
+          "FRSTARTH",
+          "DRARTHR",
+          "OSTEOART"
+        ],
+        "1992": [
+          "LARTHTYP",
+          "DREVRTEL",
+          "FRSTARTH",
+          "DRARTHR",
+          "OSTEOART"
+        ]
+      },
+      "derived_files": {
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {},
+        "1986": {
+          "DREVRTEL": 3608,
+          "DRARTHR": 3608,
+          "OSTEOART": 3608
+        },
+        "1987": {
+          "DREVRTEL": 9998,
+          "FRSTARTH": 9998,
+          "DRARTHR": 9998,
+          "OSTEOART": 9998
+        },
+        "1992": {
+          "LARTHTYP": 9281,
+          "DREVRTEL": 9281,
+          "FRSTARTH": 9281,
+          "DRARTHR": 9281,
+          "OSTEOART": 9281
+        }
+      }
+    },
+    {
+      "code": "rheumatoid_arthritis",
+      "name_zh": "类风湿关节炎",
+      "kind": "disease",
+      "tier": "extension",
+      "notes": "类型跳题与病例数量待审核。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [],
+        "1986": [
+          "DREVRTEL",
+          "DRARTHR",
+          "RHEUMATD"
+        ],
+        "1987": [
+          "DREVRTEL",
+          "FRSTARTH",
+          "DRARTHR",
+          "RHEUMATD"
+        ],
+        "1992": [
+          "LARTHTYP",
+          "DREVRTEL",
+          "FRSTARTH",
+          "DRARTHR",
+          "RHEUMATD"
+        ]
+      },
+      "derived_files": {
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {},
+        "1986": {
+          "DREVRTEL": 3608,
+          "DRARTHR": 3608,
+          "RHEUMATD": 3608
+        },
+        "1987": {
+          "DREVRTEL": 9998,
+          "FRSTARTH": 9998,
+          "DRARTHR": 9998,
+          "RHEUMATD": 9998
+        },
+        "1992": {
+          "LARTHTYP": 9281,
+          "DREVRTEL": 9281,
+          "FRSTARTH": 9281,
+          "DRARTHR": 9281,
+          "RHEUMATD": 9281
+        }
+      }
+    },
+    {
+      "code": "gout",
+      "name_zh": "痛风",
+      "kind": "disease",
+      "tier": "extension",
+      "notes": "区分首次报告、复发和痛风相关关节炎。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [],
+        "1986": [
+          "GOUT",
+          "FRSTGOUT",
+          "LASTGOUT",
+          "ARTHGOUT"
+        ],
+        "1987": [
+          "GOUT",
+          "SINCGOUT",
+          "FRSTGOUT",
+          "GOUTFLG1",
+          "LASTGOUT",
+          "ARTHGOUT"
+        ],
+        "1992": [
+          "LGOUT",
+          "GOUT",
+          "SINCGOUT",
+          "FRSTGOUT",
+          "B12DISF",
+          "LASTGOUT",
+          "ARTHGOUT"
+        ]
+      },
+      "derived_files": {
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {},
+        "1986": {
+          "GOUT": 3608,
+          "FRSTGOUT": 3608,
+          "LASTGOUT": 3608,
+          "ARTHGOUT": 3608
+        },
+        "1987": {
+          "GOUT": 9998,
+          "SINCGOUT": 9998,
+          "FRSTGOUT": 9998,
+          "GOUTFLG1": 9998,
+          "LASTGOUT": 9998,
+          "ARTHGOUT": 9998
+        },
+        "1992": {
+          "LGOUT": 9281,
+          "GOUT": 9281,
+          "SINCGOUT": 9281,
+          "FRSTGOUT": 9281,
+          "B12DISF": 9281,
+          "LASTGOUT": 9281,
+          "ARTHGOUT": 9281
+        }
+      }
+    },
+    {
+      "code": "osteoporosis",
+      "name_zh": "骨质疏松",
+      "kind": "disease",
+      "tier": "extension",
+      "notes": "医生告知的自报结果不等于骨密度确诊，需核对年份与缺失。",
+      "selected_for_first_version": true,
+      "training_enabled": true,
+      "label_review_status": "codebook_checked_research_definition",
+      "fields_by_wave": {
+        "1982_1984": [],
+        "1986": [],
+        "1987": [
+          "OSTEOPOR",
+          "OSTEOYR"
+        ],
+        "1992": [
+          "LOSTEO",
+          "OSTEOPOR",
+          "OSTEOYR",
+          "B82DISF"
+        ]
+      },
+      "derived_files": {
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {},
+        "1986": {},
+        "1987": {
+          "OSTEOPOR": 9998,
+          "OSTEOYR": 9998
+        },
+        "1992": {
+          "LOSTEO": 9281,
+          "OSTEOPOR": 9281,
+          "OSTEOYR": 9281,
+          "B82DISF": 9281
+        }
+      }
+    },
+    {
+      "code": "cataract",
+      "name_zh": "白内障",
+      "kind": "disease",
+      "tier": "extension",
+      "notes": "手术年份不能直接当作首次发病年份。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G18A",
+          "G18B",
+          "G18C"
+        ],
+        "1986": [
+          "SURGCATR",
+          "EVERCATR",
+          "CATRSURG"
+        ],
+        "1987": [
+          "SURGCATR",
+          "EVERCATR",
+          "CATRSURG",
+          "YRCATR1",
+          "YRCATR2",
+          "CATFLAG1",
+          "CATFLAG2"
+        ],
+        "1992": [
+          "LCATRACT",
+          "LCATSURG",
+          "SURGCATR",
+          "EVERCATR",
+          "CATRSURG",
+          "YRCATR1",
+          "YRCATR2",
+          "B107DIS1",
+          "B107DIS2"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G18A": 12220,
+          "G18B": 12220,
+          "G18C": 12220
+        },
+        "1986": {
+          "SURGCATR": 3608,
+          "EVERCATR": 3608,
+          "CATRSURG": 3608
+        },
+        "1987": {
+          "SURGCATR": 9998,
+          "EVERCATR": 9998,
+          "CATRSURG": 9998,
+          "YRCATR1": 9998,
+          "YRCATR2": 9998,
+          "CATFLAG1": 9998,
+          "CATFLAG2": 9998
+        },
+        "1992": {
+          "LCATRACT": 9281,
+          "LCATSURG": 9281,
+          "SURGCATR": 9281,
+          "EVERCATR": 9281,
+          "CATRSURG": 9281,
+          "YRCATR1": 9281,
+          "YRCATR2": 9281,
+          "B107DIS1": 9281,
+          "B107DIS2": 9281
+        }
+      }
+    },
+    {
+      "code": "kidney_disorder_or_stone",
+      "name_zh": "肾脏疾病／结石（按各轮定义）",
+      "kind": "disease",
+      "tier": "extension",
+      "notes": "部分轮次包括结石，不能称为慢性肾病CKD或肾功能不全。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G6A",
+          "G6B",
+          "G6C"
+        ],
+        "1986": [],
+        "1987": [
+          "KIDNYST",
+          "EVERKDNY",
+          "YRTELKID",
+          "KIDNEYFG"
+        ],
+        "1992": [
+          "LKIDNEY",
+          "KIDNYST",
+          "EVERKDNY",
+          "YRTELKID",
+          "B93DISF"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G6A": 12220,
+          "G6B": 12220,
+          "G6C": 12220
+        },
+        "1986": {},
+        "1987": {
+          "KIDNYST": 9998,
+          "EVERKDNY": 9998,
+          "YRTELKID": 9998,
+          "KIDNEYFG": 9998
+        },
+        "1992": {
+          "LKIDNEY": 9281,
+          "KIDNYST": 9281,
+          "EVERKDNY": 9281,
+          "YRTELKID": 9281,
+          "B93DISF": 9281
+        }
+      }
+    },
+    {
+      "code": "urinary_or_kidney_infection",
+      "name_zh": "尿路／肾脏感染",
+      "kind": "disease",
+      "tier": "extension",
+      "notes": "各轮可能存在次数门槛变化，不能未经审核合并。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G7A",
+          "G7B",
+          "G7C"
+        ],
+        "1986": [],
+        "1987": [
+          "DOCKID",
+          "FRSTOLDK"
+        ],
+        "1992": [
+          "LKIDNEY",
+          "KIDINFEC",
+          "DOCKID",
+          "FRSTOLDK",
+          "B96DISF"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G7A": 12220,
+          "G7B": 12220,
+          "G7C": 12220
+        },
+        "1986": {},
+        "1987": {
+          "DOCKID": 9998,
+          "FRSTOLDK": 9998
+        },
+        "1992": {
+          "LKIDNEY": 9281,
+          "KIDINFEC": 9281,
+          "DOCKID": 9281,
+          "FRSTOLDK": 9281,
+          "B96DISF": 9281
+        }
+      }
+    },
+    {
+      "code": "cancer_any",
+      "name_zh": "癌症综合报告",
+      "kind": "disease",
+      "tier": "extension",
+      "notes": "需核对是否包含皮肤癌等、重复癌种和各轮癌种明细；不是单一器官癌症模型。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "D62",
+          "D63DX1",
+          "D64DX1",
+          "D65DX1",
+          "D63DX2",
+          "D64DX2",
+          "D65DX2",
+          "D63DX3",
+          "D64DX3",
+          "D65DX3"
+        ],
+        "1986": [
+          "CANCTYPE",
+          "CANCRSRT",
+          "CANCCNT"
+        ],
+        "1987": [
+          "CANCTYPE",
+          "CANCRSRT",
+          "CANCCNT"
+        ],
+        "1992": [
+          "LCANCER",
+          "CANCTYPE",
+          "CANCRSRT",
+          "CANCCNT"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "D62": 12220,
+          "D63DX1": 12220,
+          "D64DX1": 12220,
+          "D65DX1": 12220,
+          "D63DX2": 12220,
+          "D64DX2": 12220,
+          "D65DX2": 12220,
+          "D63DX3": 12220,
+          "D64DX3": 12220,
+          "D65DX3": 12220
+        },
+        "1986": {
+          "CANCTYPE": 3608,
+          "CANCRSRT": 3608,
+          "CANCCNT": 3608
+        },
+        "1987": {
+          "CANCTYPE": 9998,
+          "CANCRSRT": 9998,
+          "CANCCNT": 9998
+        },
+        "1992": {
+          "LCANCER": 9281,
+          "CANCTYPE": 9281,
+          "CANCRSRT": 9281,
+          "CANCCNT": 9281
+        }
+      }
+    },
+    {
+      "code": "breast_cancer",
+      "name_zh": "乳腺癌相关报告",
+      "kind": "disease",
+      "tier": "extension",
+      "notes": "1987 BRCANCER是历史预填，1992为当轮疾病问题；不能直接逐列相减生成标签。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "D48",
+          "D49",
+          "D50",
+          "D51",
+          "D52",
+          "D53",
+          "D54"
+        ],
+        "1986": [],
+        "1987": [
+          "BRCANCER",
+          "BRCANYR"
+        ],
+        "1992": [
+          "BRCANCER",
+          "BRCANYR",
+          "B56DISF"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "D48": 12220,
+          "D49": 12220,
+          "D50": 12220,
+          "D51": 12220,
+          "D52": 12220,
+          "D53": 12220,
+          "D54": 12220
+        },
+        "1986": {},
+        "1987": {
+          "BRCANCER": 9998,
+          "BRCANYR": 9998
+        },
+        "1992": {
+          "BRCANCER": 9281,
+          "BRCANYR": 9281,
+          "B56DISF": 9281
+        }
+      }
+    },
+    {
+      "code": "skin_cancer",
+      "name_zh": "皮肤癌相关报告",
+      "kind": "disease",
+      "tier": "limited",
+      "notes": "1982需先辨认皮肤病中恶性项；1992有专门问题，1987缺少同等直接问题。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "D55",
+          "D56",
+          "D57C1",
+          "D58C1",
+          "D59C1",
+          "D57C2",
+          "D58C2",
+          "D59C2",
+          "D57C3",
+          "D58C3",
+          "D59C3",
+          "D57C4",
+          "D58C4",
+          "D59C4"
+        ],
+        "1986": [
+          "CANCTYPE"
+        ],
+        "1987": [
+          "CANCTYPE"
+        ],
+        "1992": [
+          "SKINCANC",
+          "SKCANMM",
+          "SKCANOT",
+          "SKCANYR1",
+          "SKCANYR2",
+          "SKCANNUM",
+          "CANCTYPE"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "D55": 12220,
+          "D56": 12220,
+          "D57C1": 12220,
+          "D58C1": 12220,
+          "D59C1": 12220,
+          "D57C2": 12220,
+          "D58C2": 12220,
+          "D59C2": 12220,
+          "D57C3": 12220,
+          "D58C3": 12220,
+          "D59C3": 12220,
+          "D57C4": 12220,
+          "D58C4": 12220,
+          "D59C4": 12220
+        },
+        "1986": {
+          "CANCTYPE": 3608
+        },
+        "1987": {
+          "CANCTYPE": 9998
+        },
+        "1992": {
+          "SKINCANC": 9281,
+          "SKCANMM": 9281,
+          "SKCANOT": 9281,
+          "SKCANYR1": 9281,
+          "SKCANYR2": 9281,
+          "SKCANNUM": 9281,
+          "CANCTYPE": 9281
+        }
+      }
+    },
+    {
+      "code": "hip_fracture",
+      "name_zh": "髋部骨折",
+      "kind": "injury",
+      "tier": "extension",
+      "notes": "伤害事件，与慢性疾病分组；既往骨折和再次骨折不同任务。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "E8",
+          "E90",
+          "E91",
+          "E92",
+          "E93",
+          "E94"
+        ],
+        "1986": [
+          "FRACHIP",
+          "BRKNHIP",
+          "HIPYEAR1",
+          "HIPFLAG",
+          "ANTHRHIP",
+          "HIPYR2_1",
+          "HIPYR2_2",
+          "HIPYR2_3",
+          "HIPYR2_4"
+        ],
+        "1987": [
+          "FRACHIP",
+          "BRKNHIP",
+          "HIPYEAR1",
+          "HIPFLAG",
+          "ANTHRHIP",
+          "HIPYR2_1",
+          "HIPYR2_2",
+          "HIPYR2_3",
+          "HIPYR2_4"
+        ],
+        "1992": [
+          "HIPYEAR1",
+          "B74DISF",
+          "FRACHIP",
+          "BRKNHIP",
+          "HIPYEAR2",
+          "B77DISF",
+          "ANTHRHIP",
+          "HIPYR2_1",
+          "HIPYR2_2",
+          "HIPYR2_3",
+          "HIPYR2_4",
+          "B79DISF1",
+          "B79DISF2",
+          "B79DISF3",
+          "B79DISF4"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "E8": 12220,
+          "E90": 12220,
+          "E91": 12220,
+          "E92": 12220,
+          "E93": 12220,
+          "E94": 12220
+        },
+        "1986": {
+          "FRACHIP": 3608,
+          "BRKNHIP": 3608,
+          "HIPYEAR1": 3608,
+          "HIPFLAG": 3608,
+          "ANTHRHIP": 3608,
+          "HIPYR2_1": 3608,
+          "HIPYR2_2": 3608,
+          "HIPYR2_3": 3608,
+          "HIPYR2_4": 3608
+        },
+        "1987": {
+          "FRACHIP": 9998,
+          "BRKNHIP": 9998,
+          "HIPYEAR1": 9998,
+          "HIPFLAG": 9998,
+          "ANTHRHIP": 9998,
+          "HIPYR2_1": 9998,
+          "HIPYR2_2": 9998,
+          "HIPYR2_3": 9998,
+          "HIPYR2_4": 9998
+        },
+        "1992": {
+          "HIPYEAR1": 9281,
+          "B74DISF": 9281,
+          "FRACHIP": 9281,
+          "BRKNHIP": 9281,
+          "HIPYEAR2": 9281,
+          "B77DISF": 9281,
+          "ANTHRHIP": 9281,
+          "HIPYR2_1": 9281,
+          "HIPYR2_2": 9281,
+          "HIPYR2_3": 9281,
+          "HIPYR2_4": 9281,
+          "B79DISF1": 9281,
+          "B79DISF2": 9281,
+          "B79DISF3": 9281,
+          "B79DISF4": 9281
+        }
+      }
+    },
+    {
+      "code": "wrist_fracture",
+      "name_zh": "腕部骨折",
+      "kind": "injury",
+      "tier": "extension",
+      "notes": "部分问题描述新增骨折，须核对既往骨折与随访区间。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [],
+        "1986": [],
+        "1987": [
+          "ADBKWRST",
+          "BRKNWRST",
+          "WRSTYR1",
+          "WRSTYR2",
+          "WRSTYR3",
+          "WRSTYR4"
+        ],
+        "1992": [
+          "ADBKWRST",
+          "BRKNWRST",
+          "WRSTYR1",
+          "WRSTYR2",
+          "WRSTYR3",
+          "WRSTYR4",
+          "B85DISF1",
+          "B85DISF2",
+          "B85DISF3",
+          "B85DISF4"
+        ]
+      },
+      "derived_files": {
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {},
+        "1986": {},
+        "1987": {
+          "ADBKWRST": 9998,
+          "BRKNWRST": 9998,
+          "WRSTYR1": 9998,
+          "WRSTYR2": 9998,
+          "WRSTYR3": 9998,
+          "WRSTYR4": 9998
+        },
+        "1992": {
+          "ADBKWRST": 9281,
+          "BRKNWRST": 9281,
+          "WRSTYR1": 9281,
+          "WRSTYR2": 9281,
+          "WRSTYR3": 9281,
+          "WRSTYR4": 9281,
+          "B85DISF1": 9281,
+          "B85DISF2": 9281,
+          "B85DISF3": 9281,
+          "B85DISF4": 9281
+        }
+      }
+    },
+    {
+      "code": "falls",
+      "name_zh": "跌倒事件",
+      "kind": "event",
+      "tier": "extension",
+      "notes": "通常是访谈前12个月，不可直接解释为整个1987至1992的五年跌倒风险。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [],
+        "1986": [],
+        "1987": [
+          "FALLS",
+          "NUMFALLS",
+          "FALLBKBN",
+          "FALLHEAD",
+          "FALLMEDC"
+        ],
+        "1992": [
+          "FALLS",
+          "NUMFALLS",
+          "FALLBKBN",
+          "FALLHEAD",
+          "FALLMEDC",
+          "HOSPFALL",
+          "VFALL"
+        ]
+      },
+      "derived_files": {
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {},
+        "1986": {},
+        "1987": {
+          "FALLS": 9998,
+          "NUMFALLS": 9998,
+          "FALLBKBN": 9998,
+          "FALLHEAD": 9998,
+          "FALLMEDC": 9998
+        },
+        "1992": {
+          "FALLS": 9281,
+          "NUMFALLS": 9281,
+          "FALLBKBN": 9281,
+          "FALLHEAD": 9281,
+          "FALLMEDC": 9281,
+          "HOSPFALL": 9281,
+          "VFALL": 9281
+        }
+      }
+    },
+    {
+      "code": "pneumonia_hospitalization",
+      "name_zh": "肺炎／流感相关住院（按各轮定义）",
+      "kind": "hospitalization",
+      "tier": "limited",
+      "notes": "住院结局而非所有肺炎发病；各轮是否包含流感需要审核。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [],
+        "1986": [
+          "B62FLU"
+        ],
+        "1987": [
+          "B71_FLU"
+        ],
+        "1992": [
+          "HOSPFLU"
+        ]
+      },
+      "derived_files": {
+        "1986": "derived/disease_fields_1986.jsonl",
+        "1987": "derived/disease_fields_1987.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {},
+        "1986": {
+          "B62FLU": 3608
+        },
+        "1987": {
+          "B71_FLU": 9998
+        },
+        "1992": {
+          "HOSPFLU": 9281
+        }
+      }
+    },
+    {
+      "code": "hernia",
+      "name_zh": "疝相关疾病",
+      "kind": "disease",
+      "tier": "limited",
+      "notes": "1992有专门问题；1987缺少同等直接基线问题，暂不能形成该窗口的新发标签。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [],
+        "1986": [],
+        "1987": [],
+        "1992": [
+          "HERNIA",
+          "HIHERNIA",
+          "RUPTURE",
+          "VENTRAL",
+          "UMBIL",
+          "OTHRHERN",
+          "HERNYR1",
+          "HERNSURG",
+          "HERNYR_1",
+          "HERNYR_2",
+          "HERNYR_3",
+          "HERNYR_4",
+          "HERNYR2"
+        ]
+      },
+      "derived_files": {
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {},
+        "1986": {},
+        "1987": {},
+        "1992": {
+          "HERNIA": 9281,
+          "HIHERNIA": 9281,
+          "RUPTURE": 9281,
+          "VENTRAL": 9281,
+          "UMBIL": 9281,
+          "OTHRHERN": 9281,
+          "HERNYR1": 9281,
+          "HERNSURG": 9281,
+          "HERNYR_1": 9281,
+          "HERNYR_2": 9281,
+          "HERNYR_3": 9281,
+          "HERNYR_4": 9281,
+          "HERNYR2": 9281
+        }
+      }
+    },
+    {
+      "code": "asthma",
+      "name_zh": "哮喘",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "已取得1982相关问题；尚未确认后续可比发病结局。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G1A",
+          "G1B",
+          "G1C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G1A": 12220,
+          "G1B": 12220,
+          "G1C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "chronic_bronchitis_or_emphysema",
+      "name_zh": "慢性支气管炎／肺气肿综合项",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "问卷合并项，不能拆成两个独立标签或直接等同于确诊COPD。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G2A",
+          "G2B",
+          "G2C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G2A": 12220,
+          "G2B": 12220,
+          "G2C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "migraine",
+      "name_zh": "偏头痛",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "目前仅登记早期病史问题，不启用未来风险训练。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G3A",
+          "G3B",
+          "G3C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G3A": 12220,
+          "G3B": 12220,
+          "G3C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "psoriasis",
+      "name_zh": "银屑病",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "目前仅登记早期病史问题，不启用未来风险训练。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G4A",
+          "G4B",
+          "G4C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G4A": 12220,
+          "G4B": 12220,
+          "G4C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "ulcer",
+      "name_zh": "溃疡病（问卷原义）",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "不擅自细分胃溃疡或十二指肠溃疡；后续结局待补证。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G5A",
+          "G5B",
+          "G5C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G5A": 12220,
+          "G5B": 12220,
+          "G5C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "colon_tumor",
+      "name_zh": "结肠肿瘤报告",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "肿瘤不自动等于恶性结肠癌；后续癌种明细另行审核。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G8A",
+          "G8B",
+          "G8C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G8A": 12220,
+          "G8B": 12220,
+          "G8C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "liver_cirrhosis",
+      "name_zh": "肝硬化",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "已取得早期报告，未确认后续可比结局。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G9A",
+          "G9B",
+          "G9C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G9A": 12220,
+          "G9B": 12220,
+          "G9C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "parkinsons",
+      "name_zh": "帕金森病",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "已取得早期报告，未确认后续可比结局。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G10A",
+          "G10B",
+          "G10C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G10A": 12220,
+          "G10B": 12220,
+          "G10C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "multiple_sclerosis",
+      "name_zh": "多发性硬化",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "已取得早期报告，未确认后续可比结局。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G11A",
+          "G11B",
+          "G11C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G11A": 12220,
+          "G11B": 12220,
+          "G11C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "nervous_breakdown_report",
+      "name_zh": "神经／精神崩溃报告（历史问卷用语）",
+      "kind": "historical_report",
+      "tier": "historical",
+      "notes": "不能改名为抑郁症、焦虑症或现代精神科确诊标签。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G12A",
+          "G12B",
+          "G12C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G12A": 12220,
+          "G12B": 12220,
+          "G12C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "diverticulitis",
+      "name_zh": "憩室炎",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "后续可比发病结局待补证。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G13A",
+          "G13B",
+          "G13C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G13A": 12220,
+          "G13B": 12220,
+          "G13C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "colitis_or_enteritis",
+      "name_zh": "结肠炎／肠炎综合项",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "不能直接解释为确诊炎症性肠病或特定亚型。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G14A",
+          "G14B",
+          "G14C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G14A": 12220,
+          "G14B": 12220,
+          "G14C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "heart_condition_broad",
+      "name_zh": "广义心脏疾病／问题",
+      "kind": "historical_report",
+      "tier": "historical",
+      "notes": "后续历史预填不等于新的当轮结局；不能称为冠心病或心衰。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G15A",
+          "G15B",
+          "G15C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": [
+          "LHRTCOND"
+        ]
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl",
+        "1992": "derived/disease_fields_1992.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G15A": 12220,
+          "G15B": 12220,
+          "G15C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {
+          "LHRTCOND": 9281
+        }
+      }
+    },
+    {
+      "code": "angina",
+      "name_zh": "心绞痛",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "早期疾病报告不能单独构成未来心绞痛预测队列。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G16A",
+          "G16B",
+          "G16C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G16A": 12220,
+          "G16B": 12220,
+          "G16C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "glaucoma",
+      "name_zh": "青光眼",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "已取得早期病史问题，未确认后续可比结局。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G19A",
+          "G19B",
+          "G19C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G19A": 12220,
+          "G19B": 12220,
+          "G19C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "retinal_detachment",
+      "name_zh": "视网膜脱离",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "已取得早期病史问题，未确认后续可比结局。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G20A",
+          "G20B",
+          "G20C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G20A": 12220,
+          "G20B": 12220,
+          "G20C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "tia",
+      "name_zh": "短暂性脑缺血发作相关报告",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "保留原问卷small stroke/TIA含义，不与卒中标签直接合并。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G21A",
+          "G21B",
+          "G21C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G21A": 12220,
+          "G21B": 12220,
+          "G21C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "prostate_trouble",
+      "name_zh": "前列腺问题（问卷综合项）",
+      "kind": "historical_report",
+      "tier": "historical",
+      "notes": "不能改名为前列腺癌或已确诊良性前列腺增生。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G23A",
+          "G23B",
+          "G23C"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G23A": 12220,
+          "G23B": 12220,
+          "G23C": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "thyroid_disorder_or_goiter",
+      "name_zh": "甲状腺疾病／甲状腺肿综合项",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "不能直接拆成甲亢、甲减；后续结局待补证。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G41",
+          "G42",
+          "G43",
+          "G44A",
+          "G44B",
+          "G44C",
+          "G44D",
+          "G44D1",
+          "G44D2",
+          "G45"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G41": 12220,
+          "G42": 12220,
+          "G43": 12220,
+          "G44A": 12220,
+          "G44B": 12220,
+          "G44C": 12220,
+          "G44D": 12220,
+          "G44D1": 12220,
+          "G44D2": 12220,
+          "G45": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "epilepsy",
+      "name_zh": "癫痫",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "已取得早期病史问题，未确认后续可比结局。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "G46",
+          "G47",
+          "G48",
+          "G49A",
+          "G49B",
+          "G49C",
+          "G49C1",
+          "G50"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "G46": 12220,
+          "G47": 12220,
+          "G48": 12220,
+          "G49A": 12220,
+          "G49B": 12220,
+          "G49C": 12220,
+          "G49C1": 12220,
+          "G50": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    },
+    {
+      "code": "gallbladder_disease",
+      "name_zh": "胆囊疾病",
+      "kind": "disease",
+      "tier": "historical",
+      "notes": "不能仅凭综合项改名为胆结石；后续结局待补证。",
+      "selected_for_first_version": false,
+      "training_enabled": false,
+      "label_review_status": "not_reviewed",
+      "fields_by_wave": {
+        "1982_1984": [
+          "D43",
+          "D44",
+          "D45",
+          "D46",
+          "D47"
+        ],
+        "1986": [],
+        "1987": [],
+        "1992": []
+      },
+      "derived_files": {
+        "1982_1984": "derived/disease_fields_1982_1984.jsonl"
+      },
+      "nonblank_by_wave": {
+        "1982_1984": {
+          "D43": 12220,
+          "D44": 12220,
+          "D45": 12220,
+          "D46": 12220,
+          "D47": 12220
+        },
+        "1986": {},
+        "1987": {},
+        "1992": {}
+      }
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "figures": [
+    {
+      "figure": "diabetes\\figures\\calibration.pdf",
+      "sha256": "7ce9deb8da56d014d3c508bd5226ad527efe7e42adace58f5516b76c6ee3add4",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "diabetes\\figures\\confusion_matrix.pdf",
+      "sha256": "712845f6522f0d6324508bcb80b59cf624052f04bf24047970fe85011e5c80aa",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "diabetes\\figures\\confusion_matrix_XGBoost.pdf",
+      "sha256": "3913a3f6a9a6455a3aba30cf11e5e121ba504ce0c0c159ae83d5ee9e0f92f270",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "diabetes\\figures\\precision_recall.pdf",
+      "sha256": "4a4e9fa06cd43a2cfad9bf2a69a1f9b240c31dd2969a8b43903df2bf644b0c09",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "diabetes\\figures\\roc.pdf",
+      "sha256": "3a2be7239196bd2e716fb8865bfa9c14350b9dcc455b43d28abec2c153121958",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "diabetes\\figures\\threshold_selection.pdf",
+      "sha256": "14753a8953ccbe20af06bd6f3cff6db691f335c92a75ada2cf5f59de949f2202",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "heart_attack\\figures\\calibration.pdf",
+      "sha256": "ff2df73809960e0f0bb202fdabaff348c82848dcdba0720efe97524dd9715772",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "heart_attack\\figures\\confusion_matrix.pdf",
+      "sha256": "b2f9e3142e3f5df66ec58d3e0baa5ae81db659ec2934b028d2b71fc20116adc7",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "heart_attack\\figures\\confusion_matrix_LogisticRegression.pdf",
+      "sha256": "cf24db46b89dbfc2da835d84b8a04ecf3fbf17ee3b9cd0776622dcaab009841b",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "heart_attack\\figures\\precision_recall.pdf",
+      "sha256": "aad0f97d3931ceca930c1cc8c542eefb282aafce75e2786fec04bf7f42a167d2",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "heart_attack\\figures\\roc.pdf",
+      "sha256": "02ca16e034fc37af19f54b7688cfa77a0eb563e415a3f904ed64ba17e402bff3",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "heart_attack\\figures\\threshold_selection.pdf",
+      "sha256": "047c87981d2b4ed7be23a70312432f329536379b1689ea714152adfb94b73358",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "hypertension\\figures\\calibration.pdf",
+      "sha256": "b459bbe186b463e6d1d074ba45512a1b3e292b3a7af64f45f41dd9add2502477",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "hypertension\\figures\\confusion_matrix.pdf",
+      "sha256": "e997e9557fff494b835494fb7ff40b5c1b688fe6479ed8bb8dabb10bf7464381",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "hypertension\\figures\\confusion_matrix_LogisticRegression.pdf",
+      "sha256": "d77375f9d29426cf7fc38aa62845652069e0de4c7ee83f1951c76d1d82a7b342",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "hypertension\\figures\\precision_recall.pdf",
+      "sha256": "dd3cab2fd0ebb0322ea1a6a33867f3d023d6c7bf35ba88ee1a2d5320008fd0da",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "hypertension\\figures\\roc.pdf",
+      "sha256": "39c92b06eae8d94c9bb2d931c832e92ccf1529558edeb63e4cadcdb1c3898f4b",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "hypertension\\figures\\threshold_selection.pdf",
+      "sha256": "f11aeb3ffca38af2336ec1f9b52ccd2757315b08637c0ddad966839f02581530",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "osteoporosis\\figures\\calibration.pdf",
+      "sha256": "5a33764b7fed42ce6ee064621bc5fc049d74a77f55909737499d51cfea2dcdc4",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "osteoporosis\\figures\\confusion_matrix.pdf",
+      "sha256": "867360154d1698a0bc7c04ac0e054dd6ca86b0eadfdf60826c1901942ac669aa",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "osteoporosis\\figures\\confusion_matrix_XGBoost.pdf",
+      "sha256": "711ae51304795ba8d4f9b25195d6fd0e2545aa24ef0ea8e2bda68f3a4ad91bf0",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "osteoporosis\\figures\\precision_recall.pdf",
+      "sha256": "d6132503fc0e445525b5b2ac69811a0ff2974118bd70b7abe0ad8b9fe4b944c8",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "osteoporosis\\figures\\roc.pdf",
+      "sha256": "1e6feeb468fc158a4f82ecc5fbf7c68dc8c0d5af626c816a06b901660858ae3c",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "osteoporosis\\figures\\threshold_selection.pdf",
+      "sha256": "7f8f0f92723f2f61461a6d22d8cc73e0abdb7607efa78e7e2b653c36df2ca951",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "stroke\\figures\\calibration.pdf",
+      "sha256": "eeccb1d1473086f408180cdad8bb95fac33495e1f459e7f7cc8f4b563d0f073c",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "stroke\\figures\\confusion_matrix.pdf",
+      "sha256": "65b4aa892f4de277c6cfb97a9d6a06e8d992fcad381ea5f618027da1b4e66de2",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "stroke\\figures\\confusion_matrix_LogisticRegression.pdf",
+      "sha256": "3998124655ab0d893fb84a4cab7af864eef125fa614edaebe3b3c061f9c07e04",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "stroke\\figures\\precision_recall.pdf",
+      "sha256": "da7dd516201447ef102a5385f3b604a9458a49ebe029e0a66718c7484717ad99",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "stroke\\figures\\roc.pdf",
+      "sha256": "830859b92f05358b41fa983f7c8d4240df7e83e1f26d176316476d2c25809cc2",
+      "collision_exit": 0,
+      "font_exit": 0
+    },
+    {
+      "figure": "stroke\\figures\\threshold_selection.pdf",
+      "sha256": "01575276854279ff7556e1b95510634772b9fa8733851f1b91069e31b875e282",
+      "collision_exit": 0,
+      "font_exit": 0
+    }
+  ],
+  "source_exit": 0
+}

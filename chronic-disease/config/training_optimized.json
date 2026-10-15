@@ -1,0 +1,32 @@
+{
+  "recipe": "optimized-v2",
+  "reference_version": "nhefs5-20261015T061013Z",
+  "validation_status": "exploratory_reuse_of_previously_inspected_holdout",
+  "outer_folds": 3,
+  "inner_folds": 3,
+  "selection_metric": "mean_inner_fold_roc_auc_then_average_precision",
+  "family_selection": "nested_development_oof_roc_auc_then_average_precision",
+  "default_threshold_policy": "specificity80",
+  "threshold_policies": {
+    "specificity80": "maximize sensitivity + specificity - 1 among development OOF specificity >= 0.80; prefer specificity on ties",
+    "balanced_youden": "maximize development OOF sensitivity + specificity - 1; prefer specificity on ties",
+    "screening70": "development OOF sensitivity >= 0.70; maximize specificity",
+    "f1": "maximize development OOF F1; prefer specificity on ties"
+  },
+  "feature_sets": {
+    "compact": ["age", "sex_male", "weight_kg", "self_rated_health"],
+    "original": ["age", "sex_male", "weight_kg", "self_rated_health", "smoking_current", "drinking_any", "exercise_regular", "history_hypertension", "history_diabetes", "history_stroke", "history_heart_attack", "history_osteoporosis"],
+    "expanded": ["age", "sex_male", "weight_kg", "self_rated_health", "smoking_current", "drinking_any", "exercise_regular", "history_hypertension", "history_diabetes", "history_stroke", "history_heart_attack", "history_osteoporosis", "high_cholesterol_history", "health_worsened", "weight_gain_10lb", "weight_loss_10lb", "hip_fracture_history"]
+  },
+  "logistic_C": [0.01, 0.1, 1.0],
+  "logistic_class_weight": [null, "balanced"],
+  "xgboost_candidates": [
+    {"max_depth": 1, "n_estimators": 100, "learning_rate": 0.03, "min_child_weight": 8, "reg_lambda": 10.0},
+    {"max_depth": 1, "n_estimators": 200, "learning_rate": 0.03, "min_child_weight": 8, "reg_lambda": 10.0},
+    {"max_depth": 2, "n_estimators": 100, "learning_rate": 0.03, "min_child_weight": 8, "reg_lambda": 10.0}
+  ],
+  "xgboost_positive_weight": [1.0, 5.0],
+  "calibration": "sigmoid_3fold_ensemble_false",
+  "cohort_policy": "unchanged_65plus_1987_to_1992_labels_and_ID_split; additional fields never alter inclusion",
+  "activation": "explicit_only; preserve active_model.json unless --activate"
+}

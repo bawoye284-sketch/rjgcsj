@@ -1,0 +1,2337 @@
+{
+  "name": "骨质疏松",
+  "status": "trained",
+  "models": {
+    "LogisticRegression": {
+      "parameters": {
+        "columns__transformers": [
+          [
+            "selected",
+            "passthrough",
+            [
+              "age",
+              "sex_male",
+              "weight_kg",
+              "self_rated_health",
+              "smoking_current",
+              "drinking_any",
+              "exercise_regular",
+              "history_hypertension",
+              "history_diabetes",
+              "history_stroke",
+              "history_heart_attack",
+              "high_cholesterol_history",
+              "health_worsened",
+              "weight_gain_10lb",
+              "weight_loss_10lb",
+              "hip_fracture_history"
+            ]
+          ]
+        ],
+        "model__C": 0.01,
+        "model__class_weight": "balanced"
+      },
+      "search": [
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health"
+                ]
+              ]
+            ],
+            "model__C": 0.01,
+            "model__class_weight": null
+          },
+          "mean_roc_auc": 0.592080810308235,
+          "std_roc_auc": 0.051000096709804904,
+          "mean_average_precision": 0.043073299809161615,
+          "fold_roc_auc": [
+            0.6499013806706115,
+            0.6005081874647091,
+            0.5258328627893846
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health"
+                ]
+              ]
+            ],
+            "model__C": 0.01,
+            "model__class_weight": "balanced"
+          },
+          "mean_roc_auc": 0.607983153969776,
+          "std_roc_auc": 0.03809099708426723,
+          "mean_average_precision": 0.04550094610687145,
+          "fold_roc_auc": [
+            0.6530008453085376,
+            0.6110954263128175,
+            0.5598531902879729
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health"
+                ]
+              ]
+            ],
+            "model__C": 0.1,
+            "model__class_weight": null
+          },
+          "mean_roc_auc": 0.6028562667358653,
+          "std_roc_auc": 0.037279994131213204,
+          "mean_average_precision": 0.03879138818177016,
+          "fold_roc_auc": [
+            0.6499013806706113,
+            0.5999435347261434,
+            0.5587238848108413
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health"
+                ]
+              ]
+            ],
+            "model__C": 0.1,
+            "model__class_weight": "balanced"
+          },
+          "mean_roc_auc": 0.6139124717720036,
+          "std_roc_auc": 0.030567846204721926,
+          "mean_average_precision": 0.04612910771862657,
+          "fold_roc_auc": [
+            0.6522964215271908,
+            0.6119424054206664,
+            0.5774985883681535
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health"
+                ]
+              ]
+            ],
+            "model__C": 1.0,
+            "model__class_weight": null
+          },
+          "mean_roc_auc": 0.6045975577748153,
+          "std_roc_auc": 0.032234394749638434,
+          "mean_average_precision": 0.037816846186969226,
+          "fold_roc_auc": [
+            0.6494787264018034,
+            0.5890739695087521,
+            0.5752399774138904
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health"
+                ]
+              ]
+            ],
+            "model__C": 1.0,
+            "model__class_weight": "balanced"
+          },
+          "mean_roc_auc": 0.6149010781117804,
+          "std_roc_auc": 0.029346829103726376,
+          "mean_average_precision": 0.046074487519949796,
+          "fold_roc_auc": [
+            0.651591997745844,
+            0.6133540372670807,
+            0.5797571993224168
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack"
+                ]
+              ]
+            ],
+            "model__C": 0.01,
+            "model__class_weight": null
+          },
+          "mean_roc_auc": 0.5546520554881759,
+          "std_roc_auc": 0.01777558250851486,
+          "mean_average_precision": 0.038770106587770824,
+          "fold_roc_auc": [
+            0.5381797689489998,
+            0.5464426877470356,
+            0.5793337097684923
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack"
+                ]
+              ]
+            ],
+            "model__C": 0.01,
+            "model__class_weight": "balanced"
+          },
+          "mean_roc_auc": 0.5623622939676451,
+          "std_roc_auc": 0.01929005081193955,
+          "mean_average_precision": 0.03952933701496706,
+          "fold_roc_auc": [
+            0.5483234714003945,
+            0.549124788255223,
+            0.5896386222473179
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack"
+                ]
+              ]
+            ],
+            "model__C": 0.1,
+            "model__class_weight": null
+          },
+          "mean_roc_auc": 0.5551669623575978,
+          "std_roc_auc": 0.027545506807274342,
+          "mean_average_precision": 0.03754698840409373,
+          "fold_roc_auc": [
+            0.5422654268808115,
+            0.529785431959345,
+            0.5934500282326369
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack"
+                ]
+              ]
+            ],
+            "model__C": 0.1,
+            "model__class_weight": "balanced"
+          },
+          "mean_roc_auc": 0.5632045397931686,
+          "std_roc_auc": 0.021783135471865965,
+          "mean_average_precision": 0.037754586962683086,
+          "fold_roc_auc": [
+            0.5555085939701324,
+            0.5412196499153021,
+            0.5928853754940712
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack"
+                ]
+              ]
+            ],
+            "model__C": 1.0,
+            "model__class_weight": null
+          },
+          "mean_roc_auc": 0.5594911405948195,
+          "std_roc_auc": 0.02937299407863583,
+          "mean_average_precision": 0.0379124140607049,
+          "fold_roc_auc": [
+            0.5495914342068188,
+            0.5295031055900621,
+            0.5993788819875776
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack"
+                ]
+              ]
+            ],
+            "model__C": 1.0,
+            "model__class_weight": "balanced"
+          },
+          "mean_roc_auc": 0.5642861412092182,
+          "std_roc_auc": 0.02090924263102017,
+          "mean_average_precision": 0.037030028250330096,
+          "fold_roc_auc": [
+            0.556494787264018,
+            0.5434782608695652,
+            0.5928853754940712
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack",
+                  "high_cholesterol_history",
+                  "health_worsened",
+                  "weight_gain_10lb",
+                  "weight_loss_10lb",
+                  "hip_fracture_history"
+                ]
+              ]
+            ],
+            "model__C": 0.01,
+            "model__class_weight": null
+          },
+          "mean_roc_auc": 0.6074762287136869,
+          "std_roc_auc": 0.022105736595587202,
+          "mean_average_precision": 0.043790361047264914,
+          "fold_roc_auc": [
+            0.6367990983375598,
+            0.6022021456804065,
+            0.5834274421230943
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack",
+                  "high_cholesterol_history",
+                  "health_worsened",
+                  "weight_gain_10lb",
+                  "weight_loss_10lb",
+                  "hip_fracture_history"
+                ]
+              ]
+            ],
+            "model__C": 0.01,
+            "model__class_weight": "balanced"
+          },
+          "mean_roc_auc": 0.6198858740664761,
+          "std_roc_auc": 0.025628475246619084,
+          "mean_average_precision": 0.056870482750700564,
+          "fold_roc_auc": [
+            0.6561003099464637,
+            0.6030491247882552,
+            0.6005081874647092
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack",
+                  "high_cholesterol_history",
+                  "health_worsened",
+                  "weight_gain_10lb",
+                  "weight_loss_10lb",
+                  "hip_fracture_history"
+                ]
+              ]
+            ],
+            "model__C": 0.1,
+            "model__class_weight": null
+          },
+          "mean_roc_auc": 0.614732721756133,
+          "std_roc_auc": 0.013861598902805158,
+          "mean_average_precision": 0.05090338417541571,
+          "fold_roc_auc": [
+            0.6214426599041983,
+            0.5954263128176172,
+            0.6273291925465838
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack",
+                  "high_cholesterol_history",
+                  "health_worsened",
+                  "weight_gain_10lb",
+                  "weight_loss_10lb",
+                  "hip_fracture_history"
+                ]
+              ]
+            ],
+            "model__C": 0.1,
+            "model__class_weight": "balanced"
+          },
+          "mean_roc_auc": 0.6074745581434545,
+          "std_roc_auc": 0.02406889885720376,
+          "mean_average_precision": 0.060972761713026326,
+          "fold_roc_auc": [
+            0.6393350239504085,
+            0.5811688311688312,
+            0.6019198193111237
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack",
+                  "high_cholesterol_history",
+                  "health_worsened",
+                  "weight_gain_10lb",
+                  "weight_loss_10lb",
+                  "hip_fracture_history"
+                ]
+              ]
+            ],
+            "model__C": 1.0,
+            "model__class_weight": null
+          },
+          "mean_roc_auc": 0.6145636229248269,
+          "std_roc_auc": 0.021831942411679264,
+          "mean_average_precision": 0.05296647738125132,
+          "fold_roc_auc": [
+            0.5924204001127078,
+            0.6070016939582157,
+            0.6442687747035574
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack",
+                  "high_cholesterol_history",
+                  "health_worsened",
+                  "weight_gain_10lb",
+                  "weight_loss_10lb",
+                  "hip_fracture_history"
+                ]
+              ]
+            ],
+            "model__C": 1.0,
+            "model__class_weight": "balanced"
+          },
+          "mean_roc_auc": 0.5925785474280457,
+          "std_roc_auc": 0.017013035360766225,
+          "mean_average_precision": 0.05950320161187397,
+          "fold_roc_auc": [
+            0.6086221470836854,
+            0.5690287972896668,
+            0.6000846979107849
+          ]
+        }
+      ],
+      "calibration": "sigmoid_3fold_ensemble_false",
+      "feature_selection": "nested inner-fold search",
+      "development_oof_roc_auc": 0.5920875262547415,
+      "development_oof_average_precision": 0.036785014238495554,
+      "development_oof_brier": 0.02618709154862871,
+      "threshold": 0.030912349526069437,
+      "threshold_policy": "specificity80",
+      "operating_thresholds": {
+        "specificity80": 0.030912349526069437,
+        "balanced_youden": 0.026464447825613278,
+        "screening70": 0.026709622335123334,
+        "f1": 0.030912349526069437
+      },
+      "features": [
+        "age",
+        "sex_male",
+        "weight_kg",
+        "self_rated_health",
+        "smoking_current",
+        "drinking_any",
+        "exercise_regular",
+        "history_hypertension",
+        "history_diabetes",
+        "history_stroke",
+        "history_heart_attack",
+        "high_cholesterol_history",
+        "health_worsened",
+        "weight_gain_10lb",
+        "weight_loss_10lb",
+        "hip_fracture_history"
+      ],
+      "nested_fold_audit_sha256": "e8c7352993d695905361e984dd684316afb05623dc2daafa950eeeea052cb25e",
+      "artifact": "osteoporosis--LogisticRegression.joblib",
+      "artifact_sha256": "6631589fb3758a143562b7a776f26355422b53186ec57053173f7fe9add085f9",
+      "evaluation": {
+        "n": 367,
+        "events": 11,
+        "event_rate": 0.02997275204359673,
+        "roc_auc": 0.5617977528089888,
+        "average_precision": 0.12011223676800628,
+        "accuracy": 0.662125340599455,
+        "balanced_accuracy": 0.6055924412665985,
+        "sensitivity": 0.5454545454545454,
+        "specificity": 0.6657303370786517,
+        "precision": 0.048,
+        "negative_predictive_value": 0.9793388429752066,
+        "f1": 0.08823529411764706,
+        "mcc": 0.0759838821218851,
+        "brier": 0.028962211573382142,
+        "log_loss": 0.13540264656890372,
+        "threshold": 0.030912349526069437,
+        "confusion_matrix": [
+          [
+            237,
+            119
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "confusion_matrix_axes": {
+          "rows": [
+            "Observed negative",
+            "Observed positive"
+          ],
+          "columns": [
+            "Predicted negative",
+            "Predicted positive"
+          ]
+        },
+        "classification_report": {
+          "0": {
+            "precision": 0.9793388429752066,
+            "recall": 0.6657303370786517,
+            "f1-score": 0.7926421404682275,
+            "support": 356.0
+          },
+          "1": {
+            "precision": 0.048,
+            "recall": 0.5454545454545454,
+            "f1-score": 0.08823529411764706,
+            "support": 11.0
+          },
+          "accuracy": 0.662125340599455,
+          "macro avg": {
+            "precision": 0.5136694214876033,
+            "recall": 0.6055924412665985,
+            "f1-score": 0.44043871729293727,
+            "support": 367.0
+          },
+          "weighted avg": {
+            "precision": 0.9514240547661404,
+            "recall": 0.662125340599455,
+            "f1-score": 0.7715291287247495,
+            "support": 367.0
+          }
+        },
+        "confidence_intervals": {
+          "method": "participant bootstrap percentile 95%; conditional on this fitted model",
+          "requested_repeats": 500,
+          "valid_repeats": 500,
+          "intervals": {
+            "roc_auc": [
+              0.32068833731264096,
+              0.7997142659880854
+            ],
+            "average_precision": [
+              0.02174132276575901,
+              0.38501911263601946
+            ],
+            "accuracy": [
+              0.6170980926430518,
+              0.7111716621253406
+            ],
+            "sensitivity": [
+              0.25,
+              0.8261363636363633
+            ],
+            "specificity": [
+              0.6207563993308715,
+              0.7147047086991221
+            ],
+            "precision": [
+              0.014128371628371628,
+              0.08576249665864741
+            ],
+            "f1": [
+              0.02683783783783784,
+              0.15222163727296656
+            ],
+            "brier": [
+              0.013546147891657187,
+              0.04684197265769544
+            ]
+          }
+        }
+      },
+      "operating_points": {
+        "specificity80": {
+          "n": 367,
+          "events": 11,
+          "event_rate": 0.02997275204359673,
+          "roc_auc": 0.5617977528089888,
+          "average_precision": 0.12011223676800628,
+          "accuracy": 0.662125340599455,
+          "balanced_accuracy": 0.6055924412665985,
+          "sensitivity": 0.5454545454545454,
+          "specificity": 0.6657303370786517,
+          "precision": 0.048,
+          "negative_predictive_value": 0.9793388429752066,
+          "f1": 0.08823529411764706,
+          "mcc": 0.0759838821218851,
+          "brier": 0.028962211573382142,
+          "log_loss": 0.13540264656890372,
+          "threshold": 0.030912349526069437,
+          "confusion_matrix": [
+            [
+              237,
+              119
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.9793388429752066,
+              "recall": 0.6657303370786517,
+              "f1-score": 0.7926421404682275,
+              "support": 356.0
+            },
+            "1": {
+              "precision": 0.048,
+              "recall": 0.5454545454545454,
+              "f1-score": 0.08823529411764706,
+              "support": 11.0
+            },
+            "accuracy": 0.662125340599455,
+            "macro avg": {
+              "precision": 0.5136694214876033,
+              "recall": 0.6055924412665985,
+              "f1-score": 0.44043871729293727,
+              "support": 367.0
+            },
+            "weighted avg": {
+              "precision": 0.9514240547661404,
+              "recall": 0.662125340599455,
+              "f1-score": 0.7715291287247495,
+              "support": 367.0
+            }
+          }
+        },
+        "balanced_youden": {
+          "n": 367,
+          "events": 11,
+          "event_rate": 0.02997275204359673,
+          "roc_auc": 0.5617977528089888,
+          "average_precision": 0.12011223676800628,
+          "accuracy": 0.48501362397820164,
+          "balanced_accuracy": 0.5143003064351379,
+          "sensitivity": 0.5454545454545454,
+          "specificity": 0.48314606741573035,
+          "precision": 0.031578947368421054,
+          "negative_predictive_value": 0.9717514124293786,
+          "f1": 0.05970149253731343,
+          "mcc": 0.009759627620744341,
+          "brier": 0.028962211573382142,
+          "log_loss": 0.13540264656890372,
+          "threshold": 0.026464447825613278,
+          "confusion_matrix": [
+            [
+              172,
+              184
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.9717514124293786,
+              "recall": 0.48314606741573035,
+              "f1-score": 0.6454033771106942,
+              "support": 356.0
+            },
+            "1": {
+              "precision": 0.031578947368421054,
+              "recall": 0.5454545454545454,
+              "f1-score": 0.05970149253731343,
+              "support": 11.0
+            },
+            "accuracy": 0.48501362397820164,
+            "macro avg": {
+              "precision": 0.5016651798988998,
+              "recall": 0.5143003064351379,
+              "f1-score": 0.3525524348240038,
+              "support": 367.0
+            },
+            "weighted avg": {
+              "precision": 0.9435718562558895,
+              "recall": 0.48501362397820164,
+              "f1-score": 0.6278482797529089,
+              "support": 367.0
+            }
+          }
+        },
+        "screening70": {
+          "n": 367,
+          "events": 11,
+          "event_rate": 0.02997275204359673,
+          "roc_auc": 0.5617977528089888,
+          "average_precision": 0.12011223676800628,
+          "accuracy": 0.5013623978201635,
+          "balanced_accuracy": 0.5227272727272727,
+          "sensitivity": 0.5454545454545454,
+          "specificity": 0.5,
+          "precision": 0.03260869565217391,
+          "negative_predictive_value": 0.9726775956284153,
+          "f1": 0.06153846153846154,
+          "mcc": 0.015501160192047229,
+          "brier": 0.028962211573382142,
+          "log_loss": 0.13540264656890372,
+          "threshold": 0.026709622335123334,
+          "confusion_matrix": [
+            [
+              178,
+              178
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.9726775956284153,
+              "recall": 0.5,
+              "f1-score": 0.660482374768089,
+              "support": 356.0
+            },
+            "1": {
+              "precision": 0.03260869565217391,
+              "recall": 0.5454545454545454,
+              "f1-score": 0.06153846153846154,
+              "support": 11.0
+            },
+            "accuracy": 0.5013623978201635,
+            "macro avg": {
+              "precision": 0.5026431456402946,
+              "recall": 0.5227272727272727,
+              "f1-score": 0.3610104181532753,
+              "support": 367.0
+            },
+            "weighted avg": {
+              "precision": 0.9445011435855307,
+              "recall": 0.5013623978201635,
+              "f1-score": 0.6425303773688359,
+              "support": 367.0
+            }
+          }
+        },
+        "f1": {
+          "n": 367,
+          "events": 11,
+          "event_rate": 0.02997275204359673,
+          "roc_auc": 0.5617977528089888,
+          "average_precision": 0.12011223676800628,
+          "accuracy": 0.662125340599455,
+          "balanced_accuracy": 0.6055924412665985,
+          "sensitivity": 0.5454545454545454,
+          "specificity": 0.6657303370786517,
+          "precision": 0.048,
+          "negative_predictive_value": 0.9793388429752066,
+          "f1": 0.08823529411764706,
+          "mcc": 0.0759838821218851,
+          "brier": 0.028962211573382142,
+          "log_loss": 0.13540264656890372,
+          "threshold": 0.030912349526069437,
+          "confusion_matrix": [
+            [
+              237,
+              119
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.9793388429752066,
+              "recall": 0.6657303370786517,
+              "f1-score": 0.7926421404682275,
+              "support": 356.0
+            },
+            "1": {
+              "precision": 0.048,
+              "recall": 0.5454545454545454,
+              "f1-score": 0.08823529411764706,
+              "support": 11.0
+            },
+            "accuracy": 0.662125340599455,
+            "macro avg": {
+              "precision": 0.5136694214876033,
+              "recall": 0.6055924412665985,
+              "f1-score": 0.44043871729293727,
+              "support": 367.0
+            },
+            "weighted avg": {
+              "precision": 0.9514240547661404,
+              "recall": 0.662125340599455,
+              "f1-score": 0.7715291287247495,
+              "support": 367.0
+            }
+          }
+        }
+      },
+      "development_oof_metrics": {
+        "n": 1561,
+        "events": 42,
+        "event_rate": 0.026905829596412557,
+        "roc_auc": 0.5920875262547415,
+        "average_precision": 0.036785014238495554,
+        "accuracy": 0.8142216527866752,
+        "balanced_accuracy": 0.5572745227123107,
+        "sensitivity": 0.2857142857142857,
+        "specificity": 0.8288347597103357,
+        "precision": 0.04411764705882353,
+        "negative_predictive_value": 0.9767261442979054,
+        "f1": 0.07643312101910828,
+        "mcc": 0.048863446490636224,
+        "brier": 0.02618709154862871,
+        "log_loss": 0.1244168950601348,
+        "threshold": 0.030912349526069437,
+        "confusion_matrix": [
+          [
+            1259,
+            260
+          ],
+          [
+            30,
+            12
+          ]
+        ],
+        "confusion_matrix_axes": {
+          "rows": [
+            "Observed negative",
+            "Observed positive"
+          ],
+          "columns": [
+            "Predicted negative",
+            "Predicted positive"
+          ]
+        },
+        "classification_report": {
+          "0": {
+            "precision": 0.9767261442979054,
+            "recall": 0.8288347597103357,
+            "f1-score": 0.8967236467236467,
+            "support": 1519.0
+          },
+          "1": {
+            "precision": 0.04411764705882353,
+            "recall": 0.2857142857142857,
+            "f1-score": 0.07643312101910828,
+            "support": 42.0
+          },
+          "accuracy": 0.8142216527866752,
+          "macro avg": {
+            "precision": 0.5104218956783645,
+            "recall": 0.5572745227123107,
+            "f1-score": 0.4865783838713775,
+            "support": 1561.0
+          },
+          "weighted avg": {
+            "precision": 0.9516335389910242,
+            "recall": 0.8142216527866752,
+            "f1-score": 0.8746530496194888,
+            "support": 1561.0
+          }
+        }
+      }
+    },
+    "XGBoost": {
+      "parameters": {
+        "columns__transformers": [
+          [
+            "selected",
+            "passthrough",
+            [
+              "age",
+              "sex_male",
+              "weight_kg",
+              "self_rated_health",
+              "smoking_current",
+              "drinking_any",
+              "exercise_regular",
+              "history_hypertension",
+              "history_diabetes",
+              "history_stroke",
+              "history_heart_attack",
+              "high_cholesterol_history",
+              "health_worsened",
+              "weight_gain_10lb",
+              "weight_loss_10lb",
+              "hip_fracture_history"
+            ]
+          ]
+        ],
+        "model__learning_rate": 0.03,
+        "model__max_depth": 1,
+        "model__min_child_weight": 8,
+        "model__n_estimators": 100,
+        "model__reg_lambda": 10.0,
+        "model__scale_pos_weight": 5.0
+      },
+      "search": [
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 1,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 100,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 1.0
+          },
+          "mean_roc_auc": 0.5837568692919864,
+          "std_roc_auc": 0.015533295074979591,
+          "mean_average_precision": 0.03513970971723712,
+          "fold_roc_auc": [
+            0.5713581290504368,
+            0.605660643704122,
+            0.5742518351214003
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 1,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 100,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 5.0
+          },
+          "mean_roc_auc": 0.5840903336722735,
+          "std_roc_auc": 0.039767237088076134,
+          "mean_average_precision": 0.0371572863992222,
+          "fold_roc_auc": [
+            0.6365877712031557,
+            0.5753105590062112,
+            0.5403726708074534
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 1,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 200,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 1.0
+          },
+          "mean_roc_auc": 0.5867167485060462,
+          "std_roc_auc": 0.007784318850491681,
+          "mean_average_precision": 0.036433913680521915,
+          "fold_roc_auc": [
+            0.5782614821076361,
+            0.5970496894409938,
+            0.5848390739695087
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 1,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 200,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 5.0
+          },
+          "mean_roc_auc": 0.5854256761447397,
+          "std_roc_auc": 0.04668190211567146,
+          "mean_average_precision": 0.03531011962684947,
+          "fold_roc_auc": [
+            0.6452521837137222,
+            0.579686617730096,
+            0.5313382269904009
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 2,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 100,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 1.0
+          },
+          "mean_roc_auc": 0.5627116287651405,
+          "std_roc_auc": 0.011765674987226558,
+          "mean_average_precision": 0.03409388800452131,
+          "fold_roc_auc": [
+            0.5537475345167653,
+            0.5793337097684924,
+            0.5550536420101637
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 2,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 100,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 5.0
+          },
+          "mean_roc_auc": 0.5674031004298563,
+          "std_roc_auc": 0.03308104088485045,
+          "mean_average_precision": 0.034805754265390294,
+          "fold_roc_auc": [
+            0.6106649760495915,
+            0.5611942405420667,
+            0.5303500846979108
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 1,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 100,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 1.0
+          },
+          "mean_roc_auc": 0.5942058220486315,
+          "std_roc_auc": 0.014161100990242799,
+          "mean_average_precision": 0.035487008434837396,
+          "fold_roc_auc": [
+            0.602704987320372,
+            0.605660643704122,
+            0.5742518351214003
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 1,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 100,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 5.0
+          },
+          "mean_roc_auc": 0.5751911132345915,
+          "std_roc_auc": 0.028380501341848337,
+          "mean_average_precision": 0.033323795631216784,
+          "fold_roc_auc": [
+            0.6098901098901099,
+            0.5753105590062112,
+            0.5403726708074534
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 1,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 200,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 1.0
+          },
+          "mean_roc_auc": 0.577723604897518,
+          "std_roc_auc": 0.0193501352406612,
+          "mean_average_precision": 0.033500490668069725,
+          "fold_roc_auc": [
+            0.5512820512820512,
+            0.5970496894409938,
+            0.5848390739695087
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 1,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 200,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 5.0
+          },
+          "mean_roc_auc": 0.5709849886271291,
+          "std_roc_auc": 0.029468544160721588,
+          "mean_average_precision": 0.03249114210556385,
+          "fold_roc_auc": [
+            0.6019301211608904,
+            0.579686617730096,
+            0.5313382269904009
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 2,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 100,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 1.0
+          },
+          "mean_roc_auc": 0.5613907181632934,
+          "std_roc_auc": 0.006442634855781172,
+          "mean_average_precision": 0.03349604544802489,
+          "fold_roc_auc": [
+            0.5588898281205973,
+            0.5702286843591191,
+            0.5550536420101637
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 2,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 100,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 5.0
+          },
+          "mean_roc_auc": 0.5367656776519653,
+          "std_roc_auc": 0.007463975471146392,
+          "mean_average_precision": 0.030828568584605198,
+          "fold_roc_auc": [
+            0.546844181459566,
+            0.5344438170525126,
+            0.5290090344438171
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack",
+                  "high_cholesterol_history",
+                  "health_worsened",
+                  "weight_gain_10lb",
+                  "weight_loss_10lb",
+                  "hip_fracture_history"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 1,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 100,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 1.0
+          },
+          "mean_roc_auc": 0.5942058220486315,
+          "std_roc_auc": 0.014161100990242799,
+          "mean_average_precision": 0.035487008434837396,
+          "fold_roc_auc": [
+            0.602704987320372,
+            0.605660643704122,
+            0.5742518351214003
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack",
+                  "high_cholesterol_history",
+                  "health_worsened",
+                  "weight_gain_10lb",
+                  "weight_loss_10lb",
+                  "hip_fracture_history"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 1,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 100,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 5.0
+          },
+          "mean_roc_auc": 0.6154286534721317,
+          "std_roc_auc": 0.04018378894834968,
+          "mean_average_precision": 0.054271073925261086,
+          "fold_roc_auc": [
+            0.6721611721611722,
+            0.5842038396386222,
+            0.5899209486166008
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack",
+                  "high_cholesterol_history",
+                  "health_worsened",
+                  "weight_gain_10lb",
+                  "weight_loss_10lb",
+                  "hip_fracture_history"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 1,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 200,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 1.0
+          },
+          "mean_roc_auc": 0.577723604897518,
+          "std_roc_auc": 0.0193501352406612,
+          "mean_average_precision": 0.033500490668069725,
+          "fold_roc_auc": [
+            0.5512820512820512,
+            0.5970496894409938,
+            0.5848390739695087
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack",
+                  "high_cholesterol_history",
+                  "health_worsened",
+                  "weight_gain_10lb",
+                  "weight_loss_10lb",
+                  "hip_fracture_history"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 1,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 200,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 5.0
+          },
+          "mean_roc_auc": 0.6090286061021848,
+          "std_roc_auc": 0.0458416907478303,
+          "mean_average_precision": 0.056437872996927596,
+          "fold_roc_auc": [
+            0.6731473654550577,
+            0.5852625635234331,
+            0.5686758893280633
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack",
+                  "high_cholesterol_history",
+                  "health_worsened",
+                  "weight_gain_10lb",
+                  "weight_loss_10lb",
+                  "hip_fracture_history"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 2,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 100,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 1.0
+          },
+          "mean_roc_auc": 0.5613907181632934,
+          "std_roc_auc": 0.006442634855781172,
+          "mean_average_precision": 0.03349604544802489,
+          "fold_roc_auc": [
+            0.5588898281205973,
+            0.5702286843591191,
+            0.5550536420101637
+          ]
+        },
+        {
+          "parameters": {
+            "columns__transformers": [
+              [
+                "selected",
+                "passthrough",
+                [
+                  "age",
+                  "sex_male",
+                  "weight_kg",
+                  "self_rated_health",
+                  "smoking_current",
+                  "drinking_any",
+                  "exercise_regular",
+                  "history_hypertension",
+                  "history_diabetes",
+                  "history_stroke",
+                  "history_heart_attack",
+                  "high_cholesterol_history",
+                  "health_worsened",
+                  "weight_gain_10lb",
+                  "weight_loss_10lb",
+                  "hip_fracture_history"
+                ]
+              ]
+            ],
+            "model__learning_rate": 0.03,
+            "model__max_depth": 2,
+            "model__min_child_weight": 8,
+            "model__n_estimators": 100,
+            "model__reg_lambda": 10.0,
+            "model__scale_pos_weight": 5.0
+          },
+          "mean_roc_auc": 0.5922688422688422,
+          "std_roc_auc": 0.01574004328098499,
+          "mean_average_precision": 0.05127944476505771,
+          "fold_roc_auc": [
+            0.6144688644688645,
+            0.5797571993224168,
+            0.5825804630152456
+          ]
+        }
+      ],
+      "calibration": "sigmoid_3fold_ensemble_false",
+      "feature_selection": "nested inner-fold search",
+      "development_oof_roc_auc": 0.5893993542117308,
+      "development_oof_average_precision": 0.03441510282914186,
+      "development_oof_brier": 0.02615726099117097,
+      "threshold": 0.04325691713473682,
+      "threshold_policy": "specificity80",
+      "operating_thresholds": {
+        "specificity80": 0.04325691713473682,
+        "balanced_youden": 0.026958837051248997,
+        "screening70": 0.026958837051248997,
+        "f1": 0.026958962953728384
+      },
+      "features": [
+        "age",
+        "sex_male",
+        "weight_kg",
+        "self_rated_health",
+        "smoking_current",
+        "drinking_any",
+        "exercise_regular",
+        "history_hypertension",
+        "history_diabetes",
+        "history_stroke",
+        "history_heart_attack",
+        "high_cholesterol_history",
+        "health_worsened",
+        "weight_gain_10lb",
+        "weight_loss_10lb",
+        "hip_fracture_history"
+      ],
+      "nested_fold_audit_sha256": "3091cbb12de2562cba836ab2c7474a07fc4316fedee66a696b894dc4d3dbf2f4",
+      "artifact": "osteoporosis--XGBoost.joblib",
+      "artifact_sha256": "a1c4f1cb785027c0c509255360cb8aa3d3d22de27547f147cc7a3de46b274367",
+      "evaluation": {
+        "n": 367,
+        "events": 11,
+        "event_rate": 0.02997275204359673,
+        "roc_auc": 0.5609039836567927,
+        "average_precision": 0.07420236377263166,
+        "accuracy": 0.9073569482288828,
+        "balanced_accuracy": 0.5557967313585291,
+        "sensitivity": 0.18181818181818182,
+        "specificity": 0.9297752808988764,
+        "precision": 0.07407407407407407,
+        "negative_predictive_value": 0.9735294117647059,
+        "f1": 0.10526315789473684,
+        "mcc": 0.0728851001381757,
+        "brier": 0.02889851685392964,
+        "log_loss": 0.13535737323639055,
+        "threshold": 0.04325691713473682,
+        "confusion_matrix": [
+          [
+            331,
+            25
+          ],
+          [
+            9,
+            2
+          ]
+        ],
+        "confusion_matrix_axes": {
+          "rows": [
+            "Observed negative",
+            "Observed positive"
+          ],
+          "columns": [
+            "Predicted negative",
+            "Predicted positive"
+          ]
+        },
+        "classification_report": {
+          "0": {
+            "precision": 0.9735294117647059,
+            "recall": 0.9297752808988764,
+            "f1-score": 0.9511494252873564,
+            "support": 356.0
+          },
+          "1": {
+            "precision": 0.07407407407407407,
+            "recall": 0.18181818181818182,
+            "f1-score": 0.10526315789473684,
+            "support": 11.0
+          },
+          "accuracy": 0.9073569482288828,
+          "macro avg": {
+            "precision": 0.52380174291939,
+            "recall": 0.5557967313585291,
+            "f1-score": 0.5282062915910466,
+            "support": 367.0
+          },
+          "weighted avg": {
+            "precision": 0.946570259953815,
+            "recall": 0.9073569482288828,
+            "f1-score": 0.9257958859377137,
+            "support": 367.0
+          }
+        },
+        "confidence_intervals": {
+          "method": "participant bootstrap percentile 95%; conditional on this fitted model",
+          "requested_repeats": 500,
+          "valid_repeats": 500,
+          "intervals": {
+            "roc_auc": [
+              0.3604656844862562,
+              0.7665587231168071
+            ],
+            "average_precision": [
+              0.019647779192682277,
+              0.24536727129402786
+            ],
+            "accuracy": [
+              0.8801089918256131,
+              0.9400544959128065
+            ],
+            "sensitivity": [
+              0.0,
+              0.4497474747474745
+            ],
+            "specificity": [
+              0.9024926288019863,
+              0.9564579244745505
+            ],
+            "precision": [
+              0.0,
+              0.18906249999999994
+            ],
+            "f1": [
+              0.0,
+              0.24320029563932
+            ],
+            "brier": [
+              0.013692082147936841,
+              0.046201939532006533
+            ]
+          }
+        }
+      },
+      "operating_points": {
+        "specificity80": {
+          "n": 367,
+          "events": 11,
+          "event_rate": 0.02997275204359673,
+          "roc_auc": 0.5609039836567927,
+          "average_precision": 0.07420236377263166,
+          "accuracy": 0.9073569482288828,
+          "balanced_accuracy": 0.5557967313585291,
+          "sensitivity": 0.18181818181818182,
+          "specificity": 0.9297752808988764,
+          "precision": 0.07407407407407407,
+          "negative_predictive_value": 0.9735294117647059,
+          "f1": 0.10526315789473684,
+          "mcc": 0.0728851001381757,
+          "brier": 0.02889851685392964,
+          "log_loss": 0.13535737323639055,
+          "threshold": 0.04325691713473682,
+          "confusion_matrix": [
+            [
+              331,
+              25
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.9735294117647059,
+              "recall": 0.9297752808988764,
+              "f1-score": 0.9511494252873564,
+              "support": 356.0
+            },
+            "1": {
+              "precision": 0.07407407407407407,
+              "recall": 0.18181818181818182,
+              "f1-score": 0.10526315789473684,
+              "support": 11.0
+            },
+            "accuracy": 0.9073569482288828,
+            "macro avg": {
+              "precision": 0.52380174291939,
+              "recall": 0.5557967313585291,
+              "f1-score": 0.5282062915910466,
+              "support": 367.0
+            },
+            "weighted avg": {
+              "precision": 0.946570259953815,
+              "recall": 0.9073569482288828,
+              "f1-score": 0.9257958859377137,
+              "support": 367.0
+            }
+          }
+        },
+        "balanced_youden": {
+          "n": 367,
+          "events": 11,
+          "event_rate": 0.02997275204359673,
+          "roc_auc": 0.5609039836567927,
+          "average_precision": 0.07420236377263166,
+          "accuracy": 0.47411444141689374,
+          "balanced_accuracy": 0.5527323799795709,
+          "sensitivity": 0.6363636363636364,
+          "specificity": 0.4691011235955056,
+          "precision": 0.03571428571428571,
+          "negative_predictive_value": 0.9766081871345029,
+          "f1": 0.06763285024154589,
+          "mcc": 0.036049780042332266,
+          "brier": 0.02889851685392964,
+          "log_loss": 0.13535737323639055,
+          "threshold": 0.026958837051248997,
+          "confusion_matrix": [
+            [
+              167,
+              189
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.9766081871345029,
+              "recall": 0.4691011235955056,
+              "f1-score": 0.6337760910815939,
+              "support": 356.0
+            },
+            "1": {
+              "precision": 0.03571428571428571,
+              "recall": 0.6363636363636364,
+              "f1-score": 0.06763285024154589,
+              "support": 11.0
+            },
+            "accuracy": 0.47411444141689374,
+            "macro avg": {
+              "precision": 0.5061612364243944,
+              "recall": 0.5527323799795709,
+              "f1-score": 0.3507044706615699,
+              "support": 367.0
+            },
+            "weighted avg": {
+              "precision": 0.9484070075279024,
+              "recall": 0.47411444141689374,
+              "f1-score": 0.6168072201027369,
+              "support": 367.0
+            }
+          }
+        },
+        "screening70": {
+          "n": 367,
+          "events": 11,
+          "event_rate": 0.02997275204359673,
+          "roc_auc": 0.5609039836567927,
+          "average_precision": 0.07420236377263166,
+          "accuracy": 0.47411444141689374,
+          "balanced_accuracy": 0.5527323799795709,
+          "sensitivity": 0.6363636363636364,
+          "specificity": 0.4691011235955056,
+          "precision": 0.03571428571428571,
+          "negative_predictive_value": 0.9766081871345029,
+          "f1": 0.06763285024154589,
+          "mcc": 0.036049780042332266,
+          "brier": 0.02889851685392964,
+          "log_loss": 0.13535737323639055,
+          "threshold": 0.026958837051248997,
+          "confusion_matrix": [
+            [
+              167,
+              189
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.9766081871345029,
+              "recall": 0.4691011235955056,
+              "f1-score": 0.6337760910815939,
+              "support": 356.0
+            },
+            "1": {
+              "precision": 0.03571428571428571,
+              "recall": 0.6363636363636364,
+              "f1-score": 0.06763285024154589,
+              "support": 11.0
+            },
+            "accuracy": 0.47411444141689374,
+            "macro avg": {
+              "precision": 0.5061612364243944,
+              "recall": 0.5527323799795709,
+              "f1-score": 0.3507044706615699,
+              "support": 367.0
+            },
+            "weighted avg": {
+              "precision": 0.9484070075279024,
+              "recall": 0.47411444141689374,
+              "f1-score": 0.6168072201027369,
+              "support": 367.0
+            }
+          }
+        },
+        "f1": {
+          "n": 367,
+          "events": 11,
+          "event_rate": 0.02997275204359673,
+          "roc_auc": 0.5609039836567927,
+          "average_precision": 0.07420236377263166,
+          "accuracy": 0.47411444141689374,
+          "balanced_accuracy": 0.5527323799795709,
+          "sensitivity": 0.6363636363636364,
+          "specificity": 0.4691011235955056,
+          "precision": 0.03571428571428571,
+          "negative_predictive_value": 0.9766081871345029,
+          "f1": 0.06763285024154589,
+          "mcc": 0.036049780042332266,
+          "brier": 0.02889851685392964,
+          "log_loss": 0.13535737323639055,
+          "threshold": 0.026958962953728384,
+          "confusion_matrix": [
+            [
+              167,
+              189
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.9766081871345029,
+              "recall": 0.4691011235955056,
+              "f1-score": 0.6337760910815939,
+              "support": 356.0
+            },
+            "1": {
+              "precision": 0.03571428571428571,
+              "recall": 0.6363636363636364,
+              "f1-score": 0.06763285024154589,
+              "support": 11.0
+            },
+            "accuracy": 0.47411444141689374,
+            "macro avg": {
+              "precision": 0.5061612364243944,
+              "recall": 0.5527323799795709,
+              "f1-score": 0.3507044706615699,
+              "support": 367.0
+            },
+            "weighted avg": {
+              "precision": 0.9484070075279024,
+              "recall": 0.47411444141689374,
+              "f1-score": 0.6168072201027369,
+              "support": 367.0
+            }
+          }
+        }
+      },
+      "development_oof_metrics": {
+        "n": 1561,
+        "events": 42,
+        "event_rate": 0.026905829596412557,
+        "roc_auc": 0.5893993542117308,
+        "average_precision": 0.03441510282914186,
+        "accuracy": 0.8802049967969251,
+        "balanced_accuracy": 0.521724818959842,
+        "sensitivity": 0.14285714285714285,
+        "specificity": 0.9005924950625411,
+        "precision": 0.03821656050955414,
+        "negative_predictive_value": 0.9743589743589743,
+        "f1": 0.06030150753768844,
+        "mcc": 0.02337525265497518,
+        "brier": 0.02615726099117097,
+        "log_loss": 0.12277068519970752,
+        "threshold": 0.04325691713473682,
+        "confusion_matrix": [
+          [
+            1368,
+            151
+          ],
+          [
+            36,
+            6
+          ]
+        ],
+        "confusion_matrix_axes": {
+          "rows": [
+            "Observed negative",
+            "Observed positive"
+          ],
+          "columns": [
+            "Predicted negative",
+            "Predicted positive"
+          ]
+        },
+        "classification_report": {
+          "0": {
+            "precision": 0.9743589743589743,
+            "recall": 0.9005924950625411,
+            "f1-score": 0.9360246322271639,
+            "support": 1519.0
+          },
+          "1": {
+            "precision": 0.03821656050955414,
+            "recall": 0.14285714285714285,
+            "f1-score": 0.06030150753768844,
+            "support": 42.0
+          },
+          "accuracy": 0.8802049967969251,
+          "macro avg": {
+            "precision": 0.5062877674342643,
+            "recall": 0.521724818959842,
+            "f1-score": 0.4981630698824262,
+            "support": 1561.0
+          },
+          "weighted avg": {
+            "precision": 0.9491712860939674,
+            "recall": 0.8802049967969251,
+            "f1-score": 0.912462575060631,
+            "support": 1561.0
+          }
+        }
+      }
+    }
+  },
+  "n_development": 1561,
+  "events_development": 42,
+  "n_evaluation": 367,
+  "events_evaluation": 11,
+  "selected_model": "LogisticRegression",
+  "features": [
+    "age",
+    "sex_male",
+    "weight_kg",
+    "self_rated_health",
+    "smoking_current",
+    "drinking_any",
+    "exercise_regular",
+    "history_hypertension",
+    "history_diabetes",
+    "history_stroke",
+    "history_heart_attack",
+    "high_cholesterol_history",
+    "health_worsened",
+    "weight_gain_10lb",
+    "weight_loss_10lb",
+    "hip_fracture_history"
+  ],
+  "age_min": 65,
+  "age_max": 90,
+  "outcome_definition": "Survivor-conditional new doctor-told disease report after baseline calendar year",
+  "horizon_definition": "1987-to-1992 survey interval; not an exact 60-month incidence estimate",
+  "followup_months_range": [
+    55.0,
+    73.03
+  ],
+  "development_event_rate": 0.026905829596412557,
+  "constant_baseline": {
+    "n": 367,
+    "events": 11,
+    "event_rate": 0.02997275204359673,
+    "roc_auc": 0.5,
+    "average_precision": 0.02997275204359673,
+    "accuracy": 0.9700272479564033,
+    "balanced_accuracy": 0.5,
+    "sensitivity": 0.0,
+    "specificity": 1.0,
+    "precision": 0.0,
+    "negative_predictive_value": 0.9700272479564033,
+    "f1": 0.0,
+    "mcc": 0.0,
+    "brier": 0.029083792191826843,
+    "log_loss": 0.13482078502439065,
+    "threshold": 0.5,
+    "confusion_matrix": [
+      [
+        356,
+        0
+      ],
+      [
+        11,
+        0
+      ]
+    ],
+    "confusion_matrix_axes": {
+      "rows": [
+        "Observed negative",
+        "Observed positive"
+      ],
+      "columns": [
+        "Predicted negative",
+        "Predicted positive"
+      ]
+    },
+    "classification_report": {
+      "0": {
+        "precision": 0.9700272479564033,
+        "recall": 1.0,
+        "f1-score": 0.9847856154910097,
+        "support": 356.0
+      },
+      "1": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 11.0
+      },
+      "accuracy": 0.9700272479564033,
+      "macro avg": {
+        "precision": 0.48501362397820164,
+        "recall": 0.5,
+        "f1-score": 0.49239280774550487,
+        "support": 367.0
+      },
+      "weighted avg": {
+        "precision": 0.9409528617778734,
+        "recall": 0.9700272479564033,
+        "f1-score": 0.9552688804217969,
+        "support": 367.0
+      }
+    }
+  }
+}

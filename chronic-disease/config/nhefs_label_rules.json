@@ -1,0 +1,23 @@
+{
+  "review_status": "codebook_checked_research_definition",
+  "yes": 1,
+  "no": 2,
+  "excluded_codes": {"-1":"inapplicable", "-7":"refused", "-8":"unknown", "-9":"not_ascertained", "95":"borderline", "96":"discrepancy"},
+  "baseline": "1987",
+  "followup": "1992",
+  "min_age": 65,
+  "population": "alive_at_both_interviews_with_ascertained_outcome",
+  "positive_year_rule": "baseline_calendar_year < first_report_year <= followup_calendar_year",
+  "sources": [
+    {"file":"1987intv.pdf", "url":"https://wwwn.cdc.gov/nchs/data/nhefs/1987intv.pdf", "pdf_pages_1_based":[90,111,119,131,195,197,201,204]},
+    {"file":"1992intv.pdf", "url":"https://wwwn.cdc.gov/nchs/data/nhefs/1992intv.pdf", "pdf_pages_1_based":[94,95,103,104,111,116,136]},
+    {"file":"1992vital.pdf", "url":"https://wwwn.cdc.gov/nchs/data/nhefs/1992vital.pdf", "pdf_pages_1_based":[33,34,37,40]}
+  ],
+  "rules": {
+    "hypertension":{"current":"HYPER","prior87":"BLOODPRE","prior92":"LHIGHBP","year":"HBPYEAR1","confirm":["HBPMEDIC","PRESCMED","MEDREGLR"]},
+    "diabetes":{"current":"SUGRDIAB","prior87":"DIABETES","prior92":"LDIABETE","year":"DIABYR1","confirm":["DIABMED","INSLNDB","ORALDB"]},
+    "stroke":{"current":"CVA","prior87":"STROKE","prior92":"LSTROKE","year":"STRKYR1","confirm":["ADDSTRKE"]},
+    "heart_attack":{"current":"EVERATT","prior87":"HEARTATT","prior92":"LHATTACK","year":"FIRSTATT","confirm":["HEARTATK"]},
+    "osteoporosis":{"current":"OSTEOPOR","prior87":null,"prior92":"LOSTEO","year":"OSTEOYR","confirm":[]}
+  }
+}

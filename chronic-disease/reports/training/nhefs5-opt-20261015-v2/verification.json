@@ -1,0 +1,12 @@
+{
+  "cohort_and_original_features_unchanged": true,
+  "source_and_artifact_hashes_valid": true,
+  "all_nested_folds_exclude_validation_and_holdout": true,
+  "thresholds_development_only_reproduced": true,
+  "ten_saved_models_match_archived_predictions": true,
+  "five_online_predictions_match_offline": true,
+  "active_version_unchanged": true,
+  "syntax_and_file_hygiene": true,
+  "actual_http_endpoints_and_validation": true,
+  "reference_206_report_files_and_ten_weights_unchanged": true
+}

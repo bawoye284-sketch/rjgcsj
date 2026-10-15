@@ -1,0 +1,13 @@
+{
+  "plot_source_sha256": "914ec3873f47d0f6fec32410187f93fb9d1d9c37a2cfb23694e6c3bd39e67f18",
+  "backend": "matplotlib",
+  "source_data": "saved real held-out predictions; threshold plot uses development OOF",
+  "uncertainty": "scalar metrics: participant-bootstrap 95% intervals in metrics.json; curves are single-fit estimates, not fold means",
+  "layout": "one quantitative axis per figure; alignment gate not applicable",
+  "formats": {
+    "pdf": "editable vector",
+    "svg": "editable vector",
+    "png": "300 dpi preview",
+    "tiff": "600 dpi LZW"
+  }
+}

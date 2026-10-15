@@ -1,0 +1,16 @@
+# Downloaded datasets and generated personal-level records.
+data/nhefs/raw/
+data/nhefs/documentation/
+data/nhefs/derived/
+data/nhefs/processed/
+
+# Training artifacts stay local. Keep the directory's usage notes in Git.
+models/*
+!models/README.md
+
+# Local environments and runtime artifacts.
+.venv/
+__pycache__/
+*.py[cod]
+*.part
+*.tmp

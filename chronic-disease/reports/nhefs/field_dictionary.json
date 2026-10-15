@@ -1,0 +1,2860 @@
+{
+  "1982_1984": {
+    "SUBAGE": {
+      "name": "SUBAGE",
+      "start_1_based": 27,
+      "width": 2,
+      "label": "AGE OF S AT INITIAL FOLLOWUP INTV"
+    },
+    "SUBSEX": {
+      "name": "SUBSEX",
+      "start_1_based": 29,
+      "width": 1,
+      "label": "SEX OF SUBJECT"
+    },
+    "D2": {
+      "name": "D2",
+      "start_1_based": 408,
+      "width": 1,
+      "label": "DR EVER SAY S HAD HYPERTENSION/HBP"
+    },
+    "D3": {
+      "name": "D3",
+      "start_1_based": 409,
+      "width": 4,
+      "label": "YR S WAS FRST TOLD OF HYPERTENSION/HBP"
+    },
+    "D43": {
+      "name": "D43",
+      "start_1_based": 481,
+      "width": 1,
+      "label": "DR EVER SAY S HAD GALLBLADDER DISEASE"
+    },
+    "D44": {
+      "name": "D44",
+      "start_1_based": 482,
+      "width": 4,
+      "label": "YEAR S FIRST TOLD ABOUT GALLBLADDER DIS"
+    },
+    "D45": {
+      "name": "D45",
+      "start_1_based": 486,
+      "width": 1,
+      "label": "S HAVE SURG FOR GALLBLADDER DISEASE"
+    },
+    "D46": {
+      "name": "D46",
+      "start_1_based": 487,
+      "width": 4,
+      "label": "YEAR S FRST HAD SURG FOR GALLBLDDER DIS"
+    },
+    "D47": {
+      "name": "D47",
+      "start_1_based": 491,
+      "width": 1,
+      "label": "S HOSP FOR GALLBLADDER DISEASE SINC 1970"
+    },
+    "D48": {
+      "name": "D48",
+      "start_1_based": 492,
+      "width": 1,
+      "label": "S TOLD BY DR ABOUT LUMP/CYST IN BREAST"
+    },
+    "D49": {
+      "name": "D49",
+      "start_1_based": 493,
+      "width": 1,
+      "label": "S HAVE SURG FOR LUMP/CYST IN BREAST"
+    },
+    "D50": {
+      "name": "D50",
+      "start_1_based": 494,
+      "width": 2,
+      "label": "TOTAL NUM OF BREAST BIOPSIES S HAD"
+    },
+    "D51": {
+      "name": "D51",
+      "start_1_based": 496,
+      "width": 4,
+      "label": "YR OF FRST BIOPSY FOR CYST/LUMP"
+    },
+    "D52": {
+      "name": "D52",
+      "start_1_based": 500,
+      "width": 1,
+      "label": "DR SAY LUMP/CYST WAS CANCEROUS/MELIGNANT"
+    },
+    "D53": {
+      "name": "D53",
+      "start_1_based": 501,
+      "width": 1,
+      "label": "S HAD ONE OR BOTH BREAST REMOVED"
+    },
+    "D54": {
+      "name": "D54",
+      "start_1_based": 502,
+      "width": 1,
+      "label": "HOSP OVRNGHT FOR BRST COND/PREG/FEM PROB"
+    },
+    "D55": {
+      "name": "D55",
+      "start_1_based": 503,
+      "width": 1,
+      "label": "SKIN TUMOR/ULCER/LESIONS REQ MED ATTN"
+    },
+    "D56": {
+      "name": "D56",
+      "start_1_based": 504,
+      "width": 2,
+      "label": "NUM OF SKIN COND SINC 1970 REQ MED ATTN"
+    },
+    "D57C1": {
+      "name": "D57c1",
+      "start_1_based": 539,
+      "width": 2,
+      "label": "TYPE OF FIRST SKIN CONDITION"
+    },
+    "D58C1": {
+      "name": "D58c1",
+      "start_1_based": 541,
+      "width": 1,
+      "label": "DR SAY FRST SKIN COND WAS CANC/MELIG"
+    },
+    "D59C1": {
+      "name": "D59c1",
+      "start_1_based": 542,
+      "width": 2,
+      "label": "NUM FRST SKIN COND RECUR REQ MED ATTN"
+    },
+    "D57C2": {
+      "name": "D57c2",
+      "start_1_based": 555,
+      "width": 2,
+      "label": "TYPE OF SECOND SKIN CONDITION"
+    },
+    "D58C2": {
+      "name": "D58c2",
+      "start_1_based": 557,
+      "width": 1,
+      "label": "DR SAY SEC SKIN COND WAS CANC/MELIG"
+    },
+    "D59C2": {
+      "name": "D59c2",
+      "start_1_based": 558,
+      "width": 2,
+      "label": "TIMES 2ND SKIN COND RECUR REQ MED ATTN"
+    },
+    "D57C3": {
+      "name": "D57c3",
+      "start_1_based": 571,
+      "width": 2,
+      "label": "TYPE OF THIRD SKIN CONDITION"
+    },
+    "D58C3": {
+      "name": "D58c3",
+      "start_1_based": 573,
+      "width": 1,
+      "label": "DR SAY THIRD SKIN COND WAS CANC/MELIG"
+    },
+    "D59C3": {
+      "name": "D59c3",
+      "start_1_based": 574,
+      "width": 2,
+      "label": "TIMES 3RD SKIN COND RECURR REQ MED ATTN"
+    },
+    "D57C4": {
+      "name": "D57c4",
+      "start_1_based": 587,
+      "width": 2,
+      "label": "TYPE OF FOURTH SKIN CONDITION"
+    },
+    "D58C4": {
+      "name": "D58c4",
+      "start_1_based": 589,
+      "width": 1,
+      "label": "DR SAY 4TH SKIN COND WAS CANC/MELIG"
+    },
+    "D59C4": {
+      "name": "D59c4",
+      "start_1_based": 590,
+      "width": 2,
+      "label": "TIMES 4TH SKIN COND RECURRED REQ MED ATTN"
+    },
+    "D62": {
+      "name": "D62",
+      "start_1_based": 603,
+      "width": 1,
+      "label": "DR EVER SAY S HAD ANY TYPE OF CANCER"
+    },
+    "D63DX1": {
+      "name": "D63DX1",
+      "start_1_based": 604,
+      "width": 3,
+      "label": "WHERE/WHAT TYPE OF CANCER (1ST DIAGNOSIS)"
+    },
+    "D64DX1": {
+      "name": "D64DX1",
+      "start_1_based": 607,
+      "width": 4,
+      "label": "YEAR S FIRST TOLD OF 1ST CANC DIAGNOSIS"
+    },
+    "D65DX1": {
+      "name": "D65DX1",
+      "start_1_based": 611,
+      "width": 1,
+      "label": "S HOSP OVERNIGHT FOR 1ST CANC DIAGNOSIS"
+    },
+    "D63DX2": {
+      "name": "D63DX2",
+      "start_1_based": 612,
+      "width": 3,
+      "label": "WHERE/WHAT TYPE OF CANCER (2ND DIAGNOSIS)"
+    },
+    "D64DX2": {
+      "name": "D64DX2",
+      "start_1_based": 615,
+      "width": 4,
+      "label": "YEAR S FIRST TOLD OF 2ND CANCER DIAGNOSIS"
+    },
+    "D65DX2": {
+      "name": "D65DX2",
+      "start_1_based": 619,
+      "width": 1,
+      "label": "S HOSP OVERNIGHT FOR 2ND CANCER DIAGNOSIS"
+    },
+    "D63DX3": {
+      "name": "D63DX3",
+      "start_1_based": 620,
+      "width": 3,
+      "label": "WHERE/WHAT TYPE OF CANCER (3RD DIAGNOSIS)"
+    },
+    "D64DX3": {
+      "name": "D64DX3",
+      "start_1_based": 623,
+      "width": 4,
+      "label": "YEAR S FRST TOLD OF 3RD CANCER DIAGNOSIS"
+    },
+    "D65DX3": {
+      "name": "D65DX3",
+      "start_1_based": 627,
+      "width": 1,
+      "label": "S HOSP OVERNIGHT FOR 3RD CANCER DIAGNOSIS"
+    },
+    "E8": {
+      "name": "E8",
+      "start_1_based": 679,
+      "width": 1,
+      "label": "DR EVER TELL S HE/SHE HAD FRACTURED HIP"
+    },
+    "E90": {
+      "name": "E90",
+      "start_1_based": 906,
+      "width": 1,
+      "label": "DR EVER TELL S OF FRACTURED HIP"
+    },
+    "E91": {
+      "name": "E91",
+      "start_1_based": 907,
+      "width": 1,
+      "label": "WHICH HIP WAS BROKEN"
+    },
+    "E92": {
+      "name": "E92",
+      "start_1_based": 908,
+      "width": 2,
+      "label": "AGE OF S WHEN FRACTURED HIP OCCURRED"
+    },
+    "E93": {
+      "name": "E93",
+      "start_1_based": 910,
+      "width": 1,
+      "label": "S HAVE SURG FOR FRACTURED HIP"
+    },
+    "E94": {
+      "name": "E94",
+      "start_1_based": 911,
+      "width": 1,
+      "label": "S STAY OVRNGHT HOSP SINCE 1970 FRAC HIP"
+    },
+    "G1A": {
+      "name": "G1a",
+      "start_1_based": 1067,
+      "width": 1,
+      "label": "DR EVER SAY S HAD ASTHMA"
+    },
+    "G1B": {
+      "name": "G1b",
+      "start_1_based": 1068,
+      "width": 4,
+      "label": "YEAR S DIAGNOSED WITH ASTHMA"
+    },
+    "G1C": {
+      "name": "G1c",
+      "start_1_based": 1072,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP FOR ASTHMA"
+    },
+    "G2A": {
+      "name": "G2a",
+      "start_1_based": 1073,
+      "width": 1,
+      "label": "S DIAG W/ CHRONIC BRONCHITIS/EMPHYSEMA"
+    },
+    "G2B": {
+      "name": "G2b",
+      "start_1_based": 1074,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ BRONCHITIS/EMPHYSEMA"
+    },
+    "G2C": {
+      "name": "G2c",
+      "start_1_based": 1078,
+      "width": 1,
+      "label": "STAYED OVRNGHT IN HOSP FOR BRONCHITIS"
+    },
+    "G3A": {
+      "name": "G3a",
+      "start_1_based": 1079,
+      "width": 1,
+      "label": "DR EVER SAY S HAD MIGRAINE HEADACHES"
+    },
+    "G3B": {
+      "name": "G3b",
+      "start_1_based": 1080,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ MIGRAINE HEADACHES"
+    },
+    "G3C": {
+      "name": "G3c",
+      "start_1_based": 1084,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP FOR MIGRAINE"
+    },
+    "G4A": {
+      "name": "G4a",
+      "start_1_based": 1085,
+      "width": 1,
+      "label": "DR EVER SAY S HAD PSORIASIS"
+    },
+    "G4B": {
+      "name": "G4b",
+      "start_1_based": 1086,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ PSORIASIS"
+    },
+    "G4C": {
+      "name": "G4c",
+      "start_1_based": 1090,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP FOR PSORIASIS"
+    },
+    "G5A": {
+      "name": "G5a",
+      "start_1_based": 1091,
+      "width": 1,
+      "label": "DR EVER SAY S HAD ULCERS"
+    },
+    "G5B": {
+      "name": "G5b",
+      "start_1_based": 1092,
+      "width": 4,
+      "label": "YR S DIAGNOSED WITH ULCERS"
+    },
+    "G5C": {
+      "name": "G5c",
+      "start_1_based": 1096,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP FOR ULCERS"
+    },
+    "G6A": {
+      "name": "G6a",
+      "start_1_based": 1097,
+      "width": 1,
+      "label": "DR EVER SAY S HAD KIDNEY DISORDER"
+    },
+    "G6B": {
+      "name": "G6b",
+      "start_1_based": 1098,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ KIDNEY DISORDER"
+    },
+    "G6C": {
+      "name": "G6c",
+      "start_1_based": 1102,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP FOR KID DIS"
+    },
+    "G7A": {
+      "name": "G7a",
+      "start_1_based": 1103,
+      "width": 1,
+      "label": "DR SAY S HAD URINARY TRACT/KID INFEC"
+    },
+    "G7B": {
+      "name": "G7b",
+      "start_1_based": 1104,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ UTI/KIDNEY INFECTION"
+    },
+    "G7C": {
+      "name": "G7c",
+      "start_1_based": 1108,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP UTI/KID INFEC"
+    },
+    "G8A": {
+      "name": "G8a",
+      "start_1_based": 1109,
+      "width": 1,
+      "label": "DR EVER SAY S HAD TUMOR OF THE COLON"
+    },
+    "G8B": {
+      "name": "G8b",
+      "start_1_based": 1110,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ TUMOR OF THE COLON"
+    },
+    "G8C": {
+      "name": "G8c",
+      "start_1_based": 1114,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP TUMOR OF COLON"
+    },
+    "G9A": {
+      "name": "G9a",
+      "start_1_based": 1115,
+      "width": 1,
+      "label": "DR EVER SAY S HAD CIRRHOSIS OF LIVER"
+    },
+    "G9B": {
+      "name": "G9b",
+      "start_1_based": 1116,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ CIRRHOSIS OF LIVER"
+    },
+    "G9C": {
+      "name": "G9c",
+      "start_1_based": 1120,
+      "width": 1,
+      "label": "S STAYED OVRNGHT HOSP CIRRHOSIS OF LIVER"
+    },
+    "G10A": {
+      "name": "G10a",
+      "start_1_based": 1121,
+      "width": 1,
+      "label": "DR EVER SAY S HAD PARKINSON'S DISEASE"
+    },
+    "G10B": {
+      "name": "G10b",
+      "start_1_based": 1122,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ PARKINSON'S DISEASE"
+    },
+    "G10C": {
+      "name": "G10c",
+      "start_1_based": 1126,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP PARKINSON' DIS"
+    },
+    "G11A": {
+      "name": "G11a",
+      "start_1_based": 1127,
+      "width": 1,
+      "label": "DR EVER SAY S HAD MULTIPLE SCLEROSIS"
+    },
+    "G11B": {
+      "name": "G11b",
+      "start_1_based": 1128,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ MULTIPLE SCLEROSIS"
+    },
+    "G11C": {
+      "name": "G11c",
+      "start_1_based": 1132,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP MULT SCLEROSIS"
+    },
+    "G12A": {
+      "name": "G12a",
+      "start_1_based": 1133,
+      "width": 1,
+      "label": "DR EVER SAY S HAD NERVOUS BREAKDOWN"
+    },
+    "G12B": {
+      "name": "G12b",
+      "start_1_based": 1134,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ NERVOUS BREAKDOWN"
+    },
+    "G12C": {
+      "name": "G12c",
+      "start_1_based": 1138,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP NERVOUS BD"
+    },
+    "G13A": {
+      "name": "G13a",
+      "start_1_based": 1139,
+      "width": 1,
+      "label": "DR EVER SAY S HAD DIVERTICULITIS"
+    },
+    "G13B": {
+      "name": "G13b",
+      "start_1_based": 1140,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ DIVERTICULITIS"
+    },
+    "G13C": {
+      "name": "G13c",
+      "start_1_based": 1144,
+      "width": 1,
+      "label": "S STAYED OBRNGHT IN HOSP DIVERTICULITIS"
+    },
+    "G14A": {
+      "name": "G14a",
+      "start_1_based": 1145,
+      "width": 1,
+      "label": "DR EVER SAY S HAD COLITIS/ENTERITIS"
+    },
+    "G14B": {
+      "name": "G14b",
+      "start_1_based": 1146,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ COLITIS/ENTERITIS"
+    },
+    "G14C": {
+      "name": "G14c",
+      "start_1_based": 1150,
+      "width": 1,
+      "label": "S STAYED OVRNGHT HOSP COLITIS/ENTERITIS"
+    },
+    "G15A": {
+      "name": "G15a",
+      "start_1_based": 1151,
+      "width": 1,
+      "label": "DR EVER SAY S HAD HEART COND/TROUBLE"
+    },
+    "G15B": {
+      "name": "G15b",
+      "start_1_based": 1152,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ HEART CONDITION"
+    },
+    "G15C": {
+      "name": "G15c",
+      "start_1_based": 1156,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP HEART COND"
+    },
+    "G16A": {
+      "name": "G16a",
+      "start_1_based": 1157,
+      "width": 1,
+      "label": "DR EVER SAY S HAD ANGINA"
+    },
+    "G16B": {
+      "name": "G16b",
+      "start_1_based": 1158,
+      "width": 4,
+      "label": "YR S DIAGNOSED WITH ANGINA"
+    },
+    "G16C": {
+      "name": "G16c",
+      "start_1_based": 1162,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP ANGINA"
+    },
+    "G17A": {
+      "name": "G17a",
+      "start_1_based": 1163,
+      "width": 1,
+      "label": "DR EVERY SAY S HAD HEART ATTACK"
+    },
+    "G17B": {
+      "name": "G17b",
+      "start_1_based": 1164,
+      "width": 4,
+      "label": "YR S FIRST HAD HEART ATTACK"
+    },
+    "G17C": {
+      "name": "G17c",
+      "start_1_based": 1168,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP FOR HEART ATT"
+    },
+    "G18A": {
+      "name": "G18a",
+      "start_1_based": 1169,
+      "width": 1,
+      "label": "DR EVER SAY S HAD CATARACTS"
+    },
+    "G18B": {
+      "name": "G18b",
+      "start_1_based": 1170,
+      "width": 4,
+      "label": "YR S DIAGNOSED WITH CATARACTS"
+    },
+    "G18C": {
+      "name": "G18c",
+      "start_1_based": 1174,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP FOR CATARACTS"
+    },
+    "G19A": {
+      "name": "G19a",
+      "start_1_based": 1175,
+      "width": 1,
+      "label": "DR EVER SAY S HAD GLAUCOMA"
+    },
+    "G19B": {
+      "name": "G19b",
+      "start_1_based": 1176,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ GLAUCOMA"
+    },
+    "G19C": {
+      "name": "G19c",
+      "start_1_based": 1180,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP FOR GLAUCOMA"
+    },
+    "G20A": {
+      "name": "G20a",
+      "start_1_based": 1181,
+      "width": 1,
+      "label": "DR EVER SAY S HAD A DETACHED RETINA"
+    },
+    "G20B": {
+      "name": "G20b",
+      "start_1_based": 1182,
+      "width": 4,
+      "label": "YR S DIAGNOSED W/ A DETACHED RETINA"
+    },
+    "G20C": {
+      "name": "G20c",
+      "start_1_based": 1186,
+      "width": 1,
+      "label": "STAYED OVRNGHT IN HOSP/DETACHED RETINA"
+    },
+    "G21A": {
+      "name": "G21a",
+      "start_1_based": 1199,
+      "width": 1,
+      "label": "DR EVER SAY S HAD SMALL STROKE/TIA"
+    },
+    "G21B": {
+      "name": "G21b",
+      "start_1_based": 1200,
+      "width": 4,
+      "label": "YR S FIRST HAD SMALL STROKE/TIA"
+    },
+    "G21C": {
+      "name": "G21c",
+      "start_1_based": 1204,
+      "width": 1,
+      "label": "STAYED OVRNGHT IN HOSP FOR SM STROKE/TIA"
+    },
+    "G22A": {
+      "name": "G22a",
+      "start_1_based": 1205,
+      "width": 1,
+      "label": "DR EVER SAY S HAD A STROKE/CVA"
+    },
+    "G22B": {
+      "name": "G22b",
+      "start_1_based": 1206,
+      "width": 4,
+      "label": "YR S FIRST HAD A STROKE/CVA"
+    },
+    "G22C": {
+      "name": "G22c",
+      "start_1_based": 1210,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP FOR STROKE/CVA"
+    },
+    "G23A": {
+      "name": "G23a",
+      "start_1_based": 1211,
+      "width": 1,
+      "label": "DR EVER SAY S HAD PROSTATE TROUBLE"
+    },
+    "G23B": {
+      "name": "G23b",
+      "start_1_based": 1212,
+      "width": 4,
+      "label": "YR S FIRST TOLD OF PROSTATE TROUBLE"
+    },
+    "G23C": {
+      "name": "G23c",
+      "start_1_based": 1216,
+      "width": 1,
+      "label": "S STAYED OVRNGHT IN HOSP/PROSTATE TRBLE"
+    },
+    "G33": {
+      "name": "G33",
+      "start_1_based": 1239,
+      "width": 1,
+      "label": "DR PRESCRIBE MED FOR HYPERTENSION/HBP"
+    },
+    "G34": {
+      "name": "G34",
+      "start_1_based": 1240,
+      "width": 1,
+      "label": "S CURRENTLY TAKING HYPERTENSION/HBP MED"
+    },
+    "G35A": {
+      "name": "G35a",
+      "start_1_based": 1241,
+      "width": 1,
+      "label": "ALDACTAZIDE HYPTN/HBP MED PRESCRIBED"
+    },
+    "G35B": {
+      "name": "G35b",
+      "start_1_based": 1242,
+      "width": 1,
+      "label": "METHYLDOPA HYPTN/HBP MED PRESCRIBED"
+    },
+    "G35C": {
+      "name": "G35c",
+      "start_1_based": 1243,
+      "width": 1,
+      "label": "CHLOROTHIAZIDE HYPTN/HBP MED PRESCRIBED"
+    },
+    "G35D": {
+      "name": "G35d",
+      "start_1_based": 1244,
+      "width": 1,
+      "label": "DYAZIDE HYPTN/HBP MED PRESCRIBED"
+    },
+    "G35E": {
+      "name": "G35e",
+      "start_1_based": 1245,
+      "width": 1,
+      "label": "HYDROCHLOROTHIAZIDE HYPTN/HBP MED PRES"
+    },
+    "G35F": {
+      "name": "G35f",
+      "start_1_based": 1246,
+      "width": 1,
+      "label": "HYDRODIURIL HYPTN/HBP MED PRESCRIBED"
+    },
+    "G35G": {
+      "name": "G35g",
+      "start_1_based": 1247,
+      "width": 1,
+      "label": "HYGROTON HYPTN/HBP MED PRESCRIBED"
+    },
+    "G35H": {
+      "name": "G35h",
+      "start_1_based": 1248,
+      "width": 1,
+      "label": "PROPANOLOL HYPTN/HBP MED PRESCRIBED"
+    },
+    "G35I": {
+      "name": "G35i",
+      "start_1_based": 1249,
+      "width": 1,
+      "label": "FUROSEMIDE HYPTN/HBP MED PRESCRIBED"
+    },
+    "G35J": {
+      "name": "G35j",
+      "start_1_based": 1250,
+      "width": 1,
+      "label": "LOPRESSOR HYPTN/HBP MED PRESCRIBED"
+    },
+    "G35K": {
+      "name": "G35k",
+      "start_1_based": 1251,
+      "width": 1,
+      "label": "OTHER HYPERTENSION/HBP MED PRESCRIBED"
+    },
+    "G35K1": {
+      "name": "G35k1",
+      "start_1_based": 1252,
+      "width": 2,
+      "label": "1ST HYPTN MED PRESCRIBED (NOT SPECIFIED)"
+    },
+    "G35K2": {
+      "name": "G35k2",
+      "start_1_based": 1254,
+      "width": 2,
+      "label": "2ND HYPTN MED PRESCRIBED (NOT SPECIFIED)"
+    },
+    "G35K3": {
+      "name": "G35k3",
+      "start_1_based": 1256,
+      "width": 2,
+      "label": "3RD HYPTN MED PRESCRIBED (NOT SPECIFIED)"
+    },
+    "G36": {
+      "name": "G36",
+      "start_1_based": 1258,
+      "width": 1,
+      "label": "DR EVER SAY S HAD DIABETES"
+    },
+    "G37": {
+      "name": "G37",
+      "start_1_based": 1259,
+      "width": 4,
+      "label": "YR S FIRST DIAGNOSED W/DIABETES"
+    },
+    "G38": {
+      "name": "G38",
+      "start_1_based": 1263,
+      "width": 1,
+      "label": "S CURRENTLY TAKING MED FOR DIABETES"
+    },
+    "G39A": {
+      "name": "G39a",
+      "start_1_based": 1264,
+      "width": 1,
+      "label": "CHLORPROPAMIDE/DIABETES MED PRESCRIBED"
+    },
+    "G39B": {
+      "name": "G39b",
+      "start_1_based": 1265,
+      "width": 1,
+      "label": "INSULINS/DIABETES MED PRESCRIBED"
+    },
+    "G39C": {
+      "name": "G39c",
+      "start_1_based": 1266,
+      "width": 1,
+      "label": "OTHER DIABETES MED TAKEN NOT MENTIONED"
+    },
+    "G39C1": {
+      "name": "G39c1",
+      "start_1_based": 1267,
+      "width": 1,
+      "label": "1ST DIABETES MED TAKEN (NOT SPECIFIED)"
+    },
+    "G39C2": {
+      "name": "G39c2",
+      "start_1_based": 1268,
+      "width": 1,
+      "label": "2ND DIABETES MED TAKEN (NOT SPECIFIED)"
+    },
+    "G40": {
+      "name": "G40",
+      "start_1_based": 1269,
+      "width": 1,
+      "label": "S BEEN HOSP OVRNGHT FOR DIABETES"
+    },
+    "G41": {
+      "name": "G41",
+      "start_1_based": 1270,
+      "width": 1,
+      "label": "DR EVER SAY S HAD THYROID DIS/QOITER"
+    },
+    "G42": {
+      "name": "G42",
+      "start_1_based": 1271,
+      "width": 4,
+      "label": "YR S FIRST DIAGNOSED W/ THYROID DIS"
+    },
+    "G43": {
+      "name": "G43",
+      "start_1_based": 1275,
+      "width": 1,
+      "label": "S CURRENTLY TAKEN MED FOR THYROID DIS"
+    },
+    "G44A": {
+      "name": "G44a",
+      "start_1_based": 1276,
+      "width": 1,
+      "label": "SYNTHROID/THYROID DIS MED PRESCRIBED"
+    },
+    "G44B": {
+      "name": "G44b",
+      "start_1_based": 1277,
+      "width": 1,
+      "label": "THYROID/THYROID DISEASE MED PRESCRIBED"
+    },
+    "G44C": {
+      "name": "G44c",
+      "start_1_based": 1278,
+      "width": 1,
+      "label": "THYROID STRONG/THYROID DIS MED PRES"
+    },
+    "G44D": {
+      "name": "G44d",
+      "start_1_based": 1279,
+      "width": 1,
+      "label": "OTHER MED PRESCRIBED FOR THYROID DISEASE"
+    },
+    "G44D1": {
+      "name": "G44d1",
+      "start_1_based": 1280,
+      "width": 1,
+      "label": "1ST THYROID MED TAKEN (NOT SPECIFIED)"
+    },
+    "G44D2": {
+      "name": "G44d2",
+      "start_1_based": 1281,
+      "width": 1,
+      "label": "2ND THYROID MED TAKEN (NOT SPECIFIED)"
+    },
+    "G45": {
+      "name": "G45",
+      "start_1_based": 1282,
+      "width": 1,
+      "label": "S BEEN HOSP OVRNGHT FOR THYROID DISEASE"
+    },
+    "G46": {
+      "name": "G46",
+      "start_1_based": 1283,
+      "width": 1,
+      "label": "DR EVER DIAGNOSE S W/ EPILEPSY"
+    },
+    "G47": {
+      "name": "G47",
+      "start_1_based": 1284,
+      "width": 4,
+      "label": "YR S FIRST DIAGNOSED W/ EPILEPSY"
+    },
+    "G48": {
+      "name": "G48",
+      "start_1_based": 1288,
+      "width": 1,
+      "label": "S CURRENTLY TAKEN MED FOR EPILEPSY"
+    },
+    "G49A": {
+      "name": "G49a",
+      "start_1_based": 1289,
+      "width": 1,
+      "label": "DILANTIN/EPILEPSY MED PRESCRIBED"
+    },
+    "G49B": {
+      "name": "G49b",
+      "start_1_based": 1290,
+      "width": 1,
+      "label": "PHENOBARBITAL/EPILEPSY MED PRESCRIBED"
+    },
+    "G49C": {
+      "name": "G49c",
+      "start_1_based": 1291,
+      "width": 1,
+      "label": "OTHER MED PRESCRIBED FOR EPILEPSY"
+    },
+    "G49C1": {
+      "name": "G49c1",
+      "start_1_based": 1292,
+      "width": 1,
+      "label": "1ST EPILEPSY MED TAKEN (NOT SPECIFIED)"
+    },
+    "G50": {
+      "name": "G50",
+      "start_1_based": 1293,
+      "width": 1,
+      "label": "S BEEN HOSP OVRNGHT FOR EPILEPSY"
+    },
+    "PRIMRESP": {
+      "name": "PRIMRESP",
+      "start_1_based": 3665,
+      "width": 1,
+      "label": "PRIMARY RESPONDENT"
+    },
+    "RELPROX": {
+      "name": "RELPROX",
+      "start_1_based": 3666,
+      "width": 2,
+      "label": "RELATIONSHIP TO PROXY/ASSISTANT TO S"
+    },
+    "REASPROX": {
+      "name": "REASPROX",
+      "start_1_based": 3668,
+      "width": 1,
+      "label": "REASON WHY PROXY/ASSISTANCE WAS NEEDED"
+    },
+    "VG26A": {
+      "name": "VG26a",
+      "start_1_based": 3711,
+      "width": 1,
+      "label": "DR EVER SAY S HAD ARTHRITIS"
+    },
+    "VG26B": {
+      "name": "VG26b",
+      "start_1_based": 3712,
+      "width": 4,
+      "label": "YR S FIRST DIAGNOSED W/ ARTHRITIS"
+    },
+    "VG26C": {
+      "name": "VG26c",
+      "start_1_based": 3716,
+      "width": 1,
+      "label": "S STAYED OVRGHT IN HOSP FOR ARTHRITIS"
+    },
+    "FINTDMO": {
+      "name": "FINTDMO",
+      "start_1_based": 4235,
+      "width": 2,
+      "label": "FOLLOWUP INTERVIEW DATEMONTH"
+    },
+    "FINTDDY": {
+      "name": "FINTDDY",
+      "start_1_based": 4237,
+      "width": 2,
+      "label": "FOLLOWUP INTERVIEW DATEDAY"
+    },
+    "FINTDYR": {
+      "name": "FINTDYR",
+      "start_1_based": 4239,
+      "width": 2,
+      "label": "FOLLOWUP INTERVIEW DATEYEAR"
+    }
+  },
+  "1986": {
+    "IFVITAL": {
+      "name": "IFVITAL",
+      "start_1_based": 6,
+      "width": 2,
+      "label": "SUBJECT VITAL STATUS1982-84 NHEFS"
+    },
+    "PREVINT": {
+      "name": "PREVINT",
+      "start_1_based": 8,
+      "width": 2,
+      "label": "WAS SUBJECT PREVIOUSLY INTERVIEWED"
+    },
+    "SUBSEX": {
+      "name": "SUBSEX",
+      "start_1_based": 10,
+      "width": 2,
+      "label": "SEX OF SUBJECT"
+    },
+    "TRACSTAT": {
+      "name": "TRACSTAT",
+      "start_1_based": 14,
+      "width": 2,
+      "label": "SUBJECT VITAL STATUS1986 NHEFS"
+    },
+    "FINTMO": {
+      "name": "FINTMO",
+      "start_1_based": 16,
+      "width": 2,
+      "label": "MONTH OF INTERVIEW 1986 NHEFS"
+    },
+    "FINTDAY": {
+      "name": "FINTDAY",
+      "start_1_based": 18,
+      "width": 2,
+      "label": "DAY OF INTERVIEW"
+    },
+    "FINTYR": {
+      "name": "FINTYR",
+      "start_1_based": 20,
+      "width": 2,
+      "label": "YEAR OF INTERVIEW"
+    },
+    "AGECF": {
+      "name": "AGECF",
+      "start_1_based": 22,
+      "width": 3,
+      "label": "AGE OF S AT INTERVIEW"
+    },
+    "GENERAL": {
+      "name": "GENERAL",
+      "start_1_based": 405,
+      "width": 2,
+      "label": "GENERAL HEALTH STATUS"
+    },
+    "PRXMHQD": {
+      "name": "PRXMHQD",
+      "start_1_based": 407,
+      "width": 2,
+      "label": "PROXY ANSWER QUES ABOUT DECEASED S"
+    },
+    "DREVRTEL": {
+      "name": "DREVRTEL",
+      "start_1_based": 409,
+      "width": 2,
+      "label": "DOCTOR EVER SAY S HAS ARTHRITIS"
+    },
+    "DRARTHR": {
+      "name": "DRARTHR",
+      "start_1_based": 411,
+      "width": 2,
+      "label": "DR EVER SAY TYPE OF ARTHRITIS S HAS"
+    },
+    "RHEUMATD": {
+      "name": "RHEUMATD",
+      "start_1_based": 413,
+      "width": 2,
+      "label": "RHEUMATOID ARTHRITIS"
+    },
+    "OSTEOART": {
+      "name": "OSTEOART",
+      "start_1_based": 415,
+      "width": 2,
+      "label": "OSTEOARTHRITIS"
+    },
+    "GOUT": {
+      "name": "GOUT",
+      "start_1_based": 461,
+      "width": 2,
+      "label": "DOCTOR CONFIRMED GOUT"
+    },
+    "FRSTGOUT": {
+      "name": "FRSTGOUT",
+      "start_1_based": 463,
+      "width": 2,
+      "label": "WHAT YR WAS S FIRST TOLD ABOUT GOUT"
+    },
+    "LASTGOUT": {
+      "name": "LASTGOUT",
+      "start_1_based": 467,
+      "width": 2,
+      "label": "YEAR S HAD LAST GOUT EPISODE"
+    },
+    "ARTHGOUT": {
+      "name": "ARTHGOUT",
+      "start_1_based": 471,
+      "width": 2,
+      "label": "DID DR SAY S HAD ARTHR CAUSE BY GOUT"
+    },
+    "HEARTATK": {
+      "name": "HEARTATK",
+      "start_1_based": 475,
+      "width": 2,
+      "label": "S HAD HEART ATTACK SINCE 1982-84 INTV"
+    },
+    "EVERATT": {
+      "name": "EVERATT",
+      "start_1_based": 477,
+      "width": 2,
+      "label": "DR EVER SAY S HAD A HEART ATTACK"
+    },
+    "FIRSTATT": {
+      "name": "FIRSTATT",
+      "start_1_based": 479,
+      "width": 2,
+      "label": "YEAR S FIRST TOLD ABOUT HEART ATTACK"
+    },
+    "ATTFLAG": {
+      "name": "ATTFLAG",
+      "start_1_based": 483,
+      "width": 2,
+      "label": "HEART ATTACK NOT REPORTED PREVIOUSLY"
+    },
+    "SINCEART": {
+      "name": "SINCEART",
+      "start_1_based": 485,
+      "width": 2,
+      "label": "HAD S HAD ADDTL HEART ATTACK SINCE"
+    },
+    "ADDSTRKE": {
+      "name": "ADDSTRKE",
+      "start_1_based": 561,
+      "width": 2,
+      "label": "S HAD A STROKE SINCE 1982-84 NHEFS INTV"
+    },
+    "CVA": {
+      "name": "CVA",
+      "start_1_based": 563,
+      "width": 2,
+      "label": "DR EVER SAY S HAD A STROKE"
+    },
+    "STRKYR1": {
+      "name": "STRKYR1",
+      "start_1_based": 565,
+      "width": 2,
+      "label": "YEAR S WAS FIRST TOLD ABOUT STROKE"
+    },
+    "STRKFLAG": {
+      "name": "STRKFLAG",
+      "start_1_based": 569,
+      "width": 2,
+      "label": "STRK REPORTED YR BEFORE MOST RECENT INTV"
+    },
+    "ADDISTRK": {
+      "name": "ADDISTRK",
+      "start_1_based": 571,
+      "width": 2,
+      "label": "S HAD ADDITIONAL STROKE SINCE THEN"
+    },
+    "DIABMED": {
+      "name": "DIABMED",
+      "start_1_based": 633,
+      "width": 2,
+      "label": "S TAKING MEDICATION FOR DIABETES"
+    },
+    "SUGRDIAB": {
+      "name": "SUGRDIAB",
+      "start_1_based": 635,
+      "width": 2,
+      "label": "DOCTOR CONFIRMED DIABETES"
+    },
+    "DIABYR1": {
+      "name": "DIABYR1",
+      "start_1_based": 637,
+      "width": 2,
+      "label": "YEAR FIRST TOLD OF DIABETES"
+    },
+    "DIABYRFL": {
+      "name": "DIABYRFL",
+      "start_1_based": 639,
+      "width": 2,
+      "label": "DISCREP YEAR BEFORE MOST RECENT INTV"
+    },
+    "DIABFLAG": {
+      "name": "DIABFLAG",
+      "start_1_based": 641,
+      "width": 2,
+      "label": "DIAB YR IS BEFORE IFUI YR"
+    },
+    "INSLNDB": {
+      "name": "INSLNDB",
+      "start_1_based": 643,
+      "width": 2,
+      "label": "IS S TAKING INSULIN INJ FOR DIAB"
+    },
+    "ORALDB": {
+      "name": "ORALDB",
+      "start_1_based": 645,
+      "width": 2,
+      "label": "IS S TAKING ORAL MEDICATION FOR DIAB"
+    },
+    "HBPMEDIC": {
+      "name": "HBPMEDIC",
+      "start_1_based": 649,
+      "width": 2,
+      "label": "B43 HAS DR PRESCRIBED MEDICINE FOR HBP"
+    },
+    "HYPER": {
+      "name": "HYPER",
+      "start_1_based": 651,
+      "width": 2,
+      "label": "B44 DOCTOR CONFIRMED HYPERTENSION"
+    },
+    "HBPYEAR1": {
+      "name": "HBPYEAR1",
+      "start_1_based": 653,
+      "width": 2,
+      "label": "B45 WHAT YEAR WAS S FIRST TOLD ABOUT HBP"
+    },
+    "HBPYRFL": {
+      "name": "HBPYRFL",
+      "start_1_based": 655,
+      "width": 2,
+      "label": "DISCREP YEAR BEFORE MOST RECENT INTV"
+    },
+    "HIBPFLAG": {
+      "name": "HIBPFLAG",
+      "start_1_based": 657,
+      "width": 2,
+      "label": "YEAR ENTERED IS BEF PREV INTV DATE"
+    },
+    "PRESCMED": {
+      "name": "PRESCMED",
+      "start_1_based": 659,
+      "width": 2,
+      "label": "HAS DR PRESCRIBED MEDICINE FOR HBP"
+    },
+    "MEDREGLR": {
+      "name": "MEDREGLR",
+      "start_1_based": 661,
+      "width": 2,
+      "label": "DOES S CURRENTLY TAKE HBP MED REGULARLY"
+    },
+    "CANCTYPE": {
+      "name": "CANCTYPE",
+      "start_1_based": 665,
+      "width": 2,
+      "label": "S OTHR CANCR SINCE 1982-84 NHEFS INTV"
+    },
+    "CANCRSRT": {
+      "name": "CANCRSRT",
+      "start_1_based": 667,
+      "width": 2,
+      "label": "DR EVER SAY S HAD CANCER OF ANY SORT"
+    },
+    "CANCCNT": {
+      "name": "CANCCNT",
+      "start_1_based": 671,
+      "width": 2,
+      "label": "NUMBER OF TYPES OF CANCER REPORTED"
+    },
+    "FRACHIP": {
+      "name": "FRACHIP",
+      "start_1_based": 673,
+      "width": 2,
+      "label": "HAS S HAD ADDITIONAL FRACTURED HIP"
+    },
+    "BRKNHIP": {
+      "name": "BRKNHIP",
+      "start_1_based": 675,
+      "width": 2,
+      "label": "DOCTOR CONFIRMED FRACTURED HIP"
+    },
+    "HIPYEAR1": {
+      "name": "HIPYEAR1",
+      "start_1_based": 677,
+      "width": 2,
+      "label": "WHAT YR WAS S FIRST TOLD OF FRAC HIP"
+    },
+    "HIPFLAG": {
+      "name": "HIPFLAG",
+      "start_1_based": 681,
+      "width": 2,
+      "label": "FHIP YR IS BEFORE IFUI YR"
+    },
+    "ANTHRHIP": {
+      "name": "ANTHRHIP",
+      "start_1_based": 683,
+      "width": 2,
+      "label": "ADDITIONAL FRACTURED HIP"
+    },
+    "HIPYR2_1": {
+      "name": "HIPYR2_1",
+      "start_1_based": 685,
+      "width": 2,
+      "label": "YEAR OF FIRST ADDTL HIP FRACTURE"
+    },
+    "HIPYR2_2": {
+      "name": "HIPYR2_2",
+      "start_1_based": 687,
+      "width": 2,
+      "label": "YEAR OF SECOND ADDTL HIP FRACTURE"
+    },
+    "HIPYR2_3": {
+      "name": "HIPYR2_3",
+      "start_1_based": 689,
+      "width": 2,
+      "label": "YEAR OF THIRD ADDTL HIP FRACTURE"
+    },
+    "HIPYR2_4": {
+      "name": "HIPYR2_4",
+      "start_1_based": 691,
+      "width": 2,
+      "label": "YEAR OF FOURTH ADDTL HIP FRACTURE"
+    },
+    "B62FLU": {
+      "name": "B62FLU",
+      "start_1_based": 721,
+      "width": 2,
+      "label": "S HOSPITALIZED FOR PNEUMONIA OR FLU"
+    },
+    "SURGCATR": {
+      "name": "SURGCATR",
+      "start_1_based": 1129,
+      "width": 2,
+      "label": "CATARACT SURG LISTED ON HOSP/HHCF CHART"
+    },
+    "EVERCATR": {
+      "name": "EVERCATR",
+      "start_1_based": 1135,
+      "width": 2,
+      "label": "DID DR EVER SAY S HAD CATARACTS"
+    },
+    "CATRSURG": {
+      "name": "CATRSURG",
+      "start_1_based": 1137,
+      "width": 2,
+      "label": "S EVER HAD SURGERY FOR CATARACTS"
+    }
+  },
+  "1987": {
+    "PREVINT": {
+      "name": "PREVINT",
+      "start_1_based": 8,
+      "width": 2,
+      "label": "WAS SUBJECT PREVIOUSLY INTERVIEWED"
+    },
+    "SUBSEX": {
+      "name": "SUBSEX",
+      "start_1_based": 10,
+      "width": 2,
+      "label": "SEX OF SUBJECT"
+    },
+    "TRACSTAT": {
+      "name": "TRACSTAT",
+      "start_1_based": 12,
+      "width": 2,
+      "label": "SUBJECT VITAL STATUS"
+    },
+    "RSLTMO": {
+      "name": "RSLTMO",
+      "start_1_based": 14,
+      "width": 2,
+      "label": "MONTH"
+    },
+    "RSLTDAY": {
+      "name": "RSLTDAY",
+      "start_1_based": 16,
+      "width": 2,
+      "label": "DAY OF INTERVIEW"
+    },
+    "RSLTYR": {
+      "name": "RSLTYR",
+      "start_1_based": 18,
+      "width": 2,
+      "label": "YEAR"
+    },
+    "AGENOW": {
+      "name": "AGENOW",
+      "start_1_based": 20,
+      "width": 2,
+      "label": "AGE OF SUBJECT AS OF DEC 31, 1986"
+    },
+    "BRCANCER": {
+      "name": "BRCANCER",
+      "start_1_based": 100,
+      "width": 2,
+      "label": "S REPORTED BREAST CANCER ON IF"
+    },
+    "AGEEXAM": {
+      "name": "AGEEXAM",
+      "start_1_based": 158,
+      "width": 2,
+      "label": "AGE OF SUBJECT AT NHANESI EXAM"
+    },
+    "AGEIF": {
+      "name": "AGEIF",
+      "start_1_based": 160,
+      "width": 2,
+      "label": "AGE OF SUBJECT AT INITIAL FOLLOWUP"
+    },
+    "AGECF": {
+      "name": "AGECF",
+      "start_1_based": 162,
+      "width": 2,
+      "label": "AGE OF SUBJECT AT ECF"
+    },
+    "GENERAL": {
+      "name": "GENERAL",
+      "start_1_based": 545,
+      "width": 2,
+      "label": "GENERAL HEALTH OF SUBJECT"
+    },
+    "PRXMHQD": {
+      "name": "PRXMHQD",
+      "start_1_based": 547,
+      "width": 2,
+      "label": "CAN PROXY COMPLETE SECTION B"
+    },
+    "DREVRTEL": {
+      "name": "DREVRTEL",
+      "start_1_based": 551,
+      "width": 2,
+      "label": "DID S HAVE ARTHRITIS"
+    },
+    "FRSTARTH": {
+      "name": "FRSTARTH",
+      "start_1_based": 553,
+      "width": 2,
+      "label": "FIRST TOLD HAD ARTHRITIS"
+    },
+    "ARTHFLG1": {
+      "name": "ARTHFLG1",
+      "start_1_based": 555,
+      "width": 2,
+      "label": "ARTHRITIS NOT PREV REP/REP < PREV INT YR"
+    },
+    "DRARTHR": {
+      "name": "DRARTHR",
+      "start_1_based": 557,
+      "width": 2,
+      "label": "DID DR SAY WHICH TYPE ARTHR S HAD"
+    },
+    "OSTEOART": {
+      "name": "OSTEOART",
+      "start_1_based": 559,
+      "width": 2,
+      "label": "S HAD OSTEO/DEGENERATIVE ARTH"
+    },
+    "RHEUMATD": {
+      "name": "RHEUMATD",
+      "start_1_based": 561,
+      "width": 2,
+      "label": "S HAD RHEUMATOID ARTHRITIS"
+    },
+    "GOUT": {
+      "name": "GOUT",
+      "start_1_based": 601,
+      "width": 2,
+      "label": "DOCTOR CONFIRMED GOUT"
+    },
+    "SINCGOUT": {
+      "name": "SINCGOUT",
+      "start_1_based": 603,
+      "width": 2,
+      "label": "ADDITIONAL EPISODE OF GOUT"
+    },
+    "FRSTGOUT": {
+      "name": "FRSTGOUT",
+      "start_1_based": 605,
+      "width": 2,
+      "label": "WHAT YR WAS S FIRST TOLD ABOUT GOUT"
+    },
+    "GOUTFLG1": {
+      "name": "GOUTFLG1",
+      "start_1_based": 607,
+      "width": 2,
+      "label": "GOUT NOT PREV REPORTED, YR < PREV INT YR"
+    },
+    "LASTGOUT": {
+      "name": "LASTGOUT",
+      "start_1_based": 611,
+      "width": 2,
+      "label": "WHAT YR DID S HAVE LAST GOUT EPIS"
+    },
+    "ARTHGOUT": {
+      "name": "ARTHGOUT",
+      "start_1_based": 615,
+      "width": 2,
+      "label": "DID DR SAY S HAD ARTHR CAUS BY GOUT"
+    },
+    "HEARTATK": {
+      "name": "HEARTATK",
+      "start_1_based": 619,
+      "width": 2,
+      "label": "DID S HAVE ADDITIONAL HEART ATTACK"
+    },
+    "EVERATT": {
+      "name": "EVERATT",
+      "start_1_based": 621,
+      "width": 2,
+      "label": "DID DR SAY S HAD A HEART ATTACK"
+    },
+    "FIRSTATT": {
+      "name": "FIRSTATT",
+      "start_1_based": 623,
+      "width": 2,
+      "label": "WHAT YR WAS S FIRST TOLD ABOUT HRTA"
+    },
+    "ATTFLAG": {
+      "name": "ATTFLAG",
+      "start_1_based": 625,
+      "width": 2,
+      "label": "HRTA YR IS BEFORE IFUI YR"
+    },
+    "SINCEART": {
+      "name": "SINCEART",
+      "start_1_based": 627,
+      "width": 2,
+      "label": "HAS S HAD ADDNL HRTA SINCE THEN"
+    },
+    "ATTKYR1": {
+      "name": "ATTKYR1",
+      "start_1_based": 629,
+      "width": 2,
+      "label": "YEAR OF FIRST ADDITIONAL ATTACK"
+    },
+    "ATTKYR2": {
+      "name": "ATTKYR2",
+      "start_1_based": 631,
+      "width": 2,
+      "label": "YEAR OF SECOND ADDITIONAL ATTACK"
+    },
+    "ATTKYR3": {
+      "name": "ATTKYR3",
+      "start_1_based": 633,
+      "width": 2,
+      "label": "YEAR OF THIRD ADDITIONAL ATTACK"
+    },
+    "ATTKYR4": {
+      "name": "ATTKYR4",
+      "start_1_based": 635,
+      "width": 2,
+      "label": "YEAR OF FOURTH ADDITIONAL ATTACK"
+    },
+    "ADDSTRKE": {
+      "name": "ADDSTRKE",
+      "start_1_based": 659,
+      "width": 2,
+      "label": "DOCTOR CONFIRMED ADDITIONAL CVA"
+    },
+    "CVA": {
+      "name": "CVA",
+      "start_1_based": 661,
+      "width": 2,
+      "label": "DOCTOR CONFIRMED CVA"
+    },
+    "STRKYR1": {
+      "name": "STRKYR1",
+      "start_1_based": 663,
+      "width": 2,
+      "label": "WHAT YR WAS S FIRST TOLD OF STROKE"
+    },
+    "STRKFLAG": {
+      "name": "STRKFLAG",
+      "start_1_based": 665,
+      "width": 2,
+      "label": "YEAR IS BEFORE PREVIOUS INTERVIEW"
+    },
+    "ADDISTRK": {
+      "name": "ADDISTRK",
+      "start_1_based": 667,
+      "width": 2,
+      "label": "HAD S HAD ADDNL STROKE SINCE THEN"
+    },
+    "STYR2_1": {
+      "name": "STYR2_1",
+      "start_1_based": 669,
+      "width": 2,
+      "label": "YEAR OF FIRST ADDITIONAL STROKE"
+    },
+    "STYR2_2": {
+      "name": "STYR2_2",
+      "start_1_based": 671,
+      "width": 2,
+      "label": "YEAR OF SECOND ADDITIONAL STROKE"
+    },
+    "DIABMED": {
+      "name": "DIABMED",
+      "start_1_based": 719,
+      "width": 2,
+      "label": "S TAKING MEDICATION FOR DIABETES"
+    },
+    "SUGRDIAB": {
+      "name": "SUGRDIAB",
+      "start_1_based": 721,
+      "width": 2,
+      "label": "DOCTOR CONFIRMED DIABETES"
+    },
+    "DIABYR1": {
+      "name": "DIABYR1",
+      "start_1_based": 723,
+      "width": 2,
+      "label": "YEAR FIRST TOLD OF DIABETES"
+    },
+    "DIABFLAG": {
+      "name": "DIABFLAG",
+      "start_1_based": 725,
+      "width": 2,
+      "label": "DIAB YR IS BEFORE IFUI YR"
+    },
+    "INSLNDB": {
+      "name": "INSLNDB",
+      "start_1_based": 727,
+      "width": 2,
+      "label": "IS S TAKING INSULIN INJ FOR DIAB"
+    },
+    "ORALDB": {
+      "name": "ORALDB",
+      "start_1_based": 729,
+      "width": 2,
+      "label": "IS S TAKING ORAL MEDICATION FOR DIAB"
+    },
+    "HIGHBLCH": {
+      "name": "HIGHBLCH",
+      "start_1_based": 733,
+      "width": 2,
+      "label": "DID DR TELL S HAS HIGH BLD CHOLEST"
+    },
+    "BLCHMED": {
+      "name": "BLCHMED",
+      "start_1_based": 735,
+      "width": 2,
+      "label": "MEDICINE"
+    },
+    "HBPMEDIC": {
+      "name": "HBPMEDIC",
+      "start_1_based": 755,
+      "width": 2,
+      "label": "HAS DR PRESCRIBED MEDICINE FOR HBP"
+    },
+    "HYPER": {
+      "name": "HYPER",
+      "start_1_based": 757,
+      "width": 2,
+      "label": "DOCTOR CONFIRMED HYPERTENSION"
+    },
+    "HBPYEAR1": {
+      "name": "HBPYEAR1",
+      "start_1_based": 759,
+      "width": 2,
+      "label": "WHAT YEAR WAS S FIRST TOLD ABOUT HBP"
+    },
+    "HIBPFLAG": {
+      "name": "HIBPFLAG",
+      "start_1_based": 761,
+      "width": 2,
+      "label": "YEAR ENTERED IS BEFORE PREVIOUS INT DATE"
+    },
+    "PRESCMED": {
+      "name": "PRESCMED",
+      "start_1_based": 763,
+      "width": 2,
+      "label": "HAS DR PRESCRIBED MEDICINE FOR HBP"
+    },
+    "MEDREGLR": {
+      "name": "MEDREGLR",
+      "start_1_based": 765,
+      "width": 2,
+      "label": "DOES S TAKE MEDICINE CURRENTLY"
+    },
+    "BRCANYR": {
+      "name": "BRCANYR",
+      "start_1_based": 781,
+      "width": 2,
+      "label": "YEAR TOLD HAD BREAST CANCER"
+    },
+    "CANCTYPE": {
+      "name": "CANCTYPE",
+      "start_1_based": 783,
+      "width": 2,
+      "label": "HAS S HAD ANY OTHER CANCER"
+    },
+    "CANCRSRT": {
+      "name": "CANCRSRT",
+      "start_1_based": 785,
+      "width": 2,
+      "label": "DOCTOR CONFIRMED CANCER OF ANY SORT"
+    },
+    "CANCCNT": {
+      "name": "CANCCNT",
+      "start_1_based": 789,
+      "width": 2,
+      "label": "NUMBER OF CANCER SITES/TYPES S HAD"
+    },
+    "FRACHIP": {
+      "name": "FRACHIP",
+      "start_1_based": 793,
+      "width": 2,
+      "label": "HAS S HAD ADDITIONAL FRACTURED HIP"
+    },
+    "BRKNHIP": {
+      "name": "BRKNHIP",
+      "start_1_based": 795,
+      "width": 2,
+      "label": "DOCTOR CONFIRMED FRACTURED HIP"
+    },
+    "HIPYEAR1": {
+      "name": "HIPYEAR1",
+      "start_1_based": 797,
+      "width": 2,
+      "label": "WHAT YR WAS S FIRST TOLD OF FRAC HIP"
+    },
+    "HIPFLAG": {
+      "name": "HIPFLAG",
+      "start_1_based": 799,
+      "width": 2,
+      "label": "FRAC HIP YR IS BEFORE IFUI YR"
+    },
+    "ANTHRHIP": {
+      "name": "ANTHRHIP",
+      "start_1_based": 801,
+      "width": 2,
+      "label": "ADDITIONAL FRACTURED HIP"
+    },
+    "HIPYR2_1": {
+      "name": "HIPYR2_1",
+      "start_1_based": 803,
+      "width": 2,
+      "label": "YEAR OF FIRST ADDTL HIP FRACTURE"
+    },
+    "HIPYR2_2": {
+      "name": "HIPYR2_2",
+      "start_1_based": 805,
+      "width": 2,
+      "label": "YEAR OF SECOND ADDTL HIP FRACTURE"
+    },
+    "HIPYR2_3": {
+      "name": "HIPYR2_3",
+      "start_1_based": 807,
+      "width": 2,
+      "label": "YEAR OF THIRD ADDTL HIP FRACTURE"
+    },
+    "HIPYR2_4": {
+      "name": "HIPYR2_4",
+      "start_1_based": 809,
+      "width": 2,
+      "label": "YEAR OF FOURTH ADDTL HIP FRACTURE"
+    },
+    "OSTEOPOR": {
+      "name": "OSTEOPOR",
+      "start_1_based": 821,
+      "width": 2,
+      "label": "S EVER HAVE OSTEOPOROSIS"
+    },
+    "OSTEOYR": {
+      "name": "OSTEOYR",
+      "start_1_based": 823,
+      "width": 2,
+      "label": "R TOLD OSTEOPOROSIS"
+    },
+    "ADBKWRST": {
+      "name": "ADBKWRST",
+      "start_1_based": 825,
+      "width": 2,
+      "label": "ADDITIONAL BROKEN WRIST"
+    },
+    "BRKNWRST": {
+      "name": "BRKNWRST",
+      "start_1_based": 827,
+      "width": 2,
+      "label": "DID S HAVE BROKEN WRIST"
+    },
+    "WRSTYR1": {
+      "name": "WRSTYR1",
+      "start_1_based": 829,
+      "width": 2,
+      "label": "YEAR OF FIRST ADDTL BROKEN WRIST"
+    },
+    "WRSTYR2": {
+      "name": "WRSTYR2",
+      "start_1_based": 831,
+      "width": 2,
+      "label": "YEAR OF SECOND ADDTL BROKEN WRIST"
+    },
+    "WRSTYR3": {
+      "name": "WRSTYR3",
+      "start_1_based": 833,
+      "width": 2,
+      "label": "YEAR OF THIRD ADDTL BORKEN WRIST"
+    },
+    "WRSTYR4": {
+      "name": "WRSTYR4",
+      "start_1_based": 835,
+      "width": 2,
+      "label": "YEAR OF FOURTH ADDTL BROKEN WRIST"
+    },
+    "FALLS": {
+      "name": "FALLS",
+      "start_1_based": 837,
+      "width": 2,
+      "label": "ANY FALLS"
+    },
+    "NUMFALLS": {
+      "name": "NUMFALLS",
+      "start_1_based": 839,
+      "width": 2,
+      "label": "NUMBER OF FALLS"
+    },
+    "FALLBKBN": {
+      "name": "FALLBKBN",
+      "start_1_based": 841,
+      "width": 2,
+      "label": "BROKEN BONE FROM FALL"
+    },
+    "FALLHEAD": {
+      "name": "FALLHEAD",
+      "start_1_based": 843,
+      "width": 2,
+      "label": "HEAD INJURY FROM FALL"
+    },
+    "FALLMEDC": {
+      "name": "FALLMEDC",
+      "start_1_based": 845,
+      "width": 2,
+      "label": "MEDICAL HELP FROM FALL"
+    },
+    "B71_FLU": {
+      "name": "B71_FLU",
+      "start_1_based": 849,
+      "width": 2,
+      "label": "HOSPITALIZED FOR PNEUMONIA"
+    },
+    "KIDNYST": {
+      "name": "KIDNYST",
+      "start_1_based": 851,
+      "width": 2,
+      "label": "ADDITIONAL KIDNEY DISEASE"
+    },
+    "EVERKDNY": {
+      "name": "EVERKDNY",
+      "start_1_based": 853,
+      "width": 2,
+      "label": "EVER HAD A KIDNEY DISEASE"
+    },
+    "YRTELKID": {
+      "name": "YRTELKID",
+      "start_1_based": 855,
+      "width": 2,
+      "label": "YR FIRST TOLD OF KIDNEY DISEASE"
+    },
+    "KIDNEYFG": {
+      "name": "KIDNEYFG",
+      "start_1_based": 857,
+      "width": 2,
+      "label": "YR ENTERED IS BEFORE PREVIOUS INT DATE"
+    },
+    "DOCKID": {
+      "name": "DOCKID",
+      "start_1_based": 859,
+      "width": 2,
+      "label": "EVER HAD KIDNEY INFECTION"
+    },
+    "FRSTOLDK": {
+      "name": "FRSTOLDK",
+      "start_1_based": 861,
+      "width": 2,
+      "label": "YR FIRST TOLD HAD KIDNEY INFECTION"
+    },
+    "SURGCATR": {
+      "name": "SURGCATR",
+      "start_1_based": 865,
+      "width": 2,
+      "label": "ADDITIONAL CATARACT SURGERY"
+    },
+    "EVERCATR": {
+      "name": "EVERCATR",
+      "start_1_based": 867,
+      "width": 2,
+      "label": "EVER HAD CATARACTS"
+    },
+    "CATRSURG": {
+      "name": "CATRSURG",
+      "start_1_based": 869,
+      "width": 2,
+      "label": "EVER HAVE CATARACT SURGERY"
+    },
+    "YRCATR1": {
+      "name": "YRCATR1",
+      "start_1_based": 871,
+      "width": 2,
+      "label": "YEAR OF FIRST CATARACT SURGERY"
+    },
+    "YRCATR2": {
+      "name": "YRCATR2",
+      "start_1_based": 873,
+      "width": 2,
+      "label": "YEAR OF SECOND CATARACT SURGERY"
+    },
+    "CATFLAG1": {
+      "name": "CATFLAG1",
+      "start_1_based": 875,
+      "width": 2,
+      "label": "FIRST CATARACT SURGERY FLAG"
+    },
+    "CATFLAG2": {
+      "name": "CATFLAG2",
+      "start_1_based": 877,
+      "width": 2,
+      "label": "SECOND CATARACT SURGERY FLAG"
+    }
+  },
+  "1992": {
+    "LINTSTAT": {
+      "name": "LINTSTAT",
+      "start_1_based": 8,
+      "width": 2,
+      "label": "MOST RECENT COMPLETED INTERVIEW"
+    },
+    "LINTDATE": {
+      "name": "LINTDATE",
+      "start_1_based": 10,
+      "width": 6,
+      "label": "DATE OF MOST RECENT COMPLETED INTERVIEW"
+    },
+    "LSSEX": {
+      "name": "LSSEX",
+      "start_1_based": 17,
+      "width": 2,
+      "label": "SEX OF SUBJECT"
+    },
+    "LNDOB": {
+      "name": "LNDOB",
+      "start_1_based": 19,
+      "width": 6,
+      "label": "S DATE OF BIRTH"
+    },
+    "LARTH": {
+      "name": "LARTH",
+      "start_1_based": 41,
+      "width": 2,
+      "label": "REPORTED ARTHRITIS IN PREVIOUS INT"
+    },
+    "LARTHYR": {
+      "name": "LARTHYR",
+      "start_1_based": 43,
+      "width": 2,
+      "label": "YR ARTHRITIS DIAGNOSED REP IN PREV INT"
+    },
+    "LARTHTYP": {
+      "name": "LARTHTYP",
+      "start_1_based": 45,
+      "width": 2,
+      "label": "TYPE OF ARTHRITIS REP IN PREV INT"
+    },
+    "LGOUT": {
+      "name": "LGOUT",
+      "start_1_based": 49,
+      "width": 2,
+      "label": "GOUT REPORTED IN PREVIOUS INTERVIEW"
+    },
+    "LHATTACK": {
+      "name": "LHATTACK",
+      "start_1_based": 53,
+      "width": 2,
+      "label": "HEART ATTACK REP IN PREVIOUS INTERVIEW"
+    },
+    "LHRTCOND": {
+      "name": "LHRTCOND",
+      "start_1_based": 55,
+      "width": 2,
+      "label": "HEART CONDITION REP IN PREVIOUS INT"
+    },
+    "LSTROKE": {
+      "name": "LSTROKE",
+      "start_1_based": 61,
+      "width": 2,
+      "label": "STROKE PREPORTED IN PREVIOUS INTERVIEW"
+    },
+    "LDIABETE": {
+      "name": "LDIABETE",
+      "start_1_based": 63,
+      "width": 2,
+      "label": "DIABETES REPORTED IN PREVIOUS INTERVIEW"
+    },
+    "LHIBPMED": {
+      "name": "LHIBPMED",
+      "start_1_based": 69,
+      "width": 2,
+      "label": "HIGH BP MEDICINE REPORTED IN PREV INT"
+    },
+    "LCANCER": {
+      "name": "LCANCER",
+      "start_1_based": 71,
+      "width": 2,
+      "label": "CANCER REPORTED IN PREVIOUS INTERVIEW"
+    },
+    "LOSTEO": {
+      "name": "LOSTEO",
+      "start_1_based": 83,
+      "width": 2,
+      "label": "OSTEOPORSIS REPORTED IN PREVIOUS INT"
+    },
+    "LKIDNEY": {
+      "name": "LKIDNEY",
+      "start_1_based": 87,
+      "width": 2,
+      "label": "KIDNEY DISORDERS/STONES REP IN PREV INT"
+    },
+    "LCATRACT": {
+      "name": "LCATRACT",
+      "start_1_based": 91,
+      "width": 2,
+      "label": "CATARACTS REPORTED IN PREVIOUS INT"
+    },
+    "LCATSURG": {
+      "name": "LCATSURG",
+      "start_1_based": 93,
+      "width": 2,
+      "label": "CATARACT SURGERY REP IN PREV INT"
+    },
+    "RSLTMO": {
+      "name": "RSLTMO",
+      "start_1_based": 159,
+      "width": 2,
+      "label": "MONTH OF 1992 INTERVIEW"
+    },
+    "RSLTYR": {
+      "name": "RSLTYR",
+      "start_1_based": 163,
+      "width": 2,
+      "label": "YEAR OF 1992 INTERVIEW"
+    },
+    "NAGE": {
+      "name": "NAGE",
+      "start_1_based": 203,
+      "width": 3,
+      "label": "AGE OF S AT 1992 FOLLOWUP"
+    },
+    "AGE87": {
+      "name": "AGE87",
+      "start_1_based": 206,
+      "width": 2,
+      "label": "AGE OF S AT 1987 NHEFS INTERVIEW"
+    },
+    "AGE82": {
+      "name": "AGE82",
+      "start_1_based": 210,
+      "width": 2,
+      "label": "AGE OF S AT 1982-84 NHEFS INTERVIEW"
+    },
+    "TRACSTAT": {
+      "name": "TRACSTAT",
+      "start_1_based": 214,
+      "width": 2,
+      "label": "S VITAL STATUS 1992 NHEFS"
+    },
+    "AGE92": {
+      "name": "AGE92",
+      "start_1_based": 338,
+      "width": 2,
+      "label": "AGE OF S AT 1992 NHEFS INTERVIEW"
+    },
+    "PRXMHQD": {
+      "name": "PRXMHQD",
+      "start_1_based": 533,
+      "width": 2,
+      "label": "PROXY ANSWER QUES DECEASED S MED HIS"
+    },
+    "GENERAL": {
+      "name": "GENERAL",
+      "start_1_based": 535,
+      "width": 2,
+      "label": "IN GENERAL, HOW IS S HEALTH"
+    },
+    "DREVRTEL": {
+      "name": "DREVRTEL",
+      "start_1_based": 539,
+      "width": 2,
+      "label": "DOCTOR SAY WHAT TYPE ARTHRITIS S HAS"
+    },
+    "FRSTARTH": {
+      "name": "FRSTARTH",
+      "start_1_based": 541,
+      "width": 2,
+      "label": "WHAT YR WAS S FIRST TOLD ABOUT ARTH"
+    },
+    "B4DISF": {
+      "name": "B4DISF",
+      "start_1_based": 543,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B4"
+    },
+    "DRARTHR": {
+      "name": "DRARTHR",
+      "start_1_based": 545,
+      "width": 2,
+      "label": "DOCTOR SAY WHAT TYPE OF ARTH S HAS"
+    },
+    "OSTEOART": {
+      "name": "OSTEOART",
+      "start_1_based": 547,
+      "width": 2,
+      "label": "DOES S HAVE OSTEOARTHRITIS"
+    },
+    "RHEUMATD": {
+      "name": "RHEUMATD",
+      "start_1_based": 549,
+      "width": 2,
+      "label": "DOES S HAVE RHEUMATOID ARTHRITIS"
+    },
+    "GOUT": {
+      "name": "GOUT",
+      "start_1_based": 595,
+      "width": 2,
+      "label": "DID DOCTOR EVER SAY S HAS GOUT"
+    },
+    "SINCGOUT": {
+      "name": "SINCGOUT",
+      "start_1_based": 597,
+      "width": 2,
+      "label": "HAS S HAD AN ADDITIONAL EPISODE OF GOUT"
+    },
+    "FRSTGOUT": {
+      "name": "FRSTGOUT",
+      "start_1_based": 599,
+      "width": 2,
+      "label": "WHAT YR WAS S FIRST TOLD ABOUT GOUT"
+    },
+    "B12DISF": {
+      "name": "B12DISF",
+      "start_1_based": 601,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B12"
+    },
+    "LASTGOUT": {
+      "name": "LASTGOUT",
+      "start_1_based": 609,
+      "width": 2,
+      "label": "WHAT YR DID S HAVE LAST GOUT EPISODE"
+    },
+    "ARTHGOUT": {
+      "name": "ARTHGOUT",
+      "start_1_based": 621,
+      "width": 2,
+      "label": "DOCTOR SAY S HAD ARTH CAUSED BY GOUT"
+    },
+    "HEARTATK": {
+      "name": "HEARTATK",
+      "start_1_based": 625,
+      "width": 2,
+      "label": "HAS S HAS A HEART ATT SINCE PREV INT"
+    },
+    "EVERATT": {
+      "name": "EVERATT",
+      "start_1_based": 627,
+      "width": 2,
+      "label": "DID DOCTOR EVER SAY S HAD A HEART ATT"
+    },
+    "FIRSTATT": {
+      "name": "FIRSTATT",
+      "start_1_based": 629,
+      "width": 2,
+      "label": "WHAT YR WAS S FRST TOLD ABOUT HEART ATT"
+    },
+    "B20DISF": {
+      "name": "B20DISF",
+      "start_1_based": 631,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B20"
+    },
+    "SINCEART": {
+      "name": "SINCEART",
+      "start_1_based": 633,
+      "width": 2,
+      "label": "HAS S HAD ADDTL HEART ATTACK SINCE THEN"
+    },
+    "ATTKYR1": {
+      "name": "ATTKYR1",
+      "start_1_based": 635,
+      "width": 2,
+      "label": "WHAT YR WAS THAT 1ST ADDTL HEART ATT"
+    },
+    "ATTKYR2": {
+      "name": "ATTKYR2",
+      "start_1_based": 637,
+      "width": 2,
+      "label": "WHAT YR WAS THAT 2ND ADDTL HEART ATT"
+    },
+    "ATTKYR3": {
+      "name": "ATTKYR3",
+      "start_1_based": 639,
+      "width": 2,
+      "label": "WHAT YR WAS THAT 3RD ADDTL HEART ATT"
+    },
+    "ATTKYR4": {
+      "name": "ATTKYR4",
+      "start_1_based": 641,
+      "width": 2,
+      "label": "WHAT YR WAS THAT 4TH ADDTL HEART ATT"
+    },
+    "B22DISF1": {
+      "name": "B22DISF1",
+      "start_1_based": 643,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B22 (1ST RESPONSE)"
+    },
+    "B22DISF2": {
+      "name": "B22DISF2",
+      "start_1_based": 645,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B22 (2ND RESPONSE)"
+    },
+    "B22DISF3": {
+      "name": "B22DISF3",
+      "start_1_based": 647,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B22 (3RD RESPONSE)"
+    },
+    "B22DISF4": {
+      "name": "B22DISF4",
+      "start_1_based": 649,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B22 (4TH RESPONSE)"
+    },
+    "ADDSTRKE": {
+      "name": "ADDSTRKE",
+      "start_1_based": 665,
+      "width": 2,
+      "label": "HAS S HAD A STROKE SINCE PREV INT"
+    },
+    "CVA": {
+      "name": "CVA",
+      "start_1_based": 667,
+      "width": 2,
+      "label": "DID DOCTOR EVER SAY S HAD A STROKE"
+    },
+    "STRKYR1": {
+      "name": "STRKYR1",
+      "start_1_based": 669,
+      "width": 2,
+      "label": "WHAT YR WAS S FIRST TOLD ABOUT STROKE"
+    },
+    "B32DISF": {
+      "name": "B32DISF",
+      "start_1_based": 671,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B32"
+    },
+    "ADDISTRK": {
+      "name": "ADDISTRK",
+      "start_1_based": 673,
+      "width": 2,
+      "label": "HAS S HAD AN ADDTL STOKE SINCE THEN"
+    },
+    "STYR2_1": {
+      "name": "STYR2_1",
+      "start_1_based": 675,
+      "width": 2,
+      "label": "WHAT YR WAS THAT FIRST ADDTL STROKE"
+    },
+    "STYR2_2": {
+      "name": "STYR2_2",
+      "start_1_based": 677,
+      "width": 2,
+      "label": "WHAT YR WAS THAT SECOND ADDTL STOKE"
+    },
+    "B34DISF1": {
+      "name": "B34DISF1",
+      "start_1_based": 679,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B34 (1ST RESPONSE)"
+    },
+    "B34DISF2": {
+      "name": "B34DISF2",
+      "start_1_based": 681,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B34 (2ND RESPONSE)"
+    },
+    "CANRESP1": {
+      "name": "CANRESP1",
+      "start_1_based": 685,
+      "width": 2,
+      "label": "R ANS QUES ABOUT DECEASED S MED HIST"
+    },
+    "DIABMED": {
+      "name": "DIABMED",
+      "start_1_based": 725,
+      "width": 2,
+      "label": "IS S NOW TAKING MED FOR DIABETES"
+    },
+    "SUGRDIAB": {
+      "name": "SUGRDIAB",
+      "start_1_based": 727,
+      "width": 2,
+      "label": "DID DOCTOR EVER SAY S HAD DISBETES"
+    },
+    "DIABYR1": {
+      "name": "DIABYR1",
+      "start_1_based": 729,
+      "width": 2,
+      "label": "WHAT YR WAS S FIRST TOLD ABOUT DIABETES"
+    },
+    "B39DISF": {
+      "name": "B39DISF",
+      "start_1_based": 731,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B39"
+    },
+    "INSLNDB": {
+      "name": "INSLNDB",
+      "start_1_based": 733,
+      "width": 2,
+      "label": "S TAKING INSULIN INJECTIONS FOR DIAB"
+    },
+    "ORALDB": {
+      "name": "ORALDB",
+      "start_1_based": 735,
+      "width": 2,
+      "label": "S TAKING ORAL MED FOR DIABETES"
+    },
+    "HIGHBLCH": {
+      "name": "HIGHBLCH",
+      "start_1_based": 739,
+      "width": 2,
+      "label": "DR EVER SAY S HAD HIGH BLOOD CHOLESTER"
+    },
+    "BLCHNOW": {
+      "name": "BLCHNOW",
+      "start_1_based": 741,
+      "width": 2,
+      "label": "S CURR HAVE HIGH BLD CHOLESTEROL"
+    },
+    "BLCHYR": {
+      "name": "BLCHYR",
+      "start_1_based": 743,
+      "width": 2,
+      "label": "YR S FRST TOLD HAD HIGH BLD CHOLES"
+    },
+    "BLCHMED1": {
+      "name": "BLCHMED1",
+      "start_1_based": 747,
+      "width": 2,
+      "label": "DR PRESCRIBE MED FOR HIGH BLD CHOLES"
+    },
+    "BLCHMED2": {
+      "name": "BLCHMED2",
+      "start_1_based": 749,
+      "width": 2,
+      "label": "S NOW TAKING MED FOR HIGH BLD CHOLES"
+    },
+    "HYPER": {
+      "name": "HYPER",
+      "start_1_based": 751,
+      "width": 2,
+      "label": "DR EVER SAY S HAD HIGH BLD PRESS/HYPTN"
+    },
+    "HBPYEAR1": {
+      "name": "HBPYEAR1",
+      "start_1_based": 753,
+      "width": 2,
+      "label": "YR S FIRST TOLD ABOUT HIGH BLD PRESS"
+    },
+    "B49DISF": {
+      "name": "B49DISF",
+      "start_1_based": 755,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B49"
+    },
+    "PRESCMED": {
+      "name": "PRESCMED",
+      "start_1_based": 757,
+      "width": 2,
+      "label": "DR EVER PRESCRIBE MED HIGH BLD PRESS"
+    },
+    "MEDREGLR": {
+      "name": "MEDREGLR",
+      "start_1_based": 759,
+      "width": 2,
+      "label": "S CURRENTLY TAKE HIGH BLD PRESS MED REG"
+    },
+    "BRCANCER": {
+      "name": "BRCANCER",
+      "start_1_based": 767,
+      "width": 2,
+      "label": "A DR SAY S HAD BREAST CANCER"
+    },
+    "BRCANYR": {
+      "name": "BRCANYR",
+      "start_1_based": 769,
+      "width": 2,
+      "label": "YR S FRST TOLD BY DOC S HAD BRST CANC"
+    },
+    "B56DISF": {
+      "name": "B56DISF",
+      "start_1_based": 771,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B56"
+    },
+    "SKINCANC": {
+      "name": "SKINCANC",
+      "start_1_based": 773,
+      "width": 2,
+      "label": "A DR EVER SAY THAT S HAD SKIN CANC"
+    },
+    "SKCANMM": {
+      "name": "SKCANMM",
+      "start_1_based": 775,
+      "width": 2,
+      "label": "S HAVE MALIGNANT MELANOMA"
+    },
+    "SKCANOT": {
+      "name": "SKCANOT",
+      "start_1_based": 777,
+      "width": 2,
+      "label": "S HAVE SOME OTHER TYPE OF SKIN CANCER"
+    },
+    "SKCANYR1": {
+      "name": "SKCANYR1",
+      "start_1_based": 779,
+      "width": 2,
+      "label": "YR S FRST TOLD HAD MALIG MELANOMA"
+    },
+    "SKCANYR2": {
+      "name": "SKCANYR2",
+      "start_1_based": 785,
+      "width": 2,
+      "label": "YR S FIRST TOLD HAD NON-MALIG MELANOMA"
+    },
+    "SKCANNUM": {
+      "name": "SKCANNUM",
+      "start_1_based": 789,
+      "width": 2,
+      "label": "NUM TIMES NON-MALIG MELAN SKIN CANC DIAG"
+    },
+    "CANCTYPE": {
+      "name": "CANCTYPE",
+      "start_1_based": 793,
+      "width": 2,
+      "label": "HAS S HAD OTHER SKIN CANC SINC PREV INT"
+    },
+    "CANCRSRT": {
+      "name": "CANCRSRT",
+      "start_1_based": 795,
+      "width": 2,
+      "label": "DR EVER SAY S HAD CANCER OF ANY SORT"
+    },
+    "CANCCNT": {
+      "name": "CANCCNT",
+      "start_1_based": 799,
+      "width": 2,
+      "label": "NUMBER OF TYPES OF CANCER REPORTED"
+    },
+    "HIPYEAR1": {
+      "name": "HIPYEAR1",
+      "start_1_based": 809,
+      "width": 2,
+      "label": "WHAT YR WAS S FIRST TOLD ABOUT FRAC HIP"
+    },
+    "B74DISF": {
+      "name": "B74DISF",
+      "start_1_based": 811,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B74"
+    },
+    "FRACHIP": {
+      "name": "FRACHIP",
+      "start_1_based": 813,
+      "width": 2,
+      "label": "HAS S HAD A FRAC HIP SINCE PREV INT"
+    },
+    "CANRESP2": {
+      "name": "CANRESP2",
+      "start_1_based": 815,
+      "width": 2,
+      "label": "R CONT ANS QUES ABOUT DECEASED S MED HIS"
+    },
+    "BRKNHIP": {
+      "name": "BRKNHIP",
+      "start_1_based": 817,
+      "width": 2,
+      "label": "DID DOC EVER SAY S HAD A FRAC HIP"
+    },
+    "HIPYEAR2": {
+      "name": "HIPYEAR2",
+      "start_1_based": 819,
+      "width": 2,
+      "label": "WHAT YR S FIRST TOLD ABOUT FRAC HIP"
+    },
+    "B77DISF": {
+      "name": "B77DISF",
+      "start_1_based": 821,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B77"
+    },
+    "ANTHRHIP": {
+      "name": "ANTHRHIP",
+      "start_1_based": 823,
+      "width": 2,
+      "label": "S HAD AN ADDTL FRAC HIP SINCE THEN"
+    },
+    "HIPYR2_1": {
+      "name": "HIPYR2_1",
+      "start_1_based": 825,
+      "width": 2,
+      "label": "WHAT YR WAS THAT IST ADDTL HIP FRAC"
+    },
+    "HIPYR2_2": {
+      "name": "HIPYR2_2",
+      "start_1_based": 827,
+      "width": 2,
+      "label": "WHAT YR WAS THAT 2ND ADDTL HIP FRAC"
+    },
+    "HIPYR2_3": {
+      "name": "HIPYR2_3",
+      "start_1_based": 829,
+      "width": 2,
+      "label": "WHAT YR WAS THAT 3RD ADDTL HIP FRAC"
+    },
+    "HIPYR2_4": {
+      "name": "HIPYR2_4",
+      "start_1_based": 831,
+      "width": 2,
+      "label": "WHAT YR WAS THAT 4TH ADDTL HIP FRAC"
+    },
+    "B79DISF1": {
+      "name": "B79DISF1",
+      "start_1_based": 833,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B79 (1ST RESP)"
+    },
+    "B79DISF2": {
+      "name": "B79DISF2",
+      "start_1_based": 835,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B79 (2ND RESP)"
+    },
+    "B79DISF3": {
+      "name": "B79DISF3",
+      "start_1_based": 837,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B79 (3RD RESP)"
+    },
+    "B79DISF4": {
+      "name": "B79DISF4",
+      "start_1_based": 839,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B79 (4TH RESP)"
+    },
+    "OSTEOPOR": {
+      "name": "OSTEOPOR",
+      "start_1_based": 843,
+      "width": 2,
+      "label": "DR EVER SAY S HAD OSTEOPOROSIS"
+    },
+    "OSTEOYR": {
+      "name": "OSTEOYR",
+      "start_1_based": 845,
+      "width": 2,
+      "label": "YR S FIRST TOLD ABOUT OSTEOP"
+    },
+    "B82DISF": {
+      "name": "B82DISF",
+      "start_1_based": 847,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B82"
+    },
+    "ADBKWRST": {
+      "name": "ADBKWRST",
+      "start_1_based": 849,
+      "width": 2,
+      "label": "S HAD A BROKEN WRIST SINCE PREV INT"
+    },
+    "BRKNWRST": {
+      "name": "BRKNWRST",
+      "start_1_based": 851,
+      "width": 2,
+      "label": "DR EVER SAY S HAD A BROKEN WRST"
+    },
+    "WRSTYR1": {
+      "name": "WRSTYR1",
+      "start_1_based": 853,
+      "width": 2,
+      "label": "YEAR FIRST ADDTL BROKEN WRIST"
+    },
+    "WRSTYR2": {
+      "name": "WRSTYR2",
+      "start_1_based": 855,
+      "width": 2,
+      "label": "YEAR SECOND ADDTL BROKEN WRST"
+    },
+    "WRSTYR3": {
+      "name": "WRSTYR3",
+      "start_1_based": 857,
+      "width": 2,
+      "label": "YEAR THIRD ADDTL BROKEN WRIST"
+    },
+    "WRSTYR4": {
+      "name": "WRSTYR4",
+      "start_1_based": 859,
+      "width": 2,
+      "label": "YEAR FOURTH ADDTL BROKEN WRST"
+    },
+    "B85DISF1": {
+      "name": "B85DISF1",
+      "start_1_based": 861,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B85 (1ST RESP)"
+    },
+    "B85DISF2": {
+      "name": "B85DISF2",
+      "start_1_based": 863,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B85 (2ND RESP)"
+    },
+    "B85DISF3": {
+      "name": "B85DISF3",
+      "start_1_based": 865,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B85 (3RD RESP)"
+    },
+    "B85DISF4": {
+      "name": "B85DISF4",
+      "start_1_based": 867,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B85 (4TH RESP)"
+    },
+    "FALLS": {
+      "name": "FALLS",
+      "start_1_based": 869,
+      "width": 2,
+      "label": "DURING PAST 12MOS, S HAD ANY FALLS?"
+    },
+    "NUMFALLS": {
+      "name": "NUMFALLS",
+      "start_1_based": 871,
+      "width": 2,
+      "label": "HOW MANY TIMES HAS S FALLEN PAST 12MOS"
+    },
+    "FALLBKBN": {
+      "name": "FALLBKBN",
+      "start_1_based": 873,
+      "width": 2,
+      "label": "ANY FALLS CAUSE A BROKEN BONE"
+    },
+    "FALLHEAD": {
+      "name": "FALLHEAD",
+      "start_1_based": 875,
+      "width": 2,
+      "label": "ANY FALL CAUSE S TO HIT OR INJURE HEAD"
+    },
+    "FALLMEDC": {
+      "name": "FALLMEDC",
+      "start_1_based": 877,
+      "width": 2,
+      "label": "ANY FALL CAUSE S TO SEEK MED CARE"
+    },
+    "HOSPFALL": {
+      "name": "HOSPFALL",
+      "start_1_based": 879,
+      "width": 2,
+      "label": "S HOSP FOR ANY OF THESE FALLS"
+    },
+    "VFALL": {
+      "name": "VFALL",
+      "start_1_based": 881,
+      "width": 2,
+      "label": "VERIFY NO/Q.B88C YES/Q.B89"
+    },
+    "HOSPFLU": {
+      "name": "HOSPFLU",
+      "start_1_based": 883,
+      "width": 2,
+      "label": "S HOSPITALIZED FOR PNEUMONIA"
+    },
+    "KIDNYST": {
+      "name": "KIDNYST",
+      "start_1_based": 885,
+      "width": 2,
+      "label": "S HAD KIDNEY DIS/STONE SINCE PREV INT"
+    },
+    "EVERKDNY": {
+      "name": "EVERKDNY",
+      "start_1_based": 887,
+      "width": 2,
+      "label": "DR EVER SAY S HAD KIDNEY DIS/STONE"
+    },
+    "YRTELKID": {
+      "name": "YRTELKID",
+      "start_1_based": 889,
+      "width": 2,
+      "label": "YR S FIRST TOLD ABOUT KIDNEY DIS/STONE"
+    },
+    "B93DISF": {
+      "name": "B93DISF",
+      "start_1_based": 891,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B93"
+    },
+    "KIDINFEC": {
+      "name": "KIDINFEC",
+      "start_1_based": 893,
+      "width": 2,
+      "label": "S HAD A URINARY/KIDNEY INFEC PREV INT"
+    },
+    "DOCKID": {
+      "name": "DOCKID",
+      "start_1_based": 895,
+      "width": 2,
+      "label": "DR SAY S HAD URINARY/KIDNEY INFEC > 3X"
+    },
+    "FRSTOLDK": {
+      "name": "FRSTOLDK",
+      "start_1_based": 897,
+      "width": 2,
+      "label": "YR S FRST TOLD S HAD UNINARY/KID INFEC"
+    },
+    "B96DISF": {
+      "name": "B96DISF",
+      "start_1_based": 899,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B96"
+    },
+    "HERNIA": {
+      "name": "HERNIA",
+      "start_1_based": 903,
+      "width": 2,
+      "label": "DR SAY S HAS A HERNIA OR RUPTURE"
+    },
+    "HIHERNIA": {
+      "name": "HIHERNIA",
+      "start_1_based": 905,
+      "width": 2,
+      "label": "A HIATAL OF THE DIAPHRAGM"
+    },
+    "RUPTURE": {
+      "name": "RUPTURE",
+      "start_1_based": 907,
+      "width": 2,
+      "label": "A HERNIA OR RUPTURE OF THE GROIN"
+    },
+    "VENTRAL": {
+      "name": "VENTRAL",
+      "start_1_based": 909,
+      "width": 2,
+      "label": "A VENTRAL HERNIA"
+    },
+    "UMBIL": {
+      "name": "UMBIL",
+      "start_1_based": 911,
+      "width": 2,
+      "label": "AN UMBILICAL HERNIA"
+    },
+    "OTHRHERN": {
+      "name": "OTHRHERN",
+      "start_1_based": 913,
+      "width": 2,
+      "label": "SOME OTHER TYPE OF HERNIA OR RUPTURE"
+    },
+    "HERNYR1": {
+      "name": "HERNYR1",
+      "start_1_based": 945,
+      "width": 2,
+      "label": "YR S FRST TOLD OF HERN/RUP OF GROIN"
+    },
+    "HERNSURG": {
+      "name": "HERNSURG",
+      "start_1_based": 949,
+      "width": 2,
+      "label": "S EVER HAD SURG FOR A GROIN HERNIA"
+    },
+    "HERNYR_1": {
+      "name": "HERNYR_1",
+      "start_1_based": 951,
+      "width": 2,
+      "label": "YR 1ST SURG FOR HERNIA OF GROIN OCCUR"
+    },
+    "HERNYR_2": {
+      "name": "HERNYR_2",
+      "start_1_based": 953,
+      "width": 2,
+      "label": "YR 2ND SURG FOR HERNIA OF GROIN OCCUR"
+    },
+    "HERNYR_3": {
+      "name": "HERNYR_3",
+      "start_1_based": 955,
+      "width": 2,
+      "label": "YR 3RD SURG FOR HERNIA OF GROIN OCCUR"
+    },
+    "HERNYR_4": {
+      "name": "HERNYR_4",
+      "start_1_based": 957,
+      "width": 2,
+      "label": "YR 4TH SURG FOR HERNIA OF GROIN OCCUR"
+    },
+    "HERNYR2": {
+      "name": "HERNYR2",
+      "start_1_based": 967,
+      "width": 2,
+      "label": "YR S FRST TOLD OTHER TYPE HERNIA\\RUP"
+    },
+    "SURGCATR": {
+      "name": "SURGCATR",
+      "start_1_based": 971,
+      "width": 2,
+      "label": "S HAD CATARACT SURG SINCE PREV INT"
+    },
+    "EVERCATR": {
+      "name": "EVERCATR",
+      "start_1_based": 973,
+      "width": 2,
+      "label": "DID DR EVER SAY S HAD CATERACTS"
+    },
+    "CATRSURG": {
+      "name": "CATRSURG",
+      "start_1_based": 975,
+      "width": 2,
+      "label": "S EVER HAD SURG FOR CATERACTS"
+    },
+    "YRCATR1": {
+      "name": "YRCATR1",
+      "start_1_based": 977,
+      "width": 2,
+      "label": "YR DID S HAVE 1ST CATARACT SURG"
+    },
+    "YRCATR2": {
+      "name": "YRCATR2",
+      "start_1_based": 979,
+      "width": 2,
+      "label": "YR DID S HAVE 2ND CATARACT SURG"
+    },
+    "B107DIS1": {
+      "name": "B107DIS1",
+      "start_1_based": 981,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B107 (1ST RESP)"
+    },
+    "B107DIS2": {
+      "name": "B107DIS2",
+      "start_1_based": 983,
+      "width": 2,
+      "label": "DISCREPANCY FLAG FOR B107 (2ND RESP)"
+    }
+  }
+}

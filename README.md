@@ -23,11 +23,14 @@
 | `IHMS-view/` | Vue 前端页面与静态资源 |
 | `IHMS-admin/` | Spring Boot 后端与演示数据库配置 |
 | `risk-service/` | 加载已训练模型并提供预测接口 |
-| `model-training/` | 五项综合分实验模型的离线训练与测试指标 |
+| `model-training/` | 现有五项综合分实验模型的离线训练与评价 |
+| `chronic-disease/` | 独立的五病种风险预测研究：代码、配置、数据、报告和未来模型权重 |
 | `sql/` | MySQL 初始化和升级脚本 |
 | `scripts/` | 开发辅助脚本 |
 | `docs/` | 详细运行说明、风险评估说明和原项目资料 |
 
 `.venv/` 是本机 Python 虚拟环境，`.idea/` 是 PyCharm 项目设置；它们不属于业务源码。根目录的两个 `.bat` 保留在这里，方便直接双击启动演示。
 
-更多说明：[训练与演示说明](docs/训练与演示说明.md) · [启动顺序](docs/START_ORDER.txt) · [慢性病风险预测改造方案与数据集](docs/慢性病风险预测改造方案.md) · [原项目说明（历史资料）](docs/README_ORIGINAL.md)
+更多说明：[训练与演示说明](docs/训练与演示说明.md) · [启动顺序](docs/START_ORDER.txt) · [慢性病预测独立目录](chronic-disease/README.md) · [慢性病风险预测改造方案与数据集](chronic-disease/docs/慢性病风险预测改造方案.md) · [原项目说明（历史资料）](docs/README_ORIGINAL.md)
+
+独立慢性病模块已完成高血压、糖尿病、卒中、心脏病发作和骨质疏松的研究原型训练，见[性能报告与运行说明](chronic-disease/README.md)。每病保留逻辑回归/XGBoost比较、指标和图表；当前性能偏弱，尚未接入现有网站。42个原始方向保留作备查，见[资料清单](chronic-disease/reports/nhefs/README.md)。

@@ -1,0 +1,411 @@
+{
+  "name": "卒中／中风",
+  "status": "trained",
+  "models": {
+    "LogisticRegression": {
+      "parameters": {
+        "C": 0.1
+      },
+      "search": [
+        {
+          "parameters": {
+            "C": 0.1
+          },
+          "average_precision": 0.05351755792793492,
+          "brier": 0.034166920474265554
+        },
+        {
+          "parameters": {
+            "C": 1.0
+          },
+          "average_precision": 0.05288740008104175,
+          "brier": 0.03462136156709457
+        },
+        {
+          "parameters": {
+            "C": 10.0
+          },
+          "average_precision": 0.05271386431673979,
+          "brier": 0.0347128172969391
+        }
+      ],
+      "calibration": "sigmoid, 3-fold ensemble",
+      "development_oof_average_precision": 0.0511617407619878,
+      "development_oof_brier": 0.03337573899963764,
+      "threshold": 0.032005218129426555,
+      "artifact": "stroke--LogisticRegression.joblib",
+      "artifact_sha256": "1d82f0c312c72e21e3b61412f2f48e53f484f9ab34cc926306061b87e2ee28c1",
+      "evaluation": {
+        "n": 366,
+        "events": 14,
+        "event_rate": 0.03825136612021858,
+        "roc_auc": 0.5872564935064934,
+        "average_precision": 0.18947846832799262,
+        "accuracy": 0.3797814207650273,
+        "balanced_accuracy": 0.5060876623376623,
+        "sensitivity": 0.6428571428571429,
+        "specificity": 0.3693181818181818,
+        "precision": 0.03896103896103896,
+        "negative_predictive_value": 0.9629629629629629,
+        "f1": 0.07346938775510205,
+        "mcc": 0.004839973977272272,
+        "brier": 0.03655108323661294,
+        "log_loss": 0.15965786259205092,
+        "threshold": 0.032005218129426555,
+        "confusion_matrix": [
+          [
+            130,
+            222
+          ],
+          [
+            5,
+            9
+          ]
+        ],
+        "confusion_matrix_axes": {
+          "rows": [
+            "Observed negative",
+            "Observed positive"
+          ],
+          "columns": [
+            "Predicted negative",
+            "Predicted positive"
+          ]
+        },
+        "classification_report": {
+          "0": {
+            "precision": 0.9629629629629629,
+            "recall": 0.3693181818181818,
+            "f1-score": 0.5338809034907598,
+            "support": 352.0
+          },
+          "1": {
+            "precision": 0.03896103896103896,
+            "recall": 0.6428571428571429,
+            "f1-score": 0.07346938775510205,
+            "support": 14.0
+          },
+          "accuracy": 0.3797814207650273,
+          "macro avg": {
+            "precision": 0.5009620009620009,
+            "recall": 0.5060876623376623,
+            "f1-score": 0.3036751456229309,
+            "support": 366.0
+          },
+          "weighted avg": {
+            "precision": 0.9276186270721789,
+            "recall": 0.3797814207650273,
+            "f1-score": 0.5162695340363904,
+            "support": 366.0
+          }
+        },
+        "confidence_intervals": {
+          "method": "participant bootstrap percentile 95%; conditional on this fitted model",
+          "requested_repeats": 500,
+          "valid_repeats": 500,
+          "intervals": {
+            "roc_auc": [
+              0.41793419045543695,
+              0.7363759416195856
+            ],
+            "average_precision": [
+              0.028686460150655752,
+              0.3953010991026552
+            ],
+            "accuracy": [
+              0.33189890710382514,
+              0.4344262295081967
+            ],
+            "sensitivity": [
+              0.36363636363636365,
+              0.8571428571428571
+            ],
+            "specificity": [
+              0.31899069950222686,
+              0.4247869318181818
+            ],
+            "precision": [
+              0.01754034972971933,
+              0.06723089739272231
+            ],
+            "f1": [
+              0.033539608311944025,
+              0.12350684017350684
+            ],
+            "brier": [
+              0.021201651316374883,
+              0.05698294421842648
+            ]
+          }
+        }
+      }
+    },
+    "XGBoost": {
+      "parameters": {
+        "max_depth": 1,
+        "n_estimators": 100,
+        "learning_rate": 0.04,
+        "min_child_weight": 5,
+        "reg_lambda": 5.0,
+        "subsample": 0.85,
+        "colsample_bytree": 0.85
+      },
+      "search": [
+        {
+          "parameters": {
+            "max_depth": 1,
+            "n_estimators": 100,
+            "learning_rate": 0.04,
+            "min_child_weight": 5,
+            "reg_lambda": 5.0,
+            "subsample": 0.85,
+            "colsample_bytree": 0.85
+          },
+          "average_precision": 0.041143434413548396,
+          "brier": 0.03340206295251846
+        },
+        {
+          "parameters": {
+            "max_depth": 1,
+            "n_estimators": 200,
+            "learning_rate": 0.04,
+            "min_child_weight": 5,
+            "reg_lambda": 5.0,
+            "subsample": 0.85,
+            "colsample_bytree": 0.85
+          },
+          "average_precision": 0.039693249945575104,
+          "brier": 0.033579666167497635
+        },
+        {
+          "parameters": {
+            "max_depth": 2,
+            "n_estimators": 100,
+            "learning_rate": 0.04,
+            "min_child_weight": 5,
+            "reg_lambda": 5.0,
+            "subsample": 0.85,
+            "colsample_bytree": 0.85
+          },
+          "average_precision": 0.03902389018300545,
+          "brier": 0.03355329483747482
+        },
+        {
+          "parameters": {
+            "max_depth": 2,
+            "n_estimators": 200,
+            "learning_rate": 0.04,
+            "min_child_weight": 5,
+            "reg_lambda": 5.0,
+            "subsample": 0.85,
+            "colsample_bytree": 0.85
+          },
+          "average_precision": 0.03915949353663156,
+          "brier": 0.033849086612463
+        }
+      ],
+      "calibration": "sigmoid, 3-fold ensemble",
+      "development_oof_average_precision": 0.043686895981596086,
+      "development_oof_brier": 0.033344540373671856,
+      "threshold": 0.0318357345108087,
+      "artifact": "stroke--XGBoost.joblib",
+      "artifact_sha256": "2f45d37ca25b0def7692073e230473cfc8fb6d343b5abe2936907f2d615c7e45",
+      "evaluation": {
+        "n": 366,
+        "events": 14,
+        "event_rate": 0.03825136612021858,
+        "roc_auc": 0.6670048701298701,
+        "average_precision": 0.09042630486034212,
+        "accuracy": 0.42349726775956287,
+        "balanced_accuracy": 0.5974025974025974,
+        "sensitivity": 0.7857142857142857,
+        "specificity": 0.4090909090909091,
+        "precision": 0.0502283105022831,
+        "negative_predictive_value": 0.9795918367346939,
+        "f1": 0.0944206008583691,
+        "mcc": 0.07621758059410501,
+        "brier": 0.03650339549630625,
+        "log_loss": 0.15844746049537103,
+        "threshold": 0.0318357345108087,
+        "confusion_matrix": [
+          [
+            144,
+            208
+          ],
+          [
+            3,
+            11
+          ]
+        ],
+        "confusion_matrix_axes": {
+          "rows": [
+            "Observed negative",
+            "Observed positive"
+          ],
+          "columns": [
+            "Predicted negative",
+            "Predicted positive"
+          ]
+        },
+        "classification_report": {
+          "0": {
+            "precision": 0.9795918367346939,
+            "recall": 0.4090909090909091,
+            "f1-score": 0.5771543086172345,
+            "support": 352.0
+          },
+          "1": {
+            "precision": 0.0502283105022831,
+            "recall": 0.7857142857142857,
+            "f1-score": 0.0944206008583691,
+            "support": 14.0
+          },
+          "accuracy": 0.42349726775956287,
+          "macro avg": {
+            "precision": 0.5149100736184885,
+            "recall": 0.5974025974025974,
+            "f1-score": 0.3357874547378018,
+            "support": 366.0
+          },
+          "weighted avg": {
+            "precision": 0.9440424122340005,
+            "recall": 0.42349726775956287,
+            "f1-score": 0.5586890848231795,
+            "support": 366.0
+          }
+        },
+        "confidence_intervals": {
+          "method": "participant bootstrap percentile 95%; conditional on this fitted model",
+          "requested_repeats": 500,
+          "valid_repeats": 500,
+          "intervals": {
+            "roc_auc": [
+              0.5263764404609474,
+              0.8098779171725347
+            ],
+            "average_precision": [
+              0.03892952108831963,
+              0.2861738264980736
+            ],
+            "accuracy": [
+              0.3783469945355191,
+              0.46994535519125685
+            ],
+            "sensitivity": [
+              0.5714285714285714,
+              1.0
+            ],
+            "specificity": [
+              0.3626845376845377,
+              0.4558516035293067
+            ],
+            "precision": [
+              0.026842769058295964,
+              0.08353682170542634
+            ],
+            "f1": [
+              0.05126388077147867,
+              0.15193348525851016
+            ],
+            "brier": [
+              0.021310193011666752,
+              0.05688587651306255
+            ]
+          }
+        }
+      }
+    }
+  },
+  "n_development": 1533,
+  "events_development": 53,
+  "n_evaluation": 366,
+  "events_evaluation": 14,
+  "selected_model": "LogisticRegression",
+  "features": [
+    "age",
+    "sex_male",
+    "weight_kg",
+    "self_rated_health",
+    "smoking_current",
+    "drinking_any",
+    "exercise_regular",
+    "history_hypertension",
+    "history_diabetes",
+    "history_heart_attack",
+    "history_osteoporosis"
+  ],
+  "age_min": 65,
+  "age_max": 90,
+  "outcome_definition": "Survivor-conditional new doctor-told disease report after baseline calendar year",
+  "horizon_definition": "1987-to-1992 survey interval; not an exact 60-month incidence estimate",
+  "followup_months_range": [
+    55.0,
+    73.03
+  ],
+  "development_event_rate": 0.03457273320287019,
+  "constant_baseline": {
+    "n": 366,
+    "events": 14,
+    "event_rate": 0.03825136612021858,
+    "roc_auc": 0.5,
+    "average_precision": 0.03825136612021858,
+    "accuracy": 0.9617486338797814,
+    "balanced_accuracy": 0.5,
+    "sensitivity": 0.0,
+    "specificity": 1.0,
+    "precision": 0.0,
+    "negative_predictive_value": 0.9617486338797814,
+    "f1": 0.0,
+    "mcc": 0.0,
+    "brier": 0.03680173145029617,
+    "log_loss": 0.16254264420350187,
+    "threshold": 0.5,
+    "confusion_matrix": [
+      [
+        352,
+        0
+      ],
+      [
+        14,
+        0
+      ]
+    ],
+    "confusion_matrix_axes": {
+      "rows": [
+        "Observed negative",
+        "Observed positive"
+      ],
+      "columns": [
+        "Predicted negative",
+        "Predicted positive"
+      ]
+    },
+    "classification_report": {
+      "0": {
+        "precision": 0.9617486338797814,
+        "recall": 1.0,
+        "f1-score": 0.9805013927576601,
+        "support": 352.0
+      },
+      "1": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 14.0
+      },
+      "accuracy": 0.9617486338797814,
+      "macro avg": {
+        "precision": 0.4808743169398907,
+        "recall": 0.5,
+        "f1-score": 0.49025069637883006,
+        "support": 366.0
+      },
+      "weighted avg": {
+        "precision": 0.9249604347696258,
+        "recall": 0.9617486338797814,
+        "f1-score": 0.9429958750019025,
+        "support": 366.0
+      }
+    }
+  }
+}

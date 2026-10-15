@@ -1,0 +1,1306 @@
+{
+  "targets": {
+    "dataset": "NHEFS",
+    "schema_version": 1,
+    "purpose": "疾病与健康事件原始资料登记；不是已经审核通过的训练标签。",
+    "training_enabled": true,
+    "reviewed_training_target_codes": [
+      "hypertension",
+      "diabetes",
+      "stroke",
+      "heart_attack",
+      "osteoporosis"
+    ],
+    "first_version_task": "multilabel_incident_disease_report",
+    "first_version_target_codes": [
+      "hypertension",
+      "diabetes",
+      "stroke",
+      "heart_attack",
+      "osteoporosis"
+    ],
+    "targets": [
+      {
+        "code": "hypertension",
+        "name_zh": "高血压",
+        "kind": "disease",
+        "tier": "priority",
+        "fields_82": [
+          "D2",
+          "D3",
+          "G33",
+          "G34",
+          "G35*"
+        ],
+        "fields_later": [
+          "HYPER",
+          "HBPYEAR1",
+          "HBPMEDIC",
+          "PRESCMED",
+          "MEDREGLR",
+          "LHBP*",
+          "LHIBP*",
+          "HIBPFLAG",
+          "HBPYRFL",
+          "B49DISF"
+        ],
+        "notes": "需综合历史预填、当轮回答与用药核对起点状态。"
+      },
+      {
+        "code": "diabetes",
+        "name_zh": "糖尿病（按问卷定义）",
+        "kind": "disease",
+        "tier": "priority",
+        "fields_82": [
+          "G36",
+          "G37",
+          "G38",
+          "G39*",
+          "G40"
+        ],
+        "fields_later": [
+          "SUGRDIAB",
+          "DIABYR1",
+          "DIABMED",
+          "INSLNDB",
+          "ORALDB",
+          "LDIABETE",
+          "DIABFLAG",
+          "DIABYRFL",
+          "B39DISF"
+        ],
+        "notes": "不能直接改名为确诊2型糖尿病。"
+      },
+      {
+        "code": "stroke",
+        "name_zh": "卒中／中风",
+        "kind": "disease",
+        "tier": "extension",
+        "fields_82": [
+          "G22*"
+        ],
+        "fields_later": [
+          "CVA",
+          "STRKYR1",
+          "ADDSTRKE",
+          "ADDISTRK",
+          "STYR2_*",
+          "LSTROKE",
+          "STRKFLAG",
+          "B32DISF",
+          "B34DISF*"
+        ],
+        "notes": "首次与复发事件分开；不与短暂性脑缺血发作混用。"
+      },
+      {
+        "code": "heart_attack",
+        "name_zh": "心脏病发作（按问卷定义）",
+        "kind": "disease",
+        "tier": "extension",
+        "fields_82": [
+          "G17*"
+        ],
+        "fields_later": [
+          "EVERATT",
+          "HEARTATK",
+          "FIRSTATT",
+          "SINCEART",
+          "ATTKYR*",
+          "LHATTACK",
+          "ATTFLAG",
+          "B20DISF",
+          "B22DISF*"
+        ],
+        "notes": "问卷heart attack不能当作所有心脏病；首发与复发须区分。"
+      },
+      {
+        "code": "high_cholesterol",
+        "name_zh": "高胆固醇报告",
+        "kind": "risk_factor",
+        "tier": "extension",
+        "fields_82": [],
+        "fields_later": [
+          "HIGHBLCH",
+          "BLCHNOW",
+          "BLCHYR",
+          "BLCHMED*"
+        ],
+        "notes": "1987与1992问题和年份覆盖不同；不是所有血脂异常的统一标签。"
+      },
+      {
+        "code": "arthritis",
+        "name_zh": "关节炎（问卷综合项）",
+        "kind": "disease",
+        "tier": "extension",
+        "fields_82": [
+          "VG26*"
+        ],
+        "fields_later": [
+          "DREVRTEL",
+          "FRSTARTH",
+          "DRARTHR",
+          "LARTH",
+          "LARTHYR",
+          "LARTHTYP",
+          "ARTHFLG1",
+          "B4DISF"
+        ],
+        "notes": "1982 VG26为代理／死亡相关模块，不能当全体存活受访者通用基线；后续轮问题措辞也需核对。"
+      },
+      {
+        "code": "osteoarthritis",
+        "name_zh": "骨关节炎／退行性关节炎",
+        "kind": "disease",
+        "tier": "extension",
+        "fields_82": [],
+        "fields_later": [
+          "OSTEOART",
+          "DRARTHR",
+          "DREVRTEL",
+          "FRSTARTH",
+          "LARTHTYP"
+        ],
+        "notes": "存在关节炎类型跳题，类型未问不等于未患病。"
+      },
+      {
+        "code": "rheumatoid_arthritis",
+        "name_zh": "类风湿关节炎",
+        "kind": "disease",
+        "tier": "extension",
+        "fields_82": [],
+        "fields_later": [
+          "RHEUMATD",
+          "DRARTHR",
+          "DREVRTEL",
+          "FRSTARTH",
+          "LARTHTYP"
+        ],
+        "notes": "类型跳题与病例数量待审核。"
+      },
+      {
+        "code": "gout",
+        "name_zh": "痛风",
+        "kind": "disease",
+        "tier": "extension",
+        "fields_82": [],
+        "fields_later": [
+          "GOUT",
+          "FRSTGOUT",
+          "SINCGOUT",
+          "LASTGOUT",
+          "ARTHGOUT",
+          "LGOUT",
+          "GOUTFLG1",
+          "B12DISF"
+        ],
+        "notes": "区分首次报告、复发和痛风相关关节炎。"
+      },
+      {
+        "code": "osteoporosis",
+        "name_zh": "骨质疏松",
+        "kind": "disease",
+        "tier": "extension",
+        "fields_82": [],
+        "fields_later": [
+          "OSTEOPOR",
+          "OSTEOYR",
+          "LOSTEO",
+          "B82DISF"
+        ],
+        "notes": "医生告知的自报结果不等于骨密度确诊，需核对年份与缺失。"
+      },
+      {
+        "code": "cataract",
+        "name_zh": "白内障",
+        "kind": "disease",
+        "tier": "extension",
+        "fields_82": [
+          "G18*"
+        ],
+        "fields_later": [
+          "EVERCATR",
+          "CATRSURG",
+          "SURGCATR",
+          "YRCATR*",
+          "LCATRACT",
+          "LCATSURG",
+          "CATFLAG*",
+          "B107DIS*"
+        ],
+        "notes": "手术年份不能直接当作首次发病年份。"
+      },
+      {
+        "code": "kidney_disorder_or_stone",
+        "name_zh": "肾脏疾病／结石（按各轮定义）",
+        "kind": "disease",
+        "tier": "extension",
+        "fields_82": [
+          "G6a",
+          "G6b",
+          "G6c"
+        ],
+        "fields_later": [
+          "EVERKDNY",
+          "KIDNYST",
+          "YRTELKID",
+          "LKIDNEY",
+          "KIDNEYFG",
+          "B93DISF"
+        ],
+        "notes": "部分轮次包括结石，不能称为慢性肾病CKD或肾功能不全。"
+      },
+      {
+        "code": "urinary_or_kidney_infection",
+        "name_zh": "尿路／肾脏感染",
+        "kind": "disease",
+        "tier": "extension",
+        "fields_82": [
+          "G7*"
+        ],
+        "fields_later": [
+          "DOCKID",
+          "KIDINFEC",
+          "FRSTOLDK",
+          "LKID*",
+          "B96DISF"
+        ],
+        "notes": "各轮可能存在次数门槛变化，不能未经审核合并。"
+      },
+      {
+        "code": "cancer_any",
+        "name_zh": "癌症综合报告",
+        "kind": "disease",
+        "tier": "extension",
+        "fields_82": [
+          "D62",
+          "D63DX*",
+          "D64DX*",
+          "D65DX*"
+        ],
+        "fields_later": [
+          "CANCRSRT",
+          "CANCTYPE",
+          "CANCCNT",
+          "LCANCER"
+        ],
+        "notes": "需核对是否包含皮肤癌等、重复癌种和各轮癌种明细；不是单一器官癌症模型。"
+      },
+      {
+        "code": "breast_cancer",
+        "name_zh": "乳腺癌相关报告",
+        "kind": "disease",
+        "tier": "extension",
+        "fields_82": [
+          "D48",
+          "D49",
+          "D50",
+          "D51",
+          "D52",
+          "D53",
+          "D54"
+        ],
+        "fields_later": [
+          "BRCANCER",
+          "BRCANYR",
+          "B56DISF"
+        ],
+        "notes": "1987 BRCANCER是历史预填，1992为当轮疾病问题；不能直接逐列相减生成标签。"
+      },
+      {
+        "code": "skin_cancer",
+        "name_zh": "皮肤癌相关报告",
+        "kind": "disease",
+        "tier": "limited",
+        "fields_82": [
+          "D55",
+          "D56",
+          "D57c*",
+          "D58c*",
+          "D59c*"
+        ],
+        "fields_later": [
+          "SKINCANC",
+          "SKCANMM",
+          "SKCANOT",
+          "SKCANYR*",
+          "SKCANNUM",
+          "CANCTYPE"
+        ],
+        "notes": "1982需先辨认皮肤病中恶性项；1992有专门问题，1987缺少同等直接问题。"
+      },
+      {
+        "code": "hip_fracture",
+        "name_zh": "髋部骨折",
+        "kind": "injury",
+        "tier": "extension",
+        "fields_82": [
+          "E8",
+          "E90",
+          "E91",
+          "E92",
+          "E93",
+          "E94"
+        ],
+        "fields_later": [
+          "BRKNHIP",
+          "FRACHIP",
+          "HIPYEAR*",
+          "ANTHRHIP",
+          "HIPYR2_*",
+          "LHIP*",
+          "HIPFLAG",
+          "B74DISF",
+          "B77DISF",
+          "B79DISF*"
+        ],
+        "notes": "伤害事件，与慢性疾病分组；既往骨折和再次骨折不同任务。"
+      },
+      {
+        "code": "wrist_fracture",
+        "name_zh": "腕部骨折",
+        "kind": "injury",
+        "tier": "extension",
+        "fields_82": [],
+        "fields_later": [
+          "BRKNWRST",
+          "ADBKWRST",
+          "WRSTYR*",
+          "B85DISF*"
+        ],
+        "notes": "部分问题描述新增骨折，须核对既往骨折与随访区间。"
+      },
+      {
+        "code": "falls",
+        "name_zh": "跌倒事件",
+        "kind": "event",
+        "tier": "extension",
+        "fields_82": [],
+        "fields_later": [
+          "FALLS",
+          "NUMFALLS",
+          "FALLBKBN",
+          "FALLHEAD",
+          "FALLMEDC",
+          "HOSPFALL",
+          "VFALL"
+        ],
+        "notes": "通常是访谈前12个月，不可直接解释为整个1987至1992的五年跌倒风险。"
+      },
+      {
+        "code": "pneumonia_hospitalization",
+        "name_zh": "肺炎／流感相关住院（按各轮定义）",
+        "kind": "hospitalization",
+        "tier": "limited",
+        "fields_82": [],
+        "fields_later": [
+          "B62FLU",
+          "B71_FLU",
+          "HOSPFLU"
+        ],
+        "notes": "住院结局而非所有肺炎发病；各轮是否包含流感需要审核。"
+      },
+      {
+        "code": "hernia",
+        "name_zh": "疝相关疾病",
+        "kind": "disease",
+        "tier": "limited",
+        "fields_82": [],
+        "fields_later": [
+          "HERNIA",
+          "HIHERNIA",
+          "RUPTURE",
+          "VENTRAL",
+          "UMBIL",
+          "OTHRHERN",
+          "HERNYR*",
+          "HERNSURG"
+        ],
+        "notes": "1992有专门问题；1987缺少同等直接基线问题，暂不能形成该窗口的新发标签。"
+      },
+      {
+        "code": "asthma",
+        "name_zh": "哮喘",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G1a",
+          "G1b",
+          "G1c"
+        ],
+        "fields_later": [],
+        "notes": "已取得1982相关问题；尚未确认后续可比发病结局。"
+      },
+      {
+        "code": "chronic_bronchitis_or_emphysema",
+        "name_zh": "慢性支气管炎／肺气肿综合项",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G2a",
+          "G2b",
+          "G2c"
+        ],
+        "fields_later": [],
+        "notes": "问卷合并项，不能拆成两个独立标签或直接等同于确诊COPD。"
+      },
+      {
+        "code": "migraine",
+        "name_zh": "偏头痛",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G3a",
+          "G3b",
+          "G3c"
+        ],
+        "fields_later": [],
+        "notes": "目前仅登记早期病史问题，不启用未来风险训练。"
+      },
+      {
+        "code": "psoriasis",
+        "name_zh": "银屑病",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G4a",
+          "G4b",
+          "G4c"
+        ],
+        "fields_later": [],
+        "notes": "目前仅登记早期病史问题，不启用未来风险训练。"
+      },
+      {
+        "code": "ulcer",
+        "name_zh": "溃疡病（问卷原义）",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G5a",
+          "G5b",
+          "G5c"
+        ],
+        "fields_later": [],
+        "notes": "不擅自细分胃溃疡或十二指肠溃疡；后续结局待补证。"
+      },
+      {
+        "code": "colon_tumor",
+        "name_zh": "结肠肿瘤报告",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G8a",
+          "G8b",
+          "G8c"
+        ],
+        "fields_later": [],
+        "notes": "肿瘤不自动等于恶性结肠癌；后续癌种明细另行审核。"
+      },
+      {
+        "code": "liver_cirrhosis",
+        "name_zh": "肝硬化",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G9a",
+          "G9b",
+          "G9c"
+        ],
+        "fields_later": [],
+        "notes": "已取得早期报告，未确认后续可比结局。"
+      },
+      {
+        "code": "parkinsons",
+        "name_zh": "帕金森病",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G10a",
+          "G10b",
+          "G10c"
+        ],
+        "fields_later": [],
+        "notes": "已取得早期报告，未确认后续可比结局。"
+      },
+      {
+        "code": "multiple_sclerosis",
+        "name_zh": "多发性硬化",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G11a",
+          "G11b",
+          "G11c"
+        ],
+        "fields_later": [],
+        "notes": "已取得早期报告，未确认后续可比结局。"
+      },
+      {
+        "code": "nervous_breakdown_report",
+        "name_zh": "神经／精神崩溃报告（历史问卷用语）",
+        "kind": "historical_report",
+        "tier": "historical",
+        "fields_82": [
+          "G12a",
+          "G12b",
+          "G12c"
+        ],
+        "fields_later": [],
+        "notes": "不能改名为抑郁症、焦虑症或现代精神科确诊标签。"
+      },
+      {
+        "code": "diverticulitis",
+        "name_zh": "憩室炎",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G13a",
+          "G13b",
+          "G13c"
+        ],
+        "fields_later": [],
+        "notes": "后续可比发病结局待补证。"
+      },
+      {
+        "code": "colitis_or_enteritis",
+        "name_zh": "结肠炎／肠炎综合项",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G14a",
+          "G14b",
+          "G14c"
+        ],
+        "fields_later": [],
+        "notes": "不能直接解释为确诊炎症性肠病或特定亚型。"
+      },
+      {
+        "code": "heart_condition_broad",
+        "name_zh": "广义心脏疾病／问题",
+        "kind": "historical_report",
+        "tier": "historical",
+        "fields_82": [
+          "G15a",
+          "G15b",
+          "G15c"
+        ],
+        "fields_later": [
+          "LHRTCOND"
+        ],
+        "notes": "后续历史预填不等于新的当轮结局；不能称为冠心病或心衰。"
+      },
+      {
+        "code": "angina",
+        "name_zh": "心绞痛",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G16a",
+          "G16b",
+          "G16c"
+        ],
+        "fields_later": [],
+        "notes": "早期疾病报告不能单独构成未来心绞痛预测队列。"
+      },
+      {
+        "code": "glaucoma",
+        "name_zh": "青光眼",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G19a",
+          "G19b",
+          "G19c"
+        ],
+        "fields_later": [],
+        "notes": "已取得早期病史问题，未确认后续可比结局。"
+      },
+      {
+        "code": "retinal_detachment",
+        "name_zh": "视网膜脱离",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G20a",
+          "G20b",
+          "G20c"
+        ],
+        "fields_later": [],
+        "notes": "已取得早期病史问题，未确认后续可比结局。"
+      },
+      {
+        "code": "tia",
+        "name_zh": "短暂性脑缺血发作相关报告",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G21a",
+          "G21b",
+          "G21c"
+        ],
+        "fields_later": [],
+        "notes": "保留原问卷small stroke/TIA含义，不与卒中标签直接合并。"
+      },
+      {
+        "code": "prostate_trouble",
+        "name_zh": "前列腺问题（问卷综合项）",
+        "kind": "historical_report",
+        "tier": "historical",
+        "fields_82": [
+          "G23a",
+          "G23b",
+          "G23c"
+        ],
+        "fields_later": [],
+        "notes": "不能改名为前列腺癌或已确诊良性前列腺增生。"
+      },
+      {
+        "code": "thyroid_disorder_or_goiter",
+        "name_zh": "甲状腺疾病／甲状腺肿综合项",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G41",
+          "G42",
+          "G43",
+          "G44*",
+          "G45"
+        ],
+        "fields_later": [],
+        "notes": "不能直接拆成甲亢、甲减；后续结局待补证。"
+      },
+      {
+        "code": "epilepsy",
+        "name_zh": "癫痫",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "G46",
+          "G47",
+          "G48",
+          "G49*",
+          "G50"
+        ],
+        "fields_later": [],
+        "notes": "已取得早期病史问题，未确认后续可比结局。"
+      },
+      {
+        "code": "gallbladder_disease",
+        "name_zh": "胆囊疾病",
+        "kind": "disease",
+        "tier": "historical",
+        "fields_82": [
+          "D43",
+          "D44",
+          "D45",
+          "D46",
+          "D47"
+        ],
+        "fields_later": [],
+        "notes": "不能仅凭综合项改名为胆结石；后续结局待补证。"
+      }
+    ]
+  },
+  "label_rules": {
+    "review_status": "codebook_checked_research_definition",
+    "yes": 1,
+    "no": 2,
+    "excluded_codes": {
+      "-1": "inapplicable",
+      "-7": "refused",
+      "-8": "unknown",
+      "-9": "not_ascertained",
+      "95": "borderline",
+      "96": "discrepancy"
+    },
+    "baseline": "1987",
+    "followup": "1992",
+    "min_age": 65,
+    "population": "alive_at_both_interviews_with_ascertained_outcome",
+    "positive_year_rule": "baseline_calendar_year < first_report_year <= followup_calendar_year",
+    "sources": [
+      {
+        "file": "1987intv.pdf",
+        "url": "https://wwwn.cdc.gov/nchs/data/nhefs/1987intv.pdf",
+        "pdf_pages_1_based": [
+          90,
+          111,
+          119,
+          131,
+          195,
+          197,
+          201,
+          204
+        ]
+      },
+      {
+        "file": "1992intv.pdf",
+        "url": "https://wwwn.cdc.gov/nchs/data/nhefs/1992intv.pdf",
+        "pdf_pages_1_based": [
+          94,
+          95,
+          103,
+          104,
+          111,
+          116,
+          136
+        ]
+      },
+      {
+        "file": "1992vital.pdf",
+        "url": "https://wwwn.cdc.gov/nchs/data/nhefs/1992vital.pdf",
+        "pdf_pages_1_based": [
+          33,
+          34,
+          37,
+          40
+        ]
+      }
+    ],
+    "rules": {
+      "hypertension": {
+        "current": "HYPER",
+        "prior87": "BLOODPRE",
+        "prior92": "LHIGHBP",
+        "year": "HBPYEAR1",
+        "confirm": [
+          "HBPMEDIC",
+          "PRESCMED",
+          "MEDREGLR"
+        ]
+      },
+      "diabetes": {
+        "current": "SUGRDIAB",
+        "prior87": "DIABETES",
+        "prior92": "LDIABETE",
+        "year": "DIABYR1",
+        "confirm": [
+          "DIABMED",
+          "INSLNDB",
+          "ORALDB"
+        ]
+      },
+      "stroke": {
+        "current": "CVA",
+        "prior87": "STROKE",
+        "prior92": "LSTROKE",
+        "year": "STRKYR1",
+        "confirm": [
+          "ADDSTRKE"
+        ]
+      },
+      "heart_attack": {
+        "current": "EVERATT",
+        "prior87": "HEARTATT",
+        "prior92": "LHATTACK",
+        "year": "FIRSTATT",
+        "confirm": [
+          "HEARTATK"
+        ]
+      },
+      "osteoporosis": {
+        "current": "OSTEOPOR",
+        "prior87": null,
+        "prior92": "LOSTEO",
+        "year": "OSTEOYR",
+        "confirm": []
+      }
+    }
+  },
+  "audit": {
+    "task": "survivor_conditional_new_disease_report",
+    "baseline": "1987",
+    "followup": "1992",
+    "min_age": 65,
+    "config_sha256": "d1c60d7762646d0d50e93f33d47e4a18bd028e55af6413d8b86dce1777ec2423",
+    "label_rules_sha256": "78c134c9ffdd62126ba488a5f52a09fda2d22b13e1b3f3494e795620c92b0335",
+    "feature_schema_sha256": "a3f92a4d740ad7ee8acfb2fb620d36199543801a47b066931e2ce8ff1226e261",
+    "rules_sha256": "0ba9d60d47a5668cd670710b559794e0b91784c530f03bf8b99dd48d4d49cb1c",
+    "seed": 20261015,
+    "notes": [
+      "Historical US cohort; not externally validated in Chinese community elders.",
+      "Only alive followup interview completers; deceased are excluded, never coded negative.",
+      "Require known sex and at least two of five health/lifestyle inputs, identical to online eligibility.",
+      "Positive diagnosis year must be strictly after baseline calendar year; same-year ambiguous events excluded.",
+      "Month precision survey dates use the 15th; this is a survey-interval report task, not exact five-year incidence."
+    ],
+    "source_files": {
+      "n87int.txt": "f320f3d519d9af5b74eefbbd78997271c00bccfd47b3be9e1516857f96a249fd",
+      "N92int.txt": "b4210a6a957460890e00e7130d1377babea6401a5f6bf891a814899108f2b65f",
+      "n92vitl.txt": "d5a81411db5123893c27e5abfaa83bd9eb767bc61e242d49d93e047b620c0f61"
+    },
+    "cohorts_sha256": "272e7b90f490ca4e978768e43ffdd251f338e030f7dfc38edeb4ae6ff36dc67b",
+    "diseases": {
+      "hypertension": {
+        "name": "高血压",
+        "counts": {
+          "age_outside_scope_or_unknown": 6230,
+          "already_diagnosed": 1870,
+          "no_alive_baseline_interview": 4881,
+          "eligible_negative": 794,
+          "deceased_before_followup_excluded_not_negative": 363,
+          "eligible_positive": 76,
+          "lost_or_no_alive_followup_interview": 61,
+          "baseline_unknown_or_skipped": 18,
+          "baseline_conflicting": 55,
+          "reported_year_not_strictly_after_baseline": 17,
+          "followup_unknown_or_skipped": 14,
+          "positive_report_year_unknown": 12,
+          "baseline_borderline": 1,
+          "insufficient_baseline_profile_information": 5,
+          "followup_borderline": 10
+        },
+        "eligible": 870,
+        "events": 76,
+        "followup_months_min": 55.0,
+        "followup_months_max": 73.03,
+        "splits": {
+          "development": {
+            "n": 699,
+            "events": 63
+          },
+          "evaluation": {
+            "n": 171,
+            "events": 13
+          }
+        },
+        "feature_missing_counts": {
+          "age": 0,
+          "sex_male": 0,
+          "weight_kg": 7,
+          "self_rated_health": 67,
+          "smoking_current": 0,
+          "drinking_any": 2,
+          "exercise_regular": 16,
+          "history_hypertension": 0,
+          "history_diabetes": 5,
+          "history_stroke": 10,
+          "history_heart_attack": 1,
+          "history_osteoporosis": 6,
+          "high_cholesterol_history": 11,
+          "health_worsened": 20,
+          "weight_gain_10lb": 8,
+          "weight_loss_10lb": 8,
+          "hip_fracture_history": 1
+        }
+      },
+      "diabetes": {
+        "name": "糖尿病（按问卷定义）",
+        "counts": {
+          "age_outside_scope_or_unknown": 6230,
+          "eligible_negative": 1814,
+          "no_alive_baseline_interview": 4881,
+          "already_diagnosed": 435,
+          "deceased_before_followup_excluded_not_negative": 773,
+          "lost_or_no_alive_followup_interview": 138,
+          "followup_borderline": 31,
+          "reported_year_not_strictly_after_baseline": 5,
+          "baseline_borderline": 22,
+          "eligible_positive": 38,
+          "baseline_unknown_or_skipped": 7,
+          "baseline_conflicting": 18,
+          "insufficient_baseline_profile_information": 8,
+          "followup_unknown_or_skipped": 4,
+          "positive_report_year_unknown": 3
+        },
+        "eligible": 1852,
+        "events": 38,
+        "followup_months_min": 55.0,
+        "followup_months_max": 73.03,
+        "splits": {
+          "development": {
+            "n": 1492,
+            "events": 32
+          },
+          "evaluation": {
+            "n": 360,
+            "events": 6
+          }
+        },
+        "feature_missing_counts": {
+          "age": 0,
+          "sex_male": 0,
+          "weight_kg": 19,
+          "self_rated_health": 131,
+          "smoking_current": 0,
+          "drinking_any": 5,
+          "exercise_regular": 50,
+          "history_hypertension": 32,
+          "history_diabetes": 0,
+          "history_stroke": 29,
+          "history_heart_attack": 4,
+          "history_osteoporosis": 7,
+          "high_cholesterol_history": 29,
+          "health_worsened": 42,
+          "weight_gain_10lb": 15,
+          "weight_loss_10lb": 15,
+          "hip_fracture_history": 1
+        }
+      },
+      "stroke": {
+        "name": "卒中／中风",
+        "counts": {
+          "age_outside_scope_or_unknown": 6230,
+          "eligible_negative": 1832,
+          "no_alive_baseline_interview": 4881,
+          "followup_unknown_or_skipped": 63,
+          "lost_or_no_alive_followup_interview": 136,
+          "deceased_before_followup_excluded_not_negative": 781,
+          "already_diagnosed": 282,
+          "eligible_positive": 67,
+          "followup_historical_report_conflicts_with_baseline": 31,
+          "baseline_unknown_or_skipped": 78,
+          "insufficient_baseline_profile_information": 9,
+          "reported_year_not_strictly_after_baseline": 10,
+          "positive_report_year_unknown": 7
+        },
+        "eligible": 1899,
+        "events": 67,
+        "followup_months_min": 55.0,
+        "followup_months_max": 73.03,
+        "splits": {
+          "development": {
+            "n": 1533,
+            "events": 53
+          },
+          "evaluation": {
+            "n": 366,
+            "events": 14
+          }
+        },
+        "feature_missing_counts": {
+          "age": 0,
+          "sex_male": 0,
+          "weight_kg": 17,
+          "self_rated_health": 123,
+          "smoking_current": 2,
+          "drinking_any": 5,
+          "exercise_regular": 53,
+          "history_hypertension": 35,
+          "history_diabetes": 23,
+          "history_stroke": 0,
+          "history_heart_attack": 1,
+          "history_osteoporosis": 10,
+          "high_cholesterol_history": 24,
+          "health_worsened": 36,
+          "weight_gain_10lb": 15,
+          "weight_loss_10lb": 15,
+          "hip_fracture_history": 3
+        }
+      },
+      "heart_attack": {
+        "name": "心脏病发作（按问卷定义）",
+        "counts": {
+          "age_outside_scope_or_unknown": 6230,
+          "already_diagnosed": 538,
+          "no_alive_baseline_interview": 4881,
+          "eligible_negative": 1735,
+          "lost_or_no_alive_followup_interview": 133,
+          "deceased_before_followup_excluded_not_negative": 740,
+          "positive_report_year_unknown": 10,
+          "baseline_unknown_or_skipped": 12,
+          "insufficient_baseline_profile_information": 10,
+          "reported_year_not_strictly_after_baseline": 20,
+          "eligible_positive": 91,
+          "followup_unknown_or_skipped": 7
+        },
+        "eligible": 1826,
+        "events": 91,
+        "followup_months_min": 55.0,
+        "followup_months_max": 73.03,
+        "splits": {
+          "development": {
+            "n": 1482,
+            "events": 78
+          },
+          "evaluation": {
+            "n": 344,
+            "events": 13
+          }
+        },
+        "feature_missing_counts": {
+          "age": 0,
+          "sex_male": 0,
+          "weight_kg": 17,
+          "self_rated_health": 140,
+          "smoking_current": 2,
+          "drinking_any": 4,
+          "exercise_regular": 46,
+          "history_hypertension": 32,
+          "history_diabetes": 23,
+          "history_stroke": 18,
+          "history_heart_attack": 0,
+          "history_osteoporosis": 9,
+          "high_cholesterol_history": 28,
+          "health_worsened": 40,
+          "weight_gain_10lb": 15,
+          "weight_loss_10lb": 15,
+          "hip_fracture_history": 2
+        }
+      },
+      "osteoporosis": {
+        "name": "骨质疏松",
+        "counts": {
+          "age_outside_scope_or_unknown": 6230,
+          "eligible_negative": 1875,
+          "no_alive_baseline_interview": 4881,
+          "lost_or_no_alive_followup_interview": 140,
+          "deceased_before_followup_excluded_not_negative": 903,
+          "baseline_unknown_or_skipped": 40,
+          "reported_year_not_strictly_after_baseline": 37,
+          "eligible_positive": 53,
+          "already_diagnosed": 177,
+          "followup_unknown_or_skipped": 38,
+          "insufficient_baseline_profile_information": 8,
+          "positive_report_year_unknown": 25
+        },
+        "eligible": 1928,
+        "events": 53,
+        "followup_months_min": 55.0,
+        "followup_months_max": 73.03,
+        "splits": {
+          "development": {
+            "n": 1561,
+            "events": 42
+          },
+          "evaluation": {
+            "n": 367,
+            "events": 11
+          }
+        },
+        "feature_missing_counts": {
+          "age": 0,
+          "sex_male": 0,
+          "weight_kg": 18,
+          "self_rated_health": 146,
+          "smoking_current": 2,
+          "drinking_any": 4,
+          "exercise_regular": 54,
+          "history_hypertension": 31,
+          "history_diabetes": 26,
+          "history_stroke": 26,
+          "history_heart_attack": 3,
+          "history_osteoporosis": 0,
+          "high_cholesterol_history": 24,
+          "health_worsened": 41,
+          "weight_gain_10lb": 17,
+          "weight_loss_10lb": 17,
+          "hip_fracture_history": 2
+        }
+      }
+    }
+  },
+  "training_recipe": {
+    "recipe": "optimized-v2",
+    "reference_version": "nhefs5-20261015T061013Z",
+    "validation_status": "exploratory_reuse_of_previously_inspected_holdout",
+    "outer_folds": 3,
+    "inner_folds": 3,
+    "selection_metric": "mean_inner_fold_roc_auc_then_average_precision",
+    "family_selection": "nested_development_oof_roc_auc_then_average_precision",
+    "default_threshold_policy": "specificity80",
+    "threshold_policies": {
+      "specificity80": "maximize sensitivity + specificity - 1 among development OOF specificity >= 0.80; prefer specificity on ties",
+      "balanced_youden": "maximize development OOF sensitivity + specificity - 1; prefer specificity on ties",
+      "screening70": "development OOF sensitivity >= 0.70; maximize specificity",
+      "f1": "maximize development OOF F1; prefer specificity on ties"
+    },
+    "feature_sets": {
+      "compact": [
+        "age",
+        "sex_male",
+        "weight_kg",
+        "self_rated_health"
+      ],
+      "original": [
+        "age",
+        "sex_male",
+        "weight_kg",
+        "self_rated_health",
+        "smoking_current",
+        "drinking_any",
+        "exercise_regular",
+        "history_hypertension",
+        "history_diabetes",
+        "history_stroke",
+        "history_heart_attack",
+        "history_osteoporosis"
+      ],
+      "expanded": [
+        "age",
+        "sex_male",
+        "weight_kg",
+        "self_rated_health",
+        "smoking_current",
+        "drinking_any",
+        "exercise_regular",
+        "history_hypertension",
+        "history_diabetes",
+        "history_stroke",
+        "history_heart_attack",
+        "history_osteoporosis",
+        "high_cholesterol_history",
+        "health_worsened",
+        "weight_gain_10lb",
+        "weight_loss_10lb",
+        "hip_fracture_history"
+      ]
+    },
+    "logistic_C": [
+      0.01,
+      0.1,
+      1.0
+    ],
+    "logistic_class_weight": [
+      null,
+      "balanced"
+    ],
+    "xgboost_candidates": [
+      {
+        "max_depth": 1,
+        "n_estimators": 100,
+        "learning_rate": 0.03,
+        "min_child_weight": 8,
+        "reg_lambda": 10.0
+      },
+      {
+        "max_depth": 1,
+        "n_estimators": 200,
+        "learning_rate": 0.03,
+        "min_child_weight": 8,
+        "reg_lambda": 10.0
+      },
+      {
+        "max_depth": 2,
+        "n_estimators": 100,
+        "learning_rate": 0.03,
+        "min_child_weight": 8,
+        "reg_lambda": 10.0
+      }
+    ],
+    "xgboost_positive_weight": [
+      1.0,
+      5.0
+    ],
+    "calibration": "sigmoid_3fold_ensemble_false",
+    "cohort_policy": "unchanged_65plus_1987_to_1992_labels_and_ID_split; additional fields never alter inclusion",
+    "activation": "explicit_only; preserve active_model.json unless --activate"
+  },
+  "feature_schema": {
+    "schema_version": 2,
+    "baseline": "1987",
+    "age_min": 65,
+    "required_profile": [
+      "age",
+      "sex_male"
+    ],
+    "minimum_optional_inputs": 2,
+    "optional_profile": [
+      "weight_kg",
+      "self_rated_health",
+      "smoking_current",
+      "drinking_any",
+      "exercise_regular",
+      "high_cholesterol_history",
+      "health_worsened",
+      "weight_gain_10lb",
+      "weight_loss_10lb",
+      "hip_fracture_history"
+    ],
+    "eligibility_optional_fields": [
+      "weight_kg",
+      "self_rated_health",
+      "smoking_current",
+      "drinking_any",
+      "exercise_regular"
+    ],
+    "fields": {
+      "age": {
+        "source": "vital.AGEINT87",
+        "unit": "years",
+        "missing": "outside 65..98 excluded"
+      },
+      "sex_male": {
+        "source": "vital.SEXSUBJ",
+        "mapping": {
+          "1": 1,
+          "2": 0
+        }
+      },
+      "weight_kg": {
+        "source": "1987.WEIGHNOW",
+        "source_unit": "self-reported pounds",
+        "conversion": "lb * 0.45359237",
+        "valid_source_range": [
+          55,
+          700
+        ]
+      },
+      "self_rated_health": {
+        "source": "1987.GENERAL",
+        "valid_range": [
+          1,
+          5
+        ],
+        "meaning": "1 excellent through 5 poor"
+      },
+      "smoking_current": {
+        "source": [
+          "1987.SMOKENOW",
+          "1987.CSMKNOW",
+          "1987.SMOKE100"
+        ],
+        "mapping": "1 yes, 2 no; screening no implies not current"
+      },
+      "drinking_any": {
+        "source": "1987.DRINKYR",
+        "mapping": "1 yes, 2 no; at least one drink in previous year"
+      },
+      "high_cholesterol_history": {
+        "source": "1987.HIGHBLCH",
+        "mapping": "1 yes -> 1; 2 no -> 0; 95 borderline and missing -> null",
+        "meaning": "doctor-told high cholesterol before or at baseline; not a measured lipid value",
+        "codebook": "1987intv.pdf page 115 (printed 111)"
+      },
+      "health_worsened": {
+        "source": "1987.HEALTH",
+        "mapping": "1 improved, 2 same -> 0; 3 gradually worsened, 4 suddenly worsened -> 1; other -> null",
+        "meaning": "health change during 12 months before baseline",
+        "codebook": "1987intv.pdf page 144 (printed 140)"
+      },
+      "weight_gain_10lb": {
+        "source": "1987.WHTCOMPR",
+        "mapping": "1 -> 1; 2,3 -> 0; other -> null",
+        "meaning": "self-reported gain of at least 10 pounds over preceding 12 months",
+        "codebook": "1987intv.pdf page 204 (printed 200)"
+      },
+      "weight_loss_10lb": {
+        "source": "1987.WHTCOMPR",
+        "mapping": "2 -> 1; 1,3 -> 0; other -> null",
+        "meaning": "self-reported loss of at least 10 pounds over preceding 12 months",
+        "codebook": "1987intv.pdf page 204 (printed 200)"
+      },
+      "hip_fracture_history": {
+        "source": [
+          "1987.BROKENHI",
+          "1987.BRKNHIP"
+        ],
+        "mapping": "prior 1 or current 1 -> 1; current 2 -> 0; skipped/unknown otherwise -> null",
+        "codebook": "1987intv.pdf page 127 (printed 123)"
+      },
+      "exercise_regular": {
+        "source": "1987.EXERPROG",
+        "mapping": "1 yes, 2 no; regular exercise or sports"
+      }
+    },
+    "history_features": [
+      "hypertension",
+      "diabetes",
+      "stroke",
+      "heart_attack",
+      "osteoporosis"
+    ],
+    "target_history_excluded_from_own_model": true,
+    "preprocessing": "fold-local median imputation + missing indicators + standard scaling; bundled with calibrated estimator",
+    "temporal_rule": "all inputs known at baseline; no followup measurements or outcomes used as predictors"
+  }
+}

@@ -97,3 +97,23 @@ VS Code 和 PyCharm 的终端都可输入以下命令；Java 后端请用 Maven 
 - 后端提示数据库连接失败：确认 MySQL 已启动、数据库名为 `personal_health`，并检查 `application.yml` 的账号密码。
 - 前端能打开但个性化风险评估失败：按顺序查看 8001 风险服务、21090 后端是否启动；前端接口地址在 `IHMS-view/src/utils/request.js`。
 - 风险服务报告的模型版本仍是旧版：进程会在启动时加载模型，停止旧进程、确认模型文件已更新后再重启风险服务。
+
+### MySQL80 启动后立即停止，NET HELPMSG 3534
+
+3534是通用服务启动失败提示，先检查MySQL错误日志及控制台启动输出。2026-10-15本机的一次故障中，管理员控制台使用原有`my.ini`和数据目录可正常启动，但Windows服务立即退出；检查发现服务登录账户`NT AUTHORITY\NetworkService`的默认临时目录缺失。补建后，MySQL80服务正常启动并出现3306端口就绪日志。
+
+仅在确认本机服务使用该账户且目录确实缺失时，在管理员PowerShell中补建：
+
+```powershell
+New-Item -ItemType Directory -Path 'C:\Windows\ServiceProfiles\NetworkService\AppData\Local\Temp' -Force
+Start-Service MySQL80
+Get-Service MySQL80
+```
+
+核对该账户具有临时目录访问权限；不要为解决这个问题向所有用户开放数据库数据目录。若先启动了控制台诊断实例，应正常关闭它再启动服务，避免争用同一数据目录和端口。MySQL官方[Windows服务说明](https://dev.mysql.com/doc/refman/8.0/en/windows-start-service.html)也要求服务账户可写入其临时目录。
+
+服务恢复后若错误变为`Access denied for user 'root'@'localhost'`，说明已连接到MySQL，剩余问题是账户认证；单独核对本机`application.yml`或`MYSQL_PASSWORD`环境变量中的凭据。不要将密码发到聊天。端口恢复不等于已经通过认证或核对完数据库表。
+
+2026-10-15本机恢复记录：经用户明确授权，先正常停库并离线备份数据目录和`my.ini`，再按[MySQL官方Windows密码恢复步骤](https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html)将`root@localhost`密码同步为本机配置中的实际值。临时密码文件已删除，原服务配置保持不变，`MySQL80`恢复正常运行；后端同版本JDBC认证已通过。
+
+当次检查发现`personal_health`原有17张表，随后仅按`sql/init_mysql_schema_safe.sql`补建缺少的`elder_risk_profile`、`elder_vital_measurement`、`personalized_risk_assessment`三张空表。补建后共20张表，表名和必需字段核对无缺项，原有业务记录保留。恢复前备份保存在MySQL安装数据配置目录下的`root-recovery-<UTC时间>/Data-backup/`，仅管理员和系统账户可访问。Navicat需使用同步后的密码重新连接；后端重启后读取当前本机配置。
