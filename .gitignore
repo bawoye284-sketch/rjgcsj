@@ -11,6 +11,10 @@ IHMS-view/dist/
 IHMS-admin/target/
 IHMS-admin/.build-tools/
 
+# Public research downloads are reproduced with model-training/download_nhefs.py.
+model-training/data/nhefs/raw/
+model-training/data/nhefs/documentation/
+
 # Persistent demo database stays local
 IHMS-admin/demo-data/*.mv.db
 IHMS-admin/demo-data/*.lock.db

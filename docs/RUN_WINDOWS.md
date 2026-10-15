@@ -12,7 +12,7 @@
 2. 启动 Java 后端：双击项目根目录的 `03_start_demo_backend.bat`。首次运行会从 `.example` 文件生成本机配置，不覆盖已有配置。脚本优先使用 PATH 中的 Maven，找不到时使用 `IHMS-admin/.build-tools/` 中的本地 Maven；该工具目录不会上传到 GitHub，所以在新电脑上需安装 Maven。也可在 IntelliJ IDEA 中打开 `IHMS-admin/pom.xml`，把 JDK 设为 17，工作目录设为 `IHMS-admin`，在 `Application.java` 的运行配置中加入程序参数 `--spring.profiles.active=demo` 后运行。后端使用端口 21090，且不连接 MySQL。
 3. 启动 Vue 前端：双击项目根目录的 `04_start_demo_frontend.bat`；脚本首次运行会安装依赖，之后直接启动。也可在新终端进入 `IHMS-view`，先运行 `npm.cmd ci`，安装成功后运行 `npm.cmd run dev:compatible`。浏览器打开 `http://localhost:21091`。
 
-演示登录：用户 `demo_elder` / `123456`，管理员 `demo_admin` / `123456`，医生请在登录页切换“医生登录”，账号 `demo_doctor` / `123456`。演示密码仅用于本地演示。若需要接入真实 MySQL，按后文初始化数据库并正常启动 Java 后端，不传 `demo` 配置。
+演示登录：用户 `demo_elder` / `123456`，管理员 `demo_admin` / `123456`，医生请在登录页切换“医生登录”，账号 `demo_doctor` / `123456`。演示密码仅用于本地演示。配置模板默认启用 `demo`，直接运行 `Application.java` 也使用 H2。若需要接入真实 MySQL，按后文初始化数据库，并显式使用 `--spring.profiles.active=mysql`。
 
 医疗问答中需要外部大模型的功能仍受独立的 DeepSeek API 配置影响；这与是否启用 MySQL 无关。个性化风险评估使用本地 Python 风险服务，请保持其终端运行。
 
@@ -30,10 +30,12 @@ VS Code 和 PyCharm 的终端都可输入以下命令；Java 后端请用 Maven 
 
 在 MySQL Workbench / Navicat 中新建 `personal_health` 数据库，并设为当前数据库。
 
-- **全新数据库**：执行 `sql/personal_health_with_risk.sql`。这个完整脚本包含 `DROP TABLE`，不要在已有业务数据的库上执行。
+- **全新数据库**：可执行 `sql/init_mysql_schema_safe.sql`，创建 `personal_health` 和 20 张表；该脚本保留已有表和记录，不负责补齐已有表缺少的字段，也不插入示例账号。`sql/personal_health_with_risk.sql` 是含历史数据的完整脚本，包含 `DROP TABLE`，不要在已有业务数据的库上执行。
 - **已有 personal_health 数据库**：先备份。若尚无个性化风险表，执行 `sql/personalized_risk_upgrade.sql`；若已有个性化风险表但缺少呼吸频率等新列，只执行一次 `sql/news2_upgrade_existing.sql`。数据库列 `group_risk_probability` 为兼容旧记录保留，当前存放五项指标模型预警值。
 
 若本机还没有 `IHMS-admin/src/main/resources/application.yml`，先复制同目录的 `application.yml.example` 并去掉文件名末尾的 `.example`。然后把 `spring.datasource.username` 和 `spring.datasource.password` 改成自己 MySQL 的用户名和密码。数据库地址默认为 `localhost:3306/personal_health`。需要外部智能问答时，另填 `deepseek.api-key`。本机配置已被 Git 忽略。
+
+当前完整表结构包含 20 张表、162 个字段。基础版、完整版及升级脚本包含重叠定义，应根据数据库现状选择对应脚本，不要将整个 `sql/` 目录依次导入。表结构初始化与业务数据导入是两个步骤：`init_mysql_schema_safe.sql` 只创建结构，原始完整脚本另含历史业务数据。连接名称（例如 `Elderly Health`）不是数据库名。使用 MySQL 时，在 IDEA 的程序参数填写 `--spring.profiles.active=mysql`；双击 `03_start_demo_backend.bat` 会显式启用 H2 演示模式。
 
 ## 3. 安装 Python 依赖（第一次运行）
 
@@ -69,10 +71,10 @@ VS Code 和 PyCharm 的终端都可输入以下命令；Java 后端请用 Maven 
 
    ```powershell
    Set-Location .\IHMS-admin
-   mvn spring-boot:run
+   mvn spring-boot:run "-Dspring-boot.run.profiles=mysql"
    ```
 
-   也可以用 IntelliJ IDEA 打开 `IHMS-admin/pom.xml`，把项目 JDK 设为 17，运行 `src/main/java/com/star/Application.java`。后端端口是 **21090**。
+   也可以用 IntelliJ IDEA 打开 `IHMS-admin/pom.xml`，把项目 JDK 设为 17，运行 `src/main/java/com/star/Application.java`；MySQL 模式的程序参数为 `--spring.profiles.active=mysql`。后端端口是 **21090**。
 4. **Vue 前端**：在第三个终端执行：
 
    ```powershell

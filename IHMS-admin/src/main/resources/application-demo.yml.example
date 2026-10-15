@@ -1,0 +1,18 @@
+# Copy to application-demo.yml. Paths are relative to the IHMS-admin working directory.
+spring:
+  autoconfigure:
+    exclude:
+      - com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:./demo-data/personal_health;MODE=MySQL;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE;NON_KEYWORDS=USER,VALUE;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: ""
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
+      schema-locations: classpath:demo/schema.sql
+      data-locations: classpath:demo/data.sql
+      continue-on-error: false

@@ -1,0 +1,42 @@
+# Copy to application.yml for local use. Do not put credentials in this template.
+server:
+  port: 21090
+  servlet:
+    context-path: /api/personal-heath/v1.0
+
+my-server:
+  api-context-path: /api/personal-heath/v1.0
+
+spring:
+  profiles:
+    default: demo
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://localhost:3306/personal_health?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: never
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.star.model.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+llm:
+  provider: deepseek
+health:
+  analysis:
+    provider: llm
+deepseek:
+  api-key: ${DEEPSEEK_API_KEY:}
+risk-model:
+  service-url: http://127.0.0.1:8001/predict

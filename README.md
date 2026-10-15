@@ -14,6 +14,8 @@
 
 首次启动演示后端时，脚本会从不含密钥的 `.example` 文件生成本机配置。正式连接 MySQL 或使用外部智能问答时，再在本机配置中填写账号和密钥；本机配置不会上传到 GitHub。
 
+使用 IntelliJ IDEA 时，先将 `IHMS-admin/src/main/resources/` 中两个 `.yml.example` 文件复制为对应的 `.yml` 文件，再以 JDK 17 运行 `Application.java`，工作目录设为 `IHMS-admin`。默认启用 H2 演示模式；连接 MySQL 时需显式添加程序参数 `--spring.profiles.active=mysql`。前端可直接运行 `npm.cmd run dev`，默认启动和构建命令均已包含 OpenSSL 兼容参数。
+
 ## 目录用途
 
 | 目录 | 内容 |
@@ -28,4 +30,4 @@
 
 `.venv/` 是本机 Python 虚拟环境，`.idea/` 是 PyCharm 项目设置；它们不属于业务源码。根目录的两个 `.bat` 保留在这里，方便直接双击启动演示。
 
-更多说明：[训练与演示说明](docs/训练与演示说明.md) · [启动顺序](docs/START_ORDER.txt) · [原项目说明（历史资料）](docs/README_ORIGINAL.md)
+更多说明：[训练与演示说明](docs/训练与演示说明.md) · [启动顺序](docs/START_ORDER.txt) · [慢性病风险预测改造方案与数据集](docs/慢性病风险预测改造方案.md) · [原项目说明（历史资料）](docs/README_ORIGINAL.md)
