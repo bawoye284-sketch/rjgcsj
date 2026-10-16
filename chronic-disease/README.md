@@ -65,9 +65,9 @@ python -m venv .\chronic-disease\.venv
 & .\chronic-disease\.venv\Scripts\python.exe -B .\chronic-disease\src\evaluate_models.py --version nhefs5-20261015T061013Z
 ```
 
-双击 `02_start_service.bat` 启动独立8002服务，脚本默认固定 `nhefs5-opt-20261015-v2`；打开 <http://127.0.0.1:8002/docs> 使用接口文档，`/health` 和 `/models` 查看就绪状态及输入定义。直接运行未设置环境变量的 Python 服务仍从 `models/active_model.json` 加载原版本，网站会拦截版本不一致的响应。已有病史、未知病史、不适用年龄和资料不足均返回明确状态。
+网站现在只运行一个8001联合模型服务。双击项目根目录 `02_start_model_service.bat`；本目录 `02_start_service.bat` 及原 `risk-service/02_start_risk_service.bat` 均转到同一入口。使用本目录 `.venv` 同时加载原个性化模型和慢性病优化版 `nhefs5-opt-20261015-v2`，权重仍分别存放。打开 <http://127.0.0.1:8001/docs> 查看两类接口，`/health` 包含两套就绪状态，`/models` 返回五病种定义和个性化模型状态。无需另起8002。
 
-网站入口为 <http://localhost:21091/disease-risk>，使用现有用户账号登录。MySQL 模式先选择业务数据库并执行 `sql/disease_risk_upgrade_mysql.sql`；H2 模式由后端初始化新增结构。独立8002服务、Java21090与Vue21091均需运行。模型未启动时，仍可保存资料和查询本人历史。模型说明展示各病种适用年龄、AUC、召回率和版本局限，高血压默认阈值召回率为0的情况会明确提示。
+网站入口为 <http://localhost:21091/health-assessment>，使用现有用户账号登录；旧 `/disease-risk` 和 `/personalized-risk` 自动跳转。汇总表一次填写年龄、性别、BMI、健康生活资料、疾病史和实测值，点击“保存并联合预测”，两类结果同页显示。BMI与体重分别使用，两类评估独立校验；一类缺资料或请求失败时另一类仍可完成。MySQL 模式首次执行 `sql/disease_risk_upgrade_mysql.sql`，已有24表无需新迁移；H2模式自动建表。模型说明继续展示年龄、AUC、召回率和版本局限。
 
 ## 性能报告
 

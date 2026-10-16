@@ -35,7 +35,7 @@ public class DiseaseRiskModelClient {
             throw new ResponseStatusException(error.getRawStatusCode() == 422 ? HttpStatus.BAD_REQUEST : HttpStatus.SERVICE_UNAVAILABLE,
                     error.getRawStatusCode() == 422 ? "模型输入校验失败，请核对资料" : "慢性病模型服务返回错误，请稍后重试");
         } catch (RestClientException error) {
-            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "慢性病模型服务未连接或响应超时，请检查8002服务");
+            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "联合模型服务未连接或响应超时，请检查8001服务");
         }
     }
     public Map<String, Object> models() {

@@ -1,5 +1,7 @@
 <template>
     <el-row style="background-color: #FFFFFF;padding: 5px 0;border-radius: 5px;">
+        <el-alert title="此页管理原日常指标。联合预测产生的生理测量、AI评估及输入快照，请在“联合评估管理”中查看。" type="info" :closable="false" />
+        <el-button type="text" @click="$router.push('/healthReviewManage')">打开联合评估管理</el-button>
         <el-row style="padding: 10px;margin-left: 10px;">
             <el-row>
                 <el-date-picker size="small" style="width: 220px;" v-model="searchTime" type="daterange"

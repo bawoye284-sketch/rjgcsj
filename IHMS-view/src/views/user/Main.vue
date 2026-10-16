@@ -1,11 +1,11 @@
 <template>
-    <div class="user-container" :class="{ 'disease-layout': $route.path === '/disease-risk' }">
+    <div class="user-container" :class="{ 'disease-layout': $route.path === '/health-assessment' }">
         <div class="menus-container"
             style="position: sticky;top: 0;z-index: 1000;background-color: rgb(255, 255, 255);">
             <!-- 菜单目录 -->
             <UserMenu :menus="routers" :userInfo="userInfo" @eventListener="eventListener" />
         </div>
-        <div class="content-container" :class="{ 'disease-content': $route.path === '/disease-risk' }">
+        <div class="content-container" :class="{ 'disease-content': $route.path === '/health-assessment' }">
             <!-- 路由出口 -->
             <router-view class="route-container"></router-view>
         </div>

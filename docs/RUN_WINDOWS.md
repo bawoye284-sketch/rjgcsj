@@ -2,13 +2,13 @@
 
 以下路径均相对于下载或克隆后的项目根目录。
 
-演示模式需要 Python 风险服务、Java 后端、Vue 前端；使用“五病种慢性病风险预测”时再启动独立8002服务，正式模式还需要 MySQL。模型训练是离线步骤，平时启动网站时不需要重复训练。
+演示模式只需要一个Python联合模型服务、Java后端和Vue前端三个进程；正式模式还需要MySQL。一个8001服务同时加载个性化与五病种两套权重，不再单独运行8002。模型训练是离线步骤，平时启动网站不需要重复训练。
 
 ## 无 MySQL 演示模式（建议先用它检查页面）
 
 演示模式使用 Java 后端内置的 H2 文件数据库，自动建立24张表（原有20张和慢性病新增4张），并填入既有示例用户、资讯、健康记录、医生咨询及风险档案；慢性病新表不插入测试记录。新增、修改、删除的数据保存在 `IHMS-admin/demo-data/`，重启后仍可查看。正式模式仍使用 MySQL，不受演示配置影响。需要恢复最初演示数据时，先停止 Java 后端，再删除 `IHMS-admin/demo-data/` 中的 H2 数据库文件。
 
-1. 启动 Python 风险服务：双击 `risk-service/02_start_risk_service.bat`，打开 `http://127.0.0.1:8001/health` 确认 `model_ready: true`。模型已预先训练，演示时无需重新训练。
+1. 启动Python联合模型服务：双击根目录 `02_start_model_service.bat`，打开 `http://127.0.0.1:8001/health`，确认 `service: unified-health-risk`、`ok: true`，并可分别查看 `personalized`、`chronic` 的模型版本。旧两个启动脚本也会转到同一入口，已就绪时不会重复启动。模型已预先训练，演示时无需重新训练。
 2. 启动 Java 后端：双击项目根目录的 `03_start_demo_backend.bat`。首次运行会从 `.example` 文件生成本机配置，不覆盖已有配置。脚本优先使用 PATH 中的 Maven，找不到时使用 `IHMS-admin/.build-tools/` 中的本地 Maven；该工具目录不会上传到 GitHub，所以在新电脑上需安装 Maven。也可在 IntelliJ IDEA 中打开 `IHMS-admin/pom.xml`，把 JDK 设为 17，工作目录设为 `IHMS-admin`，在 `Application.java` 的运行配置中加入程序参数 `--spring.profiles.active=demo` 后运行。后端使用端口 21090，且不连接 MySQL。
 3. 启动 Vue 前端：双击项目根目录的 `04_start_demo_frontend.bat`；脚本首次运行会安装依赖，之后直接启动。也可在新终端进入 `IHMS-view`，先运行 `npm.cmd ci`，安装成功后运行 `npm.cmd run dev:compatible`。浏览器打开 `http://localhost:21091`。
 
@@ -35,11 +35,24 @@ VS Code 和 PyCharm 的终端都可输入以下命令；Java 后端请用 Maven 
 
 若本机还没有 `IHMS-admin/src/main/resources/application.yml`，先复制同目录的 `application.yml.example` 并去掉文件名末尾的 `.example`。然后把 `spring.datasource.username` 和 `spring.datasource.password` 改成自己 MySQL 的用户名和密码。数据库地址默认为 `localhost:3306/personal_health`。需要外部智能问答时，另填 `deepseek.api-key`。本机配置已被 Git 忽略。
 
-原有业务结构包含20张表、162个字段；慢性病增量建表后为24张表、211个字段。基础版、完整版及升级脚本包含重叠定义，应根据数据库现状选择对应脚本，不要将整个 `sql/` 目录依次导入。表结构初始化与业务数据导入是两个步骤：`init_mysql_schema_safe.sql` 只创建原有结构，原始完整脚本另含历史业务数据。连接名称（例如 `Elderly Health`）不是数据库名。使用 MySQL 时，在 IDEA 的程序参数填写 `--spring.profiles.active=mysql`；双击 `03_start_demo_backend.bat` 会显式启用 H2 演示模式。
+原有业务结构包含20张表、162个字段；慢性病增量建表后为24张表、211个字段；再执行三端历史快照升级后为24张表、213个字段。基础版、完整版及升级脚本包含重叠定义，应根据数据库现状选择对应脚本，不要将整个 `sql/` 目录依次导入。表结构初始化与业务数据导入是两个步骤：`init_mysql_schema_safe.sql` 只创建原有结构，原始完整脚本另含历史业务数据。连接名称（例如 `Elderly Health`）不是数据库名。使用 MySQL 时，在 IDEA 的程序参数填写 `--spring.profiles.active=mysql`；双击 `03_start_demo_backend.bat` 会显式启用 H2 演示模式。
 
 五病种慢性病功能另外执行 `chronic-disease/sql/disease_risk_upgrade_mysql.sql`，在原有20张表基础上新增4张。该脚本仅建表，不删除业务数据、不插入测试账号。H2模式由新版后端自动创建。不要将不同版本的完整 SQL 文件重复导入同一业务数据库。
 
+三端健康管理还需要在同一数据库执行 `sql/health_review_upgrade_mysql.sql`，为 `personalized_risk_assessment` 添加 `request_id`、`input_snapshot_json` 及去重索引，可重复执行。它不补造早期记录的输入；历史详情会提示没有快照。本机已经执行过时无需再导入完整数据库。H2无需手动执行此脚本。
+
+用户进入“健康风险评估”；医生进入“患者健康管理”，只能查看有咨询关联的患者；管理员进入“联合评估管理”，可查询全部用户的两类评估与生理测量，也能查看病种统计、模型版本与性能。页面可见时每15秒更新，切回页面也会刷新；查看操作读取已保存结果，不重复预测。
+
 ## 3. 安装 Python 依赖（第一次运行）
+
+联合模型服务使用 `chronic-disease/.venv`。新电脑先在项目根目录执行：
+
+```powershell
+python -m venv .\chronic-disease\.venv
+& .\chronic-disease\.venv\Scripts\python.exe -m pip install -r .\chronic-disease\requirements-lock.txt
+```
+
+原根目录`.venv`仍可用于原离线训练，网站联合预测无需额外启动它。下面原训练依赖与复现步骤继续保留。
 
 在 VS Code 或 PyCharm 的**终端**进入项目根目录，执行：
 
@@ -61,11 +74,10 @@ VS Code 和 PyCharm 的终端都可输入以下命令；Java 后端请用 Maven 
 保持以下终端分别打开，不要在一个终端里依次输入所有启动命令。
 
 1. **MySQL**：确认 MySQL 服务已启动。
-2. **风险服务**：双击 `risk-service/02_start_risk_service.bat`，或在根目录执行：
+2. **联合模型服务**：双击根目录 `02_start_model_service.bat`，或在根目录执行：
 
    ```powershell
-   Set-Location .\risk-service
-   & ..\.venv\Scripts\python.exe -m uvicorn app:app --host 127.0.0.1 --port 8001
+   & .\chronic-disease\.venv\Scripts\python.exe -B -m uvicorn unified_app:app --app-dir .\risk-service --host 127.0.0.1 --port 8001
    ```
 
    浏览器打开 `http://127.0.0.1:8001/health`，应看到 `model_ready: true`。
@@ -87,15 +99,15 @@ VS Code 和 PyCharm 的终端都可输入以下命令；Java 后端请用 Maven 
 
    `npm.cmd ci` 只需第一次或依赖变化时执行。确认安装成功、出现新的 PowerShell 提示符后，再运行下一行。看到编译成功后，浏览器打开 `http://localhost:21091`。
 
-前端请求 `http://localhost:21090/api/personal-heath/v1.0`，Java 后端再请求 `http://127.0.0.1:8001/predict`；这两个地址已在项目中配置。登录后打开 `/personalized-risk`，先保存基础档案和本次五项生理测量，再点击“立即评估”。吸氧和意识状态暂不使用；呼吸频率未测时由训练集拟合的近邻方法估算，血氧未测时用训练集中位数填补，但不能凭估算值给出“正常”结论。本次测量前 30 天内至少三条既往测量可用于个人近期变化。
+前端请求 `http://localhost:21090/api/personal-heath/v1.0`，Java的两类客户端均请求同一个 `http://127.0.0.1:8001` 服务。登录后打开 `/health-assessment`，填写同一张汇总表，点击“保存并联合预测”，无需先分别保存或切换页面。个性化使用年龄、性别、BMI和本次实测值，慢性病使用共用基础资料、健康生活资料及五项疾病史。吸氧和意识状态暂不使用；未测量值仍按原模型规则处理，不能凭估算值作安全判断。本次测量前30天内至少三条既往测量可用于个人近期变化。
 
 若每个终端都从 PyCharm 的项目根目录新开，直接使用各自步骤的命令即可。已有窗口如果位于子目录，先回到项目根目录再执行相应的 `Set-Location`。
 
 ## 五病种慢性病预测
 
-在上述服务之外，双击 `chronic-disease/02_start_service.bat`，保持8002服务运行。首次环境准备见 [慢性病模块说明](../chronic-disease/README.md)。脚本默认固定优化版 `nhefs5-opt-20261015-v2`，Java默认要求同一版本。`http://127.0.0.1:8002/health` 应显示 `ok: true` 和该版本名。
+无需另外启动模型服务。根目录 `02_start_model_service.bat` 已同时加载慢性病优化版 `nhefs5-opt-20261015-v2`，Java默认要求同一版本。首次环境准备见 [慢性病模块说明](../chronic-disease/README.md)。`http://127.0.0.1:8001/health` 的 `chronic` 字段应显示该版本名，`/docs` 同时列出两类预测接口。
 
-使用现有用户账号登录，菜单选择“慢性病风险预测”，或打开 `http://localhost:21091/disease-risk`。全部资料直接展示，无折叠的补充资料：年龄必填，性别为预测必填；体重、自评健康、吸烟、饮酒、运动五项在预测前至少填写两项，其他字段标注选填。确认各病种的有/无/未知病史，再点击“保存并预测”；服务曾检测失败时按钮改为“重新连接并预测”，点击自动重查连接。体重为kg，疾病史未知不会当作无病。当前适用年龄为65～90岁；已有病史或未知病史的项目单独跳过，页面提示实际可预测数量。历史详情保存当次输入、模型版本、阈值和结果，不被后续资料修改覆盖。资料版本冲突时可点击“重新读取资料”，替换未保存的修改前会先确认。
+使用现有用户账号登录，菜单选择“健康风险评估”，或打开 `http://localhost:21091/health-assessment`。所有字段直接展示：年龄和性别共用，个性化预测需要BMI及至少一项本次实测值；慢性病需要在体重、自评健康、吸烟、饮酒、运动中至少填写两项。BMI与体重分别填写，未知病史不会当作无病。点击“保存并联合预测”后，两类模型分别完成并显示结果，失败或缺资料的一类会说明原因，另一类仍可保存；在当前页面重试未完成的一类时，已完成且输入未变的一类不会重复保存测量或历史。当前慢性病适用65～90岁；已有病史或未知病史的项目单独跳过。历史详情保留当次慢性病输入与版本，生理测量进入近30天趋势。资料版本冲突时可点击“重新读取资料”，替换未保存修改前会先确认。
 
 Java `disease-risk` 配置的默认值见 `.yml.example`。可在本机配置设置 `enabled: false` 后重启Java，关闭新预测，仍可查看历史。模型服务未启动或版本不一致时不会保存伪结果；启动服务后点击页面“重新检查”。指标与混淆矩阵继续保留在 `chronic-disease/reports/training/`，本次接入不重新训练。当前结果属于研究估计，不能理解成已经确诊或精确未来五年发病率。
 

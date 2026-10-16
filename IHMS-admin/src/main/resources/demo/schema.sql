@@ -317,3 +317,6 @@ ALTER TABLE `elder_vital_measurement` ADD COLUMN IF NOT EXISTS `consciousness` V
 ALTER TABLE `personalized_risk_assessment` ADD COLUMN IF NOT EXISTS `single_alerts_json` CLOB NULL;
 ALTER TABLE `personalized_risk_assessment` ADD COLUMN IF NOT EXISTS `news2_complete` TINYINT NOT NULL DEFAULT 0;
 ALTER TABLE `personalized_risk_assessment` ADD COLUMN IF NOT EXISTS `assessment_basis` VARCHAR(32) NOT NULL DEFAULT 'LEGACY';
+ALTER TABLE `personalized_risk_assessment` ADD COLUMN IF NOT EXISTS `request_id` VARCHAR(36) NULL;
+ALTER TABLE `personalized_risk_assessment` ADD COLUMN IF NOT EXISTS `input_snapshot_json` CLOB NULL;
+CREATE UNIQUE INDEX IF NOT EXISTS `uk_personal_assessment_request` ON `personalized_risk_assessment` (`user_id`,`request_id`);

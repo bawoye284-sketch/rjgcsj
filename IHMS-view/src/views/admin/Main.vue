@@ -1,5 +1,6 @@
 <template>
     <div style="box-sizing: border-box;overflow-y: hidden;overflow-x: hidden;padding: 10px;">
+        <HealthSummaryCards />
         <el-row>
             <el-col :span="8">
                 <div style="padding: 15px 5px;box-sizing: border-box;">
@@ -29,9 +30,10 @@
 <script>
 import LineChart from "@/components/LineChart"
 import PieChart from "@/components/PieChart"
+import HealthSummaryCards from '@/components/risk/HealthSummaryCards.vue'
 import { timeAgo } from "@/utils/data"
 export default {
-    components: { LineChart, PieChart },
+    components: { LineChart, PieChart, HealthSummaryCards },
     data() {
         return {
             userValues: [],

@@ -34,4 +34,7 @@ public class PersonalizedRiskResponse {
     @JsonAlias("model_version")
     private String modelVersion;
     private String note;
+    private String assessmentTime;
+    private Long assessmentId;
+    private String requestId;
 }

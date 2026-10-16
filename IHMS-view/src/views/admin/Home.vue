@@ -237,8 +237,9 @@ export default {
         },
         handleRouteSelect(index) {
             let ary = this.adminRoutes.filter(entity => entity.path == index);
+            if (!ary.length) return;
             this.tag = ary[0].name;
-            if (this.$router.currentRoute.fullPath == index) {
+            if (this.$router.currentRoute.path == index) {
                 return;
             }
             this.$router.push(index);

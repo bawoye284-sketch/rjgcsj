@@ -37,6 +37,13 @@ const routes = [
     },
     children: [
       {
+        path: '/healthReviewManage',
+        name: '联合评估管理',
+        icon: 'el-icon-data-analysis',
+        component: () => import('@/views/admin/HealthReviewManage.vue'),
+        meta: { requireAuth: true },
+      },
+      {
         path: "/adminLayout",
         name: '仪表盘',
         icon: 'el-icon-pie-chart',
@@ -66,7 +73,7 @@ const routes = [
       },
       {
         path: "/healthModelConfigManage",
-        name: '模型管理',
+        name: '指标配置',
         icon: 'el-icon-files',
         component: () => import(`@/views/admin/HealthModelConfigManage.vue`),
         meta: { requireAuth: true },
@@ -133,17 +140,23 @@ const routes = [
         },
       },
       {
-        name: '个性化风险评估',
-        path: "/personalized-risk",
-        component: () => import(`@/views/user/PersonalizedRisk.vue`),
+        name: '健康风险评估',
+        path: '/health-assessment',
+        component: () => import('@/views/user/HealthAssessment.vue'),
         meta: {
           requireAuth: true,
         },
       },
       {
-        name: '慢性病风险预测',
         path: '/disease-risk',
-        component: () => import('@/views/user/DiseaseRisk.vue'),
+        redirect: '/health-assessment',
+        isHidden: true,
+        meta: { requireAuth: true },
+      },
+      {
+        path: '/personalized-risk',
+        redirect: '/health-assessment',
+        isHidden: true,
         meta: { requireAuth: true },
       },
       {

@@ -34,13 +34,14 @@ export default {
 		}
 	},
 	created(){
-		// 上次选中路径
-		const saveLastPath = sessionStorage.getItem('activeMenuItem');
-		if(saveLastPath === null){
-			// 加载首页
-			this.handleSelect('/adminLayout');
-		}else{
-			this.handleSelect(saveLastPath);
+		const current = this.$route.path;
+		const previous = sessionStorage.getItem('activeMenuItem');
+		const valid = path => this.routes.some(item => item.path === path);
+		this.handleSelect(valid(current) ? current : valid(previous) ? previous : '/adminLayout');
+	},
+	watch: {
+		'$route.path'(path) {
+			if (this.routes.some(item => item.path === path)) this.handleSelect(path);
 		}
 	},
 	methods: {

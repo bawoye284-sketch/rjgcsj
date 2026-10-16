@@ -173,6 +173,7 @@ public class UserHealthServiceImpl implements IUserHealthService {
     public Result<List<ChartVO>> daysQuery(Integer day) {
         QueryDto queryDto = DateUtil.startAndEndTime(day);
         UserHealthQueryDto userHealthQueryDto = new UserHealthQueryDto();
+        if (Integer.valueOf(2).equals(LocalThreadHolder.getRoleId())) userHealthQueryDto.setUserId(LocalThreadHolder.getUserId());
         userHealthQueryDto.setStartTime(queryDto.getStartTime());
         userHealthQueryDto.setEndTime(queryDto.getEndTime());
         List<UserHealthVO> userHealthVOS = userHealthMapper.query(userHealthQueryDto);

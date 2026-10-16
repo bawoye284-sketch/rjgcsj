@@ -5,6 +5,7 @@ import com.star.model.dto.risk.PersonalizedRiskResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,7 +18,14 @@ public class RiskModelClient {
     @Value("${risk-model.service-url:http://127.0.0.1:8001/predict}")
     private String serviceUrl;
 
-    private final RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate;
+
+    public RiskModelClient() {
+        SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
+        factory.setConnectTimeout(2000);
+        factory.setReadTimeout(15000);
+        restTemplate = new RestTemplate(factory);
+    }
 
     public PersonalizedRiskResponse predict(Map<String, Object> request) {
         HttpHeaders headers = new HttpHeaders();
