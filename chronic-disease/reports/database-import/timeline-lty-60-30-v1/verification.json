@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "account": "lty",
+  "added_predictions": 60,
+  "added_measurements": 60,
+  "total_measurements": 63,
+  "total_personal_assessments": 62,
+  "covered_calendar_days": 30,
+  "baseline_available_records": 57,
+  "saved_scores_match_model_outputs": true,
+  "four_time_points_reproduced_against_live_model": true,
+  "measurement_values_match_snapshots": true,
+  "all_history_precedes_each_prediction": true,
+  "original_measurements_preserved": true,
+  "normal_page_api_returns_all_measurements": true,
+  "latest_result_has_personal_baseline": true,
+  "simulated_provenance_present": true
+}

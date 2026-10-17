@@ -41,6 +41,15 @@ deepseek:
 risk-model:
   service-url: http://127.0.0.1:8001/predict
 
+# Java starts and supervises the six local models. Existing local configuration can omit this block.
+model-runtime:
+  auto-start: ${IHMS_MODEL_AUTO_START:true}
+  project-root: ${IHMS_PROJECT_ROOT:}
+  python-executable: ${IHMS_MODEL_PYTHON:}
+  startup-timeout-seconds: 90
+  shutdown-timeout-seconds: 10
+  check-interval-seconds: 5
+
 disease-risk:
   enabled: true
   service-base-url: http://127.0.0.1:8001

@@ -19,8 +19,10 @@ public class RiskModelClient {
     private String serviceUrl;
 
     private final RestTemplate restTemplate;
+    private final ModelRuntime runtime;
 
-    public RiskModelClient() {
+    public RiskModelClient(ModelRuntime runtime) {
+        this.runtime = runtime;
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
         factory.setConnectTimeout(2000);
         factory.setReadTimeout(15000);
@@ -28,6 +30,7 @@ public class RiskModelClient {
     }
 
     public PersonalizedRiskResponse predict(Map<String, Object> request) {
+        runtime.requireReady();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 

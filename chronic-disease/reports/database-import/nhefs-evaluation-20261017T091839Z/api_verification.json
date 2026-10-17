@@ -1,0 +1,9 @@
+{
+  "sample_login_http": 200,
+  "sample_login_success": true,
+  "profile_http": 200,
+  "profile_revision": 1,
+  "profile_source_matches": true,
+  "admin_patients_http": 200,
+  "admin_imported_users_total": 407
+}

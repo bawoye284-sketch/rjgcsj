@@ -1,0 +1,134 @@
+{
+  "figure_directory": "模型性能图表",
+  "font": "Microsoft YaHei",
+  "figures": [
+    {
+      "file": "01_训练集与测试集准确率",
+      "title": "训练集与测试集准确率"
+    },
+    {
+      "file": "02_训练集与测试集平衡准确率",
+      "title": "训练集与测试集平衡准确率"
+    },
+    {
+      "file": "03_训练集与测试集规模",
+      "title": "训练集与测试集规模"
+    },
+    {
+      "file": "04_测试集事件分布",
+      "title": "测试集事件分布"
+    },
+    {
+      "file": "05_测试集性能指标热力图",
+      "title": "测试集性能指标热力图"
+    },
+    {
+      "file": "06_测试集ROC曲线",
+      "title": "测试集ROC曲线"
+    },
+    {
+      "file": "07_测试集PR曲线",
+      "title": "测试集精确率—召回率曲线"
+    },
+    {
+      "file": "08_高血压测试集混淆矩阵",
+      "title": "高血压测试集混淆矩阵"
+    },
+    {
+      "file": "09_糖尿病测试集混淆矩阵",
+      "title": "糖尿病测试集混淆矩阵"
+    },
+    {
+      "file": "10_卒中测试集混淆矩阵",
+      "title": "卒中测试集混淆矩阵"
+    },
+    {
+      "file": "11_心脏病发作测试集混淆矩阵",
+      "title": "心脏病发作测试集混淆矩阵"
+    },
+    {
+      "file": "12_骨质疏松测试集混淆矩阵",
+      "title": "骨质疏松测试集混淆矩阵"
+    }
+  ],
+  "qa": {
+    "status": "automated_checks_completed_visual_review_required",
+    "figures": [
+      {
+        "figure": "01_训练集与测试集准确率.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "02_训练集与测试集平衡准确率.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "03_训练集与测试集规模.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "04_测试集事件分布.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "05_测试集性能指标热力图.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "06_测试集ROC曲线.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "07_测试集PR曲线.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "08_高血压测试集混淆矩阵.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "09_糖尿病测试集混淆矩阵.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "10_卒中测试集混淆矩阵.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "11_心脏病发作测试集混淆矩阵.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "12_骨质疏松测试集混淆矩阵.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      }
+    ],
+    "uncertainty": "Fixed existing weights; internal cohort evaluation; participant-bootstrap intervals saved separately",
+    "alignment": "All exported figures have a single quantitative plot area",
+    "adaptation": "Style-only inheritance from project plotting helpers",
+    "export_contract": "Coursework: 300 dpi PNG and editable PDF/SVG; TIFF not required",
+    "manual_visual_review": {
+      "status": "passed",
+      "figures_reviewed": 12,
+      "checks": [
+        "Chinese labels, filenames and editable text",
+        "training versus test labels match source membership",
+        "matrix counts and zero recall retained",
+        "no clipped annotations or legends"
+      ],
+      "accepted_source_warnings": "Coursework: 300 dpi PNG plus editable PDF and SVG; TIFF and 600 dpi not required"
+    }
+  }
+}

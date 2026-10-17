@@ -1,0 +1,10 @@
+{
+  "pdf": "chronic-disease\\experiments\\fixed-weight-evaluation\\runs\\nhefs5-fixed-20261017\\reports\\模型性能图表\\08_高血压测试集混淆矩阵.pdf",
+  "auditable": true,
+  "minimum_required_pt": 5.0,
+  "minimum_found_pt": 8.0,
+  "text_run_count": 25,
+  "below_minimum_count": 0,
+  "below_minimum": [],
+  "warnings": []
+}

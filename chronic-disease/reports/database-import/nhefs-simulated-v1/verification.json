@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "users": 407,
+  "disease_results": 2035,
+  "vital_measurements": 407,
+  "chronic_assessments": 407,
+  "personal_assessments": 407,
+  "total_assessments": 814,
+  "admin_assessment_list_total": 814,
+  "duplicate_records": 0,
+  "snapshot_source_flags_verified": true,
+  "snapshot_hashes_match": true,
+  "sample_login_and_history_api_verified": true,
+  "original_nonempty_fields_preserved": true,
+  "source_baseline_and_outcomes_preserved": true,
+  "per_user_saved_inputs_verified": true,
+  "idempotent_retry_verified": true,
+  "disease_statuses": {
+    "predicted": 1687,
+    "already_diagnosed": 348
+  },
+  "personal_risk_levels": {
+    "正常": 285,
+    "关注": 115,
+    "高风险": 7
+  },
+  "chronic_model_version": "nhefs5-opt-20261015-v2",
+  "scope": "Imported NHEFS sample users only; unrelated concurrent database changes are outside this verification"
+}

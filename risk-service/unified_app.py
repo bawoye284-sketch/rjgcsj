@@ -29,9 +29,10 @@ app = FastAPI(title="健康风险联合模型服务", version="2.0.0", lifespan=
 def health():
     personal = personalized_api.health()
     chronic = disease_api.health()
-    return {**personal, "ok": personal["ok"] and chronic["ok"],
+    chronic_ready = chronic["ok"] and chronic.get("ready_count") == 5 and chronic.get("expected_count") == 5
+    return {**personal, "ok": personal["ok"] and chronic_ready,
             "service": "unified-health-risk", "personalized": personal, "chronic": chronic,
-            "chronic_model_ready": chronic["ok"]}
+            "chronic_model_ready": chronic_ready, "runtime_owner": os.environ.get("IHMS_MODEL_OWNER")}
 
 
 @app.get("/models")

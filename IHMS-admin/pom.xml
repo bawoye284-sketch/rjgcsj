@@ -19,8 +19,8 @@
     <!--编译配置与版本管理-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>17</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
         
         <!-- 依赖版本管理 -->
         <mybatis-spring-boot-starter.version>2.1.2</mybatis-spring-boot-starter.version>

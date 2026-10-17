@@ -1,0 +1,133 @@
+{
+  "figure_directory": "模型性能图表",
+  "figures": [
+    {
+      "file": "01_准确率对比",
+      "title": "准确率对比"
+    },
+    {
+      "file": "02_平衡准确率对比",
+      "title": "平衡准确率对比"
+    },
+    {
+      "file": "03_样本数量统计",
+      "title": "样本数量统计"
+    },
+    {
+      "file": "04_评估集事件分布",
+      "title": "评估集事件分布"
+    },
+    {
+      "file": "05_模型性能指标热力图",
+      "title": "六项主要指标热力图"
+    },
+    {
+      "file": "06_ROC曲线",
+      "title": "ROC曲线"
+    },
+    {
+      "file": "07_PR曲线",
+      "title": "PR曲线"
+    },
+    {
+      "file": "08_高血压混淆矩阵",
+      "title": "高血压混淆矩阵"
+    },
+    {
+      "file": "09_糖尿病混淆矩阵",
+      "title": "糖尿病（按问卷定义）混淆矩阵"
+    },
+    {
+      "file": "10_卒中混淆矩阵",
+      "title": "卒中／中风混淆矩阵"
+    },
+    {
+      "file": "11_心脏病发作混淆矩阵",
+      "title": "心脏病发作（按问卷定义）混淆矩阵"
+    },
+    {
+      "file": "12_骨质疏松混淆矩阵",
+      "title": "骨质疏松混淆矩阵"
+    }
+  ],
+  "qa": {
+    "status": "automated_checks_completed_visual_review_required",
+    "figures": [
+      {
+        "figure": "01_准确率对比.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "02_平衡准确率对比.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "03_样本数量统计.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "04_评估集事件分布.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "05_模型性能指标热力图.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "06_ROC曲线.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "07_PR曲线.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "08_高血压混淆矩阵.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "09_糖尿病混淆矩阵.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "10_卒中混淆矩阵.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "11_心脏病发作混淆矩阵.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      },
+      {
+        "figure": "12_骨质疏松混淆矩阵.pdf",
+        "text_exit": 0,
+        "collision_exit": 0
+      }
+    ],
+    "uncertainty": "Single fixed fitted model per point; no independent generalization confidence intervals",
+    "alignment": "All exported figures have a single quantitative plot area",
+    "adaptation": "Project style retained; panels rebuilt from actual fitting and demonstration metrics",
+    "export_contract": "Coursework: 300 dpi PNG and editable PDF/SVG; TIFF not required",
+    "manual_visual_review": {
+      "status": "passed",
+      "figures_reviewed": 12,
+      "checks": [
+        "Requested title suffix removed from all figures",
+        "Titles, axes, legends and values legible and unclipped",
+        "Necessary count and row-percentage captions retained",
+        "Detailed evaluation description retained in the HTML report"
+      ],
+      "accepted_source_warnings": "300 dpi PNG plus editable PDF/SVG meet coursework requirements; TIFF and 600 dpi are not required"
+    }
+  }
+}

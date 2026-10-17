@@ -1,14 +1,15 @@
 # 老年健康监测系统（个性化与慢性病联合评估）
 
-本项目由 Vue 前端、Spring Boot 后端和一个 Python 联合模型服务组成。个性化生理预警与五种慢性病预测共用一张汇总表，一个按钮执行两类评估；两套已训练权重分别加载，平时无需重新训练。可使用 H2 演示模式，无需连接 MySQL。
+本项目由 Vue 前端和 Spring Boot 后端组成，后端自动管理 Python 推理进程，启动时加载一个个性化模型和五个慢性病模型。个性化生理预警与五种慢性病预测共用一张汇总表，一个按钮执行两类评估，平时无需重新训练。可使用 H2 演示模式，无需连接 MySQL。
 
 ## 快速启动：无 MySQL 演示
 
-在 Windows 中依次双击以下脚本，并保持三个命令窗口运行：
+首次按运行说明安装 Python 模型依赖后，在 Windows 中依次双击以下两个脚本：
 
-1. `02_start_model_service.bat`：启动一个 Python 服务，同时加载两套模型（端口 8001）。
-2. `03_start_demo_backend.bat`：启动 Java 后端（端口 21090）。
-3. `04_start_demo_frontend.bat`：启动 Vue 前端（端口 21091）。
+1. `03_start_demo_backend.bat`：启动 Java 后端（端口 21090），自动加载六个模型。
+2. `04_start_demo_frontend.bat`：启动 Vue 前端（端口 21091）。
+
+不需要再单独运行模型启动脚本，也不需要额外打开模型终端。IDEA直接运行 `Application.java` 或使用 `java -jar` 同样会自动加载模型。后端日志出现“六个模型已就绪”后即可预测；后端关闭时清理自己启动的推理进程，推理进程异常退出时自动尝试恢复。
 
 然后打开 <http://localhost:21091>，登录后进入“健康风险评估”，或直接访问 <http://localhost:21091/health-assessment>。演示账号、首次安装依赖、正式 MySQL 模式及常见问题见 [Windows 运行说明](docs/RUN_WINDOWS.md)。
 
@@ -29,13 +30,13 @@
 | `scripts/` | 开发辅助脚本 |
 | `docs/` | 详细运行说明、风险评估说明和原项目资料 |
 
-`.venv/` 是本机 Python 虚拟环境，`.idea/` 是 PyCharm 项目设置；它们不属于业务源码。根目录启动脚本用于分别启动联合模型服务、Java后端和Vue前端。
+`.venv/` 是本机 Python 虚拟环境，`.idea/` 是 PyCharm 项目设置；它们不属于业务源码。日常只启动Java后端和Vue前端；`02_start_model_service.bat`保留用于单独调试推理服务。
 
 更多说明：[训练与演示说明](docs/训练与演示说明.md) · [启动顺序](docs/START_ORDER.txt) · [慢性病预测独立目录](chronic-disease/README.md) · [慢性病风险预测改造方案与数据集](chronic-disease/docs/慢性病风险预测改造方案.md) · [原项目说明（历史资料）](docs/README_ORIGINAL.md)
 
 个性化与慢性病已合并到“健康风险评估”。一次填写年龄、性别、BMI、健康生活资料、疾病史和本次实测值，点击“保存并联合预测”，同页展示个性化预警、近期实测趋势、五病种结果及两类评估历史。必填与选填逐项标注，全部字段直接显示。两类评估分别校验与提示错误，缺少一类所需信息时另一类仍可完成。旧 `/personalized-risk` 和 `/disease-risk` 地址自动跳转到新页面。
 
-只需启动根目录 `02_start_model_service.bat`，不再另起8002。它使用 `chronic-disease/.venv` 同时加载原个性化权重与慢性病优化版本 `nhefs5-opt-20261015-v2`；`http://127.0.0.1:8001/health` 查看两套状态，`/docs` 查看同一份接口文档。旧的两个模型启动脚本均转到此入口，已就绪时不会重复启动。MySQL模式首次接入慢性病需执行 [慢性病建表脚本](chronic-disease/sql/disease_risk_upgrade_mysql.sql)，三端健康管理另需执行一次 [历史快照与请求去重升级](sql/health_review_upgrade_mysql.sql)。两个脚本均可重复执行，不清空业务数据；全部升级后为24张表、213个字段。H2模式自动升级。
+后端默认使用 `chronic-disease/.venv` 自动加载原个性化权重与慢性病优化版本 `nhefs5-opt-20261015-v2`，在内部共用一个8001推理进程，不再另起8002。可选打开 `http://127.0.0.1:8001/health` 查看两套状态，`/docs` 查看推理接口。若已有版本匹配且六个模型全部就绪的本地服务，后端会复用，关闭时不停止该外部进程。推理日志在 `IHMS-admin/logs/model-runtime.log`；自动启动配置见 [Windows运行说明](docs/RUN_WINDOWS.md)。MySQL模式首次接入慢性病需执行 [慢性病建表脚本](chronic-disease/sql/disease_risk_upgrade_mysql.sql)，三端健康管理另需执行一次 [历史快照与请求去重升级](sql/health_review_upgrade_mysql.sql)。两个脚本均可重复执行，不清空业务数据；全部升级后为24张表、213个字段。H2模式自动升级。
 
 ## 三端健康管理
 

@@ -1,0 +1,4 @@
+# Keep personal-level snapshots/predictions and binary weights local, as in the main training project.
+runs/*/data/
+runs/*/models/
+runs/*/reports/predictions.csv

@@ -50,9 +50,9 @@ public class PersonalizedRiskController {
         requireOwnUser();
         try { return ResponseEntity.ok(Result.success(personalizedRiskService.assessCurrent(LocalThreadHolder.getUserId(), dto))); }
         catch (IllegalArgumentException error) { return failure(400, error.getMessage()); }
-        catch (RestClientException error) { return failure(503, "个性化模型未连接、响应超时或返回错误，请检查8001服务；慢性病结果不受影响"); }
+        catch (RestClientException error) { return failure(503, "个性化模型连接中断、响应超时或返回错误，请稍后重试并查看后端日志"); }
         catch (DataAccessException error) { return failure(503, "个性化评估未保存，请检查数据库后重试"); }
-        catch (IllegalStateException error) { return failure(503, "个性化模型尚未就绪，请检查8001服务"); }
+        catch (IllegalStateException error) { return failure(503, "个性化模型尚未就绪，请稍后重试并查看后端日志"); }
     }
 
     private void requireOwnUser() {

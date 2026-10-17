@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "n_experiments": 25,
+  "n_prediction_rows": 8040,
+  "n_split_rows": 41875,
+  "original_cohort_and_labels_unchanged": true,
+  "all_metrics_recomputed_from_saved_predictions": true,
+  "all_overlap_membership_verified": true,
+  "default_weights_reproduced_predictions": true,
+  "all_default_accuracy_at_least_80_percent": true
+}

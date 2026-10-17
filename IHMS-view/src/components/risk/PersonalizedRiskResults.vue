@@ -22,10 +22,11 @@
           <svg v-if="points(metric.key).length >= 2" viewBox="0 0 300 110" preserveAspectRatio="none" class="trend-plot" :aria-label="metric.name + '趋势图'" role="img">
             <line x1="10" y1="94" x2="290" y2="94" stroke="#e4eaf0" />
             <polyline :points="points(metric.key).map(p => `${p.x},${p.y}`).join(' ')" fill="none" stroke="#38b781" stroke-width="3" />
-            <g v-for="(p,i) in points(metric.key)" :key="i"><circle :cx="p.x" :cy="p.y" r="4" fill="#38b781" /><text :x="p.x" :y="p.y-9" text-anchor="middle" font-size="10" fill="#44515b">{{ p.value }}</text><title>{{ p.time }}：{{ p.value }} {{ metric.unit }}</title></g>
+            <g v-for="(p,i) in points(metric.key)" :key="i"><circle :cx="p.x" :cy="p.y" :r="records(metric.key).length > 20 ? 2 : 4" fill="#38b781" /><text v-if="showValueLabel(i, records(metric.key).length)" :x="p.x" :y="p.y-9" text-anchor="middle" font-size="10" fill="#44515b">{{ p.value }}</text><title>{{ p.time }}：{{ p.value }} {{ metric.unit }}</title></g>
           </svg>
           <div v-else class="trend-empty">至少需要两次记录才能显示趋势</div>
           <div v-if="points(metric.key).length >= 2" class="trend-time"><span>{{ edgeTime(metric.key, false) }}</span><span>{{ edgeTime(metric.key, true) }}</span></div>
+          <p v-if="records(metric.key).length" class="note">共 {{ records(metric.key).length }} 条记录，悬停数据点查看时间和数值</p>
         </div>
       </div>
       <el-empty v-else description="暂无实测历史，完成个性化评估后会保存本次测量" />
@@ -41,11 +42,14 @@ export default {
   computed: { stateLabel() { if(this.readonly) return this.result ? '已保存结果' : '暂无评估'; return { idle: '待联合评估', running: '评估中', success: '本次已完成', error: '本次未完成', skipped: '本次未运行' }[this.state] } },
   methods: {
     percent(value) { return value == null ? '—' : (Number(value)*100).toFixed(2) + '%' },
-    records(key) { return this.history.filter(r => r[key] != null && Number.isFinite(Number(r[key]))).slice(-12) },
+    records(key) { return this.history.filter(r => r[key] != null && Number.isFinite(Number(r[key]))).slice().sort((a,b) => this.recordTime(a)-this.recordTime(b)) },
+    recordTime(record) { const time = Date.parse(String(record.measuredAt || '').replace(' ', 'T')); return Number.isFinite(time) ? time : 0 },
+    showValueLabel(index, count) { return count <= 8 || [0,1,2,3,4].some(step => index === Math.round(step*(count-1)/4)) },
     points(key) {
       const records = this.records(key), values = records.map(r => Number(r[key])); if (!records.length) return []
       const low = Math.min(...values), range = Math.max(...values)-low
-      return records.map((r,i) => ({ x: records.length === 1 ? 150 : 14+i*272/(records.length-1), y: range === 0 ? 55 : 85-(Number(r[key])-low)*60/range, value: Number(r[key]), time: r.measuredAt }))
+      const start = this.recordTime(records[0]), duration = this.recordTime(records[records.length-1])-start
+      return records.map((r,i) => ({ x: records.length === 1 ? 150 : 14+272*(duration > 0 ? (this.recordTime(r)-start)/duration : i/(records.length-1)), y: range === 0 ? 55 : 85-(Number(r[key])-low)*60/range, value: Number(r[key]), time: r.measuredAt }))
     },
     edgeTime(key, last) { const records = this.records(key); return records.length ? String(records[last ? records.length-1 : 0].measuredAt).slice(5,16) : '' }
   }

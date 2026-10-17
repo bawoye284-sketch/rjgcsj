@@ -10,6 +10,7 @@ IHMS-view/node_modules/
 IHMS-view/dist/
 IHMS-admin/target/
 IHMS-admin/.build-tools/
+IHMS-admin/logs/
 
 # Persistent demo database stays local
 IHMS-admin/demo-data/*.mv.db

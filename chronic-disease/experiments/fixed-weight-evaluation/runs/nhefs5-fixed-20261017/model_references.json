@@ -1,0 +1,37 @@
+[
+  {
+    "disease_code": "hypertension",
+    "file": "experiments/overlap-demo/runs/overlap-20261017-demo/models/hypertension--overlap075.joblib",
+    "sha256": "0bbe1c739725fee1e3a4321ff3a6be4676ef777e299ffa11b9392348355472c2",
+    "threshold": 0.5,
+    "model_version": "overlap-20261017-demo"
+  },
+  {
+    "disease_code": "diabetes",
+    "file": "experiments/overlap-demo/runs/overlap-20261017-demo/models/diabetes--overlap075.joblib",
+    "sha256": "0c67362abf7f6e41d56ff8265641793c91ab746c1af6a1571ba8e0e249edd90d",
+    "threshold": 0.5,
+    "model_version": "overlap-20261017-demo"
+  },
+  {
+    "disease_code": "stroke",
+    "file": "experiments/overlap-demo/runs/overlap-20261017-demo/models/stroke--overlap075.joblib",
+    "sha256": "a8960fa9afb9b93b1482ac775e2026c652b66c63d857a496232302cfbe240f18",
+    "threshold": 0.5,
+    "model_version": "overlap-20261017-demo"
+  },
+  {
+    "disease_code": "heart_attack",
+    "file": "experiments/overlap-demo/runs/overlap-20261017-demo/models/heart_attack--overlap075.joblib",
+    "sha256": "8200251fa6daba2fd1a3d5bc3b697c02ca0deba7103f966bf57ac5ff1d4fe39c",
+    "threshold": 0.5,
+    "model_version": "overlap-20261017-demo"
+  },
+  {
+    "disease_code": "osteoporosis",
+    "file": "experiments/overlap-demo/runs/overlap-20261017-demo/models/osteoporosis--overlap075.joblib",
+    "sha256": "93fa37c4705e3adab1e26e753ff8b45fa2b5966bad1e1c7f47ff84615a5fb60f",
+    "threshold": 0.5,
+    "model_version": "overlap-20261017-demo"
+  }
+]

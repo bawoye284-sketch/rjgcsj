@@ -1,0 +1,10 @@
+{
+  "status": "completed",
+  "renamed_users": 407,
+  "unique_chinese_names": true,
+  "synthetic_display_names": true,
+  "other_account_fields_unchanged": true,
+  "existing_non_imported_users_untouched": true,
+  "source_provenance_preserved": true,
+  "name_rule": "Common Chinese surname and given-name combinations; Chinese characters only"
+}

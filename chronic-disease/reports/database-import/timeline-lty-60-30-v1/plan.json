@@ -1,0 +1,800 @@
+{
+  "batch": "timeline-lty-60-30-v1",
+  "account": "lty",
+  "user_id": 24,
+  "profile": {
+    "age": 65,
+    "bmi": 23.0,
+    "sexMale": 1
+  },
+  "model_version": "numeric5-future-aggregate-v2-grid",
+  "data_kind": "simulated_timeline",
+  "note": "本条为模拟生理测量及模型预测记录，用于展示近30天趋势。",
+  "items": [
+    {
+      "index": 0,
+      "measured_at": "2026-09-18 05:42:02",
+      "measurement": {
+        "systolicPressure": 126.7,
+        "diastolicPressure": 78.1,
+        "heartRate": 72.6,
+        "spo2": 96.8,
+        "temperature": 36.7,
+        "respiratoryRate": 16.3
+      },
+      "request_id": "47728517-c92e-5d47-baea-066e3294113b"
+    },
+    {
+      "index": 1,
+      "measured_at": "2026-09-18 17:42:02",
+      "measurement": {
+        "systolicPressure": 128.7,
+        "diastolicPressure": 78.1,
+        "heartRate": 75.2,
+        "spo2": 97.6,
+        "temperature": 36.5,
+        "respiratoryRate": 16.0
+      },
+      "request_id": "0a304b03-eaf4-5f10-87cc-979562132be1"
+    },
+    {
+      "index": 2,
+      "measured_at": "2026-09-19 05:42:02",
+      "measurement": {
+        "systolicPressure": 127.8,
+        "diastolicPressure": 79.3,
+        "heartRate": 78.0,
+        "spo2": 98.2,
+        "temperature": 36.5,
+        "respiratoryRate": 17.0
+      },
+      "request_id": "2973cc7c-834d-5062-a2bf-e14e5e882733"
+    },
+    {
+      "index": 3,
+      "measured_at": "2026-09-19 17:42:02",
+      "measurement": {
+        "systolicPressure": 131.1,
+        "diastolicPressure": 79.9,
+        "heartRate": 76.9,
+        "spo2": 97.4,
+        "temperature": 36.7,
+        "respiratoryRate": 17.1
+      },
+      "request_id": "f0ff49e9-e850-55ea-b09e-f6c019e49832"
+    },
+    {
+      "index": 4,
+      "measured_at": "2026-09-20 05:42:02",
+      "measurement": {
+        "systolicPressure": 127.5,
+        "diastolicPressure": 76.5,
+        "heartRate": 73.3,
+        "spo2": 97.8,
+        "temperature": 36.5,
+        "respiratoryRate": 17.2
+      },
+      "request_id": "2fae3314-1db5-5042-bf91-5375f4bc02c2"
+    },
+    {
+      "index": 5,
+      "measured_at": "2026-09-20 17:42:02",
+      "measurement": {
+        "systolicPressure": 132.0,
+        "diastolicPressure": 81.6,
+        "heartRate": 77.0,
+        "spo2": 97.3,
+        "temperature": 36.8,
+        "respiratoryRate": 16.7
+      },
+      "request_id": "cee0a644-7ab7-5c37-967a-4e69b04cd5f3"
+    },
+    {
+      "index": 6,
+      "measured_at": "2026-09-21 05:42:02",
+      "measurement": {
+        "systolicPressure": 130.3,
+        "diastolicPressure": 81.6,
+        "heartRate": 82.0,
+        "spo2": 98.4,
+        "temperature": 36.6,
+        "respiratoryRate": 16.6
+      },
+      "request_id": "5a8bb684-5e07-5991-b786-4a2f40751283"
+    },
+    {
+      "index": 7,
+      "measured_at": "2026-09-21 17:42:02",
+      "measurement": {
+        "systolicPressure": 138.1,
+        "diastolicPressure": 80.0,
+        "heartRate": 76.5,
+        "spo2": 97.2,
+        "temperature": 36.7,
+        "respiratoryRate": 16.9
+      },
+      "request_id": "2ce84825-0378-58d9-bf0c-5682626a5e1e"
+    },
+    {
+      "index": 8,
+      "measured_at": "2026-09-22 05:42:02",
+      "measurement": {
+        "systolicPressure": 129.7,
+        "diastolicPressure": 83.9,
+        "heartRate": 76.9,
+        "spo2": 97.0,
+        "temperature": 36.6,
+        "respiratoryRate": 17.1
+      },
+      "request_id": "a9d16679-a9c0-5219-aeef-6e201f076ade"
+    },
+    {
+      "index": 9,
+      "measured_at": "2026-09-22 17:42:02",
+      "measurement": {
+        "systolicPressure": 132.8,
+        "diastolicPressure": 81.4,
+        "heartRate": 82.4,
+        "spo2": 97.0,
+        "temperature": 36.7,
+        "respiratoryRate": 17.9
+      },
+      "request_id": "b2736e0a-0cd4-56ad-82dc-8c5f15cc59ae"
+    },
+    {
+      "index": 10,
+      "measured_at": "2026-09-23 05:42:02",
+      "measurement": {
+        "systolicPressure": 132.9,
+        "diastolicPressure": 77.0,
+        "heartRate": 78.2,
+        "spo2": 97.3,
+        "temperature": 36.7,
+        "respiratoryRate": 16.7
+      },
+      "request_id": "53df1b42-2996-5f2c-b6e5-d0b6241a429a"
+    },
+    {
+      "index": 11,
+      "measured_at": "2026-09-23 17:42:02",
+      "measurement": {
+        "systolicPressure": 130.0,
+        "diastolicPressure": 78.3,
+        "heartRate": 77.4,
+        "spo2": 97.2,
+        "temperature": 36.6,
+        "respiratoryRate": 17.6
+      },
+      "request_id": "0971a05d-6970-5656-bdd8-c4b651d74524"
+    },
+    {
+      "index": 12,
+      "measured_at": "2026-09-24 05:42:02",
+      "measurement": {
+        "systolicPressure": 124.3,
+        "diastolicPressure": 75.8,
+        "heartRate": 79.0,
+        "spo2": 98.1,
+        "temperature": 36.6,
+        "respiratoryRate": 16.2
+      },
+      "request_id": "ace86d35-3569-595d-be03-84c59f0a01ae"
+    },
+    {
+      "index": 13,
+      "measured_at": "2026-09-24 17:42:02",
+      "measurement": {
+        "systolicPressure": 128.0,
+        "diastolicPressure": 78.5,
+        "heartRate": 74.8,
+        "spo2": 97.1,
+        "temperature": 36.7,
+        "respiratoryRate": 15.9
+      },
+      "request_id": "4edf5730-c630-5ff4-971c-53416a0fbf64"
+    },
+    {
+      "index": 14,
+      "measured_at": "2026-09-25 05:42:02",
+      "measurement": {
+        "systolicPressure": 120.8,
+        "diastolicPressure": 76.4,
+        "heartRate": 73.0,
+        "spo2": 96.6,
+        "temperature": 36.3,
+        "respiratoryRate": 18.2
+      },
+      "request_id": "ea9b9c88-7b7c-59c6-a33e-853857acbf74"
+    },
+    {
+      "index": 15,
+      "measured_at": "2026-09-25 17:42:02",
+      "measurement": {
+        "systolicPressure": 129.9,
+        "diastolicPressure": 78.0,
+        "heartRate": 72.6,
+        "spo2": 98.2,
+        "temperature": 36.5,
+        "respiratoryRate": 16.2
+      },
+      "request_id": "c0f2d318-b292-5ab5-b27a-6edbd51e19f4"
+    },
+    {
+      "index": 16,
+      "measured_at": "2026-09-26 05:42:02",
+      "measurement": {
+        "systolicPressure": 118.5,
+        "diastolicPressure": 77.1,
+        "heartRate": 70.8,
+        "spo2": 97.6,
+        "temperature": 36.4,
+        "respiratoryRate": 16.4
+      },
+      "request_id": "0ed3af18-b00e-5188-8187-07be32bea743"
+    },
+    {
+      "index": 17,
+      "measured_at": "2026-09-26 17:42:02",
+      "measurement": {
+        "systolicPressure": 124.7,
+        "diastolicPressure": 72.0,
+        "heartRate": 68.2,
+        "spo2": 96.7,
+        "temperature": 36.6,
+        "respiratoryRate": 15.3
+      },
+      "request_id": "4dc7a4cd-e56a-5b58-bd6a-f4841fd0b9d4"
+    },
+    {
+      "index": 18,
+      "measured_at": "2026-09-27 05:42:02",
+      "measurement": {
+        "systolicPressure": 117.8,
+        "diastolicPressure": 75.4,
+        "heartRate": 70.6,
+        "spo2": 97.0,
+        "temperature": 36.3,
+        "respiratoryRate": 14.8
+      },
+      "request_id": "77bef3c3-9732-508c-8e46-f3f622a01286"
+    },
+    {
+      "index": 19,
+      "measured_at": "2026-09-27 17:42:02",
+      "measurement": {
+        "systolicPressure": 116.8,
+        "diastolicPressure": 72.2,
+        "heartRate": 71.7,
+        "spo2": 96.6,
+        "temperature": 36.4,
+        "respiratoryRate": 15.2
+      },
+      "request_id": "48913269-2eea-56c0-9b0e-6955e50e105b"
+    },
+    {
+      "index": 20,
+      "measured_at": "2026-09-28 05:42:02",
+      "measurement": {
+        "systolicPressure": 112.9,
+        "diastolicPressure": 72.8,
+        "heartRate": 69.1,
+        "spo2": 97.1,
+        "temperature": 36.2,
+        "respiratoryRate": 15.7
+      },
+      "request_id": "e60795bd-bdf1-5159-883f-c57f73952017"
+    },
+    {
+      "index": 21,
+      "measured_at": "2026-09-28 17:42:02",
+      "measurement": {
+        "systolicPressure": 120.2,
+        "diastolicPressure": 72.5,
+        "heartRate": 66.7,
+        "spo2": 97.9,
+        "temperature": 36.1,
+        "respiratoryRate": 15.0
+      },
+      "request_id": "15a142d0-2568-52aa-89cb-633b183be734"
+    },
+    {
+      "index": 22,
+      "measured_at": "2026-09-29 05:42:02",
+      "measurement": {
+        "systolicPressure": 113.1,
+        "diastolicPressure": 72.8,
+        "heartRate": 68.9,
+        "spo2": 97.9,
+        "temperature": 36.5,
+        "respiratoryRate": 13.3
+      },
+      "request_id": "c76d991f-1d0a-569c-8ec4-bbf834a0ccb0"
+    },
+    {
+      "index": 23,
+      "measured_at": "2026-09-29 17:42:02",
+      "measurement": {
+        "systolicPressure": 116.6,
+        "diastolicPressure": 73.7,
+        "heartRate": 70.0,
+        "spo2": 96.9,
+        "temperature": 36.4,
+        "respiratoryRate": 15.8
+      },
+      "request_id": "86e33f96-e315-5e79-b464-abf35dd386d0"
+    },
+    {
+      "index": 24,
+      "measured_at": "2026-09-30 05:42:02",
+      "measurement": {
+        "systolicPressure": 111.8,
+        "diastolicPressure": 71.6,
+        "heartRate": 64.1,
+        "spo2": 98.0,
+        "temperature": 36.1,
+        "respiratoryRate": 14.5
+      },
+      "request_id": "4f5d33ea-43af-5918-bb8c-df49c63e6ef2"
+    },
+    {
+      "index": 25,
+      "measured_at": "2026-09-30 17:42:02",
+      "measurement": {
+        "systolicPressure": 119.6,
+        "diastolicPressure": 71.3,
+        "heartRate": 64.9,
+        "spo2": 97.5,
+        "temperature": 36.5,
+        "respiratoryRate": 13.9
+      },
+      "request_id": "68ac8194-4b19-55ae-8387-e603e139ed5e"
+    },
+    {
+      "index": 26,
+      "measured_at": "2026-10-01 05:42:02",
+      "measurement": {
+        "systolicPressure": 122.3,
+        "diastolicPressure": 74.4,
+        "heartRate": 67.0,
+        "spo2": 97.3,
+        "temperature": 36.3,
+        "respiratoryRate": 15.7
+      },
+      "request_id": "bd323312-fac3-5287-a65b-8579d6798691"
+    },
+    {
+      "index": 27,
+      "measured_at": "2026-10-01 17:42:02",
+      "measurement": {
+        "systolicPressure": 120.4,
+        "diastolicPressure": 75.4,
+        "heartRate": 71.4,
+        "spo2": 96.8,
+        "temperature": 36.5,
+        "respiratoryRate": 15.0
+      },
+      "request_id": "8051f661-bb65-5756-9f96-16288ddfd39f"
+    },
+    {
+      "index": 28,
+      "measured_at": "2026-10-02 05:42:02",
+      "measurement": {
+        "systolicPressure": 122.2,
+        "diastolicPressure": 76.7,
+        "heartRate": 73.5,
+        "spo2": 97.7,
+        "temperature": 36.4,
+        "respiratoryRate": 16.1
+      },
+      "request_id": "6496684e-b0a4-5c94-b09c-f5e1b957d517"
+    },
+    {
+      "index": 29,
+      "measured_at": "2026-10-02 17:42:02",
+      "measurement": {
+        "systolicPressure": 128.8,
+        "diastolicPressure": 77.7,
+        "heartRate": 71.8,
+        "spo2": 96.7,
+        "temperature": 36.7,
+        "respiratoryRate": 16.9
+      },
+      "request_id": "f954f5a1-5492-5777-9cc2-3b288bbc2887"
+    },
+    {
+      "index": 30,
+      "measured_at": "2026-10-03 05:42:02",
+      "measurement": {
+        "systolicPressure": 127.2,
+        "diastolicPressure": 79.1,
+        "heartRate": 77.3,
+        "spo2": 96.8,
+        "temperature": 36.6,
+        "respiratoryRate": 17.5
+      },
+      "request_id": "b8d75bf4-5082-56bd-8ffd-1ee7868531d3"
+    },
+    {
+      "index": 31,
+      "measured_at": "2026-10-03 17:42:02",
+      "measurement": {
+        "systolicPressure": 135.8,
+        "diastolicPressure": 80.7,
+        "heartRate": 78.8,
+        "spo2": 96.6,
+        "temperature": 36.9,
+        "respiratoryRate": 17.5
+      },
+      "request_id": "1fe66b83-a46d-5147-838d-92979b2ee165"
+    },
+    {
+      "index": 32,
+      "measured_at": "2026-10-04 05:42:02",
+      "measurement": {
+        "systolicPressure": 134.6,
+        "diastolicPressure": 81.3,
+        "heartRate": 84.5,
+        "spo2": 96.9,
+        "temperature": 36.9,
+        "respiratoryRate": 19.0
+      },
+      "request_id": "b35e5262-12e4-5008-aa05-a45315e73b4a"
+    },
+    {
+      "index": 33,
+      "measured_at": "2026-10-04 17:42:02",
+      "measurement": {
+        "systolicPressure": 145.7,
+        "diastolicPressure": 82.1,
+        "heartRate": 85.2,
+        "spo2": 96.0,
+        "temperature": 37.0,
+        "respiratoryRate": 19.4
+      },
+      "request_id": "0b2b267c-2bad-5696-bfa0-a03a12b326c1"
+    },
+    {
+      "index": 34,
+      "measured_at": "2026-10-05 05:42:02",
+      "measurement": {
+        "systolicPressure": 142.5,
+        "diastolicPressure": 86.5,
+        "heartRate": 91.3,
+        "spo2": 95.0,
+        "temperature": 37.3,
+        "respiratoryRate": 20.8
+      },
+      "request_id": "278667ba-d4cc-5971-bf78-20dd3a950da6"
+    },
+    {
+      "index": 35,
+      "measured_at": "2026-10-05 17:42:02",
+      "measurement": {
+        "systolicPressure": 153.5,
+        "diastolicPressure": 85.5,
+        "heartRate": 96.1,
+        "spo2": 94.1,
+        "temperature": 37.7,
+        "respiratoryRate": 21.1
+      },
+      "request_id": "78c3cce6-1368-5e0c-96c7-4a055f10d6b0"
+    },
+    {
+      "index": 36,
+      "measured_at": "2026-10-06 05:42:02",
+      "measurement": {
+        "systolicPressure": 152.5,
+        "diastolicPressure": 83.0,
+        "heartRate": 99.4,
+        "spo2": 94.4,
+        "temperature": 37.6,
+        "respiratoryRate": 22.6
+      },
+      "request_id": "0632ba76-a6bc-5f4e-aab0-f95c501cb530"
+    },
+    {
+      "index": 37,
+      "measured_at": "2026-10-06 17:42:02",
+      "measurement": {
+        "systolicPressure": 151.3,
+        "diastolicPressure": 85.6,
+        "heartRate": 96.8,
+        "spo2": 94.5,
+        "temperature": 37.7,
+        "respiratoryRate": 21.8
+      },
+      "request_id": "0a6bc544-0e8b-5d9a-9939-91dd3873204d"
+    },
+    {
+      "index": 38,
+      "measured_at": "2026-10-07 05:42:02",
+      "measurement": {
+        "systolicPressure": 145.6,
+        "diastolicPressure": 82.6,
+        "heartRate": 94.7,
+        "spo2": 94.6,
+        "temperature": 37.4,
+        "respiratoryRate": 21.6
+      },
+      "request_id": "a9a9e344-0114-5618-8d06-61b9864fdb2b"
+    },
+    {
+      "index": 39,
+      "measured_at": "2026-10-07 17:42:02",
+      "measurement": {
+        "systolicPressure": 148.3,
+        "diastolicPressure": 84.7,
+        "heartRate": 92.1,
+        "spo2": 95.6,
+        "temperature": 37.3,
+        "respiratoryRate": 21.6
+      },
+      "request_id": "87b24b59-ff32-5d63-b4d1-c01fbd101666"
+    },
+    {
+      "index": 40,
+      "measured_at": "2026-10-08 05:42:02",
+      "measurement": {
+        "systolicPressure": 144.8,
+        "diastolicPressure": 82.8,
+        "heartRate": 91.5,
+        "spo2": 95.4,
+        "temperature": 37.1,
+        "respiratoryRate": 20.2
+      },
+      "request_id": "67750ab0-9e37-5086-8b7d-61926de4591b"
+    },
+    {
+      "index": 41,
+      "measured_at": "2026-10-08 17:42:02",
+      "measurement": {
+        "systolicPressure": 140.1,
+        "diastolicPressure": 82.1,
+        "heartRate": 85.9,
+        "spo2": 95.6,
+        "temperature": 37.0,
+        "respiratoryRate": 19.4
+      },
+      "request_id": "dbd22a93-7c96-57e8-aabc-e34f7c5db907"
+    },
+    {
+      "index": 42,
+      "measured_at": "2026-10-09 05:42:02",
+      "measurement": {
+        "systolicPressure": 133.0,
+        "diastolicPressure": 78.7,
+        "heartRate": 81.2,
+        "spo2": 96.0,
+        "temperature": 36.9,
+        "respiratoryRate": 16.7
+      },
+      "request_id": "694f0e7d-9c17-5275-9e5f-f52514fc19bc"
+    },
+    {
+      "index": 43,
+      "measured_at": "2026-10-09 17:42:02",
+      "measurement": {
+        "systolicPressure": 135.9,
+        "diastolicPressure": 76.2,
+        "heartRate": 74.8,
+        "spo2": 96.7,
+        "temperature": 36.5,
+        "respiratoryRate": 18.1
+      },
+      "request_id": "9a6d879f-3d15-53b3-9b2d-aea319329e9f"
+    },
+    {
+      "index": 44,
+      "measured_at": "2026-10-10 05:42:02",
+      "measurement": {
+        "systolicPressure": 125.6,
+        "diastolicPressure": 74.7,
+        "heartRate": 75.1,
+        "spo2": 97.5,
+        "temperature": 36.7,
+        "respiratoryRate": 17.7
+      },
+      "request_id": "9bc02ad8-c39e-5a8d-94ba-53059a4651ce"
+    },
+    {
+      "index": 45,
+      "measured_at": "2026-10-10 17:42:02",
+      "measurement": {
+        "systolicPressure": 123.5,
+        "diastolicPressure": 75.1,
+        "heartRate": 72.5,
+        "spo2": 97.3,
+        "temperature": 36.4,
+        "respiratoryRate": 16.4
+      },
+      "request_id": "ebf9746a-c2e7-5c8a-96b1-24c14b576d57"
+    },
+    {
+      "index": 46,
+      "measured_at": "2026-10-11 05:42:02",
+      "measurement": {
+        "systolicPressure": 119.6,
+        "diastolicPressure": 74.1,
+        "heartRate": 73.3,
+        "spo2": 97.2,
+        "temperature": 36.6,
+        "respiratoryRate": 15.9
+      },
+      "request_id": "5c8212d0-0802-5737-ba83-edb7907de7d6"
+    },
+    {
+      "index": 47,
+      "measured_at": "2026-10-11 17:42:02",
+      "measurement": {
+        "systolicPressure": 121.3,
+        "diastolicPressure": 71.5,
+        "heartRate": 74.1,
+        "spo2": 96.6,
+        "temperature": 36.4,
+        "respiratoryRate": 14.5
+      },
+      "request_id": "0fa209e5-81f9-556a-ac46-f77ce12416c7"
+    },
+    {
+      "index": 48,
+      "measured_at": "2026-10-12 05:42:02",
+      "measurement": {
+        "systolicPressure": 115.4,
+        "diastolicPressure": 71.9,
+        "heartRate": 68.8,
+        "spo2": 97.6,
+        "temperature": 36.7,
+        "respiratoryRate": 14.0
+      },
+      "request_id": "a60d9bfa-d547-589e-8d21-882f2c1737c6"
+    },
+    {
+      "index": 49,
+      "measured_at": "2026-10-12 17:42:02",
+      "measurement": {
+        "systolicPressure": 120.1,
+        "diastolicPressure": 72.5,
+        "heartRate": 67.1,
+        "spo2": 97.9,
+        "temperature": 36.2,
+        "respiratoryRate": 15.4
+      },
+      "request_id": "134941be-5fb0-5fd1-a71c-a93f833170d6"
+    },
+    {
+      "index": 50,
+      "measured_at": "2026-10-13 05:42:02",
+      "measurement": {
+        "systolicPressure": 110.7,
+        "diastolicPressure": 73.4,
+        "heartRate": 68.8,
+        "spo2": 97.0,
+        "temperature": 36.5,
+        "respiratoryRate": 14.4
+      },
+      "request_id": "a43d9b25-d3b0-572c-9809-19db48b8f93f"
+    },
+    {
+      "index": 51,
+      "measured_at": "2026-10-13 17:42:02",
+      "measurement": {
+        "systolicPressure": 115.3,
+        "diastolicPressure": 70.2,
+        "heartRate": 68.7,
+        "spo2": 97.5,
+        "temperature": 36.4,
+        "respiratoryRate": 15.7
+      },
+      "request_id": "6fabb4d4-5679-5267-ba7f-05ac2986c9b9"
+    },
+    {
+      "index": 52,
+      "measured_at": "2026-10-14 05:42:02",
+      "measurement": {
+        "systolicPressure": 115.1,
+        "diastolicPressure": 69.9,
+        "heartRate": 64.2,
+        "spo2": 97.0,
+        "temperature": 36.6,
+        "respiratoryRate": 14.1
+      },
+      "request_id": "f95da6d4-a645-5029-941e-4b2301cd454d"
+    },
+    {
+      "index": 53,
+      "measured_at": "2026-10-14 17:42:02",
+      "measurement": {
+        "systolicPressure": 119.9,
+        "diastolicPressure": 72.0,
+        "heartRate": 68.8,
+        "spo2": 96.4,
+        "temperature": 36.4,
+        "respiratoryRate": 14.6
+      },
+      "request_id": "e1e51982-e954-5b7a-8d08-a9d75b74a94d"
+    },
+    {
+      "index": 54,
+      "measured_at": "2026-10-15 05:42:02",
+      "measurement": {
+        "systolicPressure": 117.3,
+        "diastolicPressure": 71.1,
+        "heartRate": 65.0,
+        "spo2": 98.0,
+        "temperature": 36.5,
+        "respiratoryRate": 15.4
+      },
+      "request_id": "b9ad3266-f1de-5ce4-bad4-c60667689c89"
+    },
+    {
+      "index": 55,
+      "measured_at": "2026-10-15 17:42:02",
+      "measurement": {
+        "systolicPressure": 123.6,
+        "diastolicPressure": 71.5,
+        "heartRate": 68.0,
+        "spo2": 97.9,
+        "temperature": 36.3,
+        "respiratoryRate": 15.3
+      },
+      "request_id": "9e907abc-12ff-5de0-bfcb-1d5d5b1ca978"
+    },
+    {
+      "index": 56,
+      "measured_at": "2026-10-16 05:42:02",
+      "measurement": {
+        "systolicPressure": 118.6,
+        "diastolicPressure": 72.1,
+        "heartRate": 66.6,
+        "spo2": 97.4,
+        "temperature": 36.3,
+        "respiratoryRate": 14.9
+      },
+      "request_id": "ed6167a9-cc7c-57f8-8ae0-e8ef11cd7c2e"
+    },
+    {
+      "index": 57,
+      "measured_at": "2026-10-16 17:42:02",
+      "measurement": {
+        "systolicPressure": 120.1,
+        "diastolicPressure": 72.2,
+        "heartRate": 68.7,
+        "spo2": 97.9,
+        "temperature": 36.4,
+        "respiratoryRate": 15.8
+      },
+      "request_id": "cea1e6b4-87a0-566f-9540-931957b2da91"
+    },
+    {
+      "index": 58,
+      "measured_at": "2026-10-17 05:42:02",
+      "measurement": {
+        "systolicPressure": 116.3,
+        "diastolicPressure": 74.3,
+        "heartRate": 72.3,
+        "spo2": 96.8,
+        "temperature": 36.2,
+        "respiratoryRate": 14.9
+      },
+      "request_id": "2a016ea3-78be-52d7-b02c-7c0878ee748a"
+    },
+    {
+      "index": 59,
+      "measured_at": "2026-10-17 17:42:02",
+      "measurement": {
+        "systolicPressure": 124.6,
+        "diastolicPressure": 75.5,
+        "heartRate": 75.2,
+        "spo2": 98.0,
+        "temperature": 36.7,
+        "respiratoryRate": 16.0
+      },
+      "request_id": "37857080-e2e8-5388-a247-06805fddc95e"
+    }
+  ],
+  "existing_measurement_ids": [
+    1,
+    7,
+    20
+  ]
+}

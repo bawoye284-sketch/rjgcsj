@@ -1,0 +1,1321 @@
+{
+  "version": "nhefs5-fixed-20261017",
+  "created_at_utc": "2026-10-17T08:20:43.409251+00:00",
+  "evaluation_type": "existing_cohort_internal_train_test_evaluation",
+  "weights_modified": false,
+  "online_activation": false,
+  "cohort_sha256": "272e7b90f490ca4e978768e43ffdd251f338e030f7dfc38edeb4ae6ff36dc67b",
+  "source_run": "experiments/overlap-demo/runs/overlap-20261017-demo",
+  "source_manifest_sha256": "b3594999af0ee085837da75f8813afd260f3358a8164d4a668b63a5ab0184a72",
+  "source_membership_sha256": "9b476fae3f661a7335cd94c42dfa6c7d092661ab4ae529bb58b6bff7a74d19de",
+  "split_rule": "Per disease: actual fitted members are train; all remaining source members are test",
+  "scope": "Previously inspected cohort; internal evaluation, not new external validation",
+  "source_sha256": {
+    "evaluate.py": "a5ba19c531723d88ff9c23cbc59064a654d9afeb1a3831919c68f724724592ef"
+  },
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "matplotlib": "3.11.2"
+  },
+  "diseases": {
+    "hypertension": {
+      "name": "高血压",
+      "features": [
+        "age",
+        "sex_male",
+        "weight_kg",
+        "self_rated_health",
+        "smoking_current",
+        "drinking_any",
+        "exercise_regular",
+        "history_diabetes",
+        "history_stroke",
+        "history_heart_attack",
+        "history_osteoporosis",
+        "high_cholesterol_history",
+        "health_worsened",
+        "weight_gain_10lb",
+        "weight_loss_10lb",
+        "hip_fracture_history"
+      ],
+      "threshold": 0.5,
+      "weights_sha256": "0bbe1c739725fee1e3a4321ff3a6be4676ef777e299ffa11b9392348355472c2",
+      "metrics": {
+        "train": {
+          "n": 827,
+          "events": 73,
+          "event_rate": 0.08827085852478839,
+          "roc_auc": 1.0,
+          "average_precision": 1.0,
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "negative_predictive_value": 1.0,
+          "f1": 1.0,
+          "mcc": 1.0,
+          "brier": 0.0,
+          "log_loss": 2.2204460492503136e-16,
+          "threshold": 0.5,
+          "confusion_matrix": [
+            [
+              754,
+              0
+            ],
+            [
+              0,
+              73
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 754.0
+            },
+            "1": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 73.0
+            },
+            "accuracy": 1.0,
+            "macro avg": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 827.0
+            },
+            "weighted avg": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 827.0
+            }
+          }
+        },
+        "test": {
+          "n": 43,
+          "events": 3,
+          "event_rate": 0.06976744186046512,
+          "roc_auc": 0.5583333333333333,
+          "average_precision": 0.09714285714285714,
+          "accuracy": 0.9069767441860465,
+          "balanced_accuracy": 0.4875,
+          "sensitivity": 0.0,
+          "specificity": 0.975,
+          "precision": 0.0,
+          "negative_predictive_value": 0.9285714285714286,
+          "f1": 0.0,
+          "mcc": -0.042257712736425826,
+          "brier": 0.10773997093023256,
+          "log_loss": 0.36551580426365365,
+          "threshold": 0.5,
+          "confusion_matrix": [
+            [
+              39,
+              1
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.9285714285714286,
+              "recall": 0.975,
+              "f1-score": 0.9512195121951219,
+              "support": 40.0
+            },
+            "1": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 3.0
+            },
+            "accuracy": 0.9069767441860465,
+            "macro avg": {
+              "precision": 0.4642857142857143,
+              "recall": 0.4875,
+              "f1-score": 0.47560975609756095,
+              "support": 43.0
+            },
+            "weighted avg": {
+              "precision": 0.8637873754152825,
+              "recall": 0.9069767441860465,
+              "f1-score": 0.8848553601815088,
+              "support": 43.0
+            }
+          },
+          "confidence_intervals": {
+            "method": "participant bootstrap percentile 95%; conditional on this fitted model",
+            "requested_repeats": 500,
+            "valid_repeats": 479,
+            "intervals": {
+              "roc_auc": [
+                0.3804945054945055,
+                0.7619047619047619
+              ],
+              "average_precision": [
+                0.04158333333333333,
+                0.24763928100884622
+              ],
+              "accuracy": [
+                0.813953488372093,
+                0.9767441860465116
+              ],
+              "sensitivity": [
+                0.0,
+                0.0
+              ],
+              "specificity": [
+                0.9210526315789473,
+                1.0
+              ],
+              "precision": [
+                0.0,
+                0.0
+              ],
+              "f1": [
+                0.0,
+                0.0
+              ],
+              "brier": [
+                0.049986678779069774,
+                0.1780864389534884
+              ]
+            }
+          }
+        }
+      },
+      "constant_baseline": {
+        "n": 43,
+        "events": 3,
+        "event_rate": 0.06976744186046512,
+        "roc_auc": 0.5,
+        "average_precision": 0.06976744186046512,
+        "accuracy": 0.9302325581395349,
+        "balanced_accuracy": 0.5,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "precision": 0.0,
+        "negative_predictive_value": 0.9302325581395349,
+        "f1": 0.0,
+        "mcc": 0.0,
+        "brier": 0.0652423223449653,
+        "log_loss": 0.2553146242384956,
+        "threshold": 0.5,
+        "confusion_matrix": [
+          [
+            40,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "confusion_matrix_axes": {
+          "rows": [
+            "Observed negative",
+            "Observed positive"
+          ],
+          "columns": [
+            "Predicted negative",
+            "Predicted positive"
+          ]
+        },
+        "classification_report": {
+          "0": {
+            "precision": 0.9302325581395349,
+            "recall": 1.0,
+            "f1-score": 0.963855421686747,
+            "support": 40.0
+          },
+          "1": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 3.0
+          },
+          "accuracy": 0.9302325581395349,
+          "macro avg": {
+            "precision": 0.46511627906976744,
+            "recall": 0.5,
+            "f1-score": 0.4819277108433735,
+            "support": 43.0
+          },
+          "weighted avg": {
+            "precision": 0.8653326122228232,
+            "recall": 0.9302325581395349,
+            "f1-score": 0.8966096945923226,
+            "support": 43.0
+          }
+        }
+      }
+    },
+    "diabetes": {
+      "name": "糖尿病（按问卷定义）",
+      "features": [
+        "age",
+        "sex_male",
+        "weight_kg",
+        "self_rated_health",
+        "smoking_current",
+        "drinking_any",
+        "exercise_regular",
+        "history_hypertension",
+        "history_stroke",
+        "history_heart_attack",
+        "history_osteoporosis",
+        "high_cholesterol_history",
+        "health_worsened",
+        "weight_gain_10lb",
+        "weight_loss_10lb",
+        "hip_fracture_history"
+      ],
+      "threshold": 0.5,
+      "weights_sha256": "0c67362abf7f6e41d56ff8265641793c91ab746c1af6a1571ba8e0e249edd90d",
+      "metrics": {
+        "train": {
+          "n": 1762,
+          "events": 36,
+          "event_rate": 0.02043132803632236,
+          "roc_auc": 1.0,
+          "average_precision": 1.0,
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "negative_predictive_value": 1.0,
+          "f1": 1.0,
+          "mcc": 1.0,
+          "brier": 0.0,
+          "log_loss": 2.2204460492503136e-16,
+          "threshold": 0.5,
+          "confusion_matrix": [
+            [
+              1726,
+              0
+            ],
+            [
+              0,
+              36
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 1726.0
+            },
+            "1": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 36.0
+            },
+            "accuracy": 1.0,
+            "macro avg": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 1762.0
+            },
+            "weighted avg": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 1762.0
+            }
+          }
+        },
+        "test": {
+          "n": 90,
+          "events": 2,
+          "event_rate": 0.022222222222222223,
+          "roc_auc": 0.9176136363636364,
+          "average_precision": 0.19642857142857142,
+          "accuracy": 0.9777777777777777,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "precision": 0.0,
+          "negative_predictive_value": 0.9777777777777777,
+          "f1": 0.0,
+          "mcc": 0.0,
+          "brier": 0.02245277777777778,
+          "log_loss": 0.08391281984156368,
+          "threshold": 0.5,
+          "confusion_matrix": [
+            [
+              88,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.9777777777777777,
+              "recall": 1.0,
+              "f1-score": 0.9887640449438202,
+              "support": 88.0
+            },
+            "1": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 2.0
+            },
+            "accuracy": 0.9777777777777777,
+            "macro avg": {
+              "precision": 0.4888888888888889,
+              "recall": 0.5,
+              "f1-score": 0.4943820224719101,
+              "support": 90.0
+            },
+            "weighted avg": {
+              "precision": 0.9560493827160493,
+              "recall": 0.9777777777777777,
+              "f1-score": 0.9667915106117353,
+              "support": 90.0
+            }
+          },
+          "confidence_intervals": {
+            "method": "participant bootstrap percentile 95%; conditional on this fitted model",
+            "requested_repeats": 500,
+            "valid_repeats": 431,
+            "intervals": {
+              "roc_auc": [
+                0.8323863636363635,
+                0.9886682839632278
+              ],
+              "average_precision": [
+                0.06666666666666667,
+                0.6666666666666666
+              ],
+              "accuracy": [
+                0.9444444444444444,
+                0.9888888888888889
+              ],
+              "sensitivity": [
+                0.0,
+                0.0
+              ],
+              "specificity": [
+                1.0,
+                1.0
+              ],
+              "precision": [
+                0.0,
+                0.0
+              ],
+              "f1": [
+                0.0,
+                0.0
+              ],
+              "brier": [
+                0.010679322916666668,
+                0.05229991319444444
+              ]
+            }
+          }
+        }
+      },
+      "constant_baseline": {
+        "n": 90,
+        "events": 2,
+        "event_rate": 0.022222222222222223,
+        "roc_auc": 0.5,
+        "average_precision": 0.022222222222222223,
+        "accuracy": 0.9777777777777777,
+        "balanced_accuracy": 0.5,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "precision": 0.0,
+        "negative_predictive_value": 0.9777777777777777,
+        "f1": 0.0,
+        "mcc": 0.0,
+        "brier": 0.02173160236371348,
+        "log_loss": 0.10664388892357966,
+        "threshold": 0.5,
+        "confusion_matrix": [
+          [
+            88,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "confusion_matrix_axes": {
+          "rows": [
+            "Observed negative",
+            "Observed positive"
+          ],
+          "columns": [
+            "Predicted negative",
+            "Predicted positive"
+          ]
+        },
+        "classification_report": {
+          "0": {
+            "precision": 0.9777777777777777,
+            "recall": 1.0,
+            "f1-score": 0.9887640449438202,
+            "support": 88.0
+          },
+          "1": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2.0
+          },
+          "accuracy": 0.9777777777777777,
+          "macro avg": {
+            "precision": 0.4888888888888889,
+            "recall": 0.5,
+            "f1-score": 0.4943820224719101,
+            "support": 90.0
+          },
+          "weighted avg": {
+            "precision": 0.9560493827160493,
+            "recall": 0.9777777777777777,
+            "f1-score": 0.9667915106117353,
+            "support": 90.0
+          }
+        }
+      }
+    },
+    "stroke": {
+      "name": "卒中／中风",
+      "features": [
+        "age",
+        "sex_male",
+        "weight_kg",
+        "self_rated_health",
+        "smoking_current",
+        "drinking_any",
+        "exercise_regular",
+        "history_hypertension",
+        "history_diabetes",
+        "history_heart_attack",
+        "history_osteoporosis",
+        "high_cholesterol_history",
+        "health_worsened",
+        "weight_gain_10lb",
+        "weight_loss_10lb",
+        "hip_fracture_history"
+      ],
+      "threshold": 0.5,
+      "weights_sha256": "a8960fa9afb9b93b1482ac775e2026c652b66c63d857a496232302cfbe240f18",
+      "metrics": {
+        "train": {
+          "n": 1807,
+          "events": 63,
+          "event_rate": 0.034864416159380185,
+          "roc_auc": 1.0,
+          "average_precision": 1.0,
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "negative_predictive_value": 1.0,
+          "f1": 1.0,
+          "mcc": 1.0,
+          "brier": 0.0,
+          "log_loss": 2.2204460492503136e-16,
+          "threshold": 0.5,
+          "confusion_matrix": [
+            [
+              1744,
+              0
+            ],
+            [
+              0,
+              63
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 1744.0
+            },
+            "1": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 63.0
+            },
+            "accuracy": 1.0,
+            "macro avg": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 1807.0
+            },
+            "weighted avg": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 1807.0
+            }
+          }
+        },
+        "test": {
+          "n": 92,
+          "events": 4,
+          "event_rate": 0.043478260869565216,
+          "roc_auc": 0.3821022727272727,
+          "average_precision": 0.040927726926010675,
+          "accuracy": 0.9565217391304348,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "precision": 0.0,
+          "negative_predictive_value": 0.9565217391304348,
+          "f1": 0.0,
+          "mcc": 0.0,
+          "brier": 0.04712296195652175,
+          "log_loss": 0.91830267808544,
+          "threshold": 0.5,
+          "confusion_matrix": [
+            [
+              88,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.9565217391304348,
+              "recall": 1.0,
+              "f1-score": 0.9777777777777777,
+              "support": 88.0
+            },
+            "1": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 4.0
+            },
+            "accuracy": 0.9565217391304348,
+            "macro avg": {
+              "precision": 0.4782608695652174,
+              "recall": 0.5,
+              "f1-score": 0.4888888888888889,
+              "support": 92.0
+            },
+            "weighted avg": {
+              "precision": 0.9149338374291116,
+              "recall": 0.9565217391304348,
+              "f1-score": 0.9352657004830917,
+              "support": 92.0
+            }
+          },
+          "confidence_intervals": {
+            "method": "participant bootstrap percentile 95%; conditional on this fitted model",
+            "requested_repeats": 500,
+            "valid_repeats": 491,
+            "intervals": {
+              "roc_auc": [
+                0.17045454545454544,
+                0.640625
+              ],
+              "average_precision": [
+                0.010869565217391304,
+                0.11324620633326382
+              ],
+              "accuracy": [
+                0.9130434782608695,
+                0.9891304347826086
+              ],
+              "sensitivity": [
+                0.0,
+                0.0
+              ],
+              "specificity": [
+                1.0,
+                1.0
+              ],
+              "precision": [
+                0.0,
+                0.0
+              ],
+              "f1": [
+                0.0,
+                0.0
+              ],
+              "brier": [
+                0.014077615489130436,
+                0.09108243885869567
+              ]
+            }
+          }
+        }
+      },
+      "constant_baseline": {
+        "n": 92,
+        "events": 4,
+        "event_rate": 0.043478260869565216,
+        "roc_auc": 0.5,
+        "average_precision": 0.043478260869565216,
+        "accuracy": 0.9565217391304348,
+        "balanced_accuracy": 0.5,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "precision": 0.0,
+        "negative_predictive_value": 0.9565217391304348,
+        "f1": 0.0,
+        "mcc": 0.0,
+        "brier": 0.04166210002201442,
+        "log_loss": 0.1798693764744945,
+        "threshold": 0.5,
+        "confusion_matrix": [
+          [
+            88,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "confusion_matrix_axes": {
+          "rows": [
+            "Observed negative",
+            "Observed positive"
+          ],
+          "columns": [
+            "Predicted negative",
+            "Predicted positive"
+          ]
+        },
+        "classification_report": {
+          "0": {
+            "precision": 0.9565217391304348,
+            "recall": 1.0,
+            "f1-score": 0.9777777777777777,
+            "support": 88.0
+          },
+          "1": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 4.0
+          },
+          "accuracy": 0.9565217391304348,
+          "macro avg": {
+            "precision": 0.4782608695652174,
+            "recall": 0.5,
+            "f1-score": 0.4888888888888889,
+            "support": 92.0
+          },
+          "weighted avg": {
+            "precision": 0.9149338374291116,
+            "recall": 0.9565217391304348,
+            "f1-score": 0.9352657004830917,
+            "support": 92.0
+          }
+        }
+      }
+    },
+    "heart_attack": {
+      "name": "心脏病发作（按问卷定义）",
+      "features": [
+        "age",
+        "sex_male",
+        "weight_kg",
+        "self_rated_health",
+        "smoking_current",
+        "drinking_any",
+        "exercise_regular",
+        "history_hypertension",
+        "history_diabetes",
+        "history_stroke",
+        "history_osteoporosis",
+        "high_cholesterol_history",
+        "health_worsened",
+        "weight_gain_10lb",
+        "weight_loss_10lb",
+        "hip_fracture_history"
+      ],
+      "threshold": 0.5,
+      "weights_sha256": "8200251fa6daba2fd1a3d5bc3b697c02ca0deba7103f966bf57ac5ff1d4fe39c",
+      "metrics": {
+        "train": {
+          "n": 1740,
+          "events": 88,
+          "event_rate": 0.05057471264367816,
+          "roc_auc": 1.0,
+          "average_precision": 1.0,
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "negative_predictive_value": 1.0,
+          "f1": 1.0,
+          "mcc": 1.0,
+          "brier": 0.0,
+          "log_loss": 2.2204460492503136e-16,
+          "threshold": 0.5,
+          "confusion_matrix": [
+            [
+              1652,
+              0
+            ],
+            [
+              0,
+              88
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 1652.0
+            },
+            "1": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 88.0
+            },
+            "accuracy": 1.0,
+            "macro avg": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 1740.0
+            },
+            "weighted avg": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 1740.0
+            }
+          }
+        },
+        "test": {
+          "n": 86,
+          "events": 3,
+          "event_rate": 0.03488372093023256,
+          "roc_auc": 0.5823293172690762,
+          "average_precision": 0.0644229380326448,
+          "accuracy": 0.9651162790697675,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "precision": 0.0,
+          "negative_predictive_value": 0.9651162790697675,
+          "f1": 0.0,
+          "mcc": 0.0,
+          "brier": 0.03946286337209303,
+          "log_loss": 0.5340348449413348,
+          "threshold": 0.5,
+          "confusion_matrix": [
+            [
+              83,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.9651162790697675,
+              "recall": 1.0,
+              "f1-score": 0.9822485207100592,
+              "support": 83.0
+            },
+            "1": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 3.0
+            },
+            "accuracy": 0.9651162790697675,
+            "macro avg": {
+              "precision": 0.48255813953488375,
+              "recall": 0.5,
+              "f1-score": 0.4911242603550296,
+              "support": 86.0
+            },
+            "weighted avg": {
+              "precision": 0.9314494321254733,
+              "recall": 0.9651162790697675,
+              "f1-score": 0.9479840374294758,
+              "support": 86.0
+            }
+          },
+          "confidence_intervals": {
+            "method": "participant bootstrap percentile 95%; conditional on this fitted model",
+            "requested_repeats": 500,
+            "valid_repeats": 480,
+            "intervals": {
+              "roc_auc": [
+                0.13245216158752657,
+                0.8809873949579832
+              ],
+              "average_precision": [
+                0.011627906976744186,
+                0.21672760677279115
+              ],
+              "accuracy": [
+                0.9186046511627907,
+                0.9883720930232558
+              ],
+              "sensitivity": [
+                0.0,
+                0.0
+              ],
+              "specificity": [
+                1.0,
+                1.0
+              ],
+              "precision": [
+                0.0,
+                0.0
+              ],
+              "f1": [
+                0.0,
+                0.0
+              ],
+              "brier": [
+                0.014458889898255813,
+                0.08130728924418607
+              ]
+            }
+          }
+        }
+      },
+      "constant_baseline": {
+        "n": 86,
+        "events": 3,
+        "event_rate": 0.03488372093023256,
+        "roc_auc": 0.5,
+        "average_precision": 0.03488372093023256,
+        "accuracy": 0.9651162790697675,
+        "balanced_accuracy": 0.5,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "precision": 0.0,
+        "negative_predictive_value": 0.9651162790697675,
+        "f1": 0.0,
+        "mcc": 0.0,
+        "brier": 0.03391305416524564,
+        "log_loss": 0.1541916406719322,
+        "threshold": 0.5,
+        "confusion_matrix": [
+          [
+            83,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "confusion_matrix_axes": {
+          "rows": [
+            "Observed negative",
+            "Observed positive"
+          ],
+          "columns": [
+            "Predicted negative",
+            "Predicted positive"
+          ]
+        },
+        "classification_report": {
+          "0": {
+            "precision": 0.9651162790697675,
+            "recall": 1.0,
+            "f1-score": 0.9822485207100592,
+            "support": 83.0
+          },
+          "1": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 3.0
+          },
+          "accuracy": 0.9651162790697675,
+          "macro avg": {
+            "precision": 0.48255813953488375,
+            "recall": 0.5,
+            "f1-score": 0.4911242603550296,
+            "support": 86.0
+          },
+          "weighted avg": {
+            "precision": 0.9314494321254733,
+            "recall": 0.9651162790697675,
+            "f1-score": 0.9479840374294758,
+            "support": 86.0
+          }
+        }
+      }
+    },
+    "osteoporosis": {
+      "name": "骨质疏松",
+      "features": [
+        "age",
+        "sex_male",
+        "weight_kg",
+        "self_rated_health",
+        "smoking_current",
+        "drinking_any",
+        "exercise_regular",
+        "history_hypertension",
+        "history_diabetes",
+        "history_stroke",
+        "history_heart_attack",
+        "high_cholesterol_history",
+        "health_worsened",
+        "weight_gain_10lb",
+        "weight_loss_10lb",
+        "hip_fracture_history"
+      ],
+      "threshold": 0.5,
+      "weights_sha256": "93fa37c4705e3adab1e26e753ff8b45fa2b5966bad1e1c7f47ff84615a5fb60f",
+      "metrics": {
+        "train": {
+          "n": 1836,
+          "events": 50,
+          "event_rate": 0.027233115468409588,
+          "roc_auc": 1.0,
+          "average_precision": 1.0,
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "negative_predictive_value": 1.0,
+          "f1": 1.0,
+          "mcc": 1.0,
+          "brier": 0.0,
+          "log_loss": 2.2204460492503136e-16,
+          "threshold": 0.5,
+          "confusion_matrix": [
+            [
+              1786,
+              0
+            ],
+            [
+              0,
+              50
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 1786.0
+            },
+            "1": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 50.0
+            },
+            "accuracy": 1.0,
+            "macro avg": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 1836.0
+            },
+            "weighted avg": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1-score": 1.0,
+              "support": 1836.0
+            }
+          }
+        },
+        "test": {
+          "n": 92,
+          "events": 3,
+          "event_rate": 0.03260869565217391,
+          "roc_auc": 0.348314606741573,
+          "average_precision": 0.03260869565217391,
+          "accuracy": 0.967391304347826,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "precision": 0.0,
+          "negative_predictive_value": 0.967391304347826,
+          "f1": 0.0,
+          "mcc": 0.0,
+          "brier": 0.036970244565217386,
+          "log_loss": 1.201968436758512,
+          "threshold": 0.5,
+          "confusion_matrix": [
+            [
+              89,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "confusion_matrix_axes": {
+            "rows": [
+              "Observed negative",
+              "Observed positive"
+            ],
+            "columns": [
+              "Predicted negative",
+              "Predicted positive"
+            ]
+          },
+          "classification_report": {
+            "0": {
+              "precision": 0.967391304347826,
+              "recall": 1.0,
+              "f1-score": 0.9834254143646409,
+              "support": 89.0
+            },
+            "1": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1-score": 0.0,
+              "support": 3.0
+            },
+            "accuracy": 0.967391304347826,
+            "macro avg": {
+              "precision": 0.483695652173913,
+              "recall": 0.5,
+              "f1-score": 0.49171270718232046,
+              "support": 92.0
+            },
+            "weighted avg": {
+              "precision": 0.9358459357277882,
+              "recall": 0.967391304347826,
+              "f1-score": 0.9513571943310113,
+              "support": 92.0
+            }
+          },
+          "confidence_intervals": {
+            "method": "participant bootstrap percentile 95%; conditional on this fitted model",
+            "requested_repeats": 500,
+            "valid_repeats": 476,
+            "intervals": {
+              "roc_auc": [
+                0.2965472027972028,
+                0.3956043956043956
+              ],
+              "average_precision": [
+                0.010869565217391304,
+                0.07608695652173914
+              ],
+              "accuracy": [
+                0.9239130434782609,
+                0.9891304347826086
+              ],
+              "sensitivity": [
+                0.0,
+                0.0
+              ],
+              "specificity": [
+                1.0,
+                1.0
+              ],
+              "precision": [
+                0.0,
+                0.0
+              ],
+              "f1": [
+                0.0,
+                0.0
+              ],
+              "brier": [
+                0.013923148777173914,
+                0.07857753057065218
+              ]
+            }
+          }
+        }
+      },
+      "constant_baseline": {
+        "n": 92,
+        "events": 3,
+        "event_rate": 0.03260869565217391,
+        "roc_auc": 0.5,
+        "average_precision": 0.03260869565217391,
+        "accuracy": 0.967391304347826,
+        "balanced_accuracy": 0.5,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "precision": 0.0,
+        "negative_predictive_value": 0.967391304347826,
+        "f1": 0.0,
+        "mcc": 0.0,
+        "brier": 0.03157426548234988,
+        "log_loss": 0.14421007352687076,
+        "threshold": 0.5,
+        "confusion_matrix": [
+          [
+            89,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "confusion_matrix_axes": {
+          "rows": [
+            "Observed negative",
+            "Observed positive"
+          ],
+          "columns": [
+            "Predicted negative",
+            "Predicted positive"
+          ]
+        },
+        "classification_report": {
+          "0": {
+            "precision": 0.967391304347826,
+            "recall": 1.0,
+            "f1-score": 0.9834254143646409,
+            "support": 89.0
+          },
+          "1": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 3.0
+          },
+          "accuracy": 0.967391304347826,
+          "macro avg": {
+            "precision": 0.483695652173913,
+            "recall": 0.5,
+            "f1-score": 0.49171270718232046,
+            "support": 92.0
+          },
+          "weighted avg": {
+            "precision": 0.9358459357277882,
+            "recall": 0.967391304347826,
+            "f1-score": 0.9513571943310113,
+            "support": 92.0
+          }
+        }
+      }
+    }
+  },
+  "plot_source_sha256": "238e2c2b9bc94faf3eaf32709ace2625108f9c2afb9877f278b78acc13568472"
+}

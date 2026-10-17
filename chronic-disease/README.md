@@ -2,11 +2,17 @@
 
 本目录独立存放慢性病预测的数据、代码、配置、报告和未来模型权重。当前候选病种为高血压、糖尿病、卒中、心脏病发作和骨质疏松，任务为多标签风险预测。
 
+原始测试队列已导入本机 MySQL 作为407个NHEFS样本用户，账号前缀为 `nhefs_`，管理员可搜索查看。[导入工具与字段说明](tools/README.md)记录账号规则、数据来源和重复导入行为；随访标签与基线疾病史分开保存，缺失测量不补造。
+
 已完成官方字段核对、65岁及以上队列审计、五病种训练、独立留出评价、独立预测服务及网站接入。每病比较逻辑回归与XGBoost，保存完整指标和图表。当前模型性能偏弱，属于历史美国完成随访生存者的新报告预测原型，尚不能用于中国老人实际风险判断。数据、训练代码、权重与报告仍独立放在本目录；网站通过新增接口接入，`risk-service/model/` 保留。
 
 当前正式版本为 `nhefs5-20261015T061013Z`。直接打开[模型性能报告](reports/training/nhefs5-20261015T061013Z/performance_report.html)，或查看[汇总表](reports/training/nhefs5-20261015T061013Z/metrics_summary.csv)和[队列审计](reports/nhefs/cohort_audit.md)。首轮版本保留用于过程追溯，当前版本对训练与在线输入采用相同的最少资料规则。
 
 网站固定接入的优化实验版本为 `nhefs5-opt-20261015-v2`：[优化报告](reports/training/nhefs5-opt-20261015-v2/performance_report.html)、[与原版配对比较](reports/training/nhefs5-opt-20261015-v2/optimization_comparison.md)、[四种阈值结果](reports/training/nhefs5-opt-20261015-v2/operating_points.csv)。原留出集已经查看，本轮明确属于探索性比较，需要新数据验证。原版权重、报告和 `active_model.json` 指针均保留，网站通过环境变量固定加载优化版。
+
+当前课程演示使用[全部原评估样本的统计结果](experiments/overlap-demo/runs/overlap-20261017-demo/reports/performance_report.html)，包括其中实际参加过模型训练的人员，不重复计入同一病种内的同一个人。查看[演示指标汇总表](experiments/overlap-demo/runs/overlap-20261017-demo/reports/presentation_summary.csv)、[汇报说明](experiments/overlap-demo/runs/overlap-20261017-demo/reports/presentation_notes.md)或[中文图表文件夹](experiments/overlap-demo/runs/overlap-20261017-demo/reports/模型性能图表/)。这组结果标为“演示集评估（非独立测试）”，权重与阈值保持不变，完整设置见[实验说明](experiments/overlap-demo/README.md)。网站继续使用其原有模型版本。
+
+另保留仅统计未参加对应模型拟合样本的[训练／测试评估报告](experiments/fixed-weight-evaluation/runs/nhefs5-fixed-20261017/reports/performance_report.html)供对照。该报告的测试集每病仅2至4例发病，属于现有队列内部评估，与上面的课程演示统计范围不同。
 
 本轮增加5项经过1987官方问卷核对的基线字段；比较精简、原有、扩展三组特征，强正则化和类别权重。参数与特征选择、缺失处理和校准都在3×3嵌套开发集交叉验证内完成。默认阈值在开发集特异度至少80%的范围内最大化Youden指数，同时保留平衡、70%召回和F1策略；不以留出准确率选择阈值。
 
@@ -65,7 +71,7 @@ python -m venv .\chronic-disease\.venv
 & .\chronic-disease\.venv\Scripts\python.exe -B .\chronic-disease\src\evaluate_models.py --version nhefs5-20261015T061013Z
 ```
 
-网站现在只运行一个8001联合模型服务。双击项目根目录 `02_start_model_service.bat`；本目录 `02_start_service.bat` 及原 `risk-service/02_start_risk_service.bat` 均转到同一入口。使用本目录 `.venv` 同时加载原个性化模型和慢性病优化版 `nhefs5-opt-20261015-v2`，权重仍分别存放。打开 <http://127.0.0.1:8001/docs> 查看两类接口，`/health` 包含两套就绪状态，`/models` 返回五病种定义和个性化模型状态。无需另起8002。
+网站模型已由Java后端自动管理。直接运行后端会使用本目录 `.venv` 加载一个个性化模型和五个慢性病模型，内部共用8001推理进程，无需另外运行模型启动脚本。关闭后端时清理自有进程，推理进程异常退出时尝试恢复；已有兼容服务会被复用，不归该后端关闭。权重仍分别存放，慢性病默认版本为 `nhefs5-opt-20261015-v2`。可选打开 <http://127.0.0.1:8001/docs> 查看两类接口，`/health` 包含两套就绪状态。原 `02_start_model_service.bat` 等入口仅保留作独立调试，无需另起8002。
 
 网站入口为 <http://localhost:21091/health-assessment>，使用现有用户账号登录；旧 `/disease-risk` 和 `/personalized-risk` 自动跳转。汇总表一次填写年龄、性别、BMI、健康生活资料、疾病史和实测值，点击“保存并联合预测”，两类结果同页显示。BMI与体重分别使用，两类评估独立校验；一类缺资料或请求失败时另一类仍可完成。MySQL 模式首次执行 `sql/disease_risk_upgrade_mysql.sql`，已有24表无需新迁移；H2模式自动建表。模型说明继续展示年龄、AUC、召回率和版本局限。
 

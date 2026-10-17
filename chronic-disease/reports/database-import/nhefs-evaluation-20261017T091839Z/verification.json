@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "users": 407,
+  "profiles": 407,
+  "history_rows": 2035,
+  "source_disease_records": 1608,
+  "profile_values_match": true,
+  "missing_values_preserved": true,
+  "future_outcomes_kept_separate": true,
+  "existing_user_rows_unchanged": true,
+  "existing_business_counts_unchanged": true,
+  "counts_after": {
+    "users": 425,
+    "vitals": 3,
+    "profiles": 408,
+    "histories": 2040,
+    "consultations": 4,
+    "disease_assessments": 3,
+    "personal_assessments": 2
+  },
+  "first_account": "nhefs_00002",
+  "first_user_id": 47
+}

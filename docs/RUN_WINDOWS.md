@@ -2,29 +2,31 @@
 
 以下路径均相对于下载或克隆后的项目根目录。
 
-演示模式只需要一个Python联合模型服务、Java后端和Vue前端三个进程；正式模式还需要MySQL。一个8001服务同时加载个性化与五病种两套权重，不再单独运行8002。模型训练是离线步骤，平时启动网站不需要重复训练。
+日常只需启动Java后端和Vue前端；正式模式还需要MySQL。Java自动管理一个Python推理进程，加载一个个性化模型与五个慢性病模型，不需要额外打开模型终端或手动运行模型启动脚本。模型训练是离线步骤，平时启动网站不需要重复训练。
 
 ## 无 MySQL 演示模式（建议先用它检查页面）
 
 演示模式使用 Java 后端内置的 H2 文件数据库，自动建立24张表（原有20张和慢性病新增4张），并填入既有示例用户、资讯、健康记录、医生咨询及风险档案；慢性病新表不插入测试记录。新增、修改、删除的数据保存在 `IHMS-admin/demo-data/`，重启后仍可查看。正式模式仍使用 MySQL，不受演示配置影响。需要恢复最初演示数据时，先停止 Java 后端，再删除 `IHMS-admin/demo-data/` 中的 H2 数据库文件。
 
-1. 启动Python联合模型服务：双击根目录 `02_start_model_service.bat`，打开 `http://127.0.0.1:8001/health`，确认 `service: unified-health-risk`、`ok: true`，并可分别查看 `personalized`、`chronic` 的模型版本。旧两个启动脚本也会转到同一入口，已就绪时不会重复启动。模型已预先训练，演示时无需重新训练。
-2. 启动 Java 后端：双击项目根目录的 `03_start_demo_backend.bat`。首次运行会从 `.example` 文件生成本机配置，不覆盖已有配置。脚本优先使用 PATH 中的 Maven，找不到时使用 `IHMS-admin/.build-tools/` 中的本地 Maven；该工具目录不会上传到 GitHub，所以在新电脑上需安装 Maven。也可在 IntelliJ IDEA 中打开 `IHMS-admin/pom.xml`，把 JDK 设为 17，工作目录设为 `IHMS-admin`，在 `Application.java` 的运行配置中加入程序参数 `--spring.profiles.active=demo` 后运行。后端使用端口 21090，且不连接 MySQL。
+1. 首次按第3节安装 `chronic-disease/.venv` 依赖，已有环境无需重复安装。
+2. 启动 Java 后端：双击项目根目录的 `03_start_demo_backend.bat`。后端自动加载六个模型，日志出现“六个模型已就绪”即可预测。首次运行会从 `.example` 文件生成本机配置，不覆盖已有配置。脚本优先使用 PATH 中的 Maven，找不到时使用 `IHMS-admin/.build-tools/` 中的本地 Maven；新电脑需安装 Maven。也可在 IntelliJ IDEA 中打开 `IHMS-admin/pom.xml`，把 JDK 设为17，直接运行 `Application.java`，演示模式参数为 `--spring.profiles.active=demo`。后端使用端口21090，不连接MySQL。
 3. 启动 Vue 前端：双击项目根目录的 `04_start_demo_frontend.bat`；脚本首次运行会安装依赖，之后直接启动。也可在新终端进入 `IHMS-view`，先运行 `npm.cmd ci`，安装成功后运行 `npm.cmd run dev:compatible`。浏览器打开 `http://localhost:21091`。
 
 演示登录：用户 `demo_elder` / `123456`，管理员 `demo_admin` / `123456`，医生请在登录页切换“医生登录”，账号 `demo_doctor` / `123456`。演示密码仅用于本地演示。配置模板默认启用 `demo`，直接运行 `Application.java` 也使用 H2。若需要接入真实 MySQL，按后文初始化数据库，并显式使用 `--spring.profiles.active=mysql`。
 
-医疗问答中需要外部大模型的功能仍受独立的 DeepSeek API 配置影响；这与是否启用 MySQL 无关。个性化风险评估使用本地 Python 风险服务，请保持其终端运行。
+医疗问答中需要外部大模型的功能仍受独立的 DeepSeek API 配置影响；这与是否启用MySQL无关。六个本地预测模型由Java后端自动管理，保持后端运行即可。
 
 ## 1. 准备环境
 
-- Python：新电脑先在**项目根目录**执行 `py -3.13 -m venv .venv`，再把 VS Code 或 PyCharm 的项目解释器设为 `.venv\Scripts\python.exe`，并按第 3 节安装依赖。已有虚拟环境时无需重建。
+- Python：网站推理环境为 `chronic-disease/.venv`，首次创建与安装见第3节。后端会自动找到该解释器，已有环境无需重建。原根目录 `.venv` 仅用于原离线训练。
 - Java：使用 JDK 17。后端是 Spring Boot 2.6.13；不要仅凭 `java -version` 显示 Java 21 就认为该版本已受项目支持。
 - Maven：从 GitHub 下载项目后请安装 Maven；也可用 IntelliJ IDEA 打开 `IHMS-admin/pom.xml`，运行 `com.star.Application`。
 - Node.js：安装带 npm 的 Node.js，并确保 `npm -version` 能运行。
 - MySQL：只有正式模式需要 MySQL 8.0；演示模式不需要安装或启动 MySQL。
 
 VS Code 和 PyCharm 的终端都可输入以下命令；Java 后端请用 Maven 或 IntelliJ IDEA 启动。VS Code 中按 `Ctrl+反引号` 可新建终端。
+
+IntelliJ IDEA 中，项目 SDK、Maven 导入器和 Maven Runner 的 JDK 均选择17。`pom.xml` 已统一使用 Java 17 编译并通过 `release=17` 检查可用API；修改或拉取配置后，在 Maven 面板点击“重新加载所有 Maven 项目”。如果 `ModelRuntime.java` 出现“使用记录为 @since 9+ 的 API”，请先重新加载 Maven，并确认模块语言级别／目标字节码没有被手动固定为8。六模型进程管理使用 JDK 的 `ProcessHandle` API，后端编译和运行均需要 JDK 17。
 
 ## 2. 初始化数据库（第一次运行）
 
@@ -71,25 +73,18 @@ python -m venv .\chronic-disease\.venv
 
 ## 4. 按顺序启动服务
 
-保持以下终端分别打开，不要在一个终端里依次输入所有启动命令。
+分别保持后端和前端运行即可，六个模型随后端自动启动。
 
 1. **MySQL**：确认 MySQL 服务已启动。
-2. **联合模型服务**：双击根目录 `02_start_model_service.bat`，或在根目录执行：
-
-   ```powershell
-   & .\chronic-disease\.venv\Scripts\python.exe -B -m uvicorn unified_app:app --app-dir .\risk-service --host 127.0.0.1 --port 8001
-   ```
-
-   浏览器打开 `http://127.0.0.1:8001/health`，应看到 `model_ready: true`。
-3. **Java 后端**：在另一个终端执行：
+2. **Java 后端**：执行以下命令，或直接在IDEA运行 `Application.java`：
 
    ```powershell
    Set-Location .\IHMS-admin
    mvn spring-boot:run "-Dspring-boot.run.profiles=mysql"
    ```
 
-   也可以用 IntelliJ IDEA 打开 `IHMS-admin/pom.xml`，把项目 JDK 设为 17，运行 `src/main/java/com/star/Application.java`；MySQL 模式的程序参数为 `--spring.profiles.active=mysql`。后端端口是 **21090**。
-4. **Vue 前端**：在第三个终端执行：
+   IDEA和JAR启动同样自动管理模型，MySQL模式参数为 `--spring.profiles.active=mysql`，后端端口 **21090**。首次加载可能需要数秒，日志出现“六个模型已就绪”后即可预测。
+3. **Vue 前端**：在另一个终端执行：
 
    ```powershell
    Set-Location .\IHMS-view
@@ -105,20 +100,34 @@ python -m venv .\chronic-disease\.venv
 
 ## 五病种慢性病预测
 
-无需另外启动模型服务。根目录 `02_start_model_service.bat` 已同时加载慢性病优化版 `nhefs5-opt-20261015-v2`，Java默认要求同一版本。首次环境准备见 [慢性病模块说明](../chronic-disease/README.md)。`http://127.0.0.1:8001/health` 的 `chronic` 字段应显示该版本名，`/docs` 同时列出两类预测接口。
+无需另外启动模型服务。后端自动加载慢性病优化版 `nhefs5-opt-20261015-v2` 与原个性化权重，合计六个模型。首次环境准备见 [慢性病模块说明](../chronic-disease/README.md)。可选打开 `http://127.0.0.1:8001/health` 查看状态；`chronic`字段应显示该版本和5个就绪病种。根目录 `02_start_model_service.bat`仅供手动调试。
 
 使用现有用户账号登录，菜单选择“健康风险评估”，或打开 `http://localhost:21091/health-assessment`。所有字段直接展示：年龄和性别共用，个性化预测需要BMI及至少一项本次实测值；慢性病需要在体重、自评健康、吸烟、饮酒、运动中至少填写两项。BMI与体重分别填写，未知病史不会当作无病。点击“保存并联合预测”后，两类模型分别完成并显示结果，失败或缺资料的一类会说明原因，另一类仍可保存；在当前页面重试未完成的一类时，已完成且输入未变的一类不会重复保存测量或历史。当前慢性病适用65～90岁；已有病史或未知病史的项目单独跳过。历史详情保留当次慢性病输入与版本，生理测量进入近30天趋势。资料版本冲突时可点击“重新读取资料”，替换未保存修改前会先确认。
 
-Java `disease-risk` 配置的默认值见 `.yml.example`。可在本机配置设置 `enabled: false` 后重启Java，关闭新预测，仍可查看历史。模型服务未启动或版本不一致时不会保存伪结果；启动服务后点击页面“重新检查”。指标与混淆矩阵继续保留在 `chronic-disease/reports/training/`，本次接入不重新训练。当前结果属于研究估计，不能理解成已经确诊或精确未来五年发病率。
+Java `disease-risk`配置的默认值见 `.yml.example`。可设置 `enabled: false`关闭慢性病新预测，仍可查看历史。模型环境缺失或端口被不兼容进程占用时，后端保留登录、档案与历史功能，预测返回503并给出提示；修复环境后后端自动重试。指标与混淆矩阵继续保留，本次启动改造不重新训练、不切换模型版本。
+
+### 后端自动管理模型的配置
+
+默认启用，无需修改已有 `application.yml`。后端从当前目录或JAR位置向上查找工程，使用 `chronic-disease/.venv`，启动后检查六个模型和慢性病版本，默认最多等待90秒。新建Python进程的日志在 `IHMS-admin/logs/model-runtime.log`，不进入Git。
+
+| 环境变量 | 用途 |
+| --- | --- |
+| `IHMS_PROJECT_ROOT` | 工程不在常规目录时，指定包含risk-service和chronic-disease的绝对目录 |
+| `IHMS_MODEL_PYTHON` | 指定已安装模型依赖的Python解释器绝对路径 |
+| `IHMS_MODEL_AUTO_START=false` | 使用自己管理的外部推理服务，后端不启动或停止该服务 |
+
+也可在配置中设置 `model-runtime.auto-start`、`project-root`、`python-executable`、`startup-timeout-seconds`、`shutdown-timeout-seconds`、`check-interval-seconds`。托管本地进程时，`risk-model.service-url`与`disease-risk.service-base-url`必须使用同一主机和端口，默认8001。
+
+后端关闭时仅清理自己启动的推理进程。若发现已有兼容且全部就绪的本地服务，会复用并保留；端口被其他程序占用时不会结束该程序。自有模型进程异常退出后自动恢复；Java被强制结束时，Python父进程监测会退出，避免遗留服务。
 
 ## 5. 常见启动问题
 
-- `No module named fastapi`：在项目根目录用第 3 步的 `.venv` Python 安装风险服务依赖；不要用系统 `python` 给另一个解释器安装。
+- `No module named fastapi`：使用第3节 `chronic-disease/.venv` 安装依赖，避免安装到其他解释器；修复后后端会重新尝试启动模型。
 - `mvn` 或 `npm` 无法识别：对应工具未安装或未加入 PATH，安装后重开终端。
 - `npm.cmd ci` 下载包时报 404：先确认使用最新项目文件。旧版前端曾依赖已经无法下载的 `vue-vibe@8.0.3`，现已从项目中移除。安装失败时不要直接运行 `npm.cmd run dev:compatible`，否则会提示找不到 `cross-env`。
 - 后端提示数据库连接失败：确认 MySQL 已启动、数据库名为 `personal_health`，并检查 `application.yml` 的账号密码。
-- 前端能打开但个性化风险评估失败：按顺序查看 8001 风险服务、21090 后端是否启动；前端接口地址在 `IHMS-view/src/utils/request.js`。
-- 风险服务报告的模型版本仍是旧版：进程会在启动时加载模型，停止旧进程、确认模型文件已更新后再重启风险服务。
+- 前端能打开但预测失败：查看后端是否出现“六个模型已就绪”，并检查 `IHMS-admin/logs/model-runtime.log`；前端接口地址在 `IHMS-view/src/utils/request.js`。
+- 模型端口版本不匹配：先核对占用端口的进程。后端不会停止不属于自己的服务；结束自行启动的旧服务后，后端会自动加载配置版本。
 
 ### MySQL80 启动后立即停止，NET HELPMSG 3534
 

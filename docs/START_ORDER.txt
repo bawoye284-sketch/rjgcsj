@@ -1,21 +1,22 @@
 以下路径均相对于项目根目录。Windows / PyCharm 详细步骤请看 docs/RUN_WINDOWS.md。
 
 无 MySQL 演示（优先使用）：
-1. 02_start_model_service.bat（8001，一个进程加载个性化与慢性病两套权重）
-2. 03_start_demo_backend.bat（本工作区已备本地 Maven；或 IDEA 运行 Application.java，参数 --spring.profiles.active=demo）
-3. 04_start_demo_frontend.bat（首次自动执行 npm.cmd ci）
+1. 03_start_demo_backend.bat（自动加载六个模型；或 IDEA 运行 Application.java，参数 --spring.profiles.active=demo）
+2. 04_start_demo_frontend.bat（首次自动执行 npm.cmd ci）
 演示账号：demo_elder / 123456；demo_admin / 123456；医生登录 demo_doctor / 123456。
 
 正式 MySQL 模式启动顺序：
 1. MySQL
-2. 02_start_model_service.bat
-3. IHMS-admin（IDEA运行 Application.java）
-4. IHMS-view：npm.cmd ci，成功后 npm.cmd run dev:compatible
-首次先在业务数据库执行 chronic-disease/sql/disease_risk_upgrade_mysql.sql；已有24表无需额外迁移。
+2. IHMS-admin（IDEA运行 Application.java，参数 --spring.profiles.active=mysql；后端自动启动六个模型）
+3. IHMS-view：npm.cmd ci，成功后 npm.cmd run dev:compatible
+首次先执行慢性病建表和sql/health_review_upgrade_mysql.sql历史快照升级；完整升级后24表213列。
 
 统一页面：http://localhost:21091/health-assessment，使用现有用户账号登录。
 汇总表一次填写，点击“保存并联合预测”。旧的两个页面地址自动跳转。
-原有两个模型启动脚本都转到同一个8001联合服务，不必再启动8002。
+无需单独运行02_start_model_service.bat，也不需要额外的模型终端。该脚本仅供单独调试，内部模型端口仍为8001。
+启动后端前须按RUN_WINDOWS.md首次安装chronic-disease/.venv依赖。
+后端日志出现“六个模型已就绪”即可预测；推理日志在IHMS-admin/logs/model-runtime.log。
+后端关闭时清理自己启动的模型进程，异常退出由进程守护清理；已有兼容服务会被复用而不被关闭。
 
 只有重新训练模型时才运行：
 model-training\01_train_model.bat

@@ -18,6 +18,6 @@ if errorlevel 1 (
 ) else (
     set "MAVEN=mvn"
 )
-echo 正在启动无 MySQL 演示后端（H2 本地文件数据）...
+echo 正在启动演示后端（H2 本地文件数据），后端将自动加载六个模型，无需单独启动模型服务...
 call "%MAVEN%" spring-boot:run "-Dspring-boot.run.profiles=demo" "-Dmaven.repo.local=%~dp0IHMS-admin\.build-tools\repo"
 pause

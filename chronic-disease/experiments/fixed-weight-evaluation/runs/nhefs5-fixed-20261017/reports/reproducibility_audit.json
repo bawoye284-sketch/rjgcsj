@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "source_records": 8375,
+  "train_records": 7972,
+  "test_records": 403,
+  "weights_unchanged": true,
+  "source_data_unchanged": true,
+  "all_records_accounted_for": true,
+  "per_disease_train_test_disjoint": true,
+  "predictions_reproduced": true,
+  "metrics_recomputed": true
+}

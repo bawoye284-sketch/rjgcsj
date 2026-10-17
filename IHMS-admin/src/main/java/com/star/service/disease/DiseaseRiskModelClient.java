@@ -1,6 +1,7 @@
 package com.star.service.disease;
 
 import com.star.config.DiseaseRiskProperties;
+import com.star.service.risk.ModelRuntime;
 import org.springframework.http.*;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
@@ -14,14 +15,17 @@ import java.util.*;
 public class DiseaseRiskModelClient {
     private final DiseaseRiskProperties properties;
     private final RestTemplate http;
-    public DiseaseRiskModelClient(DiseaseRiskProperties properties) {
+    private final ModelRuntime runtime;
+    public DiseaseRiskModelClient(DiseaseRiskProperties properties, ModelRuntime runtime) {
         this.properties = properties;
+        this.runtime = runtime;
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
         factory.setConnectTimeout(properties.getConnectTimeoutMs()); factory.setReadTimeout(properties.getReadTimeoutMs());
         this.http = new RestTemplate(factory);
     }
     public Map<String, Object> exchange(String path, Map<String, Object> body) {
         if (!properties.isEnabled()) throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "慢性病预测功能已关闭");
+        runtime.requireReady();
         try {
             HttpHeaders headers = new HttpHeaders(); headers.setContentType(MediaType.APPLICATION_JSON);
             Map<String, Object> result = http.exchange(properties.getServiceBaseUrl().replaceAll("/+$", "") + path,
@@ -35,7 +39,7 @@ public class DiseaseRiskModelClient {
             throw new ResponseStatusException(error.getRawStatusCode() == 422 ? HttpStatus.BAD_REQUEST : HttpStatus.SERVICE_UNAVAILABLE,
                     error.getRawStatusCode() == 422 ? "模型输入校验失败，请核对资料" : "慢性病模型服务返回错误，请稍后重试");
         } catch (RestClientException error) {
-            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "联合模型服务未连接或响应超时，请检查8001服务");
+            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "后端模型连接中断或响应超时，请稍后重试并查看后端日志");
         }
     }
     public Map<String, Object> models() {
@@ -44,7 +48,8 @@ public class DiseaseRiskModelClient {
             disabled.put("diseases", Collections.emptyList()); disabled.put("model_version", properties.getExpectedModelVersion());
             return disabled;
         }
-        Map<String, Object> result = exchange("/models", null); result.put("enabled", true); return result;
+        Map<String, Object> result = exchange("/models", null); result.put("enabled", true);
+        result.put("runtime", runtime.status()); return result;
     }
     public Map<String, Object> predict(Map<String, Object> input) {
         Map<String, Object> response = exchange("/predict/disease", input);
