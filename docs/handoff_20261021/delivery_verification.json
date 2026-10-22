@@ -1,0 +1,42 @@
+{
+  "restore_helper_isolated_roundtrip_passed": true,
+  "restore_helper_temporary_schema_removed": true,
+  "offline_six_model_loading_passed": true,
+  "health": {
+    "ok": true,
+    "model_ready": true,
+    "model_name": "XGBoost",
+    "model_version": "numeric5-future-aggregate-v2-grid",
+    "threshold": 0.715090274810791,
+    "training_basis": "NUMERIC5_FUTURE_AGGREGATE_V1",
+    "service": "unified-health-risk",
+    "personalized": {
+      "ok": true,
+      "model_ready": true,
+      "model_name": "XGBoost",
+      "model_version": "numeric5-future-aggregate-v2-grid",
+      "threshold": 0.715090274810791,
+      "training_basis": "NUMERIC5_FUTURE_AGGREGATE_V1"
+    },
+    "chronic": {
+      "ok": true,
+      "model_version": "nhefs5-opt-20261015-v2",
+      "ready_count": 5,
+      "expected_count": 5,
+      "validation_status": "exploratory_reuse_of_previously_inspected_holdout",
+      "ready_diseases": [
+        "diabetes",
+        "heart_attack",
+        "hypertension",
+        "osteoporosis",
+        "stroke"
+      ],
+      "research_only": true,
+      "external_validation": false,
+      "task": "new reports among alive followup interview completers"
+    },
+    "chronic_model_ready": true,
+    "runtime_owner": null
+  },
+  "note": "Model check invokes application startup and health in process; it does not start or change existing HTTP services."
+}

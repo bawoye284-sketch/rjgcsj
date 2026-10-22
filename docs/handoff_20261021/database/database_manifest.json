@@ -1,0 +1,178 @@
+{
+  "exported_at_china": "2026-10-21T19:57:26+08:00",
+  "source_database": "personal_health",
+  "mysql_version": "8.0.46",
+  "dump_file": "personal_health_20261021.sql",
+  "dump_bytes": 7741304,
+  "dump_sha256": "d552e62b6a3b3021fff16a07054b4dd2d3d6be844567c53cbb833ff801f9eebb",
+  "table_count": 25,
+  "column_count": 220,
+  "total_rows": 7778,
+  "tables": [
+    {
+      "table": "ai_model_log",
+      "rows": 3,
+      "columns": 7,
+      "logical_sha256": "f70fbcf10bb435b5e236450efd486f21ce2efd2d2bd3d8f8339d73a976cdcdf2"
+    },
+    {
+      "table": "dataset_user_source",
+      "rows": 407,
+      "columns": 7,
+      "logical_sha256": "a7f2633d7dda3b5f0a87aefbfbd81a4c74afee4152e6e4bdd783c66d37e6d783"
+    },
+    {
+      "table": "disease_prediction_assessment",
+      "rows": 413,
+      "columns": 12,
+      "logical_sha256": "fb5f1661a68d02ee27fda21d470628d5b59253f3b15e257e1f29ff04892c5cdf"
+    },
+    {
+      "table": "disease_prediction_result",
+      "rows": 2065,
+      "columns": 14,
+      "logical_sha256": "4f947e0bee2cbb2bff7ba64cc52759d560751161ffd764777f9215ee38ea0e09"
+    },
+    {
+      "table": "doctor",
+      "rows": 11,
+      "columns": 13,
+      "logical_sha256": "230d24fc8b64f17ba167482720403665fa40d5acc35781bfea020ca77b0947e0"
+    },
+    {
+      "table": "doctor_consultation",
+      "rows": 424,
+      "columns": 7,
+      "logical_sha256": "16ee686c2e4e4429808abc612776591ef22c064d9068fb245edd51ddccc35adf"
+    },
+    {
+      "table": "doctor_message",
+      "rows": 27,
+      "columns": 9,
+      "logical_sha256": "cb03226358b5a3c2a01b03e224fe6ca148f305bc8bb4be34b2425c2a8cbca607"
+    },
+    {
+      "table": "elder_disease_history",
+      "rows": 2040,
+      "columns": 7,
+      "logical_sha256": "0557e33ed2edc56d89755908e49bb95e89a21d6c67de43ef60f8782c52a093de"
+    },
+    {
+      "table": "elder_disease_profile",
+      "rows": 408,
+      "columns": 16,
+      "logical_sha256": "af204130880d2cdc7bc239eda63b0b639c5a4bd20dcc21a2799ca69180a45be1"
+    },
+    {
+      "table": "elder_risk_profile",
+      "rows": 408,
+      "columns": 11,
+      "logical_sha256": "6bc2ca64f84d3256728545e24a0c8cbb3bc4f2e50fe7ca5fb80b0d7649c686bf"
+    },
+    {
+      "table": "elder_vital_measurement",
+      "rows": 473,
+      "columns": 11,
+      "logical_sha256": "97e45892847147c7883617da689252cfc96e653966c6c8f9e0baca1b0edd59eb"
+    },
+    {
+      "table": "evaluations",
+      "rows": 38,
+      "columns": 9,
+      "logical_sha256": "b93938eebb4f9fb92b55e40f9f5a41e80deab6ee93ce6f120b9299d936de8bd8"
+    },
+    {
+      "table": "food",
+      "rows": 0,
+      "columns": 5,
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "health_advice",
+      "rows": 0,
+      "columns": 9,
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "health_model_config",
+      "rows": 9,
+      "columns": 9,
+      "logical_sha256": "8d693ef88bf0f318fec0c6a1ab9fd5c3684c4ee427249510d35109f70c987fe8"
+    },
+    {
+      "table": "health_prediction",
+      "rows": 0,
+      "columns": 8,
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "health_risk_assessment",
+      "rows": 0,
+      "columns": 7,
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "table": "message",
+      "rows": 43,
+      "columns": 8,
+      "logical_sha256": "062f2a1d8aa29e692e328f69ef82cbc28627b308f233adfbd7d52510bdbb1c08"
+    },
+    {
+      "table": "news",
+      "rows": 12,
+      "columns": 8,
+      "logical_sha256": "7662578d3a095c0c99b39d66d58a697d7793333fadb16c30800e7d605ee98782"
+    },
+    {
+      "table": "news_save",
+      "rows": 4,
+      "columns": 4,
+      "logical_sha256": "21f8413cb4172c0bb4f8eab838697d35deeb7cff705aa64ac4dbc1d1f5c579c4"
+    },
+    {
+      "table": "personalized_risk_assessment",
+      "rows": 472,
+      "columns": 15,
+      "logical_sha256": "a0049f488af56e17c608c710fd5b5d95442ab517e4e2574c8af73ccb50f8e8f4"
+    },
+    {
+      "table": "tags",
+      "rows": 8,
+      "columns": 2,
+      "logical_sha256": "397233c92f5d2f11cde00c303116b10524f82c55bdf71baf8f0669b28cb6d532"
+    },
+    {
+      "table": "user",
+      "rows": 425,
+      "columns": 10,
+      "logical_sha256": "6017b4d7691d6c95b088e5385027f5e1227053b34decda9f428ccaf06a1bf83f"
+    },
+    {
+      "table": "user_health",
+      "rows": 88,
+      "columns": 5,
+      "logical_sha256": "11743d815aa88c8402a4650a51c9e0c77a3842225843fe2223c195bdd773cc41"
+    },
+    {
+      "table": "user_profile",
+      "rows": 0,
+      "columns": 7,
+      "logical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "other_objects": {
+    "views": "0",
+    "routines": "0",
+    "triggers": "0",
+    "events": "0"
+  },
+  "verification": {
+    "source_before_after_unchanged": true,
+    "isolated_restore_passed": true,
+    "all_table_definitions_match": true,
+    "all_row_counts_match": true,
+    "all_logical_data_hashes_match": true,
+    "temporary_schema": "ihms_handoff_check_1878d3aae3eb",
+    "temporary_schema_dropped": true
+  }
+}

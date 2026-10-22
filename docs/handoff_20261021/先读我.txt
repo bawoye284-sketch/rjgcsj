@@ -1,0 +1,39 @@
+社区老人健康风险评估系统交接包
+交接日期：2026年10月21日
+
+1. 压缩包包含完整 rjgcsj 项目源码、当前线上模型权重、NHEFS项目内数据、
+   已保存研究实验、最终模型说明、部署交接手册和MySQL数据库快照。
+   建议解压后项目路径为 C:\IHMS\rjgcsj。
+
+2. 先阅读本目录的《社区老人健康风险评估系统部署与数据交接.docx》。
+   同名Markdown提供可复制的命令。
+
+3. 安装JDK17、Maven、Node.js/npm、Python3.13及MySQL8.0。
+   在新电脑重新建立chronic-disease/.venv并安装requirements-lock.txt，
+   前端运行npm.cmd ci，后端由Maven安装依赖。
+
+4. 使用database/restore_database.py导入当前数据库快照。
+   程序不覆盖已有库；有同名库时请另取库名并同步修改MYSQL_URL。
+   快照含25张表、220个字段、7778条记录，已通过隔离恢复校验。
+
+5. 复制application.yml.example为本机application.yml，设置自己的MySQL连接。
+   使用mysql profile启动后端，再启动前端。演示后端脚本使用H2，
+   不会显示本次移交的MySQL数据。
+
+6. 六模型由Java后端自动启动。确认8001/health的ok为true、慢性病ready_count为5，
+   并且版本为nhefs5-opt-20261015-v2，再使用联合预测。
+
+7. 最终模型说明保留原文。文档五病种高分图表来自非独立ExtraTrees实验，
+   与网站实际部署版本分别保留。网站启动无需重新训练。
+
+8. 不包含原电脑虚拟环境、node_modules、Maven缓存、JAR构建产物、日志、
+   本机带凭据的YAML配置、Git历史和H2运行数据。
+   个性化标签构造脚本引用的项目外sjj逐小时原始文件不在包内，
+   已保存的标签和训练划分随项目提供。
+
+9. 业务账号密码沿用原账号，由交接双方单独确认；没有重置密码。
+   MySQL服务账号密码由接手同事自行设置。
+   该包含账户与健康资料，仅供授权内部交接。
+
+10. package_manifest.json记录包内各文件的SHA-256。
+    database/database_manifest.json另记录SQL和逐表数据校验信息。

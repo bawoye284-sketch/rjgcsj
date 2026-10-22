@@ -20,3 +20,7 @@ IHMS-admin/demo-data/*.trace.db
 # Local credentials and API keys
 IHMS-admin/src/main/resources/application.yml
 IHMS-admin/src/main/resources/application-demo.yml
+
+# Full handoff archives are distributed separately from Git
+/docs/*_完整交接包_*.zip
+/docs/*_完整交接包_*.zip.sha256.txt
