@@ -35,6 +35,13 @@ public class HealthCareController {
         if(input==null || !contacts.verify(EmergencyContactService.owner(),id,input.token))throw new IllegalArgumentException("验证码错误、过期或已使用");return ok(null);
     }
     public static class AuthorizationInput {public Boolean authorized;}
+    @GetMapping("/health-doctor-bindings")
+    public Result<?> bindings() {return ok(doctors.bindingOptions(EmergencyContactService.owner()));}
+    @PutMapping("/health-doctor-bindings/{doctorId}")
+    public Result<?> bind(@PathVariable int doctorId,@RequestBody AuthorizationInput input) {
+        if(input==null || input.authorized==null)throw new IllegalArgumentException("请明确是否绑定并授权");
+        doctors.bind(EmergencyContactService.owner(),doctorId,input.authorized);return ok(null);
+    }
     @GetMapping("/health-doctor-authorizations")
     public Result<?> authorizations() {return ok(doctors.authorizations(EmergencyContactService.owner()));}
     @PutMapping("/health-doctor-authorizations/{doctorId}")

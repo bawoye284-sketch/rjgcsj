@@ -84,9 +84,20 @@ public class EmergencyContactService {
         });
         if(!mock) {
             try { mail.send(contact.get("email").toString(),"健康提醒邮箱验证","有人将此邮箱设置为健康提醒联系人。如您同意接收提醒，请将以下一次性验证码交由本人在系统内完成验证（15分钟有效）：\n"+token+"\n如非本人意愿，请忽略。此邮件不包含健康档案。"); }
+            catch(HealthMailTransport.DeliveryFailure failure) {
+                // SMTP can accept the message and then time out while waiting
+                // for the final response. Keep the token in that case so the
+                // recipient can still complete verification with the email
+                // that was actually received. Definitive failures remove it.
+                if(failure.uncertain) {
+                    Map<String,Object> out=new LinkedHashMap<>();out.put("mode","SMTP");out.put("deliveryStatus","UNKNOWN");out.put("expiresInSeconds",900);return out;
+                }
+                jdbc.update("DELETE FROM health_contact_verification WHERE contact_id=? AND token_hash=?",id,hash(token));
+                throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE,"验证邮件发送失败，请稍后重新申请");
+            }
             catch(RuntimeException failure) {
                 jdbc.update("DELETE FROM health_contact_verification WHERE contact_id=? AND token_hash=?",id,hash(token));
-                throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE,"验证邮件未确认发送成功，请稍后重新申请");
+                throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE,"验证邮件发送失败，请稍后重新申请");
             }
         }
         Map<String,Object> out=new LinkedHashMap<>();out.put("mode",mock?"MOCK":"SMTP");out.put("expiresInSeconds",900);if(mock)out.put("demoToken",token);return out;

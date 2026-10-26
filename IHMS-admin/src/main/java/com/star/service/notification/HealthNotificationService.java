@@ -226,7 +226,7 @@ public class HealthNotificationService {
     }
     private String ownScope(int role,int id,List<Object> args) {
         if(role==2) {args.add(id);return "t.user_id=?";}
-        if(role==3) {args.add(id);args.add(id);return "t.recipient_type='DOCTOR' AND t.recipient_id=? AND EXISTS (SELECT 1 FROM health_doctor_authorization a JOIN doctor d ON d.id=a.doctor_id WHERE a.user_id=t.user_id AND a.doctor_id=? AND a.authorized=1 AND d.status=1 AND EXISTS (SELECT 1 FROM doctor_consultation c WHERE c.patient_id=t.user_id AND c.doctor_id=a.doctor_id AND c.status=0))";}
+        if(role==3) {args.add(id);args.add(id);return "t.recipient_type='DOCTOR' AND t.recipient_id=? AND EXISTS (SELECT 1 FROM health_doctor_authorization a JOIN doctor d ON d.id=a.doctor_id WHERE a.user_id=t.user_id AND a.doctor_id=? AND a.authorized=1 AND d.status=1 AND (a.bound=1 OR EXISTS (SELECT 1 FROM doctor_consultation c WHERE c.patient_id=t.user_id AND c.doctor_id=a.doctor_id AND c.status=0)))";}
         throw new ResponseStatusException(HttpStatus.FORBIDDEN,"请使用本人用户或医生账号");
     }
     public Map<String,Object> list(int role,int id,int page,int size) {

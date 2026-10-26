@@ -5,10 +5,12 @@
       <div class="actions">
         <el-button type="primary" plain icon="el-icon-s-grid" @click="goToConsultations">患者咨询管理</el-button>
         <el-button type="success" plain icon="el-icon-data-line" @click="goToPatients">患者身体数据</el-button>
-        <el-button type="warning" plain icon="el-icon-warning-outline" @click="$router.push('/doctor-health-alerts')">患者健康预警</el-button>
+        <el-badge :value="pendingAlerts" :hidden="!pendingAlerts" :max="99"><el-button type="warning" plain icon="el-icon-warning-outline" @click="$router.push('/doctor-health-alerts')">患者健康预警</el-button></el-badge>
         <el-button type="info" plain icon="el-icon-switch-button" @click="logout">退出登录</el-button>
       </div>
     </div>
+    <el-alert v-if="pendingAlerts" :title="'有 ' + pendingAlerts + ' 条患者预警待确认，请打开患者健康预警查看并处理。'" type="warning" show-icon :closable="false" />
+    <el-alert v-if="alertError" :title="alertError" type="info" :closable="false" />
     
     <el-row :gutter="24">
       <!-- 左侧个人信息面板 -->
@@ -101,12 +103,17 @@
 
 <script>
 import { removeToken } from '@/utils/storage.js'
+import healthSync from '@/utils/healthSync'
+import healthCare from '@/api/healthCare'
 
 export default {
   name: 'DoctorHome',
+  mixins: [healthSync],
   data() {
     return {
       doctorInfo: null,
+      pendingAlerts: 0,
+      alertError: '',
       stats: {
         activeConsultations: 0,
         completedConsultations: 0,
@@ -119,8 +126,16 @@ export default {
     this.getDoctorInfo()
     // 加载统计数据
     this.loadStats()
+    this.refreshHealthData()
   },
   methods: {
+    async refreshHealthData() {
+      try {
+        const result = await healthCare.alerts({ page: 1, size: 1, handling: 'OPEN', state: 'ACTIVE' })
+        this.pendingAlerts = result.total
+        this.alertError = ''
+      } catch (_) { this.alertError = '预警状态暂时无法更新，请稍后刷新检查。' }
+    },
     // 获取医生信息
     getDoctorInfo() {
       const doctorInfo = JSON.parse(sessionStorage.getItem('doctorInfo') || '{}')

@@ -3,7 +3,7 @@
         <Logo sysName="健康有道" />
         <div v-if="!item.isHidden" :style="{
             color: selectedIndex === index ? '#1c1c1c' : 'rgb(102 102 102)'
-        }" class="menu-item" v-for="(item, index) in menus" :key="index" @click="menuClick(`${item.path}`, index)">
+        }" :class="['menu-item', { active: selectedIndex === index }]" v-for="(item, index) in menus" :key="index" @click="menuClick(`${item.path}`, index)">
             <span>
                 <i :class="item.icon"></i>
                 <span>&nbsp; {{ item.name }}</span>
@@ -534,9 +534,44 @@ export default {
     height: 80px;
 
     .menu-item {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 0 13px;
+        border-radius: 12px;
+        color: #536b76;
         font-size: 14px;
         cursor: pointer;
+        transition: color .2s ease, background-color .2s ease, transform .2s ease, box-shadow .2s ease;
     }
+
+    .menu-item::after {
+        content: '';
+        position: absolute;
+        right: 14px;
+        bottom: 5px;
+        left: 14px;
+        height: 3px;
+        border-radius: 99px;
+        background: #39a980;
+        transform: scaleX(0);
+        transition: transform .2s ease;
+    }
+
+    .menu-item:hover {
+        color: #176b5a !important;
+        background: #eaf8f2;
+        box-shadow: 0 5px 14px rgba(38, 122, 96, .13);
+        transform: translateY(-2px) scale(1.04);
+    }
+
+    .menu-item:hover::after {
+        transform: scaleX(1);
+    }
+
+    .menu-item.active { color: #1d5f50 !important; background: #f0faf6; }
+    .menu-item.active::after { transform: scaleX(1); }
 
     .search {
         border-radius: 15px;
@@ -576,11 +611,15 @@ export default {
     }
 
     .record:hover {
-        background-color: rgb(40, 150, 103);
+        background-color: #238d6a;
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 6px 14px rgba(40, 150, 103, .25);
     }
 
     .doctor-consultation:hover {
         background-color: rgb(21, 85, 154);
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 6px 14px rgba(21, 85, 154, .25);
     }
 
     .doctor-consultation {
@@ -594,6 +633,8 @@ export default {
 
     .messsage:hover{
         background-color: rgb(40, 150, 103);
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 6px 14px rgba(40, 150, 103, .25);
     }
 
     .messsage{
@@ -611,6 +652,11 @@ export default {
         color: rgb(255, 255, 255);
         padding: 4px 10px;
         border-radius: 15px;
+        transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+    }
+
+    .messsage, .doctor-consultation {
+        transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
     }
 }
 

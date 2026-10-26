@@ -27,18 +27,31 @@ public class DoctorAlertService {
         return LocalThreadHolder.getUserId();
     }
     public boolean allowed(int user,int doctor) {
-        return jdbc.queryForObject("SELECT COUNT(*) FROM health_doctor_authorization a JOIN doctor d ON d.id=a.doctor_id WHERE a.user_id=? AND a.doctor_id=? AND a.authorized=1 AND d.status=1 AND EXISTS (SELECT 1 FROM doctor_consultation c WHERE c.patient_id=a.user_id AND c.doctor_id=a.doctor_id AND c.status=0)",Integer.class,user,doctor)>0;
+        return jdbc.queryForObject("SELECT COUNT(*) FROM health_doctor_authorization a JOIN doctor d ON d.id=a.doctor_id WHERE a.user_id=? AND a.doctor_id=? AND a.authorized=1 AND d.status=1 AND (a.bound=1 OR EXISTS (SELECT 1 FROM doctor_consultation c WHERE c.patient_id=a.user_id AND c.doctor_id=a.doctor_id AND c.status=0))",Integer.class,user,doctor)>0;
     }
     public List<Integer> recipients(int user) {
-        return jdbc.query("SELECT a.doctor_id FROM health_doctor_authorization a JOIN doctor d ON d.id=a.doctor_id WHERE a.user_id=? AND a.authorized=1 AND d.status=1 AND EXISTS (SELECT 1 FROM doctor_consultation c WHERE c.patient_id=a.user_id AND c.doctor_id=a.doctor_id AND c.status=0)",(rs,n)->rs.getInt(1),user);
+        return jdbc.query("SELECT a.doctor_id FROM health_doctor_authorization a JOIN doctor d ON d.id=a.doctor_id WHERE a.user_id=? AND a.authorized=1 AND d.status=1 AND (a.bound=1 OR EXISTS (SELECT 1 FROM doctor_consultation c WHERE c.patient_id=a.user_id AND c.doctor_id=a.doctor_id AND c.status=0))",(rs,n)->rs.getInt(1),user);
     }
     public List<Map<String,Object>> authorizations(int user) {
-        return jdbc.queryForList("SELECT d.id AS doctor_id,d.name,d.specialty,COALESCE(a.authorized,0) AS authorized FROM doctor d LEFT JOIN health_doctor_authorization a ON a.doctor_id=d.id AND a.user_id=? WHERE d.status=1 AND EXISTS (SELECT 1 FROM doctor_consultation c WHERE c.patient_id=? AND c.doctor_id=d.id AND c.status=0) ORDER BY d.id",user,user);
+        return jdbc.queryForList("SELECT d.id AS doctor_id,d.name,d.specialty,COALESCE(a.authorized,0) AS authorized FROM doctor d LEFT JOIN health_doctor_authorization a ON a.doctor_id=d.id AND a.user_id=? WHERE d.status=1 AND (COALESCE(a.bound,0)=1 OR EXISTS (SELECT 1 FROM doctor_consultation c WHERE c.patient_id=? AND c.doctor_id=d.id AND c.status=0)) ORDER BY d.id",user,user);
+    }
+    public List<Map<String,Object>> bindingOptions(int user) {
+        return jdbc.queryForList("SELECT d.id AS doctor_id,d.name,d.specialty,d.title,COALESCE(a.bound,0) AS bound,COALESCE(a.authorized,0) AS authorized FROM doctor d LEFT JOIN health_doctor_authorization a ON a.doctor_id=d.id AND a.user_id=? WHERE d.status=1 ORDER BY d.id",user);
+    }
+    public void bind(int user,int doctor,boolean bound) {
+        tx.execute(s->{
+            jdbc.queryForObject("SELECT id FROM `user` WHERE id=? FOR UPDATE",Integer.class,user);
+            if(bound && jdbc.queryForObject("SELECT COUNT(*) FROM doctor WHERE id=? AND status=1",Integer.class,doctor)==0)
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"医生不存在或已停用");
+            if(jdbc.update("UPDATE health_doctor_authorization SET bound=?,authorized=?,updated_at=CURRENT_TIMESTAMP WHERE user_id=? AND doctor_id=?",bound?1:0,bound?1:0,user,doctor)==0 && bound)
+                jdbc.update("INSERT INTO health_doctor_authorization (user_id,doctor_id,bound,authorized) VALUES (?,?,1,1)",user,doctor);
+            return null;
+        });
     }
     public void authorize(int user,int doctor,boolean enabled) {
         tx.execute(s->{
             jdbc.queryForObject("SELECT id FROM `user` WHERE id=? FOR UPDATE",Integer.class,user);
-            if(enabled && jdbc.queryForObject("SELECT COUNT(*) FROM doctor d WHERE d.id=? AND d.status=1 AND EXISTS (SELECT 1 FROM doctor_consultation c WHERE c.patient_id=? AND c.doctor_id=d.id AND c.status=0)",Integer.class,doctor,user)==0)
+            if(enabled && jdbc.queryForObject("SELECT COUNT(*) FROM doctor d WHERE d.id=? AND d.status=1 AND (EXISTS (SELECT 1 FROM health_doctor_authorization b WHERE b.user_id=? AND b.doctor_id=d.id AND b.bound=1) OR EXISTS (SELECT 1 FROM doctor_consultation c WHERE c.patient_id=? AND c.doctor_id=d.id AND c.status=0))",Integer.class,doctor,user,user)==0)
                 throw new ResponseStatusException(HttpStatus.FORBIDDEN,"只能授权当前有效咨询关联的医生");
             if(jdbc.update("UPDATE health_doctor_authorization SET authorized=?,updated_at=CURRENT_TIMESTAMP WHERE user_id=? AND doctor_id=?",enabled?1:0,user,doctor)==0)
                 jdbc.update("INSERT INTO health_doctor_authorization (user_id,doctor_id,authorized) VALUES (?,?,?)",user,doctor,enabled?1:0);
@@ -47,7 +60,7 @@ public class DoctorAlertService {
     }
     private String scope(int doctor,List<Object> args) {
         args.add(doctor);
-        return " EXISTS (SELECT 1 FROM health_doctor_authorization a JOIN doctor d ON d.id=a.doctor_id WHERE a.user_id=e.user_id AND a.doctor_id=? AND a.authorized=1 AND d.status=1 AND EXISTS (SELECT 1 FROM doctor_consultation c WHERE c.patient_id=e.user_id AND c.doctor_id=a.doctor_id AND c.status=0))";
+        return " EXISTS (SELECT 1 FROM health_doctor_authorization a JOIN doctor d ON d.id=a.doctor_id WHERE a.user_id=e.user_id AND a.doctor_id=? AND a.authorized=1 AND d.status=1 AND (a.bound=1 OR EXISTS (SELECT 1 FROM doctor_consultation c WHERE c.patient_id=e.user_id AND c.doctor_id=a.doctor_id AND c.status=0)))";
     }
     public Map<String,Object> list(int doctor,int page,int size,String level,String state,String handling,String from,String to) {
         if(page<1 || page>100000 || size<1 || size>50) throw new IllegalArgumentException("分页范围无效");
@@ -89,7 +102,11 @@ public class DoctorAlertService {
                 if(Objects.equals(item.get("metric"),r.get("metric_key"))) {Map<String,Object> sample=new LinkedHashMap<>();sample.put("measurementId",evaluation.get("measurement_id"));sample.put("item",item);samples.add(sample);}
             }
         }
-        out.put("measurements",samples);return out;
+        out.put("measurements",samples);
+        // Contacts are visible to an authorized doctor only when the patient
+        // explicitly enabled them and completed real mailbox verification.
+        out.put("emergency_contacts",jdbc.queryForList("SELECT name,relationship,email,phone FROM health_emergency_contact WHERE user_id=? AND authorized=1 AND email_verification='REAL' ORDER BY id",r.get("user_id")));
+        return out;
     }
     public void action(int doctor,long id,String action,String note) {
         if(!Arrays.asList("ACKNOWLEDGED","RESOLVED").contains(action) || note==null || note.trim().isEmpty() || note.length()>1000)throw new IllegalArgumentException("请填写1至1000字的处理备注");

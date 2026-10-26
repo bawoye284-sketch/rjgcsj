@@ -26,6 +26,10 @@
         <p>首次：{{ formatTime(detail.opened_at) }}；最近：{{ formatTime(detail.updated_at) }}。</p>
         <p v-if="detail.sos">确认时限：{{ formatTime(detail.sos.confirmation_deadline) }}。未确认时，系统将按通知设置继续提醒。确认收到与记录处理结果分别保存。</p>
         <p v-else>累计异常 {{ detail.occurrences }} 次。</p>
+        <el-alert v-if="detail.emergency_contacts && detail.emergency_contacts.length" title="患者已授权的紧急联系人" type="success" :closable="false" show-icon>
+          <div v-for="contact in detail.emergency_contacts" :key="contact.email" class="contact-row"><b>{{ contact.name }}</b><span>{{ contact.relationship }}</span><span>{{ contact.email }}</span><span v-if="contact.phone">{{ contact.phone }}</span></div>
+        </el-alert>
+        <p v-else class="contact-empty">患者暂未授权并完成邮箱验证的紧急联系人。</p>
         <el-input v-model="note" type="textarea" maxlength="1000" show-word-limit placeholder="请填写确认情况或后续处理说明。" />
         <p><el-button :disabled="acting || detail.handling !== 'OPEN'" @click="action('acknowledge')">确认收到</el-button><el-button type="primary" :disabled="acting || detail.handling === 'RESOLVED'" @click="action('resolve')">记录处理结果</el-button></p>
         <h3>确认与处理记录</h3><el-table :data="detail.actions" size="small"><el-table-column prop="doctor_name" label="医生姓名" /><el-table-column label="处理状态"><template slot-scope="s">{{ actionLabel(s.row.action) }}</template></el-table-column><el-table-column prop="note" label="处理说明" min-width="180" /><el-table-column label="操作时间" min-width="150"><template slot-scope="s">{{ formatTime(s.row.created_at) }}</template></el-table-column></el-table>
@@ -36,13 +40,16 @@
 </template>
 <script>
 import api from '@/api/healthCare'
+import healthSync from '@/utils/healthSync'
 import HealthNotifications from '@/components/risk/HealthNotifications.vue'
 import { displayError, alertLevel, alertStyle, eventStyle, eventRisk, handlingState, actionState, formatTime, measurementReasons, measurementValue } from '@/utils/healthAlertDisplay'
 export default {
+  mixins: [healthSync],
   components: { HealthNotifications },
   data: () => ({ filters: { page: 1, size: 10, level: '', handling: '' }, dates: [], items: [], total: 0, loading: false, error: '', detail: null, visible: false, note: '', acting: false }),
   mounted() { this.load() },
   methods: {
+    async refreshHealthData() { if (!this.loading && !this.acting && !this.visible) await this.load() },
     async load() { this.loading = true; try { const r = await api.alerts({ ...this.filters, from: this.dates && this.dates[0], to: this.dates && this.dates[1] }); this.items = r.items; this.total = r.total; this.error = '' } catch (e) { this.error = displayError(e) } finally { this.loading = false } },
     async open(id) { try { this.detail = await api.detail(id); this.visible = true; this.note = '' } catch (e) { this.detail = null; this.visible = false; this.error = displayError(e) } },
     async action(action) { this.acting = true; try { await api.action(this.detail.id, action, this.note); await this.open(this.detail.id); await this.load() } catch (e) { this.$message.error(displayError(e)) } finally { this.acting = false } },
@@ -52,4 +59,4 @@ export default {
   }
 }
 </script>
-<style scoped>.doctor-alerts {max-width:1320px;margin:0 auto;padding:24px;box-sizing:border-box}.heading {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}.filters {margin-top:20px}.filters .el-select {width:160px}@media(max-width:700px){.doctor-alerts {padding:12px}.filters >>> .el-date-editor {max-width:100%}}.doctor-alerts >>> .cell {white-space:pre-line;word-break:break-word;line-height:1.7}</style>
+<style scoped>.doctor-alerts {max-width:1320px;margin:0 auto;padding:24px;box-sizing:border-box}.heading {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}.filters {margin-top:20px}.filters .el-select {width:160px}.contact-row {display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:3px 0;color:#315d69}.contact-empty {color:#8b9aa5;font-size:13px}@media(max-width:700px){.doctor-alerts {padding:12px}.filters >>> .el-date-editor {max-width:100%}}.doctor-alerts >>> .cell {white-space:pre-line;word-break:break-word;line-height:1.7}</style>
