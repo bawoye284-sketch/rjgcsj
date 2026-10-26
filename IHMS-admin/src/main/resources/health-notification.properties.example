@@ -1,0 +1,23 @@
+# Documentation only: this file is NOT automatically loaded.
+# Copy selected values to a separate local config or supply environment variables.
+# Existing application.yml and application-demo.yml do not need to change.
+health-notification.mode=MOCK
+health-notification.worker-enabled=true
+health-notification.notify-upgrades=true
+health-notification.smtp.enabled=false
+# Non-demo + non-H2 + SMTP mode + enabled are ALL required for real sending.
+# Explicit local H2 exception: see application-local-mail-test.properties and
+# docs/SMTP_H2_LOCAL_TEST.md. It is OFF by default and never drains an old outbox.
+health-notification.smtp.host=${IHMS_SMTP_HOST:}
+health-notification.smtp.port=${IHMS_SMTP_PORT:587}
+# QQ: explicitly set SSL_TLS and port 465. STARTTLS remains the compatibility default.
+health-notification.smtp.security=${IHMS_SMTP_SECURITY:STARTTLS}
+# Mandatory exact mailbox allowlist for every real send, including verification codes.
+# Empty means deny all; no wildcards. Set locally, do not commit actual addresses.
+health-notification.smtp.allowed-recipients=${IHMS_SMTP_ALLOWED_RECIPIENTS:}
+health-notification.smtp.from=${IHMS_SMTP_FROM:}
+health-notification.smtp.username=${IHMS_SMTP_USERNAME:}
+health-notification.smtp.password=${IHMS_SMTP_PASSWORD:}
+# Ordinary reference excursions for these metrics stay in the user's inbox.
+# Repeated alerts still notify authorized doctors and contacts.
+health-notification.reference-only-metrics=temperature,respiratory_rate

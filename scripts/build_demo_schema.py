@@ -38,6 +38,10 @@ def convert_table(statement: str) -> str:
 
 
 def main() -> None:
+    data_path = TARGET.parent / 'data.sql'
+    data = data_path.read_text(encoding='utf-8').split('-- Adult resting reference defaults.')[0].rstrip()
+    data_path.write_text(data + '\n\n-- Adult resting reference defaults.\n'
+                         + (ROOT / 'sql' / 'health_reference_defaults.sql').read_text(encoding='utf-8'), encoding='utf-8')
     source = SOURCE.read_text(encoding="utf-8-sig")
     tables = re.findall(r"(?ms)^CREATE TABLE (?:IF NOT EXISTS )?`[^`]+`\s*\(.*?;", source)
     if len(tables) != 20:
@@ -61,10 +65,40 @@ def main() -> None:
         + "ALTER TABLE `personalized_risk_assessment` ADD COLUMN IF NOT EXISTS `assessment_basis` VARCHAR(32) NOT NULL DEFAULT 'LEGACY';\n"
         + "ALTER TABLE `personalized_risk_assessment` ADD COLUMN IF NOT EXISTS `request_id` VARCHAR(36) NULL;\n"
         + "ALTER TABLE `personalized_risk_assessment` ADD COLUMN IF NOT EXISTS `input_snapshot_json` CLOB NULL;\n"
-        + "CREATE UNIQUE INDEX IF NOT EXISTS `uk_personal_assessment_request` ON `personalized_risk_assessment` (`user_id`,`request_id`);\n",
+        + "CREATE UNIQUE INDEX IF NOT EXISTS `uk_personal_assessment_request` ON `personalized_risk_assessment` (`user_id`,`request_id`);\n"
+        + "\n-- Measurement rule alerts (phase 2).\n"
+        + alert_schema()
+        + "\n-- Health notifications (phase 3).\n"
+        + notification_schema()
+        + "\n-- SOS (phase 4), additive upgrade of existing demo files.\n"
+        + sos_schema(),
         encoding="utf-8",
         newline="\n",
     )
+
+
+def alert_schema() -> str:
+    source = (ROOT / "sql" / "health_alert_upgrade_mysql.sql").read_text(encoding="utf-8")
+    tables = re.findall(r"(?ms)^CREATE TABLE IF NOT EXISTS \w+\s*\(.*?;", source)
+    seeds = source[source.index("-- Stable numeric"):]
+    return "\n\n".join(convert_table(table) for table in tables) + "\n\n" + seeds
+
+
+def notification_schema() -> str:
+    source = (ROOT / "sql" / "health_notification_upgrade_mysql.sql").read_text(encoding="utf-8")
+    tables = re.findall(r"(?ms)^CREATE TABLE IF NOT EXISTS \w+\s*\(.*?;", source)
+    return ("\n\n".join(convert_table(table) for table in tables) + "\n"
+            + "ALTER TABLE health_notification_task ADD COLUMN IF NOT EXISTS priority INT NOT NULL DEFAULT 0;\n")
+
+
+def sos_schema() -> str:
+    source = (ROOT / "sql" / "health_sos_upgrade_mysql.sql").read_text(encoding="utf-8")
+    tables = re.findall(r"(?ms)^CREATE TABLE IF NOT EXISTS \w+\s*\(.*?;", source)
+    return ("ALTER TABLE health_alert_event ALTER COLUMN first_measurement_id DROP NOT NULL;\n"
+            "ALTER TABLE health_alert_event ALTER COLUMN last_measurement_id DROP NOT NULL;\n"
+            "ALTER TABLE health_notification_task ALTER COLUMN measurement_id DROP NOT NULL;\n"
+            "ALTER TABLE health_notification_task ADD COLUMN IF NOT EXISTS priority INT NOT NULL DEFAULT 0;\n"
+            + "\n\n".join(convert_table(table) for table in tables) + "\n")
 
 
 if __name__ == "__main__":

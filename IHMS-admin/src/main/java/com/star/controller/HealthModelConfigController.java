@@ -19,6 +19,16 @@ import java.util.List;
 @RequestMapping(value = "/health-model-config")
 public class HealthModelConfigController {
 
+    @ExceptionHandler(org.springframework.web.server.ResponseStatusException.class)
+    public org.springframework.http.ResponseEntity<Result<?>> denied(org.springframework.web.server.ResponseStatusException e) {
+        return org.springframework.http.ResponseEntity.status(e.getStatus()).body(new Result<>(e.getStatus().value(),e.getReason(),null));
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public org.springframework.http.ResponseEntity<Result<?>> invalid(IllegalArgumentException e) {
+        return org.springframework.http.ResponseEntity.badRequest().body(new Result<>(400,e.getMessage(),null));
+    }
+
     @Resource
     private IHealthModelConfigService healthModelConfigService;
 

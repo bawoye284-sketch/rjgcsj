@@ -320,3 +320,188 @@ ALTER TABLE `personalized_risk_assessment` ADD COLUMN IF NOT EXISTS `assessment_
 ALTER TABLE `personalized_risk_assessment` ADD COLUMN IF NOT EXISTS `request_id` VARCHAR(36) NULL;
 ALTER TABLE `personalized_risk_assessment` ADD COLUMN IF NOT EXISTS `input_snapshot_json` CLOB NULL;
 CREATE UNIQUE INDEX IF NOT EXISTS `uk_personal_assessment_request` ON `personalized_risk_assessment` (`user_id`,`request_id`);
+
+-- Measurement rule alerts (phase 2).
+CREATE TABLE IF NOT EXISTS health_alert_rule (
+  metric_key VARCHAR(32) NOT NULL,
+  config_id INT NULL,
+  enabled TINYINT NOT NULL DEFAULT 1,
+  consecutive_count INT NOT NULL DEFAULT 3,
+  window_days INT NOT NULL DEFAULT 7,
+  change_delta DECIMAL(10,2) NULL,
+  baseline_count INT NOT NULL DEFAULT 3,
+  revision INT NOT NULL DEFAULT 1,
+  PRIMARY KEY (metric_key)
+);
+
+CREATE TABLE IF NOT EXISTS health_alert_evaluation (
+  measurement_id BIGINT NOT NULL,
+  user_id INT NOT NULL,
+  status VARCHAR(16) NOT NULL DEFAULT 'PENDING',
+  attempts INT NOT NULL DEFAULT 0,
+  result_json CLOB NULL,
+  error_message VARCHAR(255) NULL,
+  retry_at TIMESTAMP NULL,
+  evaluated_at TIMESTAMP NULL,
+  PRIMARY KEY (measurement_id)
+);
+
+CREATE TABLE IF NOT EXISTS health_alert_event (
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  metric_key VARCHAR(32) NOT NULL,
+  level VARCHAR(16) NOT NULL,
+  status VARCHAR(16) NOT NULL,
+  first_measurement_id BIGINT NOT NULL,
+  last_measurement_id BIGINT NOT NULL,
+  occurrences INT NOT NULL DEFAULT 1,
+  details_json CLOB NOT NULL,
+  opened_at TIMESTAMP NOT NULL,
+  updated_at TIMESTAMP NOT NULL,
+  recovered_at TIMESTAMP NULL,
+  PRIMARY KEY (id)
+);
+
+-- Stable numeric field keys; bind only unambiguous existing GLOBAL symbols.
+-- Missing mappings remain visible as UNCONFIGURED. Never invent medical ranges.
+INSERT INTO health_alert_rule (metric_key,config_id)
+SELECT 'systolic_pressure',NULL WHERE NOT EXISTS (SELECT 1 FROM health_alert_rule WHERE metric_key='systolic_pressure');
+INSERT INTO health_alert_rule (metric_key,config_id)
+SELECT 'diastolic_pressure',NULL WHERE NOT EXISTS (SELECT 1 FROM health_alert_rule WHERE metric_key='diastolic_pressure');
+INSERT INTO health_alert_rule (metric_key,config_id)
+SELECT 'heart_rate',NULL WHERE NOT EXISTS (SELECT 1 FROM health_alert_rule WHERE metric_key='heart_rate');
+INSERT INTO health_alert_rule (metric_key,config_id)
+SELECT 'spo2',NULL WHERE NOT EXISTS (SELECT 1 FROM health_alert_rule WHERE metric_key='spo2');
+INSERT INTO health_alert_rule (metric_key,config_id)
+SELECT 'temperature',NULL WHERE NOT EXISTS (SELECT 1 FROM health_alert_rule WHERE metric_key='temperature');
+INSERT INTO health_alert_rule (metric_key,config_id)
+SELECT 'respiratory_rate',NULL WHERE NOT EXISTS (SELECT 1 FROM health_alert_rule WHERE metric_key='respiratory_rate');
+
+-- Health notifications (phase 3).
+CREATE TABLE IF NOT EXISTS health_emergency_contact (
+ id BIGINT NOT NULL AUTO_INCREMENT,
+ user_id INT NOT NULL,
+ name VARCHAR(60) NOT NULL,
+ relationship VARCHAR(40) NOT NULL,
+ email VARCHAR(254) NOT NULL,
+ phone VARCHAR(32) NULL,
+ authorized TINYINT NOT NULL DEFAULT 0,
+ email_verification VARCHAR(8) NOT NULL DEFAULT 'NONE',
+ phone_verification VARCHAR(8) NOT NULL DEFAULT 'NONE',
+ revision INT NOT NULL DEFAULT 1,
+ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS health_contact_verification (
+ contact_id BIGINT NOT NULL,
+ token_hash VARCHAR(64) NOT NULL,
+ verification_kind VARCHAR(8) NOT NULL,
+ contact_revision INT NOT NULL,
+ expires_at TIMESTAMP NOT NULL,
+ attempts INT NOT NULL DEFAULT 0,
+ PRIMARY KEY (contact_id)
+);
+
+CREATE TABLE IF NOT EXISTS health_doctor_authorization (
+ user_id INT NOT NULL,
+ doctor_id INT NOT NULL,
+ authorized TINYINT NOT NULL DEFAULT 0,
+ updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (user_id,doctor_id)
+);
+
+CREATE TABLE IF NOT EXISTS health_notification_checkpoint (
+ measurement_id BIGINT NOT NULL,
+ status VARCHAR(12) NOT NULL DEFAULT 'CAPTURED',
+ error_code VARCHAR(64) NULL,
+ attempts INT NOT NULL DEFAULT 0,
+ captured_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (measurement_id)
+);
+
+CREATE TABLE IF NOT EXISTS health_notification_task (
+ id BIGINT NOT NULL AUTO_INCREMENT,
+ user_id INT NOT NULL,
+ event_id BIGINT NOT NULL,
+ measurement_id BIGINT NOT NULL,
+ recipient_type VARCHAR(12) NOT NULL,
+ recipient_id BIGINT NOT NULL,
+ recipient_revision INT NULL,
+ channel VARCHAR(8) NOT NULL,
+ phase VARCHAR(16) NOT NULL,
+ priority INT NOT NULL DEFAULT 0,
+ status VARCHAR(12) NOT NULL DEFAULT 'PENDING',
+ attempts INT NOT NULL DEFAULT 0,
+ error_code VARCHAR(64) NULL,
+ retry_at TIMESTAMP NULL,
+ lease_until TIMESTAMP NULL,
+ sent_at TIMESTAMP NULL,
+ read_at TIMESTAMP NULL,
+ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (id),
+ UNIQUE KEY uk_health_notice_stage (event_id,recipient_type,recipient_id,channel,phase)
+);
+
+CREATE TABLE IF NOT EXISTS health_notification_attempt (
+ task_id BIGINT NOT NULL,
+ attempt_no INT NOT NULL,
+ status VARCHAR(12) NOT NULL,
+ error_code VARCHAR(64) NULL,
+ started_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ finished_at TIMESTAMP NULL,
+ PRIMARY KEY (task_id,attempt_no)
+);
+
+CREATE TABLE IF NOT EXISTS health_alert_action (
+ id BIGINT NOT NULL AUTO_INCREMENT,
+ event_id BIGINT NOT NULL,
+ doctor_id INT NOT NULL,
+ action VARCHAR(16) NOT NULL,
+ phase VARCHAR(16) NOT NULL,
+ note VARCHAR(1000) NOT NULL,
+ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (id)
+);
+ALTER TABLE health_notification_task ADD COLUMN IF NOT EXISTS priority INT NOT NULL DEFAULT 0;
+
+-- SOS (phase 4), additive upgrade of existing demo files.
+ALTER TABLE health_alert_event ALTER COLUMN first_measurement_id DROP NOT NULL;
+ALTER TABLE health_alert_event ALTER COLUMN last_measurement_id DROP NOT NULL;
+ALTER TABLE health_notification_task ALTER COLUMN measurement_id DROP NOT NULL;
+ALTER TABLE health_notification_task ADD COLUMN IF NOT EXISTS priority INT NOT NULL DEFAULT 0;
+CREATE TABLE IF NOT EXISTS health_sos_event (
+ event_id BIGINT NOT NULL,
+ status VARCHAR(16) NOT NULL DEFAULT 'OPEN',
+ confirmation_deadline TIMESTAMP NOT NULL,
+ next_check_at TIMESTAMP NOT NULL,
+ escalation_stage INT NOT NULL DEFAULT 0,
+ planned_stage INT NOT NULL DEFAULT -1,
+ notification_error VARCHAR(64) NULL,
+ acknowledged_at TIMESTAMP NULL,
+ resolved_at TIMESTAMP NULL,
+ PRIMARY KEY (event_id)
+);
+
+CREATE TABLE IF NOT EXISTS health_sos_reminder (
+ id BIGINT NOT NULL AUTO_INCREMENT,
+ user_id INT NOT NULL,
+ event_id BIGINT NOT NULL,
+ request_id VARCHAR(36) NOT NULL,
+ ordinal INT NOT NULL,
+ captured TINYINT NOT NULL DEFAULT 0,
+ error_code VARCHAR(64) NULL,
+ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (id),
+ UNIQUE KEY uk_sos_reminder_request (user_id,request_id),
+ UNIQUE KEY uk_sos_reminder_ordinal (event_id,ordinal)
+);
+
+CREATE TABLE IF NOT EXISTS health_sos_request (
+ user_id INT NOT NULL,
+ request_id VARCHAR(36) NOT NULL,
+ event_id BIGINT NOT NULL,
+ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (user_id,request_id)
+);

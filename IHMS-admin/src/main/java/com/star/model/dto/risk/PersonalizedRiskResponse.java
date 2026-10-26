@@ -36,5 +36,6 @@ public class PersonalizedRiskResponse {
     private String note;
     private String assessmentTime;
     private Long assessmentId;
+    private Long measurementId;
     private String requestId;
 }

@@ -86,8 +86,6 @@
 
     <el-card shadow="never" class="section">
       <div slot="header" class="section-heading"><div><b>三、本次生理测量</b><span>个性化评估至少填写一项实测值，未测项留空</span></div></div>
-      <el-alert class="bracelet-note" title="模拟手环数据上传说明" type="info" :closable="false" show-icon
-        description="本区域模拟智能手环向平台上传生理数据的过程。演示时通过下方表单手动录入，模拟设备上报并参与联合预测、结果展示与趋势记录。当前尚未连接真实手环；模拟数据仅用于功能展示，实际使用请填写真实测量值，未测项留空。" />
       <el-form label-position="top" :disabled="busy" class="profile-form">
         <el-row :gutter="24"><el-col v-for="field in measurementFields" :key="field.key" :xs="24" :sm="8">
           <el-form-item :label="field.label + '（六项任选）'" :error="fieldErrors[field.key]">
@@ -115,6 +113,7 @@
       <DiseasePredictionResults :assessment="result" />
     </section>
 
+    <MeasurementAlerts ref="measurementAlerts" />
     <AssessmentHistory ref="assessmentHistory" title="六、两类评估历史" />
   </div>
 </template>
@@ -125,6 +124,7 @@ import personalApi from '@/api/personalizedRisk'
 import PersonalizedRiskResults from '@/components/risk/PersonalizedRiskResults.vue'
 import DiseasePredictionResults from '@/components/risk/DiseasePredictionResults.vue'
 import AssessmentHistory from '@/components/risk/AssessmentHistory.vue'
+import MeasurementAlerts from '@/components/risk/MeasurementAlerts.vue'
 import healthSync, { notifyHealthChange } from '@/utils/healthSync'
 const diseases = [
   { code: 'hypertension', name: '高血压' }, { code: 'diabetes', name: '糖尿病' },
@@ -140,12 +140,12 @@ const extraChoices = [
 const labels = { age: '年龄', sexMale: '性别', weightKg: '体重（kg）', selfRatedHealth: '自评健康' }
 basicChoices.concat(extraChoices).forEach(f => { labels[f.key] = f.label })
 const measurementFields = [
-  { key: 'systolicPressure', label: '收缩压（mmHg）', min: 40, max: 300, precision: 0 },
-  { key: 'diastolicPressure', label: '舒张压（mmHg）', min: 20, max: 200, precision: 0 },
-  { key: 'heartRate', label: '心率（次/分）', min: 30, max: 220, precision: 0 },
-  { key: 'spo2', label: '血氧（%）', min: 60, max: 100, precision: 1 },
-  { key: 'temperature', label: '体温（℃）', min: 32, max: 43, precision: 1 },
-  { key: 'respiratoryRate', label: '呼吸频率（次/分）', min: 1, max: 80, precision: 0 }
+  { key: 'systolicPressure', label: '收缩压（mm Hg, 正常范围:90～119mmHg）', min: 40, max: 300, precision: 0 },
+  { key: 'diastolicPressure', label: '舒张压（mmHg, 正常范围:60～79mmHg）', min: 20, max: 200, precision: 0 },
+  { key: 'heartRate', label: '心率（次/分, 正常范围:60～100次/分）', min: 30, max: 220, precision: 0 },
+  { key: 'spo2', label: '血氧（%）, 正常范围:95～100%', min: 60, max: 100, precision: 1 },
+  { key: 'temperature', label: '体温（℃）, 正常范围:36.5～37.3℃', min: 32, max: 43, precision: 1 },
+  { key: 'respiratoryRate', label: '呼吸频率（次/分）, 正常范围:12～18次/分', min: 1, max: 80, precision: 0 }
 ]
 function emptyForm() {
   const profile = {}, diseaseHistory = {}, diagnosisYears = {}
@@ -159,7 +159,7 @@ function requestId() { return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[x
 export default {
   name: 'HealthAssessment',
   mixins: [healthSync],
-  components: { PersonalizedRiskResults, DiseasePredictionResults, AssessmentHistory },
+  components: { PersonalizedRiskResults, DiseasePredictionResults, AssessmentHistory, MeasurementAlerts },
   data() {
     return { diseases, basicChoices, extraChoices, healthLabels: ['极好', '很好', '好', '一般', '差'], currentYear: new Date().getFullYear(),
       form: emptyForm(), savedSnapshot: '', loading: false, saving: false, assessing: false, modelInfo: {}, modelError: '',
@@ -205,6 +205,7 @@ export default {
     healthRefreshAllowed() { return !this.busy && !this.loading },
     async refreshHealthData() {
       if (this.busy || this.loading) return
+      if (this.$refs.measurementAlerts) this.$refs.measurementAlerts.load()
       const previousResultId = this.result && this.result.id
       const operations = [this.loadPersonalLatest(), this.loadMeasurementHistory(), this.refreshModels(), diseaseApi.latest().then(data=>{if (!this.busy && (this.result && this.result.id) === previousResultId) this.result=data})]
       if (!this.dirty) operations.push(this.loadProfiles(true))
@@ -330,6 +331,7 @@ export default {
         this.personalAssessedAt = this.personalResult.assessmentTime || ''
         this.personalState = 'success'; this.pendingBatch.personalDone = true
         this.personalMessage = '本次汇总表的生理测量与个性化结果已保存'
+        if (this.$refs.measurementAlerts) await this.$refs.measurementAlerts.load(this.personalResult.measurementId)
         notifyHealthChange()
         await this.loadMeasurementHistory()
       } catch (e) { this.personalState = 'error'; this.personalMessage = e.message + '。如有下方结果，为上次已保存记录。' }

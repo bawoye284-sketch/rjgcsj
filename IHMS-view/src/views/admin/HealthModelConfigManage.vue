@@ -2,6 +2,7 @@
     <el-row style="background-color: #FFFFFF;padding: 5px 0;border-radius: 5px;">
         <el-alert title="此页配置日常指标名称、单位与数值范围。AI模型版本、运行状态和性能指标在“联合评估管理 → 病种统计与模型状态”查看。" type="info" :closable="false" />
         <el-button type="text" @click="$router.push('/healthReviewManage')">查看AI模型状态</el-button>
+        <MeasurementAlertRules />
         <el-row style="padding: 10px;margin-left: 5px;">
             <el-row>
                 <el-input size="small" style="width: 188px;margin-left: 5px;margin-right: 6px;"
@@ -109,7 +110,9 @@
 </template>
 
 <script>
+import MeasurementAlertRules from '@/components/risk/MeasurementAlertRules.vue'
 export default {
+    components: { MeasurementAlertRules },
     data() {
         return {
             data: { cover: '' },

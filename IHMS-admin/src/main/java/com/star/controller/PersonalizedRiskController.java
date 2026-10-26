@@ -71,10 +71,13 @@ public class PersonalizedRiskController {
     }
 
     @PostMapping("/measurement")
-    public Result<Void> saveMeasurement(@RequestBody VitalMeasurementDto dto) {
+    public ResponseEntity<Result<?>> saveMeasurement(@RequestBody VitalMeasurementDto dto) {
         requireOwnUser();
-        personalizedRiskService.saveMeasurement(LocalThreadHolder.getUserId(), dto);
-        return Result.success();
+        try {
+            Long id=personalizedRiskService.saveMeasurement(LocalThreadHolder.getUserId(), dto);
+            return ResponseEntity.ok(Result.success(java.util.Collections.singletonMap("measurementId",id)));
+        } catch (IllegalArgumentException error) { return failure(400,error.getMessage()); }
+        catch (DataAccessException error) { return failure(503,"本次测量未保存，请检查数据库后重试"); }
     }
 
     @GetMapping("/history")

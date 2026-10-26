@@ -36,6 +36,9 @@ public class PersonalizedRiskService {
     @Resource
     private PlatformTransactionManager transactionManager;
 
+    @Resource
+    private com.star.service.health.MeasurementAlertService measurementAlerts;
+
     private void validateBasicProfile(ElderRiskProfileDto profile) {
         if (profile == null || profile.getAge() == null || profile.getAge() < 0 || profile.getAge() > 110
                 || profile.getSexMale() == null || (profile.getSexMale() != 0 && profile.getSexMale() != 1)
@@ -94,7 +97,7 @@ public class PersonalizedRiskService {
         }
     }
 
-    public void saveMeasurement(Integer userId, VitalMeasurementDto dto) {
+    public Long saveMeasurement(Integer userId, VitalMeasurementDto dto) {
         if (dto == null) {
             throw new IllegalArgumentException("请填写本次测量");
         }
@@ -102,16 +105,42 @@ public class PersonalizedRiskService {
                 "alert", "new_confusion", "voice", "pain", "unresponsive").contains(dto.getConsciousness())) {
             throw new IllegalArgumentException("意识状态无效");
         }
-        jdbcTemplate.update(
-                "INSERT INTO elder_vital_measurement " +
-                "(user_id,systolic_pressure,diastolic_pressure,heart_rate,spo2,temperature," +
-                "respiratory_rate,supplemental_oxygen,consciousness,measured_at) " +
-                "VALUES (?,?,?,?,?,?,?,?,?,?)",
-                userId, dto.getSystolicPressure(), dto.getDiastolicPressure(),
-                dto.getHeartRate(), dto.getSpo2(), dto.getTemperature(), dto.getRespiratoryRate(),
-                dto.getSupplementalOxygen() == null ? null : (dto.getSupplementalOxygen() ? 1 : 0),
-                dto.getConsciousness(), Timestamp.valueOf(LocalDateTime.now())
-        );
+        validateMeasurement(dto);
+        Long id = new TransactionTemplate(transactionManager).execute(status -> {
+            lockPatient(userId);
+            return insertMeasurement(userId, dto, LocalDateTime.now());
+        });
+        measurementAlerts.processUser(userId);
+        return id;
+    }
+
+    private void lockPatient(Integer userId) {
+        jdbcTemplate.queryForObject("SELECT id FROM `user` WHERE id=? FOR UPDATE", Integer.class, userId);
+    }
+
+    private Double[] validateMeasurement(VitalMeasurementDto dto) {
+        Double[] values = {dto.getSystolicPressure(),dto.getDiastolicPressure(),dto.getHeartRate(),dto.getSpo2(),dto.getTemperature(),dto.getRespiratoryRate()};
+        double[] minimums = {40,20,30,60,32,1}, maximums = {300,200,220,100,43,80};
+        boolean any = false;
+        for (int i=0;i<values.length;i++) {
+            if(values[i]==null) continue;
+            any=true;
+            if(!Double.isFinite(values[i]) || values[i]<minimums[i] || values[i]>maximums[i]) throw new IllegalArgumentException("本次测量数值超出有效范围");
+        }
+        if(!any) throw new IllegalArgumentException("请填写至少一项本次实测指标，未测的项目可以留空");
+        return values;
+    }
+
+    private long insertMeasurement(Integer userId,VitalMeasurementDto dto,LocalDateTime now) {
+        GeneratedKeyHolder keys = new GeneratedKeyHolder();
+        jdbcTemplate.update(c -> {
+            PreparedStatement p = c.prepareStatement("INSERT INTO elder_vital_measurement (user_id,systolic_pressure,diastolic_pressure,heart_rate,spo2,temperature,respiratory_rate,supplemental_oxygen,consciousness,measured_at) VALUES (?,?,?,?,?,?,?,?,?,?)",new String[]{"id"});
+            Object[] values={userId,dto.getSystolicPressure(),dto.getDiastolicPressure(),dto.getHeartRate(),dto.getSpo2(),dto.getTemperature(),dto.getRespiratoryRate(),dto.getSupplementalOxygen()==null?null:dto.getSupplementalOxygen()?1:0,dto.getConsciousness(),Timestamp.valueOf(now)};
+            for(int i=0;i<values.length;i++) p.setObject(i+1,values[i]);return p;
+        },keys);
+        long id=keys.getKey().longValue();
+        measurementAlerts.enqueue(userId,id);
+        return id;
     }
 
     public List<Map<String, Object>> getHistory(Integer userId, Integer days) {
@@ -192,17 +221,7 @@ public class PersonalizedRiskService {
         validateBasicProfile(input.getProfile());
         VitalMeasurementDto measurement = input.getMeasurement();
         if (measurement == null) throw new IllegalArgumentException("请填写至少一项本次实测指标");
-        Double[] values = { measurement.getSystolicPressure(), measurement.getDiastolicPressure(), measurement.getHeartRate(),
-                measurement.getSpo2(), measurement.getTemperature(), measurement.getRespiratoryRate() };
-        double[] minimums = {40,20,30,60,32,1}, maximums = {300,200,220,100,43,80};
-        boolean any = false;
-        for (int i = 0; i < values.length; i++) {
-            if (values[i] == null) continue;
-            any = true;
-            if (!Double.isFinite(values[i]) || values[i] < minimums[i] || values[i] > maximums[i])
-                throw new IllegalArgumentException("本次测量数值超出有效范围");
-        }
-        if (!any) throw new IllegalArgumentException("请填写至少一项本次实测指标，未测的项目可以留空");
+        Double[] values = validateMeasurement(measurement);
         if (measurement.getSupplementalOxygen() != null || measurement.getConsciousness() != null)
             throw new IllegalArgumentException("联合评估当前只使用六项数值测量");
         LocalDateTime now = LocalDateTime.now();
@@ -234,13 +253,21 @@ public class PersonalizedRiskService {
         // Network work precedes the short write transaction, and uses this form's captured inputs.
         PersonalizedRiskResponse result = riskModelClient.predict(request);
         result.setAssessmentTime(DISPLAY_TIME.format(LocalDateTime.now()));
-        try { return new TransactionTemplate(transactionManager).execute(status -> {
+        try {
+            PersonalizedRiskResponse savedResult = new TransactionTemplate(transactionManager).execute(status -> {
+            lockPatient(userId);
+            PersonalizedRiskResponse concurrent = replay(userId,requestId,snapshot);
+            if(concurrent!=null) return concurrent;
             saveBasicProfile(userId, input.getProfile());
-            jdbcTemplate.update("INSERT INTO elder_vital_measurement (user_id,systolic_pressure,diastolic_pressure,heart_rate,spo2,temperature,respiratory_rate,measured_at) VALUES (?,?,?,?,?,?,?,?)",
-                    userId, values[0], values[1], values[2], values[3], values[4], values[5], Timestamp.valueOf(now));
+            long measurementId=insertMeasurement(userId,measurement,now);
+            result.setMeasurementId(measurementId);
+            snapshot.put("measurementId",measurementId);
             saveResult(userId, result, requestId, JSON.toJSONString(snapshot,com.alibaba.fastjson2.JSONWriter.Feature.WriteNulls));
             return result;
-        }); } catch (DuplicateKeyException conflict) {
+        });
+            measurementAlerts.processUser(userId);
+            return savedResult;
+        } catch (DuplicateKeyException conflict) {
             PersonalizedRiskResponse saved=replay(userId,requestId,snapshot);
             if(saved==null) throw conflict;
             return saved;
@@ -301,6 +328,7 @@ public class PersonalizedRiskService {
         result.put("id", row.get("id"));
         result.put("assessmentId",row.get("id"));result.put("requestId",row.get("request_id"));
         Object snapshot=row.get("input_snapshot_json");result.put("inputSnapshot",snapshot==null?null:JSON.parseObject(snapshot.toString()));
+        result.put("measurementId",snapshot==null?null:JSON.parseObject(snapshot.toString()).getLong("measurementId"));
         result.put("userId", row.get("user_id"));
         result.put("groupRiskProbability", row.get("group_risk_probability"));
         result.put("personalChangeScore", row.get("personal_change_score"));

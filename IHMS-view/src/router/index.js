@@ -140,6 +140,12 @@ const routes = [
         },
       },
       {
+        name: '紧急求助',
+        path: '/sos-help',
+        component: () => import('@/views/user/SosHelp.vue'),
+        meta: { requireAuth: true },
+      },
+      {
         name: '健康风险评估',
         path: '/health-assessment',
         component: () => import('@/views/user/HealthAssessment.vue'),
@@ -222,6 +228,12 @@ const routes = [
     meta: {
       requireAuth: true,
     }
+  },
+  {
+    path: '/doctor-health-alerts',
+    name: 'DoctorHealthAlerts',
+    component: () => import('@/views/doctor/DoctorHealthAlerts.vue'),
+    meta: { requireAuth: true }
   },
   // 医生首页路由
   {

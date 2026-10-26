@@ -85,11 +85,11 @@ public class UserHealthServiceImpl implements IUserHealthService {
                 HealthModelConfig healthModelConfig = healthModelConfigs.get(0);
                 // 值范围为：101,230
                 String valueRange = healthModelConfig.getValueRange();
-                String[] values = valueRange.split(",");
+                double[] values = com.star.service.health.MeasurementAlertService.parseRange(valueRange);
                 // 最小值
-                int mixValue = Integer.parseInt(values[0]);
+                double mixValue = values[0];
                 // 最大值
-                int maxValue = Integer.parseInt(values[1]);
+                double maxValue = values[1];
                 // 如果用户输入的指标是超出正常范围的，需要通知用户处理
                 double value = Double.parseDouble(String.valueOf(userHealth.getValue()));
                 // 异常情况

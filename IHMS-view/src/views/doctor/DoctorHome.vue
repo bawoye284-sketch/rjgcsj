@@ -5,6 +5,7 @@
       <div class="actions">
         <el-button type="primary" plain icon="el-icon-s-grid" @click="goToConsultations">患者咨询管理</el-button>
         <el-button type="success" plain icon="el-icon-data-line" @click="goToPatients">患者身体数据</el-button>
+        <el-button type="warning" plain icon="el-icon-warning-outline" @click="$router.push('/doctor-health-alerts')">患者健康预警</el-button>
         <el-button type="info" plain icon="el-icon-switch-button" @click="logout">退出登录</el-button>
       </div>
     </div>

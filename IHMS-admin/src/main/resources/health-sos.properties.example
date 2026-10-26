@@ -1,0 +1,12 @@
+# Documentation only, not automatically loaded. Existing local YAML stays unchanged.
+health-sos.confirmation-seconds=120
+health-sos.escalation-seconds=120
+health-sos.max-escalations=2
+health-sos.initial-contact-count=1
+health-sos.escalation-contact-count=1
+health-sos.emergency-number=120
+health-sos.worker-enabled=true
+health-sos.reminder-interval-seconds=60
+health-sos.reminder-hourly-limit=3
+health-sos.reminder-event-limit=20
+# SOS does not use a model or clinical thresholds. Demo/H2 never opens a dialer automatically.

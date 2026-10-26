@@ -4,13 +4,14 @@
             style="position: sticky;top: 0;z-index: 1000;background-color: rgb(255, 255, 255);">
             <!-- 菜单目录 -->
             <UserMenu :menus="routers" :userInfo="userInfo" @eventListener="eventListener" />
+            <div style="padding:6px 20px;text-align:right"><el-button type="danger" icon="el-icon-warning" @click="$router.push('/sos-help')">紧急求助</el-button></div>
         </div>
         <div class="content-container" :class="{ 'disease-content': $route.path === '/health-assessment' }">
             <!-- 路由出口 -->
             <router-view class="route-container"></router-view>
         </div>
         <!-- 个人中心弹窗 -->
-        <el-dialog :show-close="false" :visible.sync="dialogOperaion" width="30%">
+        <el-dialog :show-close="false" :visible.sync="dialogOperaion" width="min(960px, 94vw)">
             <div slot="title" style="padding: 25px 0 0 20px;">
                 <span style="font-size: 18px;font-weight: 800;">个人中心</span>
             </div>
@@ -38,6 +39,7 @@
                     <input class="modelInput" type="text" v-model="data.email" placeholder="用户名">
                 </el-row>
             </el-row>
+            <EmergencyContactSettings v-if="dialogOperaion" />
             <span slot="footer" class="dialog-footer">
                 
                 <el-button class="customer" size="small" style="background-color: rgb(241, 241, 241);border: none;"
@@ -84,10 +86,11 @@
 import { clearToken } from "@/utils/storage.js";
 import router from "@/router";
 import UserMenu from '@/components/LevelMenu.vue';
+import EmergencyContactSettings from '@/components/risk/EmergencyContactSettings.vue';
 export default {
     name: "UserMain",
     components: {
-        UserMenu
+        UserMenu, EmergencyContactSettings
     },
     data() {
         return {
