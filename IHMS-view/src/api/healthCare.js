@@ -8,6 +8,8 @@ export default {
   verify: (id, token) => request('post', '/emergency-contacts/' + id + '/verification/confirm', { token }),
   doctors: () => request('get', '/health-doctor-authorizations'),
   authorize: (id, authorized) => request('put', '/health-doctor-authorizations/' + id, { authorized }),
+  bindingOptions: () => request('get', '/health-doctor-bindings'),
+  bindDoctor: (id, bound) => request('put', '/health-doctor-bindings/' + id, { authorized: bound }),
   notifications: page => request('get', '/health-notifications?page=' + page + '&size=10'),
   retry: id => request('post', '/health-notifications/' + id + '/retry'),
   read: id => request('put', '/health-notifications/' + id + '/read'),
